@@ -12,7 +12,7 @@ public class WoodenBoots extends BootsArmorItem {
     public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.1F).setUpgradedValue(1.0F, 0.25F);
 
     public WoodenBoots() {
-        super(2, 200, Rarity.NORMAL, "woodenboots");
+        super(2, 200, Rarity.NORMAL, "woodenbootsvn");
     }
 
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
