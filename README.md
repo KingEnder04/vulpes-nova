@@ -1,3 +1,3 @@
 # vulpes-nova
 
-It's the old code for my mod Vulpes Nova, for Necesse.
+It's the ~~old~~ NEW code for ~~my~~ @KindEnder04 mod Vulpes Nova, for Necesse. Look forwards to it!
