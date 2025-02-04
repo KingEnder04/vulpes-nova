@@ -111,6 +111,8 @@ import static necesse.engine.registries.TileRegistry.registerTile;
 @ModEntry
 public class VulpesNova {
 
+	private static final Random rand = new Random();
+	
     public static Tech TABLEOFAWAKENINGVN;
 
     public static GameMusic HUBMUSICVN;
@@ -545,44 +547,26 @@ public class VulpesNova {
         GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
             @Override
             public void onEvent(MobLootTableDropsEvent event) {
-
-                Random rand = new Random();
-
-                // Basically 1000 is 100%, 900 is 90%, 800 is 80%, etc.
-                int n = rand.nextInt(1000);
-
-                // Makes it 1 - 1000 instead of 0 - 999
-                n += 1;
-
-                if (event.mob.isHostile)  {
-
+            	 // baseFactor / n = drop chance. e.g. 1000 / 20 = 2% drop chance, or 100 / 20 = 20% drop chance if 100 is set as the base factor.
+            	int baseFactor = 1000;           	  
+                int n = rand.nextInt(baseFactor)+1;
+                
+                // Always drops Nova Fragment for hostile mobs
+                if (event.mob.isHostile) {
                     event.drops.add(new InventoryItem("novafragmentvn"));
-
-                    // This gives mobs a 2% chance of dropping a Nova Shard
-                    if(n <= 20) {
-                        event.drops.add(new InventoryItem("novashardvn"));
-                    }
-                    // This gives mobs a 0.1% chance of dropping a sentient crown
-                    if(n <= 1) {
-                        event.drops.add(new InventoryItem("sentientcrownvn"));
-                    }
-
                 }
 
-                if (event.mob.isBoss())  {
+                // Drops for both hostile and boss mobs
+                if (event.mob.isHostile || event.mob.isBoss()) {
+                    if (n <= 20) event.drops.add(new InventoryItem("novashardvn")); // 2% chance
+                    if (n <= 1) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.1% chance
+                }
 
-                    event.drops.add(new InventoryItem("novashardvn", 2));
-
-                    // This gives bosses a 8% chance of dropping an Awakeninator
-                    if(n <= 80) {
-                        event.drops.add(new InventoryItem("awakeninatorvn"));
-                    }
-
-                    // This gives bosses a 0.5% chance of dropping a sentient crown
-                    if(n <= 5) {
-                        event.drops.add(new InventoryItem("sentientcrownvn"));
-                    }
-
+                // Additional drops for bosses
+                if (event.mob.isBoss()) {
+                    event.drops.add(new InventoryItem("novashardvn", 2)); // Always drops 2 Nova Shards
+                    if (n <= 80) event.drops.add(new InventoryItem("awakeninatorvn")); // 8% chance
+                    if (n <= 5) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.5% chance
                 }
 
             }
