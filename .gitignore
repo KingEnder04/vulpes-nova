@@ -1,3 +1,4 @@
+
 # IntelliJ project files
 .idea
 *.iml
@@ -7,7 +8,8 @@ gen
 # Build files
 build
 .gradle
-
+/.gradle
+/build
 # Project specific
 steam_appid.txt
 latest-crash.log
