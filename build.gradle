@@ -5,12 +5,12 @@ plugins {
 // Change the values below this to your mods values
 // To change the project name, edit the settings.gradle file
 
-project.ext.modID = "vulpesnova.mod" // The unique id of your mod. Must be all lowercase and cannot use special characters.
-project.ext.modName = "Vulpes Nova" // The display name of your mod.
-project.ext.modVersion = "2.01.2" // Your current builds version. Must follow the xx.xx... format.
-project.ext.gameVersion = "0.28.1" // The target game version.
+project.ext.modID = "vulpesnova.mod" // unique id
+project.ext.modName = "Vulpes Nova"
+project.ext.modVersion = "2.02.0" // MAJOR.MINOR.FIX
+project.ext.gameVersion = "0.30.0" // The target game version.
 project.ext.modDescription = "A content mod meant to add more enemies, items, weapons, blocks, and biomes. The art is done by Logar and I, and the coding is being done by yours truly (me)" // Short description of what your mod is.
-project.ext.author = "KingEnder04" // Your name
+project.ext.author = "KingEnder04" // Author
 
 /**
  * When setting clientside to true, it means servers do not need this mod for clients to connect and vice versa.
