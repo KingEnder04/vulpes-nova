@@ -1831,19 +1831,19 @@ public class VulpesNova {
                 .add(90,"deepgemstonecavelingvn");
 
         Biome.defaultCaveMobs
-                .add(250,"gustmobvn");
+                .add(40,"gustmobvn");
 
         Biome.defaultSurfaceCritters
                 .add(30,"foxmobvn");
 
         SnowBiome.caveMobs
                 .add(15,"snowynightmaremobvn")
-                .add(20, "gustmobvn")
+                .add(10, "gustmobvn")
                 .add(10,"icecubemobvn");
                 //.add(5,"allseeingcubemobvn");
 
         DesertBiome.caveMobs
-                .add(20, "gustmobvn");
+                .add(10, "gustmobvn");
         //.add(5,"allseeingcubemobvn");
 
         SnowBiome.surfaceMobs
