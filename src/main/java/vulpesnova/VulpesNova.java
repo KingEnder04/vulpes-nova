@@ -579,7 +579,7 @@ public class VulpesNova {
         SnowyNightmareMobVN.texture = GameTexture.fromFile("mobs/snowynightmaremobvn");
         FoxMobVN.texture = GameTexture.fromFile("mobs/foxmobvn");
         GustMobVN.texture = GameTexture.fromFile("mobs/gustmobvn");
-        PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrown");
+        PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrownvn");
         LuckyChickenMobVN.texture = GameTexture.fromFile("mobs/luckychickenmobvn");
         PlanewalkerMobVN.texture = GameTexture.fromFile("mobs/planewalkermobvn");
         AllSeeingCubeMobVN.texture = GameTexture.fromFile("mobs/allseeingcubemobvn");
