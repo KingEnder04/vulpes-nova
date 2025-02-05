@@ -25,7 +25,7 @@ public class LuckyChickenMobVN extends CritterMob {
     // Loaded in vulpesnova.VulpesNova.initResources()
     public static GameTexture texture;
     public static LootTable lootTable = new LootTable(new LootItemInterface[]
-            {new ChanceLootItem(1.00F, "clovertoken")}
+            {new ChanceLootItem(1.00F, "clovertokenvn")}
 
     );
 
