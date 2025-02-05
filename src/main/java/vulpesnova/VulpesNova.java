@@ -427,36 +427,44 @@ public class VulpesNova {
         registerMob("deadmahmobvn", DeadmahMobVN.class,true);
 
         // Register our projectile
-        registerProjectile("celestialemberprojectile", CelestEmberProjectile.class, "celestialemberprojectile", "celestialemberprojectile_shadow");
-        registerProjectile("nightbladevnproj", NightbladeVNProjectile.class, "nightbladevnproj", "chain");
-        registerProjectile("leafshot", SaplingSwordProjectile.class, "leafshot", "leafshot");
-        registerProjectile("holyshot", HolyTomeProjectile.class, "holyshot", "holyshot_shadow");
-        registerProjectile("unholyshot", UnholyTomeProjectile.class, "unholyshot", "unholyshot_shadow");
-        registerProjectile("verdantflowershotvn", VerdantStaffFlowerProjectile.class, "verdantflowershotvn", "swampdwellerstaffflower_shadow");
-        registerProjectile("verdantflowerpetalvn", VerdantStaffPetalProjectile.class, "verdantflowerpetalvn", "swampdwellerstaffpetal_shadow");
-        registerProjectile("doomedarrow", DoomedBowProjectile.class, "doomedarrow", "chain");
-        registerProjectile("novaarrow", NovaArrowProjectile.class, "novaarrow", "arrow_shadow");
-        registerProjectile("goldarrowvn", GoldArrowProjectile.class, "goldarrowvn", "arrow_shadow");
+        registerProjectile("celestialember", CelestEmberProjectile.class, "celestialemberprojvn", "celestialemberprojvn_shadow");
+        registerProjectile("nightblade", NightbladeVNProjectile.class, "nightbladevnprojvn", "nightbladeprojvn_shadow");
+        registerProjectile("leafproj", SaplingSwordProjectile.class, "leafprojvn", "leafprojvn");
+        registerProjectile("holyproj", HolyTomeProjectile.class, "holyprojvn", "holyprojvn_shadow");
+        registerProjectile("unholyproj", UnholyTomeProjectile.class, "unholyprojvn", "unholyprojvn_shadow");
+        
+        registerProjectile("verdantflowershot", VerdantStaffFlowerProjectile.class, "verdantflowerprojvn", "swampdwellerstaffflower_shadow");
+        registerProjectile("verdantflowerpetal", VerdantStaffPetalProjectile.class, "verdantflowerpetalprojvn", "swampdwellerstaffpetal_shadow");
+        
+        registerProjectile("doomedarrowproj", DoomedBowProjectile.class, "doomedarrowprojvn", "chain");
+        registerProjectile("novaarrowproj", NovaArrowProjectile.class, "novaarrowprojvn", "arrow_shadow");
+        registerProjectile("goldarrowproj", GoldArrowProjectile.class, "goldarrowprojvn", "arrow_shadow");
         registerProjectile("chain", NovaBulletProjectile.class, "chain", "chain");
-        registerProjectile("woodbulletvn", WoodenBulletVNProjectile.class, "chain", "chain");
-        registerProjectile("windarrowvn", WindArrowProjectile.class, "windarrowvnprojectile", "arrow_shadow");
-        registerProjectile("windround", WindRoundProjectile.class, "chain", "chain");
-        registerProjectile("jadeshot", JadeShotProjectile.class, "jadeshot", "jadeshot_shadow");
-        registerProjectile("heavierhammershotvn", HeavierHammerShotVNProjectile.class, "heavierhammershotvn", "stone_shadow");
-        registerProjectile("heaviesthammershotvn", HeaviestHammerShotVNProjectile.class, "heaviesthammershotvn", "stone_shadow");
-        registerProjectile("themountainshotvn", TheMountainShotVNProjectile.class, "themountainshotvn", "stone_shadow");
-        registerProjectile("thunderboltvn", ThunderboltVNProjectile.class, "thunderboltprojvn", "thunderboltvnproj_shadow");
-        registerProjectile("thunderboltbluevn", ThunderboltBlueVNProjectile.class, "thunderboltblueprojvn", "thunderboltvnproj_shadow");
-        registerProjectile("thunderboltredvn", ThunderboltRedVNProjectile.class, "thunderboltredprojvn", "thunderboltvnproj_shadow");
-        registerProjectile("novicetomeproj", NoviceTomeProjectile.class, "novicetomeshot", "novicetomeproj_shadow");
-        registerProjectile("intermediatetomeproj", IntermediateTomeProjectile.class, "intermediatetomeshot", "novicetomeproj_shadow");
-        registerProjectile("experttomeproj", ExpertTomeProjectile.class, "experttomeshot", "novicetomeproj_shadow");
-        registerProjectile("mastertomeproj", MasterTomeProjectile.class, "mastertomeshot", "novicetomeproj_shadow");
-        registerProjectile("magicfordummiesproj", MagicForDummiesVNProjectile.class, "magicfordummiesshot", "novicetomeproj_shadow");
-        registerProjectile("spherecerershotvn", SpherecererShotVNProjectile.class, "spherecerershotvn", "novicetomeproj_shadow");
-        registerProjectile("cavedemolisherprojvn", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
-        registerProjectile("gearsphereminionpodvn", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
-        registerProjectile("acornprojectilevn", AcornProjectile.class, "acornprojectilevn", "acornprojectilevn_shadow");
+        
+        registerProjectile("woodbulletproj", WoodenBulletVNProjectile.class, "chain", "chain");       
+        registerProjectile("windarrowproj", WindArrowProjectile.class, "windarrowprojvn", "arrow_shadow");
+        registerProjectile("windroundproj", WindRoundProjectile.class, "chain", "chain");
+        registerProjectile("jadeproj", JadeShotProjectile.class, "jadeprojvn", "jadeprojvn_shadow");
+        
+        registerProjectile("heavierhammerproj", HeavierHammerShotVNProjectile.class, "heavierhammerprojvn", "stone_shadow");
+        registerProjectile("heaviesthammerproj", HeaviestHammerShotVNProjectile.class, "heaviesthammerprojvn", "stone_shadow");
+        
+        registerProjectile("themountainproj", TheMountainShotVNProjectile.class, "themountainprojvn", "stone_shadow");
+        
+        registerProjectile("thunderboltproj", ThunderboltVNProjectile.class, "thunderboltprojvn", "thunderboltprojvn_shadow");
+        registerProjectile("thunderboltblueproj", ThunderboltBlueVNProjectile.class, "thunderboltblueprojvn", "thunderboltprojvn_shadow");
+        registerProjectile("thunderboltredproj", ThunderboltRedVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
+        
+        registerProjectile("novicetomeproj", NoviceTomeProjectile.class, "novicetomeprojvn", "novicetomeprojvn_shadow");
+        registerProjectile("intermediatetomeproj", IntermediateTomeProjectile.class, "intermediatetomeprojvn", "novicetomeprojvn_shadow");
+        registerProjectile("experttomeproj", ExpertTomeProjectile.class, "experttomeprojvn", "novicetomeprojvn_shadow");
+        registerProjectile("mastertomeproj", MasterTomeProjectile.class, "mastertomeprojvn", "novicetomeprojvn_shadow");
+        
+        registerProjectile("magicfordummiesproj", MagicForDummiesVNProjectile.class, "magicfordummiesprojvn", "novicetomeprojvn_shadow");
+        registerProjectile("spherecererproj", SpherecererShotVNProjectile.class, "spherecererprojvn", "novicetomeprojvn_shadow");
+        registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
+        registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
+        registerProjectile("acornprojectileproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
 
 
         // Register buffs
@@ -579,7 +587,7 @@ public class VulpesNova {
         SnowyNightmareMobVN.texture = GameTexture.fromFile("mobs/snowynightmaremobvn");
         FoxMobVN.texture = GameTexture.fromFile("mobs/foxmobvn");
         GustMobVN.texture = GameTexture.fromFile("mobs/gustmobvn");
-        PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrown");
+        PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrownvn");
         LuckyChickenMobVN.texture = GameTexture.fromFile("mobs/luckychickenmobvn");
         PlanewalkerMobVN.texture = GameTexture.fromFile("mobs/planewalkermobvn");
         AllSeeingCubeMobVN.texture = GameTexture.fromFile("mobs/allseeingcubemobvn");
