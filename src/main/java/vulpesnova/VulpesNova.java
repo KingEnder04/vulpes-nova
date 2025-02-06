@@ -275,7 +275,7 @@ public class VulpesNova {
         ItemRegistry.registerItem("trueexplorersatchelvn", new CombinedTrinketItem(Item.Rarity.UNIQUE, 1500, new String[]{"explorersatchel", "explorercloak", "spikedbatboots", "ancientrelics", "nightmareheadvn"}), 200.0F, true);
         ItemRegistry.registerItem("foxtailtrinketvn", new SimpleTrinketItem(Item.Rarity.NORMAL, "foxtailvnbuff", 100), 400.0F, true);
         ItemRegistry.registerItem("yourgemcollectionvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "yourgemcollectionvnbuff", 1000), 5000.0F, true);
-        ItemRegistry.registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenbuff", 200), 500.0F, true);
+        ItemRegistry.registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenvnbuff", 200), 500.0F, true);
         ItemRegistry.registerItem("windmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "windmedallionvnbuff", 100), 200.0F, true);
         ItemRegistry.registerItem("treemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "treemedallionvnbuff", 100), 200.0F, true);
         ItemRegistry.registerItem("meatmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "meatmedallionvnbuff", 100), 200.0F, true);
@@ -579,7 +579,7 @@ public class VulpesNova {
         SnowyNightmareMobVN.texture = GameTexture.fromFile("mobs/snowynightmaremobvn");
         FoxMobVN.texture = GameTexture.fromFile("mobs/foxmobvn");
         GustMobVN.texture = GameTexture.fromFile("mobs/gustmobvn");
-        PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrown");
+        PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrownvn");
         LuckyChickenMobVN.texture = GameTexture.fromFile("mobs/luckychickenmobvn");
         PlanewalkerMobVN.texture = GameTexture.fromFile("mobs/planewalkermobvn");
         AllSeeingCubeMobVN.texture = GameTexture.fromFile("mobs/allseeingcubemobvn");
@@ -1831,19 +1831,19 @@ public class VulpesNova {
                 .add(90,"deepgemstonecavelingvn");
 
         Biome.defaultCaveMobs
-                .add(250,"gustmobvn");
+                .add(40,"gustmobvn");
 
         Biome.defaultSurfaceCritters
                 .add(30,"foxmobvn");
 
         SnowBiome.caveMobs
                 .add(15,"snowynightmaremobvn")
-                .add(20, "gustmobvn")
+                .add(10, "gustmobvn")
                 .add(10,"icecubemobvn");
                 //.add(5,"allseeingcubemobvn");
 
         DesertBiome.caveMobs
-                .add(20, "gustmobvn");
+                .add(10, "gustmobvn");
         //.add(5,"allseeingcubemobvn");
 
         SnowBiome.surfaceMobs
