@@ -348,7 +348,7 @@ public class VulpesNova {
         registerItem("trueexplorersatchelvn", new CombinedTrinketItem(Item.Rarity.UNIQUE, 1500, new String[]{"explorersatchel", "explorercloak", "spikedbatboots", "ancientrelics", "nightmareheadvn"}), 200.0F, true);
         registerItem("foxtailtrinketvn", new SimpleTrinketItem(Item.Rarity.NORMAL, "foxtailvnbuff", 100), 400.0F, true);
         registerItem("yourgemcollectionvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "yourgemcollectionvnbuff", 1000), 5000.0F, true);
-        registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenbuff", 200), 500.0F, true);
+        registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenvnbuff", 200), 500.0F, true);
         registerItem("windmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "windmedallionvnbuff", 100), 200.0F, true);
         registerItem("treemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "treemedallionvnbuff", 100), 200.0F, true);
         registerItem("meatmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "meatmedallionvnbuff", 100), 200.0F, true);
