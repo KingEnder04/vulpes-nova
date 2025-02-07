@@ -21,9 +21,9 @@ public class TitanBusterGreatswordVN extends GreatswordToolItem {
 
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "titanbustergreatswordchargetip1"));
-        tooltips.add(Localization.translate("itemtooltip", "titanbustergreatswordchargetip2"));
-        tooltips.add(Localization.translate("itemtooltip", "titanbustergreatswordchargetip3"));
+        tooltips.add(Localization.translate("itemtooltip", "titanbustergreatswordvnchargetip1"));
+        tooltips.add(Localization.translate("itemtooltip", "titanbustergreatswordvnchargetip2"));
+        tooltips.add(Localization.translate("itemtooltip", "titanbustergreatswordvnchargetip3"));
         return tooltips;
     }
 

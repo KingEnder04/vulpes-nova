@@ -32,6 +32,7 @@ lmgvn=LMG
 bigbrainonastickvn=Big Brain on a Stick
 verdantstaffvn=Verdant Staff
 doomedbowvn=Doomed Bow
+demonwarriorsealvn=Seal of the Warrior Demon
 grandphoenixgreatbowvn=Grand Phoenix Greatbow
 novaarrowvn=Nova Arrow
 codblastervn=Codblaster
@@ -127,7 +128,6 @@ protectorsealvn=Protector's Seal
 ruinedgolemsealvn=Seal of the Ruined Golem
 flowingenergysealvn=Seal of Flowing Energy
 speedstersealvn=Seal of the Speedster
-demonwarriorsealvn=Seal of the Demon Warrior
 holypaladinsealvn=Seal of the Holy Paladin
 archbishopcowlvn=Archbishop's Cowl
 titanbustergreatswordvn=Titan Buster Greatsword
@@ -179,17 +179,17 @@ glassshardswordvntip=The glass this sword is made of is indescribably strong.
 repeatingcrossbowvntip=A crossbow with an auto-load feature.
 ironsoulglaivevntip=Forged with souls in the coldest of flames. Applies Cosmic Fire on hit for 2 Seconds
 necromancersrequiemvntip=Used by only the best of the best Unliving Creators.
-acornlobbervntip1=Fires fast, inaccurate acorns to supress foes.
+acornlobbervntip1=Fires fast, inaccurate acorns to suppress foes.
 acornlobbervntip2=Has a 50% Chance of not consuming a bullet
 cloudsvntip=Feels wet.
 galevntip=It's a powerful revolver, delivering heavy winds and lead
 hurricanevntip=A rapid firing wind rifle. Has a 20% chance not to consume ammo
-windroundtip=A tracking bolt of wind. Don't ask about how it works it just does.
+windroundvntip=A tracking bolt of wind. Don't ask about how it works it just does.
 windarrowtip=A tracking arrow made out of wind.
-awakeninatortip=Used to 'Awaken' an item. Letting you use it to it's full potential.
-theblowingwindtip=Swift, silent, precise, a whispering force of nature.
-collectorsmagnettip=Picks up every (dropped) item within the map you're in.
-nightmareheadtip=Now THAT's a movement trinket. (75% more Movement Speed)
+awakeninatorvntip=Used to 'Awaken' an item. Letting you use it to it's full potential.
+theblowingwindvntip=Swift, silent, precise, a whispering force of nature.
+collectorsmagnetvntip=Picks up every (dropped) item within the map you're in.
+nightmareheadvntip=Now THAT's a movement trinket. (75% more Movement Speed)
 heavierhammervntip=And you thought the other one was heavy.
 heaviesthammervntip=A much stronger, heavier, and nicer looking hammer.
 themountainvntip=A colossal hammer, forging paths with earth-shattering force.
@@ -206,7 +206,7 @@ magicfordummiesvntip=Now you can finally understand all.
 stormboltervntip=An electrified revolver.
 stormbringervntip=An electrified Assault Rifle. Has a 30% chance not to consume ammo
 cavedemolishervntip=Great for making sure you collect all the ores you'll need!
-novahearttip=Permanently increases max health by 20 up to 400
+novaheartvntip=Permanently increases max health by 20 up to 400
 gearresiliencematrixvntip=Permanently increases max resilience by 25 up to 50
 bastionboxvntip=Permanently increases max resilience by 5 up to 25
 spherecererhatvntip=Too bad it can't be worn.
@@ -217,16 +217,16 @@ cubaltshieldvntip=Grants the user invincibility for a short moment
 
 grandphoenixgreatbowvntip=Fires a large phoenix.
 
-gemdusttip=Collect enough and you can turn it into a gem you need!
-dustygemsacktip=A small bag, covered in dust with jingling noises inside.
-bloodgemtip=Applies a blood that can stack up to 10 times. Each one doing 18 damage over 6 seconds.
+gemdustvntip=Collect enough and you can turn it into a gem you need!
+dustygemsackvntip=A small bag, covered in dust with jingling noises inside.
+bloodgemvntip=Applies a blood that can stack up to 10 times. Each one doing 18 damage over 6 seconds.
 yourgemcollectionvntip=All the gems you've collected! I wonder if there's anymore...
 
-meatset=Has the same effects as the Spider Armor
-ancientjungleset=This isn't meant to be here yet.
+meatsetvntip=Has the same effects as the Spider Armor
+ancientjunglesetvntip=This isn't meant to be here yet.
 
-foxtokentip=A Relic that you had arrived here with. You're unsure of how it got there.
-foxtokentip2=(I swear this'll have an actual use later eventually)
+foxtokenvntip=A Relic that you had arrived here with. You're unsure of how it got there.
+foxtokenvntip2=(I swear this'll have an actual use later eventually)
 
 acrumplednotevntip1=go subscribe to my youtube channel.... I will release videos about this and my future mods soon
 acrumplednotevntip2=*random scribbling*
@@ -255,9 +255,9 @@ thebygonecrestvntip2=15% Attack Speed, 15% All Damage, 10% Crit Chance, -20% Hea
 portablegearcontactbeaconvntip1=Used to get in Contact with the GEAR HQ
 portablegearcontactbeaconvntip2=Must be used in the Flatlands
 
-titanbustergreatswordchargetip1=Getting to half charge summons a baby titan cube
-titanbustergreatswordchargetip2=Getting to full charge summons another baby titan cube
-titanbustergreatswordchargetip3=These baby titan cubes are short lived.
+titanbustergreatswordvnchargetip1=Getting to half charge summons a baby titan cube
+titanbustergreatswordvnchargetip2=Getting to full charge summons another baby titan cube
+titanbustergreatswordvnchargetip3=These baby titan cubes are short lived.
 
 demonwarriorsealvntip1=A cursed relic bestowing demonic strength and fury upon its user.
 demonwarriorsealvntip2=On use gives 50% Attack Speed and 30% Damage, passively gives 2 Defense and 5% Crit Chance.
@@ -281,7 +281,7 @@ archbishopcowlvntip2=On use gives 50% All Damage, 20% Crit Chance, 3 Flat Health
 archbishopcowlvntip3=Passively gives 10% Damage and 10% Crit Chance.
 
 
-cubaltsetvn=Sets target ablaze in cosmic fire for 2 seconds
+cubaltsetvntip=Sets target ablaze in cosmic fire for 2 seconds
 
 [mob]
 nightmaremobvn=Nightmare

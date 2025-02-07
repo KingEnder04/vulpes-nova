@@ -70,7 +70,7 @@ public class HeavierHammerVN extends MeleeProjectileToolItem {
 
     public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
         for(int i = 0; i <= 1; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("heavierhammershotvn", level, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
+            Projectile projectile = ProjectileRegistry.getProjectile("heavierhammerproj", level, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
             projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
             projectile.resetUniqueID(new GameRandom((long) seed));
             level.entityManager.projectiles.addHidden(projectile);
@@ -87,7 +87,7 @@ public class HeavierHammerVN extends MeleeProjectileToolItem {
         Point2D.Float targetPos = Projectile.getPredictedTargetPos(target, mob.x, mob.y, (float)velocity, -10.0F);
         mob.attackItem((int)targetPos.x, (int)targetPos.y, item);
         for(int i = 0; i <= 1; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("heavierhammershotvn", level, mob.x, mob.y, targetPos.x, targetPos.y, (float)velocity, this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
+            Projectile projectile = ProjectileRegistry.getProjectile("heavierhammerproj", level, mob.x, mob.y, targetPos.x, targetPos.y, (float)velocity, this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
             projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
             projectile.resetUniqueID(new GameRandom((long) seed));
             level.entityManager.projectiles.addHidden(projectile);

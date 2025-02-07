@@ -28,7 +28,7 @@ public class NovaBulletItem extends BulletItem {
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "novabullettip"));
+        tooltips.add(Localization.translate("itemtooltip", "novabulletvntip"));
         return tooltips;
     }
 }

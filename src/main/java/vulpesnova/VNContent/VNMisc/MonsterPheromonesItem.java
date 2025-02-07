@@ -52,7 +52,7 @@ public class MonsterPheromonesItem extends ConsumableItem {
         }
 
         if (level.isServer()) {
-            player.buffManager.addBuff(new ActiveBuff("monsterpheromones", player, 300.0F, (Attacker)null), true);
+            player.buffManager.addBuff(new ActiveBuff("monsterpheromonesvn", player, 300.0F, (Attacker)null), true);
         } else if (level.isClient()) {
             SoundManager.playSound(GameResources.shake, SoundEffect.effect(player));
         }

@@ -19,7 +19,7 @@ public class WindArrowItem extends ArrowItem {
     }
 
     public Projectile getProjectile(float x, float y, float targetX, float targetY, float velocity, int range, GameDamage damage, int knockback, Mob owner) {
-        return ProjectileRegistry.getProjectile("windarrowvn", owner.getLevel(), x, y, targetX, targetY, velocity, range, damage, knockback, owner);
+        return ProjectileRegistry.getProjectile("windarrowproj", owner.getLevel(), x, y, targetX, targetY, velocity, range, damage, knockback, owner);
     }
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);

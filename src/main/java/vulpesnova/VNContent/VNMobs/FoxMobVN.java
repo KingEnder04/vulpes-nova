@@ -25,7 +25,7 @@ public class FoxMobVN extends CritterMob {
     // Loaded in vulpesnova.VulpesNova.initResources()
     public static GameTexture texture;
     public static LootTable lootTable = new LootTable(new LootItemInterface[]
-            {new ChanceLootItem(0.08F, "foxtailtrinketvn")}
+            {new ChanceLootItem(0.08F, "foxtokenvn")}
 
     );
 

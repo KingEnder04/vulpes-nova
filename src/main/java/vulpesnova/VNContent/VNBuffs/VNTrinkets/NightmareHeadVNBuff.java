@@ -19,7 +19,7 @@ public class NightmareHeadVNBuff extends TrinketBuff {
     }
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
-        tooltips.add(Localization.translate("itemtooltip", "nightmareheadtip"));
+        tooltips.add(Localization.translate("itemtooltip", "nightmareheadvntip"));
         return tooltips;
     }
 }

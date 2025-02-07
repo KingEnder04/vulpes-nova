@@ -39,6 +39,7 @@ public class MeatSetBonusBuff extends SetBonusBuff {
 
     public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
+        tooltips.add(Localization.translate("itemtooltip", "meatsetvntip"));
         tooltips.add(Localization.translate("itemtooltip", "spiderset"));
         return tooltips;
     }
