@@ -7,7 +7,7 @@ plugins {
 
 project.ext.modID = "vulpesnova.mod" // unique id
 project.ext.modName = "Vulpes Nova"
-project.ext.modVersion = "2.02.0" // MAJOR.MINOR.FIX
+project.ext.modVersion = "2.02.1" // MAJOR.MINOR.FIX
 project.ext.gameVersion = "0.30.0" // The target game version.
 project.ext.modDescription = "A content mod meant to add more enemies, items, weapons, blocks, and biomes. The art is done by Logar and I, and the coding is being done by yours truly (me)" // Short description of what your mod is.
 project.ext.author = "KingEnder04" // Author
@@ -31,8 +31,8 @@ project.ext.clientside = false
 def gameDirectory = "E:/SteamLibrary/steamapps/common/Necesse"
 
 // =================================================
-// ========== DO NOT EDIT BELOW THIS LINE ==========
-// =================================================
+// ========== DO NOT EDIT BELOW THIS LINE ========== this is just a suggestion. 
+// ================================================= a strongly worded suggestion.
 
 // Name of the jar
 def jarName = "${project.ext.modName.replace(" ", "")}-${project.ext.gameVersion}-${project.ext.modVersion}"
@@ -71,6 +71,7 @@ dependencies {
     // These are some examples:
 //    libDepends group: 'com.google.guava', name: 'guava', version: '31.1-jre'
 //    libDepends files("path/to/library/jar.jar")
+	implementation files('libs/gson-2.8.9.jar')
 }
 
 task createAppID {
@@ -147,8 +148,17 @@ task buildModJar(type: Jar) {
     // Add mod output
     from sourceSets.main.java.outputDir
     // Add the dependencies
-    from configurations.libDepends.collect { it.isDirectory() ? it : zipTree(it) }
+    from configurations.libDepends.collect { it.isDirectory() ? it : zipTree(it) } 
 
+	// Add only gson-2.12.1.jar, but exclude module-info.class
+    from {
+        zipTree(file('libs/gson-2.8.9.jar')).matching {
+            exclude 'module-info.class', 'META-INF/versions/**'
+        }
+    }
+    
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // Prevents duplicate conflicts
+     
     archiveName "${jarName}.jar"
     destinationDir file(buildLocation)
 }
