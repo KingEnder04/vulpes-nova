@@ -1,6 +1,6 @@
 # Vulpes Nova
 
-It's the ~~old~~ NEW code for ~~my~~ @KindEnder04 mod Vulpes Nova, for Necesse. Look forwards to it!
+It's the ~~old~~ NEW code for ~~my~~ @KingEnder04 mod Vulpes Nova, for Necesse. Look forwards to it!
 
 
 
