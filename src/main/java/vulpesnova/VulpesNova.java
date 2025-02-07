@@ -38,7 +38,6 @@ import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.*;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.*;
-import necesse.level.gameObject.RockOreObject;
 import necesse.level.gameTile.SimpleFloorTile;
 import necesse.level.maps.biomes.desert.DesertBiome;
 import necesse.level.maps.biomes.forest.ForestBiome;
@@ -186,16 +185,30 @@ public class VulpesNova {
         return new RegisterWallObjectResult(wallIDs, registerObject(baseName + "columnvn", new ColumnObject(baseName + "columnvn", wall.mapColor, ToolType.ALL), 10.0F, true));
     }
 
+    
+    protected static class RegisterRockObjectResult{
+    	public int baseRockID;
+    	public int[] rockIDs;
+    	public int[] smallRockIDs;
+    	public RegisterRockObjectResult(int baseRockID, int[] rockIDs, int[] smallRockIDs) {
+            this.baseRockID = baseRockID;
+            this.rockIDs = rockIDs;
+            this.smallRockIDs = smallRockIDs;
+        }
+    }
+    
     // Helper method to register rock objects. It will also register the small rock variant. 
     // Returns: Two int IDs, the first for the normal rock, and the second for the small rock variant.
     
-    private static int[] registerRockObjects(String rockID, Color color, String baseTile, int toolTier) {
+    private static RegisterRockObjectResult registerRockObjects(String rockID, Color color, String baseTile, int toolTier) {
         RockObject rock = new RockObject(rockID+"rockvn", color, baseTile);
-        int r1 = registerObject(rockID, rock, 0.0F, false);
+        int r1 = registerObject(rockID+"rockvn", rock, 0.0F, false);
         rock.toolTier = toolTier;
-        SingleRockObject.registerSurfaceRock(rock, rockID + "groundrockvn", new Color(127, 127, 127), -1.0F, true);
-        int r2 = registerObject(rockID + "groundrocksmallvn", new SingleRockSmall(rock, rockID + "groundrocksmallvn", color), 0.0F, false);
-        return new int[] {r1, r2};
+        
+        int[] r2 = SingleRockObject.registerSurfaceRock(rock, rockID + "groundrockvn", new Color(127, 127, 127), -1.0F, true);
+        int[] r3 = SingleRockObject.registerSurfaceRock(rock, rockID + "groundrocksmallvn", new Color(127, 127, 127), -1.0F, true);
+        
+        return new RegisterRockObjectResult(r1, r2, r3);
     }
     
     //==========================================================
