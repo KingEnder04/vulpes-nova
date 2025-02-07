@@ -3,6 +3,22 @@
 It's the ~~old~~ NEW code for ~~my~~ @KingEnder04 mod Vulpes Nova, for Necesse. Look forwards to it!
 
 
+
+### **Mod Update: Version 2.02.1**  
+
+#### **Fixes**  
+  - Standardized the names of weapon projectile names. 
+
+#### **Changes**  
+- **Recipes from JSON**:  
+	- Recipes are now loaded from VNRecipeRegistyu. A JSON file within the .jar, located at resources/data/recipes.json now contains a more human readable list of recipes and facilitates easier addition of new items to the recipe registry.
+	- com.google.json is now bundled into the mod .jar as a dependency
+	
+#### **Known Issues**  
+- woodenpistol has resources and projectile but is not implemented
+- slimystickvn has resources but is not implemented
+- cubewoodvndoor, cubestonevndoor are not registered as tiles
+
 ### **Mod Update: Version 2.02.0**  
 
 #### **Fixes**  
