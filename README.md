@@ -4,6 +4,15 @@ It's the ~~old~~ NEW code for ~~my~~ @KingEnder04 mod Vulpes Nova, for Necesse. 
 
 
 
+### **Mod Update: Version 2.02.2**  
+
+Minor locale updates!
+
+#### **Fixes**  
+  - Fixed old version names in EN and IT locale files.
+  - Fixed some missing buff information.
+
+
 ### **Mod Update: Version 2.02.1**  
 
 #### **Fixes**  
