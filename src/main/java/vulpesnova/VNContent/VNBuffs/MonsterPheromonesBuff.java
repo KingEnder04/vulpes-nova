@@ -1,7 +1,10 @@
 package vulpesnova.VNContent.VNBuffs;
 
 import java.awt.Color;
+
+import necesse.engine.localization.Localization;
 import necesse.engine.localization.message.LocalMessage;
+import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.buffs.ActiveBuff;
@@ -9,6 +12,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.particle.Particle.GType;
+import necesse.gfx.gameTooltips.ListGameTooltips;
 
 public class MonsterPheromonesBuff extends Buff {
     public MonsterPheromonesBuff() {
@@ -28,7 +32,13 @@ public class MonsterPheromonesBuff extends Buff {
         }
 
     }
-
+    
+    public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard) {
+    	ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
+        tooltips.add(Localization.translate("itemtooltip", "monsterpheromonesvntip"));
+		return tooltips;
+	}
+    
     public void updateLocalDisplayName() {
         this.displayName = new LocalMessage("item", this.getStringID());
     }
