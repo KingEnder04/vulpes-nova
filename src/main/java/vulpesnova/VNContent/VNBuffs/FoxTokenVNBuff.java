@@ -21,8 +21,8 @@ public class FoxTokenVNBuff extends TrinketBuff {
     }
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
-        tooltips.add(Localization.translate("itemtooltip", "foxtokentip"));
-        tooltips.add(Localization.translate("itemtooltip", "foxtokentip2"));
+        tooltips.add(Localization.translate("itemtooltip", "foxtokenvntip"));
+        tooltips.add(Localization.translate("itemtooltip", "foxtokenvntip2"));
         return tooltips;
     }
 }

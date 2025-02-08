@@ -62,7 +62,7 @@ public class AcornLobberVN extends GunProjectileToolItem {
         }
 
         for(int i = 0; i <= 0; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("acornprojectilevn", level, player.x, player.y, (float)x, (float)y, (float)this.getProjectileVelocity(item, player), this.getAttackRange(item), this.getAttackDamage(item), this.getKnockback(item, player), player);
+            Projectile projectile = ProjectileRegistry.getProjectile("acornproj", level, player.x, player.y, (float)x, (float)y, (float)this.getProjectileVelocity(item, player), this.getAttackRange(item), this.getAttackDamage(item), this.getKnockback(item, player), player);
             projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
             projectile.dropItem = consumeAmmo;
             projectile.getUniqueID(random);
@@ -97,7 +97,7 @@ public class AcornLobberVN extends GunProjectileToolItem {
         }
 
         for(int i = 0; i <= 0; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("acornprojectilevn", level, mob.x, mob.y, target.x, target.y, (float)velocity, this.getAttackRange(item), this.getAttackDamage(item), this.getKnockback(item, mob), mob);
+            Projectile projectile = ProjectileRegistry.getProjectile("acornproj", level, mob.x, mob.y, target.x, target.y, (float)velocity, this.getAttackRange(item), this.getAttackDamage(item), this.getKnockback(item, mob), mob);
             projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
             projectile.dropItem = consumeAmmo;
             projectile.getUniqueID(random);

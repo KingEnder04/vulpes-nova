@@ -38,7 +38,6 @@ import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.*;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.*;
-import necesse.level.gameObject.RockOreObject;
 import necesse.level.gameTile.SimpleFloorTile;
 import necesse.level.maps.biomes.desert.DesertBiome;
 import necesse.level.maps.biomes.forest.ForestBiome;
@@ -127,6 +126,8 @@ public class VulpesNova {
     public static int cubeWoodFloorVNID;
 
     public static Buff COSMIC_FIRE_VN;
+    public static Buff MONSTER_PHEROMONE_BUFF_VN;
+    public static Buff BLEEDING_BUFF_VN;
 
     public static Buff PROTECTOR_SEAL_VN_ACTIVE;
     public static Buff PROTECTOR_SEAL_VN_COOLDOWN;
@@ -179,21 +180,35 @@ public class VulpesNova {
     // Helper method to register walls. It will also register the column object corresponding to the wall type.
     // Returns RegisterWallObjectResult
     private static VulpesNova.RegisterWallObjectResult registerWallObjects(String baseName, String wallName, Color color, float hardness, float blastResistance) {
-        int[] wallIDs = WallObject.registerWallObjects(baseName, wallName, 0, color, hardness, blastResistance);
+        int[] wallIDs = WallObject.registerWallObjects(baseName+"vn", wallName, 0, color, hardness, blastResistance);
         WallObject wall = (WallObject) getObject(wallIDs[0]);
         return new RegisterWallObjectResult(wallIDs, registerObject(baseName + "columnvn", new ColumnObject(baseName + "columnvn", wall.mapColor, ToolType.ALL), 10.0F, true));
     }
 
+    
+    protected static class RegisterRockObjectResult{
+    	public int baseRockID;
+    	public int[] rockIDs;
+    	public int[] smallRockIDs;
+    	public RegisterRockObjectResult(int baseRockID, int[] rockIDs, int[] smallRockIDs) {
+            this.baseRockID = baseRockID;
+            this.rockIDs = rockIDs;
+            this.smallRockIDs = smallRockIDs;
+        }
+    }
+    
     // Helper method to register rock objects. It will also register the small rock variant. 
     // Returns: Two int IDs, the first for the normal rock, and the second for the small rock variant.
     
-    private static int[] registerRockObjects(String rockID, Color color, String baseTile, int toolTier) {
-        RockObject rock = new RockObject(rockID, color, baseTile);
-        int r1 = registerObject(rockID, rock, 0.0F, false);
+    private static RegisterRockObjectResult registerRockObjects(String rockID, Color color, String baseTile, int toolTier) {
+        RockObject rock = new RockObject(rockID+"rockvn", color, baseTile);
+        int r1 = registerObject(rockID+"rockvn", rock, 0.0F, false);
         rock.toolTier = toolTier;
-        SingleRockObject.registerSurfaceRock(rock, rockID + "groundrockvn", new Color(127, 127, 127), -1.0F, true);
-        int r2 = registerObject(rockID + "groundrocksmallvn", new SingleRockSmall(rock, rockID + "groundrocksmallvn", color), 0.0F, false);
-        return new int[] {r1, r2};
+        
+        int[] r2 = SingleRockObject.registerSurfaceRock(rock, rockID + "groundrockvn", new Color(127, 127, 127), -1.0F, true);
+        int[] r3 = SingleRockObject.registerSurfaceRock(rock, rockID + "groundrocksmallvn", new Color(127, 127, 127), -1.0F, true);
+        
+        return new RegisterRockObjectResult(r1, r2, r3);
     }
     
     //==========================================================
@@ -240,13 +255,14 @@ public class VulpesNova {
         );
         
         // Register Walls
-        registerWallObjects("cubewoodvn", "cubewoodwallvn", new Color(74, 84, 166), 2.0F, 6.0F);
-        registerWallObjects("cubestonevn", "cubestonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
-        registerWallObjects("cubedeepstonevn", "cubedeepstonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
+        registerWallObjects("cubewood", "cubewoodwallvn", new Color(74, 84, 166), 2.0F, 6.0F);
+        registerWallObjects("cubestone", "cubestonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
+        registerWallObjects("cubedeepstone", "cubedeepstonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
 
-        // Registering Rocks
-        registerRockObjects("cuberockvn", new Color(109, 35, 241), "cubestonevn", 1);
-        registerRockObjects("cubedeeprockvn", new Color(57, 11, 141), "cubedeepstonevn", 3);
+        // Registering Rocks.
+        // It will attempt to register the rock + "rockvn", rock + "groundrockvn", rock + "groundrocksmallvn" also
+        registerRockObjects("cube", new Color(109, 35, 241), "cubestonevn", 1);
+        registerRockObjects("cubedeep", new Color(57, 11, 141), "cubedeepstonevn", 3);
         
         
         // Registering Rock Ore Variants
@@ -294,44 +310,41 @@ public class VulpesNova {
 
         // Register our items
 
-        //Armor Sets
+        // Armor Sets
 
         // Wooden (Mage) Set
-
         registerItem("woodenhelmetvn", new WoodenHelmet(), 110.0F, true);
         registerItem("woodenchestplatevn", new WoodenChestplate(), 160.0F, true);
         registerItem("woodenbootsvn", new WoodenBoots(), 80.0F, true);
+        
         // Anicent Jungle Wooden Set (Mage, Not supposed to be in yet)
-
         registerItem("ancientjunglehelmetvn", new AncientJungleHelmet(), 2000.0F, true);
         registerItem("ancientjunglechestplatevn", new AncientJungleChestplate(), 2000.0F, true);
         registerItem("ancientjunglebootsvn", new AncientJungleBoots(), 2000.0F, true);
+        
         // Wind (Ranger) Set
-
         registerItem("windhatvn", new WindHatVN(), 110.0F, true);
         registerItem("windchestplatevn", new WindChestplateVN(), 160.0F, true);
         registerItem("windbootsvn", new WindBootsVN(), 80.0F, true);
+        
         // Meat (Summoner) Set
-
         registerItem("meathatvn", new MeatHat(), 110.0F, true);
         registerItem("meatrobevn", new MeatRobe(), 160.0F, true);
         registerItem("meatbootsvn", new MeatBoots(), 80.0F, true);
+        
         // Stone (Melee) Set
-
         registerItem("stonehelmetvn", new StoneHelmet(), 110.0F, true);
         registerItem("stonechestplatevn", new StoneChestplate(), 160.0F, true);
         registerItem("stonebootsvn", new StoneBoots(), 80.0F, true);
 
         // Chilled Bloodplate Set
-
         registerItem("chilledbloodplatehatvn", new ChilledBloodplateHat(), 200.0F, true);
         registerItem("chilledbloodplatehoodvn", new ChilledBloodplateHood(), 200.0F, true);
         registerItem("chilledbloodplatehelmetvn", new ChilledBloodplateHelmet(), 200.0F, true);
         registerItem("chilledbloodplatechestplatevn", new ChilledBloodplateChestplate(), 240.0F, true);
         registerItem("chilledbloodplatebootsvn", new ChilledBloodplateBoots(), 120.0F, true);
 
-        // Wooden (Mage) Set
-
+        // Cubalt Set
         registerItem("cubalthelmetvn", new CubaltHelmetVN(), 110.0F, true);
         registerItem("cubaltchestplatevn", new CubaltChestplateVN(), 160.0F, true);
         registerItem("cubaltbootsvn", new CubaltBootsVN(), 80.0F, true);
@@ -340,8 +353,8 @@ public class VulpesNova {
         registerItem("luckychickenmaskvn", (new HelmetArmorItem(0, (DamageType)null, 0, Item.Rarity.COMMON, "luckychickenmaskvn")).drawBodyPart(false), 50.0F, true);
         registerItem("luckychickencostumeshirtvn", new ChestArmorItem(0, 0, Item.Rarity.COMMON, "luckychickencostumeshirtvn", "luckychickencostumearmsvn"), 50.0F, true);
         registerItem("luckychickencostumebootsvn", new BootsArmorItem(0, 0, Item.Rarity.COMMON, "luckychickencostumebootsvn"), 50.0F, true);
-        // Trickets
-
+        
+        // Trinkets
         registerItem("foxtokenvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "foxtokenvnbuff", 200), 300.0F, true);
         registerItem("thecollectorsmagnetvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "collectorsmagnetvnbuff", 200).addDisables(new String[]{"itemattractor"}), 800.0F, true);
         registerItem("nightmareheadvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "nightmareheadvnbuff", 400), 400.0F, true);
@@ -366,7 +379,7 @@ public class VulpesNova {
         registerItem("archbishopcowlvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "archbishopcowlvntrinketbuff", 120), 500.0F, true);
 
 
-        //Just The Gems
+        // Lawyer Up, Hit the Gems
         registerItem("healthgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "healthgemvnbuff", 200), 100.0F, true);
         registerItem("regengemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "regengemvnbuff", 200), 100.0F, true);
         registerItem("resiliencegemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "resiliencegemvnbuff", 200), 100.0F, true);
@@ -537,7 +550,7 @@ public class VulpesNova {
         registerProjectile("spherecererproj", SpherecererShotVNProjectile.class, "spherecererprojvn", "novicetomeprojvn_shadow");
         registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
-        registerProjectile("acornprojectileproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
+        registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
 
 
         // Register buffs
@@ -600,8 +613,8 @@ public class VulpesNova {
 
         // Buffs/Debuffs
         COSMIC_FIRE_VN = registerBuff("cosmicfirevn", new CosmicFireVNBuff());
-        registerBuff("bleedingvn", new BleedingBuff());
-        registerBuff("monsterpheromonesvn", new MonsterPheromonesBuff());
+        BLEEDING_BUFF_VN = registerBuff("bleedingvn", new BleedingBuff());
+        MONSTER_PHEROMONE_BUFF_VN = registerBuff("monsterpheromonesvn", new MonsterPheromonesBuff());
         PROTECTOR_SEAL_VN_COOLDOWN = registerBuff("protectorsealvncooldown", new ShownCooldownBuff());
         RUINED_GOLEM_VN_COOLDOWN = registerBuff("ruinedgolemsealvncooldown", new ShownCooldownBuff());
         FLOWING_ENERGY_VN_COOLDOWN = registerBuff("flowingenergysealvncooldown", new ShownCooldownBuff());

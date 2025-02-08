@@ -28,7 +28,7 @@ public class WindRoundItem extends BulletItem {
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "windroundtip"));
+        tooltips.add(Localization.translate("itemtooltip", "windroundvntip"));
         return tooltips;
     }
 }
