@@ -19,11 +19,11 @@ public class NovaArrowItem extends ArrowItem {
     }
 
     public Projectile getProjectile(float x, float y, float targetX, float targetY, float velocity, int range, GameDamage damage, int knockback, Mob owner) {
-        return ProjectileRegistry.getProjectile("novaarrow", owner.getLevel(), x, y, targetX, targetY, velocity, range, damage, knockback, owner);
+        return ProjectileRegistry.getProjectile("novaarrowproj", owner.getLevel(), x, y, targetX, targetY, velocity, range, damage, knockback, owner);
     }
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "novaarrowtip"));
+        tooltips.add(Localization.translate("itemtooltip", "novaarrowvntip"));
         return tooltips;
     }
 }

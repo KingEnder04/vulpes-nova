@@ -75,7 +75,7 @@ public class NovaArrowProjectile extends Projectile {
 
     public void dropItem() {
         if (GameRandom.globalRandom.getChance(0.5F)) {
-            this.getLevel().entityManager.pickups.add((new InventoryItem("goldarrow")).getPickupEntity(this.getLevel(), this.x, this.y));
+            this.getLevel().entityManager.pickups.add((new InventoryItem("goldarrowvn")).getPickupEntity(this.getLevel(), this.x, this.y));
         }
 
     }

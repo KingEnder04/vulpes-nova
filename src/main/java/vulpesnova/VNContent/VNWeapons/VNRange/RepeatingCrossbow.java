@@ -2,11 +2,9 @@ package vulpesnova.VNContent.VNWeapons.VNRange;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.PacketReader;
-import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.entity.mobs.AttackAnimMob;
-import necesse.entity.mobs.GameDamage;
 import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
