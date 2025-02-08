@@ -551,7 +551,7 @@ public class VulpesNova {
         registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
-
+        registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
 
         // Register buffs
 
