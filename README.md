@@ -1,7 +1,17 @@
 # Vulpes Nova
 
 It's the ~~old~~ NEW code for ~~my~~ @KingEnder04 mod Vulpes Nova, for Necesse. Look forwards to it!
+Credits: 	@KingEnder04	- Original project creator :fox:
+			@Meffestoffel 	- RU locale
+		 	@FerrenF 		- Compatibility fixes/Version Update
 
+### 02-09-25 **Mod Update: Version 2.02.3**  
+
+#### **Fixes**  
+  - Code type safety cleanliness changes.
+  
+#### **Changes**  
+- **RU localization is now supported. Provided by @Meffestoffel on discord. Thank you!**  
 
 
 ### **Mod Update: Version 2.02.2**  
