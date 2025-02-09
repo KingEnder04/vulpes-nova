@@ -415,7 +415,7 @@ public class VulpesNova {
         registerItem("cubelogvn", (new MatItem(250, Item.Rarity.UNCOMMON, new String[]{"anylog"})).setItemCategory(new String[]{"materials", "logs"}), 2.0F, true);
         registerItem("cubestonevn", new StonePlaceableItem(500), 0.1F, true);
         registerItem("cubedeepstonevn", new StonePlaceableItem(500), 0.1F, true);
-        registerItem("blockberryvn", (new FoodConsumableItem(100, Item.Rarity.UNCOMMON, Settler.FOOD_SIMPLE, 15, 300, new ModifierValue[]{new ModifierValue(BuffModifiers.ARMOR_FLAT, 5)})).spoilDuration(960).addGlobalIngredient(new String[]{"anycompostable", "anyfruit"}).setItemCategory(new String[]{"consumable", "rawfood"}), 4.0F, true);
+        registerItem("blockberryvn", (new FoodConsumableItem(100, Item.Rarity.UNCOMMON, Settler.FOOD_SIMPLE, 15, 300, new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.ARMOR_FLAT, 5)})).spoilDuration(960).addGlobalIngredient(new String[]{"anycompostable", "anyfruit"}).setItemCategory(new String[]{"consumable", "rawfood"}), 4.0F, true);
         registerItem("nightbladevn", new NightbladeSwordVN(), 300, true);
         registerItem("celestialembervn", new CelestEmberStaff(), 800, true);
         registerItem("saplingswordvn", new SaplingSword(), 60, true);
@@ -556,12 +556,12 @@ public class VulpesNova {
         // Register buffs
 
         // Armors
-        registerBuff("woodensetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAGIC_DAMAGE, 0.15f), new ModifierValue(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05f), new ModifierValue(BuffModifiers.MAX_MANA_FLAT, 30),}));
-        registerBuff("ancientjunglesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_REGEN, 0.05F), new ModifierValue(BuffModifiers.SPEED, 0.05F), new ModifierValue(BuffModifiers.SWIM_SPEED, 0.10F), new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.05F)}));
-        registerBuff("windsetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ATTACK_SPEED, 0.25F), new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.05F), new ModifierValue(BuffModifiers.SPEED, 0.10F)}));
+        registerBuff("woodensetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.15f), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05f), new ModifierValue<Integer>(BuffModifiers.MAX_MANA_FLAT, 30),}));
+        registerBuff("ancientjunglesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_REGEN, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.05F), new ModifierValue<Float>(BuffModifiers.SWIM_SPEED, 0.10F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F)}));
+        registerBuff("windsetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.25F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.10F)}));
         registerBuff("meatsetvnbonusbuff", new MeatSetBonusBuff());
         registerBuff("cubaltsetvnbonusbuff", new CubaltSetVNBonusBuff());
-        registerBuff("stonesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ATTACK_SPEED, 0.10f), new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 10), new ModifierValue(BuffModifiers.ARMOR_FLAT, 3)}));
+        registerBuff("stonesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.10f), new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 10), new ModifierValue<Integer>(BuffModifiers.ARMOR_FLAT, 3)}));
         registerBuff("chilledbloodplatehatsetvnbonusbuff", new ChilledBloodplateHatSetBonusBuff());
         registerBuff("chilledbloodplatehoodsetvnbonusbuff", new ChilledBloodplateHoodSetBonusBuff());
         registerBuff("chilledbloodplatehelmetsetvnbonusbuff", new ChilledBloodplateHelmetSetBonusBuff());
@@ -570,14 +570,14 @@ public class VulpesNova {
         registerBuff("collectorsmagnetvnbuff", new CollectorsMagnetBuff());
         registerBuff("nightmareheadvnbuff", new NightmareHeadVNBuff());
         registerBuff("foxtokenvnbuff", new FoxTokenVNBuff());
-        registerBuff("foxtailvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, 1), new ModifierValue(BuffModifiers.DASH_COOLDOWN, -0.10F)}));
+        registerBuff("foxtailvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.DASH_STACKS, 1), new ModifierValue<Float>(BuffModifiers.DASH_COOLDOWN, -0.10F)}));
         registerBuff("yourgemcollectionvnbuff", new YourGemCollectionVNBuff());
-        registerBuff("clovertokenvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.25F), new ModifierValue(BuffModifiers.ALL_DAMAGE, -0.15F)}));
-        registerBuff("windmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.RANGED_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.RANGED_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.RANGED_CRIT_CHANCE, 0.05F)}));
-        registerBuff("stonemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MELEE_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MELEE_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MELEE_CRIT_CHANCE, 0.05F)}));
-        registerBuff("meatmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.SUMMON_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F)}));
-        registerBuff("treemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAGIC_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MAGIC_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05F)}));
-        registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.1F)}));
+        registerBuff("clovertokenvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.25F), new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, -0.15F)}));
+        registerBuff("windmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.RANGED_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.RANGED_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.RANGED_CRIT_CHANCE, 0.05F)}));
+        registerBuff("stonemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MELEE_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MELEE_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MELEE_CRIT_CHANCE, 0.05F)}));
+        registerBuff("meatmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SUMMON_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F)}));
+        registerBuff("treemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05F)}));
+        registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.1F)}));
         registerBuff("thebygonecrestvnbuff", new TheBygoneCrestVNBuff());
         registerBuff("halovnbuff", new HaloVNBuff());
         registerBuff("protectorsealvntrinketbuff", new ProtectorSealVNTrinketBuff());
@@ -596,20 +596,20 @@ public class VulpesNova {
         ARCHBISHOP_COWL_VN_ACTIVE = registerBuff("archbishopcowlvnactivebuff", new ArchbishopCowlVNActiveBuff());
 
         // Gem Trinkets
-        registerBuff("healthgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_HEALTH_FLAT, 50)}));
-        registerBuff("regengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 1.00F)}));
-        registerBuff("resiliencegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 50)}));
-        registerBuff("resilienceregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.RESILIENCE_REGEN_FLAT, 0.50F)}));
-        registerBuff("managemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_MANA_FLAT, 100)}));
-        registerBuff("manaregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_MANA_REGEN_FLAT, 1.00F)}));
+        registerBuff("healthgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_HEALTH_FLAT, 50)}));
+        registerBuff("regengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 1.00F)}));
+        registerBuff("resiliencegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 50)}));
+        registerBuff("resilienceregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.RESILIENCE_REGEN_FLAT, 0.50F)}));
+        registerBuff("managemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_MANA_FLAT, 100)}));
+        registerBuff("manaregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_MANA_REGEN_FLAT, 1.00F)}));
         registerBuff("bloodgemvnbuff", new BloodGemBuff());
-        registerBuff("damagegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ALL_DAMAGE, 0.10F)}));
-        registerBuff("critgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.10F)}));
-        registerBuff("speedgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.SPEED, 0.25F)}));
-        registerBuff("dashgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, 1)}));
-        registerBuff("summongemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_SUMMONS, 1)}));
-        registerBuff("armorgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ARMOR_FLAT, 10)}));
-        registerBuff("hookgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.FISHING_LINES, 1)}));
+        registerBuff("damagegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.10F)}));
+        registerBuff("critgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.10F)}));
+        registerBuff("speedgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SPEED, 0.25F)}));
+        registerBuff("dashgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.DASH_STACKS, 1)}));
+        registerBuff("summongemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_SUMMONS, 1)}));
+        registerBuff("armorgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.ARMOR_FLAT, 10)}));
+        registerBuff("hookgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.FISHING_LINES, 1)}));
 
         // Buffs/Debuffs
         COSMIC_FIRE_VN = registerBuff("cosmicfirevn", new CosmicFireVNBuff());
