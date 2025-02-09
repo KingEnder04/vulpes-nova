@@ -7,7 +7,7 @@ plugins {
 
 project.ext.modID = "vulpesnova.mod" // unique id
 project.ext.modName = "Vulpes Nova"
-project.ext.modVersion = "2.02.2" // MAJOR.MINOR.FIX
+project.ext.modVersion = "2.02.3" // MAJOR.MINOR.FIX
 project.ext.gameVersion = "0.30.0" // The target game version.
 project.ext.modDescription = "A content mod meant to add more enemies, items, weapons, blocks, and biomes. The art is done by Logar and I, and the coding is being done by yours truly (me)" // Short description of what your mod is.
 project.ext.author = "KingEnder04" // Author
