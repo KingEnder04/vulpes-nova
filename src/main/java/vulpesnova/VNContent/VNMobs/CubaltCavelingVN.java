@@ -17,7 +17,7 @@ public class CubaltCavelingVN extends CavelingMob {
         super.init();
         this.texture = MobRegistry.Textures.stoneCaveling;
         this.popParticleColor = new Color(139, 58, 222);
-        this.singleRockSmallStringID = "cubesurfacerocksmallvn";
+        this.singleRockSmallStringID = "cubegroundrocksmallvn";
         if (this.item == null) {
             this.item = new InventoryItem("cubaltoreitemvn", GameRandom.globalRandom.getIntBetween(3, 15));
         }

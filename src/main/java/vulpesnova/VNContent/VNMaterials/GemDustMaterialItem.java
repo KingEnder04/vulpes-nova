@@ -11,7 +11,7 @@ public class GemDustMaterialItem extends MatItem {
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "gemdusttip"));
+        tooltips.add(Localization.translate("itemtooltip", "gemdustvntip"));
         return tooltips;
     }
     public GemDustMaterialItem() {

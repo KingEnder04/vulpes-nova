@@ -65,8 +65,10 @@ public class FlatlandsSurfaceLevelVN extends Level {
             ig.generateObjects(ObjectRegistry.getObjectID("snowpile1"), landTile, 0.05F);
             ig.generateObjects(ObjectRegistry.getObjectID("snowpile2"), landTile, 0.05F);
             ig.generateObjects(ObjectRegistry.getObjectID("snowpile3"), landTile, 0.05F);
-            ig.generateObjects(ObjectRegistry.getObjectID("cubesurfacerockvn"), -1, 0.001F, false);
-            ig.generateObjects(ObjectRegistry.getObjectID("cubesurfacerocksmallvn"), -1, 0.002F, false);
+            
+            ig.generateObjects(ObjectRegistry.getObjectID("cubegroundrockvn"), -1, 0.001F, false);
+            ig.generateObjects(ObjectRegistry.getObjectID("cubegroundrocksmallvn"), -1, 0.002F, false);
+            
             ig.generateFruitGrowerVeins("blockberrybushvn", 0.04F, 8, 10, 0.1F, (Consumer)null, new int[]{landTile});
             GenerationTools.generateRandomObjectVeinsOnTile(this, ig.random, 0.03F, 6, 12, landTile, ObjectRegistry.getObjectID("wildiceblossom"), 0.2F, false);
         });

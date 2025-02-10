@@ -64,7 +64,7 @@ public class HolyTome extends MagicProjectileToolItem {
         GameRandom random = new GameRandom((long)seed);
 
         for(int i = -1; i <= 1; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("holyshot", level, player.x, player.y, (float)x, (float)y, (float)this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
+            Projectile projectile = ProjectileRegistry.getProjectile("holyproj", level, player.x, player.y, (float)x, (float)y, (float)this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
             projectile.resetUniqueID(random);
             level.entityManager.projectiles.addHidden(projectile);
             projectile.moveDist(20.0);
@@ -85,7 +85,7 @@ public class HolyTome extends MagicProjectileToolItem {
         GameRandom random = new GameRandom((long)seed);
 
         for(int i = -1; i <= 1; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("holyshot", level, mob.x, mob.y, targetPos.x, targetPos.y, (float)velocity, this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
+            Projectile projectile = ProjectileRegistry.getProjectile("holyproj", level, mob.x, mob.y, targetPos.x, targetPos.y, (float)velocity, this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
             projectile.resetUniqueID(random);
             level.entityManager.projectiles.addHidden(projectile);
             projectile.moveDist(20.0);

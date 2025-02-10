@@ -26,7 +26,7 @@ public class AncientJungleBoots extends BootsArmorItem {
 
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "ancientjungleset"));
+        tooltips.add(Localization.translate("itemtooltip", "ancientjunglesetvntip"));
         return tooltips;
     }
 

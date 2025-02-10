@@ -10,6 +10,7 @@ import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
+import vulpesnova.VulpesNova;
 public class YourGemCollectionVNBuff extends TrinketBuff {
     public YourGemCollectionVNBuff() {
     }
@@ -33,7 +34,7 @@ public class YourGemCollectionVNBuff extends TrinketBuff {
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event) {
         super.onHasAttacked(buff, event);
         if (!event.wasPrevented) {
-            event.target.buffManager.addBuff(new ActiveBuff("bleedingvn", event.target, 6.0F, event.attacker), event.target.isServer());
+            event.target.buffManager.addBuff(new ActiveBuff(VulpesNova.BLEEDING_BUFF_VN, event.target, 6.0F, event.attacker), event.target.isServer());
         }
 
     }

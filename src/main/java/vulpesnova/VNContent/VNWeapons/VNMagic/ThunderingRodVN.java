@@ -62,7 +62,7 @@ public class ThunderingRodVN extends MagicProjectileToolItem {
 
     public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
         GameRandom random = new GameRandom((long)seed);
-        Projectile projectile = ProjectileRegistry.getProjectile("thunderboltvn", level, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
+        Projectile projectile = ProjectileRegistry.getProjectile("thunderboltproj", level, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
         projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
         projectile.resetUniqueID(random);
         level.entityManager.projectiles.addHidden(projectile);

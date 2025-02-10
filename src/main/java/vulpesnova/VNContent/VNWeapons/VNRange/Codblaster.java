@@ -28,7 +28,7 @@ public class Codblaster extends GunProjectileToolItem {
 
     protected void addAmmoTooltips(ListGameTooltips tooltips, InventoryItem item) {
         super.addAmmoTooltips(tooltips, item);
-        tooltips.add(Localization.translate("itemtooltip", "codblastertip"));
+        tooltips.add(Localization.translate("itemtooltip", "codblastervntip"));
     }
 
     public void playFireSound(AttackAnimMob mob) {

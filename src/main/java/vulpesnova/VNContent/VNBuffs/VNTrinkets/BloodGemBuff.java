@@ -9,13 +9,14 @@ import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
+import vulpesnova.VulpesNova;
 public class BloodGemBuff extends TrinketBuff {
     public BloodGemBuff() {
     }
 
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
-        tooltips.add(Localization.translate("itemtooltip", "bloodgemtip"));
+        tooltips.add(Localization.translate("itemtooltip", "bloodgemvntip"));
         return tooltips;
     }
 
@@ -25,7 +26,7 @@ public class BloodGemBuff extends TrinketBuff {
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event) {
         super.onHasAttacked(buff, event);
         if (!event.wasPrevented) {
-            event.target.buffManager.addBuff(new ActiveBuff("bleedingvn", event.target, 6.0F, event.attacker), event.target.isServer());
+            event.target.buffManager.addBuff(new ActiveBuff(VulpesNova.BLEEDING_BUFF_VN, event.target, 6.0F, event.attacker), event.target.isServer());
         }
 
     }

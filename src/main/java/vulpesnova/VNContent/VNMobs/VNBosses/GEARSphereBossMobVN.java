@@ -59,6 +59,7 @@ import necesse.inventory.lootTable.lootItem.*;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import vulpesnova.VulpesNova;
+import vulpesnova.VNContent.VNMobs.VNBosses.GEARSphereBossMobVN.SpiderLeg;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
@@ -190,7 +191,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
     public void setPos(float x, float y, boolean isDirect) {
         super.setPos(x, y, isDirect);
         if (isDirect && this.backLegs != null && this.frontLegs != null) {
-            Iterator var4 = this.backLegs.iterator();
+            Iterator<SpiderLeg> var4 = this.backLegs.iterator();
 
             GEARSphereBossMobVN.SpiderLeg leg;
             while(var4.hasNext()) {
@@ -210,8 +211,8 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     public void init() {
         super.init();
-        this.frontLegs = new ArrayList();
-        this.backLegs = new ArrayList();
+        this.frontLegs = new ArrayList<SpiderLeg>();
+        this.backLegs = new ArrayList<SpiderLeg>();
         int legCount = 8;
         this.currentHeight = this.getDesiredHeight();
         float[] angles = new float[]{65.0F, 95.0F, 125.0F, 155.0F, -65.0F, -95.0F, -125.0F, -155.0F};

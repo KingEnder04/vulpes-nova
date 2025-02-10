@@ -18,7 +18,7 @@ public class ExtraSpawnItems {
                 thiz.main.addItem(thiz.player.getLevel(), thiz.player, new InventoryItem("acrumplednotevn"), "startitem", null);
             }
 
-            if (thiz.getAmount(ItemRegistry.getItem("foxtoken"), false, false, false, false, "startitem") == 0) {
+            if (thiz.getAmount(ItemRegistry.getItem("foxtokenvn"), false, false, false, false, "startitem") == 0) {
                 thiz.main.addItem(thiz.player.getLevel(), thiz.player, new InventoryItem("foxtokenvn"), "startitem", null);
             }
 

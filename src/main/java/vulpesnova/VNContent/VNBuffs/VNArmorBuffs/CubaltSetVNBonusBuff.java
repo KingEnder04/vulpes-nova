@@ -45,7 +45,7 @@ public class CubaltSetVNBonusBuff extends SetBonusBuff {
 
     public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "cubaltsetvn"));
+        tooltips.add(Localization.translate("itemtooltip", "cubaltsetvntip"));
         return tooltips;
     }
 

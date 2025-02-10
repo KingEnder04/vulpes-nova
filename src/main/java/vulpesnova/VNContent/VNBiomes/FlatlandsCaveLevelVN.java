@@ -187,8 +187,8 @@ public class FlatlandsCaveLevelVN extends DesertSurfaceLevel {
             GenerationTools.generateRandomSmoothTileVeins(this, cg.random, 0.02F, 2, 2.0F, 10.0F, 2.0F, 4.0F, TileRegistry.getTileID("lavatile"), 1.0F, true);
             GenerationTools.generateRandomSmoothTileVeins(this, cg.random, 0.02F, 2, 2.0F, 10.0F, 2.0F, 4.0F, TileRegistry.getTileID("watertile"), 1.0F, true);
             this.liquidManager.calculateShores();
-            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("cubesurfacerockvn"), 0.005F);
-            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("cubesurfacerocksmallvn"), 0.01F);
+            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("cubegroundrockvn"), 0.005F);
+            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("cubegroundrocksmallvn"), 0.01F);
         });
         GameEvents.triggerEvent(new GeneratedCaveMiniBiomesEvent(this, cg));
         GameEvents.triggerEvent(new GenerateCaveOresEvent(this, cg), (e) -> {

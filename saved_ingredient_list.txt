@@ -1,0 +1,1172 @@
+        Recipes.registerModRecipe(new Recipe(
+                "novashardvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("novafragmentvn", 16)
+                }
+        ).showAfter("craftingguide")); // Show recipe after crafting guide recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "novaclustervn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("novashardvn", 50)
+                }
+        ).showAfter("novashardvn")); // Show recipe after crafting guide recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "foxtokenvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("goldbar", 12),
+                        new Ingredient("demonicbar", 3),
+                        new Ingredient("ivybar", 3),
+                        new Ingredient("novaclustervn", 1)
+                }
+        ).showAfter("craftingguide")); // Show recipe after crafting guide recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "cubaltbarvn",
+                1,
+                RecipeTechRegistry.FORGE,
+                new Ingredient[]{
+                        new Ingredient("cubaltoreitemvn", 3),
+                }
+        ).showAfter("craftingguide")); // Show recipe after crafting guide recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "bigbrainonastickvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("brainonastick", 1),
+                        new Ingredient("anyrawmeat", 60),
+                        new Ingredient("novashardvn", 12)
+                }
+        ).showAfter("spiderstaff")); // Show recipe after wood boat recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "queenspiderstaffvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("spiderstaff", 1),
+                        new Ingredient("cavespidergland", 12),
+                        new Ingredient("wool", 10),
+                        new Ingredient("novashardvn", 4)
+                }
+        ).showAfter("spiderstaff")); // Show recipe after wood boat recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "novicetomevn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("anylog", 16),
+                        new Ingredient("anysapling", 6),
+                        new Ingredient("novafragmentvn", 24)
+                }
+        ).showAfter("craftingguide")); // Show recipe after wood boat recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "intermediatetomevn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("novicetomevn", 1),
+                        new Ingredient("demonicbar", 6),
+                        new Ingredient("novashardvn", 8)
+                }
+        ).showAfter("novicetomevn")); // Show recipe after wood boat recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "novakatanavn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("reinforcedkatana", 1),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 4),
+                }
+        ).showAfter("themountainvn")); // Show the recipe after tungsten sword recipe
+        // Nightblade Recipe
+        Recipes.registerModRecipe(new Recipe(
+                "nightbladevn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 15),
+                        new Ingredient("novashardvn", 8)
+                }
+        ).showAfter("demonicsword")); // Show the recipe after tungsten sword recipe
+        // Celestial Ember Staff
+        Recipes.registerModRecipe(new Recipe(
+                "celestialembervn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("tungstenbar", 15),
+                        new Ingredient("ectoplasm", 20),
+                        new Ingredient("novaclustervn", 2)
+                }
+        ).showAfter("iciclestaff")); // Show the recipe after icicle staff recipe
+        Recipes.registerModRecipe(new Recipe(
+                "saplingswordvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("woodsword", 1),
+                        new Ingredient("anysapling", 20),
+                        new Ingredient("novashardvn", 3)
+                }
+        ).showAfter("craftingguide")); // Show recipe after wood boat recipe
+
+        Recipes.registerModRecipe(new Recipe(
+                "holytomevn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("ectoplasm", 20),
+                        new Ingredient("goldbar", 3),
+                        new Ingredient("book", 1),
+                        new Ingredient("novashardvn", 12)
+                }
+        ).showAfter("shadowbolt")); // Show recipe after Shadow Bolt
+        Recipes.registerModRecipe(new Recipe(
+                "holytomevn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("unholytomevn", 1),
+                        new Ingredient("novashardvn", 4)
+                }
+        ).showAfter("regenpendant")); // Show recipe after Shadow Bolt
+        Recipes.registerModRecipe(new Recipe(
+                "unholytomevn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("holytomevn", 1),
+                        new Ingredient("novashardvn", 4)
+                }
+        ).showAfter("regenpendant")); // Show recipe after Regen Pendant
+        Recipes.registerModRecipe(new Recipe(
+                "novabulletvn",
+                100,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("voidbullet", 100),
+                        new Ingredient("novashardvn", 1)
+                }
+        ).showAfter("voidbullet")); // Show recipe after void bullets
+
+        Recipes.registerModRecipe(new Recipe(
+                "windbulletvn",
+                50,
+                RecipeTechRegistry.NONE,
+                new Ingredient[]{
+                        new Ingredient("cloudsvn", 5),
+                        new Ingredient("novafragmentvn", 3),
+                }
+        ).showAfter("simplebullet")); // Show recipe after void bullets
+
+        Recipes.registerModRecipe(new Recipe(
+                "goldarrowvn",
+                5,
+                RecipeTechRegistry.NONE,
+                new Ingredient[]{
+                        new Ingredient("goldbar", 1),
+                }
+        ).showAfter("ironarrow")); // Show recipe after void bullets
+
+        Recipes.registerModRecipe(new Recipe(
+                "windarrowvn",
+                50,
+                RecipeTechRegistry.NONE,
+                new Ingredient[]{
+                        new Ingredient("cloudsvn", 5),
+                        new Ingredient("novafragmentvn", 3),
+                }
+        ).showAfter("ironarrow")); // Show recipe after void bullets
+
+        Recipes.registerModRecipe(new Recipe(
+                "novaarrowvn",
+                50,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("goldarrowvn", 50),
+                        new Ingredient("novashardvn", 1)
+                }
+        ).showAfter("poisonarrow")); // Show recipe after void bullets
+
+        Recipes.registerModRecipe(new Recipe(
+                "lmgvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("machinegun", 1),
+                        new Ingredient("tungstenbar", 16),
+                        new Ingredient("novashardvn", 12)
+                }
+        ).showAfter("tungstenbow")); // Show recipe after void bullets
+
+        Recipes.registerModRecipe(new Recipe(
+                "doomedbowvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("bone", 20),
+                        new Ingredient("ectoplasm", 15),
+                        new Ingredient("tungstenbar", 12),
+                        new Ingredient("novashardvn", 12)
+                }
+        ).showAfter("tungstenbow")); // Show recipe after Tungsten Bow
+
+        Recipes.registerModRecipe(new Recipe(
+                "repeatingcrossbowvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("tungstenbar", 14),
+                        new Ingredient("novashardvn", 10)
+                }
+        ).showAfter("tungstenbow")); // Show recipe after Tungsten Bow
+
+        Recipes.registerModRecipe(new Recipe(
+                "ironsoulglaivevn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("ironbar", 12),
+                        new Ingredient("tungstenbar", 12),
+                        new Ingredient("ectoplasm", 8),
+                        new Ingredient("novashardvn", 10)
+                }
+        ).showAfter("tungstenspear")); // Show recipe after Tungsten Bow
+
+        Recipes.registerModRecipe(new Recipe(
+                "codblastervn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("handgun", 1),
+                        new Ingredient("cod", 8),
+                        new Ingredient("novashardvn", 6)
+                }
+        ).showAfter("ivybow")); // Show recipe after Ivy Bow
+
+        Recipes.registerModRecipe(new Recipe(
+                "glassshardswordvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("sandtile", 50),
+                        new Ingredient("ironbar", 15),
+                        new Ingredient("novashardvn", 6)
+                }
+        ).showAfter("ivysword")); // Show recipe after Ivy Bow
+
+        Recipes.registerModRecipe(new Recipe(
+                "necromancersrequiemvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("bigbrainonastickvn", 1),
+                        new Ingredient("skeletonstaff", 1),
+                        new Ingredient("bone", 30),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 2),
+                }
+        ).showAfter("cryostaff")); // Show recipe after cryo staff
+
+        Recipes.registerModRecipe(new Recipe(
+                "acornlobbervn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("anylog", 30),
+                        new Ingredient("anysapling", 16),
+                        new Ingredient("novafragmentvn", 16),
+                }
+        ).showAfter("craftingguide"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "woodenbulletvn",
+                50,
+                RecipeTechRegistry.NONE,
+                new Ingredient[]{
+                        new Ingredient("novafragmentvn", 3),
+                        new Ingredient("anylog", 5),
+                        new Ingredient("anysapling", 3),
+                }
+        ).showAfter("novaarrowvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "galevn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("acornlobbervn", 1),
+                        new Ingredient("cloudsvn", 24),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("acornlobbervn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "theblowingwindvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("demonicbow", 1),
+                        new Ingredient("cloudsvn", 24),
+                        new Ingredient("novashardvn", 10),
+                }
+        ).showAfter("demonicbow"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "novaheartvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("lifeelixir", 1),
+                        new Ingredient("lifequartz", 10),
+                        new Ingredient("novaclustervn", 1),
+                }
+        ).showAfter("lifeelixir"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bastionboxvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("cubaltbarvn", 6),
+                        new Ingredient("shapeshardsvn", 20),
+                        new Ingredient("novashardvn", 16),
+                }
+        ).showAfter("mysteriousportal"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "heavierhammervn",
+                1,
+                RecipeTechRegistry.IRON_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("heavyhammer", 1),
+                        new Ingredient("ironbar", 16),
+                        new Ingredient("novashardvn", 16),
+                }
+        ).showAfter("ironsword"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "heaviesthammervn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("heavierhammervn", 1),
+                        new Ingredient("tungstenbar", 24),
+                        new Ingredient("novashardvn", 32),
+                }
+        ).showAfter("tungstensword"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "thunderingrodvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("ironbar", 12),
+                        new Ingredient("cloudsvn", 24),
+                        new Ingredient("novashardvn", 16),
+                }
+        ).showAfter("woodstaff"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "eyeofthestormvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("thunderingrodvn", 1),
+                        new Ingredient("tungstenbar", 12),
+                        new Ingredient("cloudsvn", 32),
+                        new Ingredient("novashardvn", 32),
+                }
+        ).showAfter("thunderingrodvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "experttomevn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("intermediatetomevn", 1),
+                        new Ingredient("ectoplasm", 12),
+                        new Ingredient("tungstenbar", 6),
+                        new Ingredient("novashardvn", 26),
+                }
+        ).showAfter("thunderingrodvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "mastertomevn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("experttomevn", 1),
+                        new Ingredient("ectoplasm", 16),
+                        new Ingredient("amethyst", 8),
+                        new Ingredient("novashardvn", 26),
+                }
+        ).showAfter("experttomevn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "magicfordummiesvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("novicetomevn", 1),
+                        new Ingredient("intermediatetomevn", 1),
+                        new Ingredient("experttomevn", 1),
+                        new Ingredient("mastertomevn", 1),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 2),
+                }
+        ).showAfter("necromancersrequiemvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "crimsontempestvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("eyeofthestormvn", 1),
+                        new Ingredient("cloudsvn", 128),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 2),
+                }
+        ).showAfter("thunderingrodvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "monsterpheromonesvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("stinkflask", 1),
+                        new Ingredient("cloudsvn", 50),
+                        new Ingredient("ectoplasm", 25),
+                        new Ingredient("novaclustervn", 1),
+                }
+        ).showAfter("novaheartvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "themountainvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("heaviesthammervn", 1),
+                        new Ingredient("anystone", 5000),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 1),
+                }
+        ).showAfter("crimsontempestvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "stormboltervn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("galevn", 1),
+                        new Ingredient("thunderingrodvn", 1),
+                        new Ingredient("cloudsvn", 16),
+                        new Ingredient("novashardvn", 24),
+                }
+        ).showAfter("codblastervn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "stormbringervn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("hurricanevn", 1),
+                        new Ingredient("thunderingrodvn", 1),
+                        new Ingredient("cloudsvn", 16),
+                        new Ingredient("novashardvn", 24),
+                }
+        ).showAfter("codblastervn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "arainydayvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("stormbringervn", 1),
+                        new Ingredient("lmgvn", 1),
+                        new Ingredient("cloudsvn", 32),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 1),
+                }
+        ).showAfter("novakatanavn"));
+        // Objects
+
+        Recipes.registerModRecipe(new Recipe(
+                "tableofawakeningvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 12),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("demonicworkstation"));
+
+        // Trinkets
+
+        Recipes.registerModRecipe(new Recipe(
+                "thecollectorsmagnetvn",
+                1,
+                RecipeTechRegistry.ADVANCED_WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("itemattractor", 1),
+                        new Ingredient("novaclustervn", 1),
+                }
+        ).showAfter("toolbox"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "windmedallionvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("cloudsvn", 20),
+                        new Ingredient("goldbar", 4),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("dreamcatcher"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "treemedallionvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("anysapling", 30),
+                        new Ingredient("goldbar", 4),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("dreamcatcher"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "meatmedallionvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("anyrawmeat", 20),
+                        new Ingredient("goldbar", 4),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("dreamcatcher"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "stonemedallionvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("anystone", 100),
+                        new Ingredient("goldbar", 4),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("dreamcatcher"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "medallionboardvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("treemedallionvn", 1),
+                        new Ingredient("windmedallionvn", 1),
+                        new Ingredient("meatmedallionvn", 1),
+                        new Ingredient("stonemedallionvn", 1),
+                        new Ingredient("novashardvn", 16),
+                }
+        ).showAfter("dreamcatcher"));
+
+        // Literally just the Gems
+
+        Recipes.registerModRecipe(new Recipe(
+                "hookgemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "armorgemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "summongemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "dashgemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "speedgemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "critgemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "damagegemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "bloodgemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "manaregengemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "managemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "resilienceregengemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "resiliencegemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "regengemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "healthgemvn",
+                1,
+                RecipeTechRegistry.ALCHEMY,
+                new Ingredient[]{
+                        new Ingredient("gemdustvn", 80),
+                        new Ingredient("novashardvn", 6),
+
+                }
+        ).showAfter("regenpendant"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "yourgemcollectionvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("healthgemvn", 1),
+                        new Ingredient("regengemvn", 1),
+                        new Ingredient("resiliencegemvn", 1),
+                        new Ingredient("resilienceregengemvn", 1),
+                        new Ingredient("managemvn", 1),
+                        new Ingredient("manaregengemvn", 1),
+                        new Ingredient("bloodgemvn", 1),
+                        new Ingredient("damagegemvn", 1),
+                        new Ingredient("critgemvn", 1),
+                        new Ingredient("speedgemvn", 1),
+                        new Ingredient("dashgemvn", 1),
+                        new Ingredient("summongemvn", 1),
+                        new Ingredient("armorgemvn", 1),
+                        new Ingredient("hookgemvn", 1),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novashardvn", 20),
+                }
+        ).showAfter("ancientjunglebootsvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "trueexplorersatchelvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("explorersatchel", 1),
+                        new Ingredient("explorercloak", 1),
+                        new Ingredient("spikedbatboots", 1),
+                        new Ingredient("ancientrelics", 1),
+                        new Ingredient("nightmareheadvn", 1),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 2),
+                }
+        ).showAfter("ancientjunglebootsvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ruinedgolemsealvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("anystone", 100),
+                        new Ingredient("woodshield", 1),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("woodshield"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "speedstersealvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("speedpotion", 8),
+                        new Ingredient("ironbar", 4),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("woodshield"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "protectorsealvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 8),
+                        new Ingredient("woodshield", 1),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("woodshield"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "flowingenergysealvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("demonicbar", 8),
+                        new Ingredient("manapotion", 4),
+                        new Ingredient("manaregenpotion", 4),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("woodshield"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "archbishopcowlvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("demonwarriorsealvn", 1),
+                        new Ingredient("holypaladinsealvn", 1),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 2),
+                }
+        ).showAfter("ancientjunglebootsvn"));
+
+        // Vanity
+
+        Recipes.registerModRecipe(new Recipe(
+                "luckychickenmaskvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("novashardvn", 24),
+                }
+        ).showAfter("ancientjunglebootsvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "luckychickencostumeshirtvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("novashardvn", 24),
+                }
+        ).showAfter("ancientjunglebootsvn"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "luckychickencostumebootsvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("novashardvn", 24),
+                }
+        ).showAfter("ancientjunglebootsvn"));
+        // Armors
+
+        // Cubalt (needs replaced) Set
+
+        Recipes.registerModRecipe(new Recipe(
+                "cubaltbootsvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("shapeshardsvn", 20),
+                        new Ingredient("cubaltbarvn", 8),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("demonicboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cubaltchestplatevn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("shapeshardsvn", 40),
+                        new Ingredient("cubaltbarvn", 16),
+                        new Ingredient("novashardvn", 16),
+                }
+        ).showAfter("demonicboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cubalthelmetvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("shapeshardsvn", 30),
+                        new Ingredient("cubaltbarvn", 10),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("demonicboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cubaltshovelvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("shapeshardsvn", 20),
+                        new Ingredient("cubaltbarvn", 10),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("demonicboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cubaltaxevn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("shapeshardsvn", 20),
+                        new Ingredient("cubaltbarvn", 10),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("demonicboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "cubaltpickaxevn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("shapeshardsvn", 20),
+                        new Ingredient("cubaltbarvn", 10),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("demonicboots"));
+
+        // Wooden (Mage) Set
+
+        Recipes.registerModRecipe(new Recipe(
+                "woodenbootsvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("clothboots", 1),
+                        new Ingredient("anylog", 20),
+                        new Ingredient("anysapling", 10),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("clothboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "woodenchestplatevn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("clothrobe", 1),
+                        new Ingredient("anylog", 40),
+                        new Ingredient("anysapling", 15),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("clothboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "woodenhelmetvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("clothhat", 1),
+                        new Ingredient("anylog", 30),
+                        new Ingredient("anysapling", 10),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("clothboots"));
+
+        // Ancient Jungle Set
+
+        Recipes.registerModRecipe(new Recipe(
+                "ancientjunglebootsvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("woodenbootsvn", 1),
+                        new Ingredient("anysapling", 80),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 2),
+                }
+        ).showAfter("clothboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ancientjunglechestplatevn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("woodenchestplatevn", 1),
+                        new Ingredient("anysapling", 120),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 3),
+                }
+        ).showAfter("clothboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "ancientjunglehelmetvn",
+                1,
+                VulpesNova.TABLEOFAWAKENINGVN,
+                new Ingredient[]{
+                        new Ingredient("woodenhelmetvn", 1),
+                        new Ingredient("anysapling", 100),
+                        new Ingredient("awakeninatorvn", 1),
+                        new Ingredient("novaclustervn", 2),
+                }
+        ).showAfter("clothboots"));
+
+        // Wind (Range) Set
+
+        Recipes.registerModRecipe(new Recipe(
+                "windbootsvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("leatherboots", 1),
+                        new Ingredient("cloudsvn", 24),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("leatherboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "windchestplatevn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("leathershirt", 1),
+                        new Ingredient("cloudsvn", 30),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("leatherboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "windhatvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("leatherhood", 1),
+                        new Ingredient("cloudsvn", 16),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("leatherboots"));
+
+        // Meat (Summoner) Set
+
+        Recipes.registerModRecipe(new Recipe(
+                "meatbootsvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("spiderboots", 1),
+                        new Ingredient("anyrawmeat", 24),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("spiderboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "meatrobevn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("spiderchestplate", 1),
+                        new Ingredient("anyrawmeat", 30),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("spiderboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "meathatvn",
+                1,
+                RecipeTechRegistry.WORKSTATION,
+                new Ingredient[]{
+                        new Ingredient("spiderhelmet", 1),
+                        new Ingredient("anyrawmeat", 20),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("spiderboots"));
+
+        // Stone (Melee) Set
+
+        Recipes.registerModRecipe(new Recipe(
+                "stonebootsvn",
+                1,
+                RecipeTechRegistry.IRON_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("goldboots", 1),
+                        new Ingredient("anystone", 100),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("goldboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "stonechestplatevn",
+                1,
+                RecipeTechRegistry.IRON_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("goldchestplate", 1),
+                        new Ingredient("anystone", 160),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("goldboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "stonehelmetvn",
+                1,
+                RecipeTechRegistry.IRON_ANVIL,
+                new Ingredient[]{
+                        new Ingredient("goldhelmet", 1),
+                        new Ingredient("anystone", 60),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("goldboots"));
+
+        // Chilled Bloodplate Set
+
+        Recipes.registerModRecipe(new Recipe(
+                "chilledbloodplatebootsvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("frostboots", 1),
+                        new Ingredient("bloodplateboots", 1),
+                        new Ingredient("novashardvn", 8),
+                }
+        ).showAfter("bloodplateboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "chilledbloodplatechestplatevn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("frostchestplate", 1),
+                        new Ingredient("bloodplatechestplate", 1),
+                        new Ingredient("novashardvn", 12),
+                }
+        ).showAfter("bloodplateboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "chilledbloodplatehatvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("frosthat", 1),
+                        new Ingredient("bloodplatecowl", 1),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("bloodplateboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "chilledbloodplatehoodvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("frosthood", 1),
+                        new Ingredient("bloodplatecowl", 1),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("bloodplateboots"));
+
+        Recipes.registerModRecipe(new Recipe(
+                "chilledbloodplatehelmetvn",
+                1,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("frosthelmet", 1),
+                        new Ingredient("bloodplatecowl", 1),
+                        new Ingredient("novashardvn", 6),
+                }
+        ).showAfter("bloodplateboots"));

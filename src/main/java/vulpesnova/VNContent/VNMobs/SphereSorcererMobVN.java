@@ -67,7 +67,7 @@ public class SphereSorcererMobVN extends HostileMob {
         super.init();
         this.ai = new BehaviourTreeAI(this, new PlayerChaserWandererAI<Mob>((Supplier)null, 512, 320, 40000, false, false) {
             public boolean attackTarget(Mob mob, Mob target) {
-                return this.shootSimpleProjectile(mob, target, "spherecerershotvn", damage, 90, 640);
+                return this.shootSimpleProjectile(mob, target, "spherecererproj", damage, 90, 640);
             }
         });
     }

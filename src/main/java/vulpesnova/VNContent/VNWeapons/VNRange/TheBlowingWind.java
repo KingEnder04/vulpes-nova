@@ -37,7 +37,7 @@ public class TheBlowingWind extends BowProjectileToolItem {
 
     protected void addAmmoTooltips(ListGameTooltips tooltips, InventoryItem item) {
         super.addAmmoTooltips(tooltips, item);
-        tooltips.add(Localization.translate("itemtooltip", "theblowingwindtip"));
+        tooltips.add(Localization.translate("itemtooltip", "theblowingwindvntip"));
     }
 
 }

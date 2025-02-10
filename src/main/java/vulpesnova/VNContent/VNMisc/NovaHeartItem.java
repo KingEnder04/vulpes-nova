@@ -51,7 +51,7 @@ public class NovaHeartItem extends ConsumableItem {
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "consumetip"));
-        tooltips.add(Localization.translate("itemtooltip", "novahearttip"));
+        tooltips.add(Localization.translate("itemtooltip", "novaheartvntip"));
         return tooltips;
     }
 
