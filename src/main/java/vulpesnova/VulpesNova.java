@@ -514,7 +514,7 @@ public class VulpesNova {
 
         // Register our projectiles
         registerProjectile("celestialember", CelestEmberProjectile.class, "celestialemberprojvn", "celestialemberprojvn_shadow");
-        registerProjectile("nightblade", NightbladeVNProjectile.class, "nightbladevnprojvn", "nightbladeprojvn_shadow");
+        registerProjectile("nightblade", NightbladeVNProjectile.class, "nightbladeprojvn", "nightbladeprojvn_shadow");
         registerProjectile("leafproj", SaplingSwordProjectile.class, "leafprojvn", "leafprojvn");
         registerProjectile("holyproj", HolyTomeProjectile.class, "holyprojvn", "holyprojvn_shadow");
         registerProjectile("unholyproj", UnholyTomeProjectile.class, "unholyprojvn", "unholyprojvn_shadow");
