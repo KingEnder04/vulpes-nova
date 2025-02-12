@@ -1,4 +1,34 @@
 [
+{
+    "result": "novashardvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "novafragmentvn", "amount": 16 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "novaclustervn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "novashardvn", "amount": 50 }
+    ],
+    "showAfter": "novashardvn"
+  },
+  {
+    "result": "foxtokenvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "goldbar", "amount": 12 },
+      { "item": "demonicbar", "amount": 3 },
+      { "item": "ivybar", "amount": 3 },
+      { "item": "novaclustervn", "amount": 1 }
+    ],
+    "showAfter": "craftingguide"
+  },
   {
     "result": "cubaltbarvn",
     "quantity": 1,
@@ -618,6 +648,86 @@
     "showAfter": "regenpendant"
   },
   {
+     "result": "damagegemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "bloodgemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "manaregengemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "managemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "resilienceregengemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "resiliencegemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "regengemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "healthgemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+  {
     "result": "yourgemcollectionvn",
     "quantity": 1,
     "tech": "TABLEOFAWAKENINGVN",
@@ -1017,7 +1127,7 @@
     "ingredients": [
       { "item": "frosthood", "amount": 1 },
       { "item": "bloodplatecowl", "amount": 1 },
-      { "item": "novashardvn", "amount": 6 }
+      { "itlmaem": "novashardvn", "amount": 6 }
     ],
     "showAfter": "bloodplateboots"
   },
