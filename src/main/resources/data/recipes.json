@@ -1,5 +1,5 @@
 [
-{
+	{
     "result": "novashardvn",
     "quantity": 1,
     "tech": "WORKSTATION",
@@ -1127,7 +1127,7 @@
     "ingredients": [
       { "item": "frosthood", "amount": 1 },
       { "item": "bloodplatecowl", "amount": 1 },
-      { "itlmaem": "novashardvn", "amount": 6 }
+      { "item": "novashardvn", "amount": 6 }
     ],
     "showAfter": "bloodplateboots"
   },
