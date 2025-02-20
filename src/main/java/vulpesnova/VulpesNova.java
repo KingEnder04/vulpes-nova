@@ -475,18 +475,6 @@ public class VulpesNova {
         registerItem("grandphoenixgreatbowvn", new GrandPhoenixGreatbowVN(), 1000.0F, true);
 
 
-
-        registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
-        registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
-        registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
-        registerItem("importednightmarevn", new ImportedAnimalSpawnItem(12, true, "nightmaremobvn"), 200.0F, true);
-        registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
-        registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
-        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, true, "giantcavespider"), 200.0F, true);
-        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, true, "gustmobvn"), 200.0F, true);
-
-
-
         // Register our mob
         registerMob("nightmaremobvn", NightmareMobVN.class, true);
         registerMob("snowynightmaremobvn", SnowyNightmareMobVN.class, true);
@@ -511,6 +499,15 @@ public class VulpesNova {
         registerMob("spheresorcerermobvn", SphereSorcererMobVN.class, true);
         registerMob("spheresentinelmobvn", SphereSentinelMobVN.class, true);
         registerMob("deadmahmobvn", DeadmahMobVN.class,true);
+        
+        registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
+        registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
+        registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
+        registerItem("importednightmarevn", new ImportedAnimalSpawnItem(12, true, "nightmaremobvn"), 200.0F, true);
+        registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
+        registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
+        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, true, "giantcavespider"), 200.0F, true);
+        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, true, "gustmobvn"), 200.0F, true);
 
         // Register our projectiles
         registerProjectile("celestialember", CelestEmberProjectile.class, "celestialemberprojvn", "celestialemberprojvn_shadow");
