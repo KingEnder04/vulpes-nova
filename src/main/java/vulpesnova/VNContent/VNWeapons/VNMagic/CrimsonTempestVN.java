@@ -66,35 +66,38 @@ public class CrimsonTempestVN extends MagicProjectileToolItem {
     }
 
     public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
-        for(int i = -2; i <= 2; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("thunderboltredvn", level, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
-            projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
-            projectile.resetUniqueID(new GameRandom((long) seed));
-            level.entityManager.projectiles.addHidden(projectile);
-            projectile.setAngle(projectile.getAngle() + (float)(12 * i));
-        if (level.isServer()) {
-            level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, player.getServerClient());
-        }
-        }
-
-        this.consumeMana(player, item);
-        return item;
+        return handleMultipleProjectiles(level, x, y, player, item, seed, player);
     }
 
     public InventoryItem onSettlerAttack(Level level, HumanMob mob, Mob target, int attackHeight, int seed, InventoryItem item) {
         int velocity = this.getVelocity(item, mob);
         Point2D.Float targetPos = Projectile.getPredictedTargetPos(target, mob.x, mob.y, (float)velocity, -10.0F);
         mob.attackItem((int)targetPos.x, (int)targetPos.y, item);
-        for(int i = -2; i <= 2; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("thunderboltredvn", level, mob.x, mob.y, targetPos.x, targetPos.y, (float)velocity, this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
+        return handleMultipleProjectiles(level, (int) targetPos.x, (int) targetPos.y, mob, item, seed, mob);
+    }
+
+    private InventoryItem handleMultipleProjectiles(Level level, int x, int y, Mob attacker, InventoryItem item, int seed, Mob mob) {
+        for (int i = -2; i <= 2; ++i) {
+            Projectile projectile = ProjectileRegistry.getProjectile("thunderboltredproj", level, attacker.x, attacker.y, (float) x, (float) y, (float) this.getVelocity(item, mob), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
+            projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
             projectile.resetUniqueID(new GameRandom((long) seed));
             level.entityManager.projectiles.addHidden(projectile);
             projectile.setAngle(projectile.getAngle() + (float)(12 * i));
-            if (level.isServer()) {
-                level.getServer().network.sendToClientsAt(new PacketSpawnProjectile(projectile), level);
+            if (level.isServer() || level.isServerLevel()) {
+                if (attacker instanceof PlayerMob) {
+                    level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, mob.getFollowingServerClient());
+                } else {
+                    level.getServer().network.sendToClientsAt(new PacketSpawnProjectile(projectile), level);
+                }
             }
+        }
+
+        // Only consume mana if the attacker is a player
+        if (attacker instanceof PlayerMob) {
+            this.consumeMana((PlayerMob) attacker, item);
         }
 
         return item;
     }
+
 }
