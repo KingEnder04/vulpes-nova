@@ -1,0 +1,1148 @@
+[
+	{
+    "result": "novashardvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "novafragmentvn", "amount": 16 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "novaclustervn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "novashardvn", "amount": 50 }
+    ],
+    "showAfter": "novashardvn"
+  },
+  {
+    "result": "foxtokenvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "goldbar", "amount": 12 },
+      { "item": "demonicbar", "amount": 3 },
+      { "item": "ivybar", "amount": 3 },
+      { "item": "novaclustervn", "amount": 1 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "cubaltbarvn",
+    "quantity": 1,
+    "tech": "FORGE",
+    "ingredients": [
+      { "item": "cubaltoreitemvn", "amount": 3 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "bigbrainonastickvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "brainonastick", "amount": 1 },
+      { "item": "anyrawmeat", "amount": 60 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "spiderstaff"
+  },
+  {
+    "result": "queenspiderstaffvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "spiderstaff", "amount": 1 },
+      { "item": "cavespidergland", "amount": 12 },
+      { "item": "wool", "amount": 10 },
+      { "item": "novashardvn", "amount": 4 }
+    ],
+    "showAfter": "spiderstaff"
+  },
+  {
+    "result": "novicetomevn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "anylog", "amount": 16 },
+      { "item": "anysapling", "amount": 6 },
+      { "item": "novafragmentvn", "amount": 24 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "intermediatetomevn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "novicetomevn", "amount": 1 },
+      { "item": "demonicbar", "amount": 6 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "novicetomevn"
+  },
+  {
+    "result": "novakatanavn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "reinforcedkatana", "amount": 1 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 4 }
+    ],
+    "showAfter": "themountainvn"
+  },
+  {
+    "result": "nightbladevn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "demonicbar", "amount": 15 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "demonicsword"
+  },
+  {
+    "result": "celestialembervn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "tungstenbar", "amount": 15 },
+      { "item": "ectoplasm", "amount": 20 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "iciclestaff"
+  },
+  {
+    "result": "saplingswordvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "woodsword", "amount": 1 },
+      { "item": "anysapling", "amount": 20 },
+      { "item": "novashardvn", "amount": 3 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "holytomevn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "ectoplasm", "amount": 20 },
+      { "item": "goldbar", "amount": 3 },
+      { "item": "book", "amount": 1 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "shadowbolt"
+  },
+  {
+    "result": "holytomevn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "unholytomevn", "amount": 1 },
+      { "item": "novashardvn", "amount": 4 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+    "result": "unholytomevn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "holytomevn", "amount": 1 },
+      { "item": "novashardvn", "amount": 4 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+    "result": "novabulletvn",
+    "quantity": 100,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "voidbullet", "amount": 100 },
+      { "item": "novashardvn", "amount": 1 }
+    ],
+    "showAfter": "voidbullet"
+  },
+  {
+    "result": "windbulletvn",
+    "quantity": 50,
+    "tech": "NONE",
+    "ingredients": [
+      { "item": "cloudsvn", "amount": 5 },
+      { "item": "novafragmentvn", "amount": 3 }
+    ],
+    "showAfter": "simplebullet"
+  },
+  {
+    "result": "goldarrowvn",
+    "quantity": 5,
+    "tech": "NONE",
+    "ingredients": [
+      { "item": "goldbar", "amount": 1 }
+    ],
+    "showAfter": "ironarrow"
+  },
+  {
+    "result": "windarrowvn",
+    "quantity": 50,
+    "tech": "NONE",
+    "ingredients": [
+      { "item": "cloudsvn", "amount": 5 },
+      { "item": "novafragmentvn", "amount": 3 }
+    ],
+    "showAfter": "ironarrow"
+  },
+  {
+    "result": "novaarrowvn",
+    "quantity": 50,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "goldarrowvn", "amount": 50 },
+      { "item": "novashardvn", "amount": 1 }
+    ],
+    "showAfter": "poisonarrow"
+  },
+  {
+    "result": "lmgvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "machinegun", "amount": 1 },
+      { "item": "tungstenbar", "amount": 16 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "tungstenbow"
+  },
+  {
+    "result": "doomedbowvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "bone", "amount": 20 },
+      { "item": "ectoplasm", "amount": 15 },
+      { "item": "tungstenbar", "amount": 12 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "tungstenbow"
+  },
+  {
+    "result": "repeatingcrossbowvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "tungstenbar", "amount": 14 },
+      { "item": "novashardvn", "amount": 10 }
+    ],
+    "showAfter": "tungstenbow"
+  },
+  {
+    "result": "ironsoulglaivevn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "ironbar", "amount": 12 },
+      { "item": "tungstenbar", "amount": 12 },
+      { "item": "ectoplasm", "amount": 8 },
+      { "item": "novashardvn", "amount": 10 }
+    ],
+    "showAfter": "tungstenspear"
+  },
+  {
+    "result": "codblastervn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "handgun", "amount": 1 },
+      { "item": "cod", "amount": 8 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "ivybow"
+  },
+  {
+    "result": "glassshardswordvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "sandtile", "amount": 50 },
+      { "item": "ironbar", "amount": 15 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "ivysword"
+  },
+  {
+    "result": "necromancersrequiemvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "bigbrainonastickvn", "amount": 1 },
+      { "item": "skeletonstaff", "amount": 1 },
+      { "item": "bone", "amount": 30 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "cryostaff"
+  },
+  {
+    "result": "acornlobbervn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "anylog", "amount": 30 },
+      { "item": "anysapling", "amount": 16 },
+      { "item": "novafragmentvn", "amount": 16 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "woodenbulletvn",
+    "quantity": 50,
+    "tech": "NONE",
+    "ingredients": [
+      { "item": "novafragmentvn", "amount": 3 },
+      { "item": "anylog", "amount": 5 },
+      { "item": "anysapling", "amount": 3 }
+    ],
+    "showAfter": "novaarrowvn"
+  },
+  {
+    "result": "galevn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "acornlobbervn", "amount": 1 },
+      { "item": "cloudsvn", "amount": 24 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "acornlobbervn"
+  },
+  {
+    "result": "theblowingwindvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "demonicbow", "amount": 1 },
+      { "item": "cloudsvn", "amount": 24 },
+      { "item": "novashardvn", "amount": 10 }
+    ],
+    "showAfter": "demonicbow"
+  },
+  {
+    "result": "novaheartvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "lifeelixir", "amount": 1 },
+      { "item": "lifequartz", "amount": 10 },
+      { "item": "novaclustervn", "amount": 1 }
+    ],
+    "showAfter": "lifeelixir"
+  },
+  {
+    "result": "bastionboxvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "cubaltbarvn", "amount": 6 },
+      { "item": "shapeshardsvn", "amount": 20 },
+      { "item": "novashardvn", "amount": 16 }
+    ],
+    "showAfter": "mysteriousportal"
+  },
+  {
+    "result": "heavierhammervn",
+    "quantity": 1,
+    "tech": "IRON_ANVIL",
+    "ingredients": [
+      { "item": "heavyhammer", "amount": 1 },
+      { "item": "ironbar", "amount": 16 },
+      { "item": "novashardvn", "amount": 16 }
+    ],
+    "showAfter": "ironsword"
+  },
+  {
+    "result": "heaviesthammervn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "heavierhammervn", "amount": 1 },
+      { "item": "tungstenbar", "amount": 24 },
+      { "item": "novashardvn", "amount": 32 }
+    ],
+    "showAfter": "tungstensword"
+  },
+  {
+    "result": "thunderingrodvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "ironbar", "amount": 12 },
+      { "item": "cloudsvn", "amount": 24 },
+      { "item": "novashardvn", "amount": 16 }
+    ],
+    "showAfter": "woodstaff"
+  },
+  {
+    "result": "eyeofthestormvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "thunderingrodvn", "amount": 1 },
+      { "item": "tungstenbar", "amount": 12 },
+      { "item": "cloudsvn", "amount": 32 },
+      { "item": "novashardvn", "amount": 32 }
+    ],
+    "showAfter": "thunderingrodvn"
+  },
+  {
+    "result": "experttomevn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "intermediatetomevn", "amount": 1 },
+      { "item": "ectoplasm", "amount": 12 },
+      { "item": "tungstenbar", "amount": 6 },
+      { "item": "novashardvn", "amount": 26 }
+    ],
+    "showAfter": "thunderingrodvn"
+  },
+  {
+    "result": "mastertomevn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "experttomevn", "amount": 1 },
+      { "item": "ectoplasm", "amount": 16 },
+      { "item": "amethyst", "amount": 8 },
+      { "item": "novashardvn", "amount": 26 }
+    ],
+    "showAfter": "experttomevn"
+  },
+  {
+    "result": "magicfordummiesvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "novicetomevn", "amount": 1 },
+      { "item": "intermediatetomevn", "amount": 1 },
+      { "item": "experttomevn", "amount": 1 },
+      { "item": "mastertomevn", "amount": 1 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "necromancersrequiemvn"
+  },
+  {
+    "result": "crimsontempestvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "eyeofthestormvn", "amount": 1 },
+      { "item": "cloudsvn", "amount": 128 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "thunderingrodvn"
+  },
+  {
+    "result": "monsterpheromonesvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "stinkflask", "amount": 1 },
+      { "item": "cloudsvn", "amount": 50 },
+      { "item": "ectoplasm", "amount": 25 },
+      { "item": "novaclustervn", "amount": 1 }
+    ],
+    "showAfter": "novaheartvn"
+  },
+  {
+    "result": "themountainvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "heaviesthammervn", "amount": 1 },
+      { "item": "anystone", "amount": 5000 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 1 }
+    ],
+    "showAfter": "crimsontempestvn"
+  },
+  {
+    "result": "stormboltervn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "galevn", "amount": 1 },
+      { "item": "thunderingrodvn", "amount": 1 },
+      { "item": "cloudsvn", "amount": 16 },
+      { "item": "novashardvn", "amount": 24 }
+    ],
+    "showAfter": "codblastervn"
+  },
+  {
+    "result": "stormbringervn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "hurricanevn", "amount": 1 },
+      { "item": "thunderingrodvn", "amount": 1 },
+      { "item": "cloudsvn", "amount": 16 },
+      { "item": "novashardvn", "amount": 24 }
+    ],
+    "showAfter": "codblastervn"
+  },
+  {
+    "result": "arainydayvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "stormbringervn", "amount": 1 },
+      { "item": "lmgvn", "amount": 1 },
+      { "item": "cloudsvn", "amount": 32 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 1 }
+    ],
+    "showAfter": "novakatanavn"
+  },
+  {
+    "result": "tableofawakeningvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "demonicbar", "amount": 12 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "demonicworkstation"
+  },
+  {
+    "result": "thecollectorsmagnetvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "itemattractor", "amount": 1 },
+      { "item": "novaclustervn", "amount": 1 }
+    ],
+    "showAfter": "toolbox"
+  },
+  {
+    "result": "windmedallionvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "cloudsvn", "amount": 20 },
+      { "item": "goldbar", "amount": 4 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "dreamcatcher"
+  },
+  {
+    "result": "treemedallionvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "anysapling", "amount": 30 },
+      { "item": "goldbar", "amount": 4 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "dreamcatcher"
+  },
+  {
+    "result": "meatmedallionvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "anyrawmeat", "amount": 20 },
+      { "item": "goldbar", "amount": 4 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "dreamcatcher"
+  },
+  {
+    "result": "stonemedallionvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "anystone", "amount": 100 },
+      { "item": "goldbar", "amount": 4 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "dreamcatcher"
+  },
+  {
+    "result": "medallionboardvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "treemedallionvn", "amount": 1 },
+      { "item": "windmedallionvn", "amount": 1 },
+      { "item": "meatmedallionvn", "amount": 1 },
+      { "item": "stonemedallionvn", "amount": 1 },
+      { "item": "novashardvn", "amount": 16 }
+    ],
+    "showAfter": "dreamcatcher"
+  },
+  {
+    "result": "hookgemvn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "gemdustvn", "amount": 80 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+    "result": "armorgemvn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "gemdustvn", "amount": 80 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+    "result": "summongemvn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "gemdustvn", "amount": 80 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+    "result": "dashgemvn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "gemdustvn", "amount": 80 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+    "result": "speedgemvn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "gemdustvn", "amount": 80 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+    "result": "critgemvn",
+    "quantity": 1,
+    "tech": "ALCHEMY",
+    "ingredients": [
+      { "item": "gemdustvn", "amount": 80 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "regenpendant"
+  },
+  {
+     "result": "damagegemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "bloodgemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "manaregengemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "managemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "resilienceregengemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "resiliencegemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "regengemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+   {
+     "result": "healthgemvn",
+     "quantity": 1,
+     "tech": "ALCHEMY",
+     "ingredients": [
+       { "item": "gemdustvn", "amount": 80 },
+       { "item": "novashardvn", "amount": 6 }
+     ],
+     "showAfter": "regenpendant"
+   },
+  {
+    "result": "yourgemcollectionvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "healthgemvn", "amount": 1 },
+      { "item": "regengemvn", "amount": 1 },
+      { "item": "resiliencegemvn", "amount": 1 },
+      { "item": "resilienceregengemvn", "amount": 1 },
+      { "item": "managemvn", "amount": 1 },
+      { "item": "manaregengemvn", "amount": 1 },
+      { "item": "bloodgemvn", "amount": 1 },
+      { "item": "damagegemvn", "amount": 1 },
+      { "item": "critgemvn", "amount": 1 },
+      { "item": "speedgemvn", "amount": 1 },
+      { "item": "dashgemvn", "amount": 1 },
+      { "item": "summongemvn", "amount": 1 },
+      { "item": "armorgemvn", "amount": 1 },
+      { "item": "hookgemvn", "amount": 1 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novashardvn", "amount": 20 }
+    ],
+    "showAfter": "ancientjunglebootsvn"
+  },
+  {
+    "result": "trueexplorersatchelvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "explorersatchel", "amount": 1 },
+      { "item": "explorercloak", "amount": 1 },
+      { "item": "spikedbatboots", "amount": 1 },
+      { "item": "ancientrelics", "amount": 1 },
+      { "item": "nightmareheadvn", "amount": 1 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "ancientjunglebootsvn"
+  },
+  {
+    "result": "ruinedgolemsealvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "anystone", "amount": 100 },
+      { "item": "woodshield", "amount": 1 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "woodshield"
+  },
+  {
+    "result": "speedstersealvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "speedpotion", "amount": 8 },
+      { "item": "ironbar", "amount": 4 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "woodshield"
+  },
+  {
+    "result": "protectorsealvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "demonicbar", "amount": 8 },
+      { "item": "woodshield", "amount": 1 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "woodshield"
+  },
+  {
+    "result": "flowingenergysealvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "demonicbar", "amount": 8 },
+      { "item": "manapotion", "amount": 4 },
+      { "item": "manaregenpotion", "amount": 4 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "woodshield"
+  },
+  {
+    "result": "archbishopcowlvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "demonwarriorsealvn", "amount": 1 },
+      { "item": "holypaladinsealvn", "amount": 1 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "ancientjunglebootsvn"
+  },
+  {
+    "result": "luckychickenmaskvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "novashardvn", "amount": 24 }
+    ],
+    "showAfter": "ancientjunglebootsvn"
+  },
+  {
+    "result": "luckychickencostumeshirtvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "novashardvn", "amount": 24 }
+    ],
+    "showAfter": "ancientjunglebootsvn"
+  },
+  {
+    "result": "luckychickencostumebootsvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "novashardvn", "amount": 24 }
+    ],
+    "showAfter": "ancientjunglebootsvn"
+  },
+  {
+    "result": "cubaltbootsvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "shapeshardsvn", "amount": 20 },
+      { "item": "cubaltbarvn", "amount": 8 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "demonicboots"
+  },
+  {
+    "result": "cubaltchestplatevn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "shapeshardsvn", "amount": 40 },
+      { "item": "cubaltbarvn", "amount": 16 },
+      { "item": "novashardvn", "amount": 16 }
+    ],
+    "showAfter": "demonicboots"
+  },
+  {
+    "result": "cubalthelmetvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "shapeshardsvn", "amount": 30 },
+      { "item": "cubaltbarvn", "amount": 10 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "demonicboots"
+  },
+  {
+    "result": "cubaltshovelvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "shapeshardsvn", "amount": 20 },
+      { "item": "cubaltbarvn", "amount": 10 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "demonicboots"
+  },
+  {
+    "result": "cubaltaxevn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "shapeshardsvn", "amount": 20 },
+      { "item": "cubaltbarvn", "amount": 10 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "demonicboots"
+  },
+  {
+    "result": "cubaltpickaxevn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "shapeshardsvn", "amount": 20 },
+      { "item": "cubaltbarvn", "amount": 10 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "demonicboots"
+  },
+  {
+    "result": "woodenbootsvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "clothboots", "amount": 1 },
+      { "item": "anylog", "amount": 20 },
+      { "item": "anysapling", "amount": 10 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "clothboots"
+  },
+  {
+    "result": "woodenchestplatevn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "clothrobe", "amount": 1 },
+      { "item": "anylog", "amount": 40 },
+      { "item": "anysapling", "amount": 15 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "clothboots"
+  },
+  {
+    "result": "woodenhelmetvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "clothhat", "amount": 1 },
+      { "item": "anylog", "amount": 30 },
+      { "item": "anysapling", "amount": 10 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "clothboots"
+  },
+  {
+    "result": "ancientjunglebootsvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "woodenbootsvn", "amount": 1 },
+      { "item": "anysapling", "amount": 80 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "clothboots"
+  },
+  {
+    "result": "ancientjunglechestplatevn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "woodenchestplatevn", "amount": 1 },
+      { "item": "anysapling", "amount": 120 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 3 }
+    ],
+    "showAfter": "clothboots"
+  },
+  {
+    "result": "ancientjunglehelmetvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "woodenhelmetvn", "amount": 1 },
+      { "item": "anysapling", "amount": 100 },
+      { "item": "awakeninatorvn", "amount": 1 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "clothboots"
+  },
+  {
+    "result": "windbootsvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "leatherboots", "amount": 1 },
+      { "item": "cloudsvn", "amount": 24 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "leatherboots"
+  },
+  {
+    "result": "windchestplatevn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "leathershirt", "amount": 1 },
+      { "item": "cloudsvn", "amount": 30 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "leatherboots"
+  },
+  {
+    "result": "windhatvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "leatherhood", "amount": 1 },
+      { "item": "cloudsvn", "amount": 16 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "leatherboots"
+  },
+  {
+    "result": "meatbootsvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "spiderboots", "amount": 1 },
+      { "item": "anyrawmeat", "amount": 24 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "spiderboots"
+  },
+  {
+    "result": "meatrobevn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "spiderchestplate", "amount": 1 },
+      { "item": "anyrawmeat", "amount": 30 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "spiderboots"
+  },
+  {
+    "result": "meathatvn",
+    "quantity": 1,
+    "tech": "WORKSTATION",
+    "ingredients": [
+      { "item": "spiderhelmet", "amount": 1 },
+      { "item": "anyrawmeat", "amount": 20 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "spiderboots"
+  },
+  {
+    "result": "stonebootsvn",
+    "quantity": 1,
+    "tech": "IRON_ANVIL",
+    "ingredients": [
+      { "item": "goldboots", "amount": 1 },
+      { "item": "anystone", "amount": 100 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "goldboots"
+  },
+  {
+    "result": "stonechestplatevn",
+    "quantity": 1,
+    "tech": "IRON_ANVIL",
+    "ingredients": [
+      { "item": "goldchestplate", "amount": 1 },
+      { "item": "anystone", "amount": 160 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "goldboots"
+  },
+  {
+    "result": "stonehelmetvn",
+    "quantity": 1,
+    "tech": "IRON_ANVIL",
+    "ingredients": [
+      { "item": "goldhelmet", "amount": 1 },
+      { "item": "anystone", "amount": 60 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "goldboots"
+  },
+  {
+    "result": "chilledbloodplatebootsvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "frostboots", "amount": 1 },
+      { "item": "bloodplateboots", "amount": 1 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "bloodplateboots"
+  },
+  {
+    "result": "chilledbloodplatechestplatevn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "frostchestplate", "amount": 1 },
+      { "item": "bloodplatechestplate", "amount": 1 },
+      { "item": "novashardvn", "amount": 12 }
+    ],
+    "showAfter": "bloodplateboots"
+  },
+  {
+    "result": "chilledbloodplatehatvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "frosthat", "amount": 1 },
+      { "item": "bloodplatecowl", "amount": 1 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "bloodplateboots"
+  },
+  {
+    "result": "chilledbloodplatehoodvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "frosthood", "amount": 1 },
+      { "item": "bloodplatecowl", "amount": 1 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "bloodplateboots"
+  },
+  {
+    "result": "chilledbloodplatehelmetvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "frosthelmet", "amount": 1 },
+      { "item": "bloodplatecowl", "amount": 1 },
+      { "item": "novashardvn", "amount": 6 }
+    ],
+    "showAfter": "bloodplateboots"
+  }
+]
+
+
+
