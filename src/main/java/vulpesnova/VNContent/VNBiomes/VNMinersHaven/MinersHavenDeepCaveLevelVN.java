@@ -15,7 +15,6 @@ import necesse.level.maps.generationModules.CaveGeneration;
 import necesse.level.maps.generationModules.CellAutomaton;
 import necesse.level.maps.generationModules.GenerationTools;
 import necesse.level.maps.generationModules.PresetGeneration;
-import necesse.level.maps.presets.AncientVultureArenaPreset;
 import necesse.level.maps.presets.Preset;
 import necesse.level.maps.presets.PresetUtils;
 import necesse.level.maps.presets.RandomCaveChestRoom;
@@ -24,7 +23,6 @@ import necesse.level.maps.presets.modularPresets.abandonedMinePreset.AbandonedMi
 import necesse.level.maps.presets.set.ChestRoomSet;
 import necesse.level.maps.presets.set.FurnitureSet;
 import necesse.level.maps.presets.set.WallSet;
-import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsCaveLevelVN;
 
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -41,8 +39,8 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
     }
 
     public void generateLevel() {
-        int deepRockTile = TileRegistry.getTileID("cubedeepstonefloorvn");
-        CaveGeneration cg = new CaveGeneration(this, "cubedeepstonefloorvn", "cubedeeprockvn");
+        int deepRockTile = TileRegistry.getTileID("deeprocktile");
+        CaveGeneration cg = new CaveGeneration(this, "deeprocktile", "deeprock");
         GameEvents.triggerEvent(new GenerateCaveLayoutEvent(this, cg), (e) -> {
             cg.generateLevel(0.44F, 4, 3, 6);
         });
@@ -51,8 +49,8 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
             GenerationTools.generateRandomObjectVeinsOnTile(this, cg.random, 0.2F, 4, 8, deepRockTile, ObjectRegistry.getObjectID("wildcaveglow"), 0.2F, false);
             GenerationTools.generateRandomSmoothTileVeins(this, cg.random, 0.07F, 2, 7.0F, 20.0F, 3.0F, 8.0F, TileRegistry.getTileID("lavatile"), 1.0F, true);
             this.liquidManager.calculateShores();
-            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("cubedeepgroundrockvn"), 0.005F);
-            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("cubedeepgroundrocksmallvn"), 0.01F);
+            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("deepcaverock"), 0.005F);
+            cg.generateRandomSingleRocks(ObjectRegistry.getObjectID("deepcaverocksmall"), 0.01F);
         });
         GameEvents.triggerEvent(new GeneratedCaveMiniBiomesEvent(this, cg));
         GameEvents.triggerEvent(new GenerateCaveOresEvent(this, cg), (e) -> {
@@ -62,10 +60,14 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
             cg.generateOreVeins(0.25F, 5, 10, ObjectRegistry.getObjectID("obsidianrock"));
             cg.generateOreVeins(0.2F, 3, 6, ObjectRegistry.getObjectID("tungstenoredeeprock"));
             cg.generateOreVeins(0.05F, 3, 6, ObjectRegistry.getObjectID("lifequartzdeeprock"));
+            cg.generateOreVeins(0.17F, 3, 12, ObjectRegistry.getObjectID("glacialoredeeprock"));
+            cg.generateOreVeins(0.17F, 3, 12, ObjectRegistry.getObjectID("myceliumoredeeprock"));
+            cg.generateOreVeins(0.17F, 3, 12, ObjectRegistry.getObjectID("ancientfossiloredeeprock"));
+
         });
         GameEvents.triggerEvent(new GeneratedCaveOresEvent(this, cg));
-        GameObject crystalClusterSmall = ObjectRegistry.getObject("rubyclustersmall");
-        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.005F, 4, 4.0F, 7.0F, 4.0F, 6.0F, (lg) -> {
+        GameObject rubyCrystalClusterSmall = ObjectRegistry.getObject("rubyclustersmall");
+        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.01F, 4, 4.0F, 7.0F, 4.0F, 8.0F, (lg) -> {
             CellAutomaton ca = lg.doCellularAutomaton(cg.random);
             ca.streamAliveOrdered().forEachOrdered((tile) -> {
                 cg.addIllegalCrateTile(tile.x, tile.y);
@@ -83,8 +85,33 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
                     }
                 }
 
-                if (cg.random.getChance(0.3F) && crystalClusterSmall.canPlace(this, tile.x, tile.y, 0, false) == null) {
-                    crystalClusterSmall.placeObject(this, tile.x, tile.y, 0, false);
+                if (cg.random.getChance(0.3F) && rubyCrystalClusterSmall.canPlace(this, tile.x, tile.y, 0, false) == null) {
+                    rubyCrystalClusterSmall.placeObject(this, tile.x, tile.y, 0, false);
+                }
+
+            });
+        });
+        GameObject emeraldCrystalClusterSmall = ObjectRegistry.getObject("emeraldclustersmall");
+        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.01F, 4, 3.0F, 5.0F, 4.0F, 8.0F, (lgx) -> {
+            CellAutomaton ca = lgx.doCellularAutomaton(cg.random);
+            ca.streamAliveOrdered().forEachOrdered((tile) -> {
+                cg.addIllegalCrateTile(tile.x, tile.y);
+                this.setTile(tile.x, tile.y, TileRegistry.getTileID("emeraldgravel"));
+                this.setObject(tile.x, tile.y, 0);
+            });
+            ca.streamAliveOrdered().forEachOrdered((tile) -> {
+                if (this.getObjectID(tile.x, tile.y) == 0 && this.getObjectID(tile.x - 1, tile.y) == 0 && this.getObjectID(tile.x + 1, tile.y) == 0 && this.getObjectID(tile.x, tile.y - 1) == 0 && this.getObjectID(tile.x, tile.y + 1) == 0 && cg.random.getChance(0.1F)) {
+                    int rotation = cg.random.nextInt(4);
+                    Point[] clearPoints = new Point[]{new Point(-1, -1), new Point(1, -1)};
+                    if (this.getRelativeAnd(tile.x, tile.y, PresetUtils.getRotatedPoints(0, 0, rotation, clearPoints), (tileX, tileY) -> {
+                        return ca.isAlive(tileX, tileY) && this.getObjectID(tileX, tileY) == 0;
+                    })) {
+                        ObjectRegistry.getObject(ObjectRegistry.getObjectID("emeraldcluster")).placeObject(this, tile.x, tile.y, rotation, false);
+                    }
+                }
+
+                if (cg.random.getChance(0.3F) && emeraldCrystalClusterSmall.canPlace(this, tile.x, tile.y, 0, false) == null) {
+                    emeraldCrystalClusterSmall.placeObject(this, tile.x, tile.y, 0, false);
                 }
 
             });
@@ -92,11 +119,6 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
         PresetGeneration presets = new PresetGeneration(this);
         GameEvents.triggerEvent(new GenerateCaveStructuresEvent(this, cg, presets), (e) -> {
             int abandonedMineCount = cg.random.getIntBetween(2, 3);
-
-            for(int i = 0; i < 4; ++i) {
-                Preset arena = new AncientVultureArenaPreset(36, cg.random);
-                presets.findRandomValidPositionAndApply(cg.random, 5, arena, 10, true, true);
-            }
 
             for(int i = 0; i < abandonedMineCount; ++i) {
                 Rectangle abandonedMineRec = AbandonedMinePreset.generateAbandonedMineOnLevel(this, cg.random, presets.getOccupiedSpace());

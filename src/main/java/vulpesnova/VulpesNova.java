@@ -298,6 +298,8 @@ public class VulpesNova {
                 new Color(255, 195, 50), "goldore", 1, 3, 2, false), 0.0F, false
         );
 
+        // cave miners haven ores
+
         registerObject("quartzrock", new RockOreObject(
                 (RockObject) getObject("rock"), "oremask", "quartzore",
                 new Color(227, 215, 189), "quartz", 1, 3, 2, false), 0.0F, false
@@ -313,6 +315,23 @@ public class VulpesNova {
                 new Color(150, 238, 217), "frostshard", 1, 3, 2, false), 0.0F, false
         );
 
+        // miners haven deepcave ores
+
+        registerObject("glacialoredeeprock", new RockOreObject(
+                (RockObject) getObject("deeprock"), "oremask", "glacialore",
+                new Color(150, 238, 217), "glacialore", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("myceliumoredeeprock", new RockOreObject(
+                (RockObject) getObject("deeprock"), "oremask", "myceliumore",
+                new Color(150, 238, 217), "myceliumore", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("ancientfossiloredeeprock", new RockOreObject(
+                (RockObject) getObject("deeprock"), "oremask", "ancientfossilore",
+                new Color(150, 238, 217), "ancientfossilore", 1, 3, 2, false), 0.0F, false
+        );
+
         // Other Objects
         registerObject("gearcontactbeaconvn", new GEARContactBeaconVNObject(), 0, false);
         
@@ -324,7 +343,7 @@ public class VulpesNova {
       
         // Register our biomes
         FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
-        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 1000, "minershavenvn");
+        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
 
         // Register our tech
 
