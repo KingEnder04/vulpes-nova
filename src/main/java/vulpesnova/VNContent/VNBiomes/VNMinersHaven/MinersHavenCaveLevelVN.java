@@ -213,7 +213,7 @@ public class MinersHavenCaveLevelVN extends MinersHavenSurfaceLevelVN {
 
         });
         GameObject amethystCrystalClusterSmall = ObjectRegistry.getObject("amethystclustersmall");
-        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.005F, 4, 4.0F, 7.0F, 4.0F, 6.0F, (lg) -> {
+        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.05F, 4, 4.0F, 7.0F, 4.0F, 8.0F, (lg) -> {
             CellAutomaton ca = lg.doCellularAutomaton(cg.random);
             ca.streamAliveOrdered().forEachOrdered((tile) -> {
                 cg.addIllegalCrateTile(tile.x, tile.y);
@@ -238,7 +238,7 @@ public class MinersHavenCaveLevelVN extends MinersHavenSurfaceLevelVN {
             });
         });
         GameObject sapphireCrystalClusterSmall = ObjectRegistry.getObject("sapphireclustersmall");
-        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.005F, 4, 4.0F, 7.0F, 4.0F, 6.0F, (lg) -> {
+        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.05F, 4, 4.0F, 7.0F, 4.0F, 8.0F, (lg) -> {
             CellAutomaton ca = lg.doCellularAutomaton(cg.random);
             ca.streamAliveOrdered().forEachOrdered((tile) -> {
                 cg.addIllegalCrateTile(tile.x, tile.y);

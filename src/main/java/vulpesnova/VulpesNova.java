@@ -28,6 +28,7 @@ import necesse.inventory.item.placeableItem.ImportedAnimalSpawnItem;
 import necesse.inventory.item.placeableItem.StonePlaceableItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
 import necesse.inventory.item.placeableItem.followerSummonItem.petFollowerPlaceableItem.PetFollowerPlaceableItem;
+import necesse.inventory.item.placeableItem.mapItem.BiomeMapItem;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.item.toolItem.axeToolItem.CustomAxeToolItem;
 import necesse.inventory.item.toolItem.pickaxeToolItem.CustomPickaxeToolItem;
@@ -512,7 +513,7 @@ public class VulpesNova {
         registerItem("gearresiliencematrixvn", new GEARResilienceMatrixItemVN(), 200, true);
         registerItem("cavedemolishervn", new CaveDemolisherVNToolItem(), 60.0F, true);
         registerItem("grandphoenixgreatbowvn", new GrandPhoenixGreatbowVN(), 1000.0F, true);
-
+        registerItem("minershavenmapvn", new BiomeMapItem(Item.Rarity.RARE, 18, new String[]{"minershavenvn"}), 120.0F, true);
 
         // Register our mob
         registerMob("nightmaremobvn", NightmareMobVN.class, true);

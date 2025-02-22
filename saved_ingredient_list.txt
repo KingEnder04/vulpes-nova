@@ -203,6 +203,16 @@
         ).showAfter("poisonarrow")); // Show recipe after void bullets
 
         Recipes.registerModRecipe(new Recipe(
+                "minershavenmapvn",
+                50,
+                RecipeTechRegistry.DEMONIC,
+                new Ingredient[]{
+                        new Ingredient("mapfragment", 50),
+                        new Ingredient("novashardvn", 4)
+                }
+        ).showAfter("piratemap")); // Show recipe after void bullets
+
+        Recipes.registerModRecipe(new Recipe(
                 "lmgvn",
                 1,
                 RecipeTechRegistry.ADVANCED_WORKSTATION,

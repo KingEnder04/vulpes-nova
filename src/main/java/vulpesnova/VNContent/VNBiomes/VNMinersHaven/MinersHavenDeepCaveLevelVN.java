@@ -54,20 +54,20 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
         });
         GameEvents.triggerEvent(new GeneratedCaveMiniBiomesEvent(this, cg));
         GameEvents.triggerEvent(new GenerateCaveOresEvent(this, cg), (e) -> {
-            cg.generateOreVeins(0.05F, 3, 6, ObjectRegistry.getObjectID("copperoredeeprock"));
-            cg.generateOreVeins(0.25F, 3, 6, ObjectRegistry.getObjectID("ironoredeeprock"));
-            cg.generateOreVeins(0.15F, 3, 6, ObjectRegistry.getObjectID("goldoredeeprock"));
+            cg.generateOreVeins(0.05F, 3, 15, ObjectRegistry.getObjectID("copperoredeeprock"));
+            cg.generateOreVeins(0.25F, 3, 15, ObjectRegistry.getObjectID("ironoredeeprock"));
+            cg.generateOreVeins(0.15F, 3, 15, ObjectRegistry.getObjectID("goldoredeeprock"));
             cg.generateOreVeins(0.25F, 5, 10, ObjectRegistry.getObjectID("obsidianrock"));
-            cg.generateOreVeins(0.2F, 3, 6, ObjectRegistry.getObjectID("tungstenoredeeprock"));
-            cg.generateOreVeins(0.05F, 3, 6, ObjectRegistry.getObjectID("lifequartzdeeprock"));
-            cg.generateOreVeins(0.17F, 3, 12, ObjectRegistry.getObjectID("glacialoredeeprock"));
-            cg.generateOreVeins(0.17F, 3, 12, ObjectRegistry.getObjectID("myceliumoredeeprock"));
-            cg.generateOreVeins(0.17F, 3, 12, ObjectRegistry.getObjectID("ancientfossiloredeeprock"));
+            cg.generateOreVeins(0.2F, 3, 15, ObjectRegistry.getObjectID("tungstenoredeeprock"));
+            cg.generateOreVeins(0.08F, 3, 15, ObjectRegistry.getObjectID("lifequartzdeeprock"));
+            cg.generateOreVeins(0.17F, 3, 15, ObjectRegistry.getObjectID("glacialoredeeprock"));
+            cg.generateOreVeins(0.17F, 3, 15, ObjectRegistry.getObjectID("myceliumoredeeprock"));
+            cg.generateOreVeins(0.17F, 3, 15, ObjectRegistry.getObjectID("ancientfossiloredeeprock"));
 
         });
         GameEvents.triggerEvent(new GeneratedCaveOresEvent(this, cg));
         GameObject rubyCrystalClusterSmall = ObjectRegistry.getObject("rubyclustersmall");
-        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.01F, 4, 4.0F, 7.0F, 4.0F, 8.0F, (lg) -> {
+        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.05F, 4, 4.0F, 7.0F, 4.0F, 8.0F, (lg) -> {
             CellAutomaton ca = lg.doCellularAutomaton(cg.random);
             ca.streamAliveOrdered().forEachOrdered((tile) -> {
                 cg.addIllegalCrateTile(tile.x, tile.y);
@@ -92,7 +92,7 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
             });
         });
         GameObject emeraldCrystalClusterSmall = ObjectRegistry.getObject("emeraldclustersmall");
-        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.01F, 4, 3.0F, 5.0F, 4.0F, 8.0F, (lgx) -> {
+        GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.05F, 4, 3.0F, 5.0F, 4.0F, 8.0F, (lgx) -> {
             CellAutomaton ca = lgx.doCellularAutomaton(cg.random);
             ca.streamAliveOrdered().forEachOrdered((tile) -> {
                 cg.addIllegalCrateTile(tile.x, tile.y);

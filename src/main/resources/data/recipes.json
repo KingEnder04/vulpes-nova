@@ -18,6 +18,17 @@
     "showAfter": "novashardvn"
   },
   {
+    "result": "minershavenmapvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "mapfragment", "amount": 24 },
+      { "item": "demonicbar", "amount": 4 },
+      { "item": "novashardvn", "amount": 8 }
+    ],
+    "showAfter": "piratemap"
+  },
+  {
     "result": "foxtokenvn",
     "quantity": 1,
     "tech": "ADVANCED_WORKSTATION",
