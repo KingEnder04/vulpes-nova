@@ -1,6 +1,7 @@
 package vulpesnova.VNContent.VNBuffs.VNTrinkets;
 
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.LocalMessage;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
@@ -13,6 +14,7 @@ import necesse.inventory.item.trinketItem.TrinketItem;
 public class TheBygoneCrestVNBuff extends TrinketBuff {
 
     public TheBygoneCrestVNBuff() {
+    	  this.displayName = new LocalMessage("buff", "bygonecrestvnbuff");
     }
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
@@ -22,6 +24,7 @@ public class TheBygoneCrestVNBuff extends TrinketBuff {
         buff.setModifier(BuffModifiers.MAX_HEALTH, -0.20f);
         buff.setModifier(BuffModifiers.MAX_MANA, -0.50f);
     }
+    
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
         tooltips.add(Localization.translate("itemtooltip", "thebygonecrestvntip1"));

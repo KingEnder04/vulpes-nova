@@ -79,6 +79,7 @@ import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
 import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
 import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
+import vulpesnova.VNContent.VNBuffs.WarAxeBleedingBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
 import vulpesnova.VNContent.VNMaterials.*;
 import vulpesnova.VNContent.VNMisc.*;
@@ -144,6 +145,7 @@ public class VulpesNova {
     public static Buff HOLY_PALADIN_VN_COOLDOWN;
     public static Buff ARCHBISHOP_COWL_VN_ACTIVE;
     public static Buff ARCHBISHOP_COWL_VN_COOLDOWN;
+    public static Buff JADE_WAR_AXE_BLEED_VN;
     public static GameTexture GEARSPHEREbody;
     public static GameTexture GEARSPHEREhead;
     public static GameTexture GEARSPHEREleg;
@@ -620,7 +622,7 @@ public class VulpesNova {
         HOLY_PALADIN_VN_COOLDOWN = registerBuff("holypaladinsealvncooldown", new ShownCooldownBuff());
         ARCHBISHOP_COWL_VN_COOLDOWN = registerBuff("archbishopcowlvncooldown", new ShownCooldownBuff());
 
-
+        JADE_WAR_AXE_BLEED_VN = registerBuff("jadeaxebleedingvn", new WarAxeBleedingBuff());
         // Register our levels
         LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
