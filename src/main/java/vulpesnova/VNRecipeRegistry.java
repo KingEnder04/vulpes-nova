@@ -78,8 +78,6 @@ public class VNRecipeRegistry {
     public static void registerRecipes(String dir) {
         List<RecipeData> recipes = loadRecipesFromJson(dir);
 
-        
-        // First, let's make sure the tech registry's core has been initialized.
         if (recipes == null) {
             System.err.println("Failed to load recipes.");
             return;
@@ -87,12 +85,11 @@ public class VNRecipeRegistry {
 
         for (RecipeData data : recipes) {
 
-        	// Convert the string into a tech, from the RecipeTechRegistry
+        	// Convert the string into a tech from the RecipeTechRegistry.
         	Tech tech;
         	try {
         	    tech = mapTech(data.tech);
-        	} catch (NoSuchElementException e) {
-        		
+        	} catch (NoSuchElementException e) {        		
         		// If it does not exist, let's give it a placeholder and complain about it.
         	    System.err.println("Invalid tech type: " + data.tech + ". Defaulting to NONE.");
         	    tech = RecipeTechRegistry.NONE; 
@@ -114,7 +111,7 @@ public class VNRecipeRegistry {
     private static List<RecipeData> loadRecipesFromJson(String filePath) {
         try {
         	
-            // Get the currently running mod
+            // Get the currently running mod.
             LoadedMod runningMod = LoadedMod.getRunningMod();
             JarFile modJar = runningMod.jarFile;  // Get the mod's JAR file
 
