@@ -70,16 +70,26 @@ import vulpesnova.VNContent.VNArmors.VNWindSet.WindHatVN;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenBoots;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenChestplate;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenHelmet;
+<<<<<<< HEAD
 import vulpesnova.VNContent.VNBiomes.FlatlandsBiomeVN;
 import vulpesnova.VNContent.VNBiomes.FlatlandsCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.FlatlandsDeepCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.FlatlandsSurfaceLevelVN;
+=======
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsDeepCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsSurfaceLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenBiomeVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenDeepCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
+>>>>>>> 9b5df76 (The mod)
 import vulpesnova.VNContent.VNBuffs.BleedingBuff;
 import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
 import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
 import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
-import vulpesnova.VNContent.VNBuffs.WarAxeBleedingBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
 import vulpesnova.VNContent.VNMaterials.*;
 import vulpesnova.VNContent.VNMisc.*;
@@ -145,12 +155,15 @@ public class VulpesNova {
     public static Buff HOLY_PALADIN_VN_COOLDOWN;
     public static Buff ARCHBISHOP_COWL_VN_ACTIVE;
     public static Buff ARCHBISHOP_COWL_VN_COOLDOWN;
-    public static Buff JADE_WAR_AXE_BLEED_VN;
     public static GameTexture GEARSPHEREbody;
     public static GameTexture GEARSPHEREhead;
     public static GameTexture GEARSPHEREleg;
 
     public static Biome FLATLANDS;
+<<<<<<< HEAD
+=======
+    public static Biome MINERSHAVEN;
+>>>>>>> 9b5df76 (The mod)
 
 
     public void preInit() {
@@ -295,6 +308,24 @@ public class VulpesNova {
                 new Color(255, 195, 50), "goldore", 1, 3, 2, false), 0.0F, false
         );
 
+<<<<<<< HEAD
+=======
+        registerObject("quartzrock", new RockOreObject(
+                (RockObject) getObject("rock"), "oremask", "quartzore",
+                new Color(227, 215, 189), "quartz", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("ivyorerock", new RockOreObject(
+                (RockObject) getObject("rock"), "oremask", "ivyore",
+                new Color(19, 89, 21), "ivyore", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("frostshardrock", new RockOreObject(
+                (RockObject) getObject("rock"), "oremask", "frostshardore",
+                new Color(150, 238, 217), "frostshard", 1, 3, 2, false), 0.0F, false
+        );
+
+>>>>>>> 9b5df76 (The mod)
         // Other Objects
         registerObject("gearcontactbeaconvn", new GEARContactBeaconVNObject(), 0, false);
         
@@ -306,7 +337,11 @@ public class VulpesNova {
       
         // Register our biomes
         FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
+<<<<<<< HEAD
 
+=======
+        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 1000, "minershavenvn");
+>>>>>>> 9b5df76 (The mod)
 
         // Register our tech
 
@@ -622,11 +657,17 @@ public class VulpesNova {
         HOLY_PALADIN_VN_COOLDOWN = registerBuff("holypaladinsealvncooldown", new ShownCooldownBuff());
         ARCHBISHOP_COWL_VN_COOLDOWN = registerBuff("archbishopcowlvncooldown", new ShownCooldownBuff());
 
-        JADE_WAR_AXE_BLEED_VN = registerBuff("jadeaxebleedingvn", new WarAxeBleedingBuff());
+
         // Register our levels
         LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
         LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
+<<<<<<< HEAD
+=======
+        LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
+        LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
+        LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
+>>>>>>> 9b5df76 (The mod)
 
         //Register Music
 
@@ -742,7 +783,11 @@ public class VulpesNova {
 
         Biome.defaultDeepCaveMobs
                 .add(40, "nightmaremobvn")
+<<<<<<< HEAD
                 .add(10, "deadmahmobvn");
+=======
+                .add(5, "deadmahmobvn");
+>>>>>>> 9b5df76 (The mod)
 
         //ForestBiome.defaultSurfaceMobs
                         //.add(5,"allseeingcubemobvn");

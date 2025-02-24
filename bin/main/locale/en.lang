@@ -32,6 +32,7 @@ lmgvn=LMG
 bigbrainonastickvn=Big Brain on a Stick
 verdantstaffvn=Verdant Staff
 doomedbowvn=Doomed Bow
+demonwarriorsealvn=Seal of the Warrior Demon
 grandphoenixgreatbowvn=Grand Phoenix Greatbow
 novaarrowvn=Nova Arrow
 codblastervn=Codblaster
@@ -123,14 +124,11 @@ portablegearcontactbeaconvn=Portable Gear Contact Beacon
 thebygonecrestvn=The Bygone Crest
 halovn=Halo
 cubaltshieldvn=Cubalt Shield
-
 protectorsealvn=Protector's Seal
 ruinedgolemsealvn=Seal of the Ruined Golem
 flowingenergysealvn=Seal of Flowing Energy
 speedstersealvn=Seal of the Speedster
 holypaladinsealvn=Seal of the Holy Paladin
-demonwarriorsealvn=Seal of the Warrior Demon
-
 archbishopcowlvn=Archbishop's Cowl
 titanbustergreatswordvn=Titan Buster Greatsword
 cubecallervn=Cube Caller
@@ -314,15 +312,5 @@ babytitancubemobvn=Baby(?) Titan Cube
 
 
 [buff]
-protectorsealvnbuff=Protector's Seal
-ruinedgolemsealvnbuff=Seal of the Ruined Golem
-flowingenergysealvnbuff=Seal of Flowing Energy
-speedstersealvnbuff=Seal of the Speedster
-holypaladinsealvnbuff=Seal of the Holy Paladin
-demonwarriorsealvnbuff=Seal of the Warrior Demon
-archbishopcowlvnbuff=Archbishop's Cowl
-bygonecrestvnbuff=The Bygone Crest
 cosmicfire=Cosmic Fire
 monsterpheromonesvnbuff=Monster Pheromones
-waraxebleed=Bleeding
-diminished=Weakened
