@@ -83,6 +83,7 @@ import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
 
 import vulpesnova.VNContent.VNBuffs.BleedingBuff;
 import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
+import vulpesnova.VNContent.VNBuffs.CrimsonTempestChargeStackBuff;
 import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
 import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
@@ -122,7 +123,10 @@ public class VulpesNova {
 
     public static GameMusic HUBMUSICVN;
     public static GameSound COD_FLOPPIN ;
-    
+    public static GameSound ELECTRIC_EXPLOSION;
+    public static GameSound ELECTRIC_SHOOT;
+    public static GameSound ELECTRIC_CHARGE;
+    public static GameSound ELECTRIC_CHARGE_COMPLETE;
     public static final int CUBALT_VN_TOOL_DPS = 150;
 
     public static int cubeSandVNID;
@@ -152,6 +156,9 @@ public class VulpesNova {
     public static Buff HOLY_PALADIN_VN_COOLDOWN;
     public static Buff ARCHBISHOP_COWL_VN_ACTIVE;
     public static Buff ARCHBISHOP_COWL_VN_COOLDOWN;
+    
+    public static Buff CRIMSON_TEMPEST_CHARGE_STACKS_BUFF;
+    
     public static GameTexture GEARSPHEREbody;
     public static GameTexture GEARSPHEREhead;
     public static GameTexture GEARSPHEREleg;
@@ -651,6 +658,7 @@ public class VulpesNova {
         ARCHBISHOP_COWL_VN_COOLDOWN = registerBuff("archbishopcowlvncooldown", new ShownCooldownBuff());
 
 
+        CRIMSON_TEMPEST_CHARGE_STACKS_BUFF = registerBuff("crimsontempestvncharge", new CrimsonTempestChargeStackBuff());
         // Register our levels
         LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
@@ -734,6 +742,11 @@ public class VulpesNova {
 
 
         CubaltShieldVNToolItem.holdTexture = GameTexture.fromFile("player/holditems/cubaltshieldvn");
+        
+        ELECTRIC_EXPLOSION = GameSound.fromFile("soundeffects/electric_explosion_med_cut_f.ogg");
+        ELECTRIC_SHOOT = GameSound.fromFile("soundeffects/zap_short.ogg");
+        ELECTRIC_CHARGE = GameSound.fromFile("soundeffects/electric_charge.ogg");
+        ELECTRIC_CHARGE_COMPLETE = GameSound.fromFile("soundeffects/voltage.ogg");
         
         COD_FLOPPIN = GameSound.fromFile("soundeffects/fishflop2.ogg");
         //electronicactivatevn = GameSound.fromFile("sound/soundeffects/electronicactivatevn");

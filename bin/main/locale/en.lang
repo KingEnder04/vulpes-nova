@@ -234,6 +234,9 @@ acrumplednotevntip3=.... probably
 acrumplednotevntip4=*random scribbling*
 acrumplednotevntip5= Signed - KingEnder04
 
+crimsontempestvninfotip1=Right-click to charge
+crimsontempestvninfotip2=Fires multiple projectiles based on charge time, with a steeper bounce angle. Consumes more mana.
+
 crimsontempestvntip=Thunder rolls, a primal drumbeat in the sky,
 crimsontempestvntip2=Echoes of power, nature's fierce reply.
 crimsontempestvntip3=Clouds clash, lightning's bright lance does fly,
@@ -314,3 +317,14 @@ babytitancubemobvn=Baby(?) Titan Cube
 [buff]
 cosmicfire=Cosmic Fire
 monsterpheromonesvnbuff=Monster Pheromones
+protectorsealvnbuff=Protector's Seal
+ruinedgolemsealvnbuff=Seal of the Ruined Golem
+flowingenergysealvnbuff=Seal of Flowing Energy
+speedstersealvnbuff=Seal of the Speedster
+holypaladinsealvnbuff=Seal of the Holy Paladin
+demonwarriorsealvnbuff=Seal of the Warrior Demon
+archbishopcowlvnbuff=Archbishop's Cowl
+bygonecrestvnbuff=The Bygone Crest
+waraxebleed=Bleeding
+diminished=Weakened
+
