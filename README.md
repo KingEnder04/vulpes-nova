@@ -1,7 +1,42 @@
-# Vulpes Nova
+# Vulpes Nova 2.02.5
+## Target Necesse Version: 0.30.0
 
-It's the ~~old~~ NEW code for ~~my~~ @KingEnder04 mod Vulpes Nova, for Necesse. Look forwards to it!
+This repository contains the development resources and code for Vulpes Nova, a mod authored by @KingEnder04 for Necesse.
+Credits: 	
+- @KingEnder04	- Original project creator :fox:
+- @Meffestoffel 	- RU locale
+- @FerrenF 		- Compatibility fixes/Version Update
 
+
+Test edit
+
+### 02-20-25 **Mod Update: Version 2.02.5**  
+
+#### **Fixes**  
+  - Crash on settler use of the item ```Thundering Rod```
+  - Crash on settler or player use of the item ```Crimson Tempest```
+
+### 02-09-25 **Mod Update: Version 2.02.4**  
+
+#### **Fixes**  
+  - Missing recipes: novashardvn, novaclustervn, foxtokenvn, healthgemvn, regengemvn, resiliencegemvn, resilienceregengemvn, managemvn, manaregengemvn, bloodgemvn, damagegemvn
+
+### 02-09-25 **Mod Update: Version 2.02.3**  
+
+#### **Fixes**  
+  - Code type safety cleanliness changes.
+  
+#### **Changes**  
+- **RU localization is now supported. Provided by @Meffestoffel on discord. Thank you!**  
+
+
+### **Mod Update: Version 2.02.2**  
+
+Minor locale updates!
+
+#### **Fixes**  
+  - Fixed old version names in EN and IT locale files.
+  - Fixed some missing buff information.
 
 
 ### **Mod Update: Version 2.02.1**  

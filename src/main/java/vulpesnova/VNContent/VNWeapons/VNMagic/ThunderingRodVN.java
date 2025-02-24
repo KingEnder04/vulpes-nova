@@ -61,31 +61,30 @@ public class ThunderingRodVN extends MagicProjectileToolItem {
     }
 
     public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
-        GameRandom random = new GameRandom((long)seed);
-        Projectile projectile = ProjectileRegistry.getProjectile("thunderboltproj", level, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
-        projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
-        projectile.resetUniqueID(random);
-        level.entityManager.projectiles.addHidden(projectile);
-        projectile.moveDist(40.0);
-        if (level.isServer()) {
-            level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, player.getServerClient());
-        }
-
-        this.consumeMana(player, item);
-        return item;
+        return handleAttack(level, x, y, player, item, seed, player);
     }
 
     public InventoryItem onSettlerAttack(Level level, HumanMob mob, Mob target, int attackHeight, int seed, InventoryItem item) {
         int velocity = this.getVelocity(item, mob);
         Point2D.Float targetPos = Projectile.getPredictedTargetPos(target, mob.x, mob.y, (float)velocity, -50.0F);
         mob.attackItem((int)targetPos.x, (int)targetPos.y, item);
-        GameRandom random = new GameRandom((long)seed);
-        Projectile projectile = ProjectileRegistry.getProjectile("thunderboltvn", level, mob.x, mob.y, targetPos.x, targetPos.y, (float)velocity, this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
+        return handleAttack(level, (int) targetPos.x, (int) targetPos.y, mob, item, seed, mob);
+    }
+
+    private InventoryItem handleAttack(Level level, int x, int y, Mob attacker, InventoryItem item, int seed, Mob mob) {
+        GameRandom random = new GameRandom((long) seed);
+        Projectile projectile = ProjectileRegistry.getProjectile("thunderboltproj", level, attacker.x, attacker.y, (float) x, (float) y, (float) this.getVelocity(item, mob), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
+        projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
         projectile.resetUniqueID(random);
         level.entityManager.projectiles.addHidden(projectile);
         projectile.moveDist(40.0);
-        if (level.isServerLevel()) {
-            level.getServer().network.sendToClientsAt(new PacketSpawnProjectile(projectile), level);
+        if (level.isServer() || level.isServerLevel()) {
+            level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, mob.getFollowingServerClient());
+        }
+
+        // Only consume mana if the attacker is a player
+        if (attacker instanceof PlayerMob) {
+            this.consumeMana((PlayerMob) attacker, item);
         }
 
         return item;

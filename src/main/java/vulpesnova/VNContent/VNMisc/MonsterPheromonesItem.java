@@ -21,6 +21,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.placeableItem.consumableItem.ConsumableItem;
 import necesse.level.maps.Level;
+import vulpesnova.VulpesNova;
 public class MonsterPheromonesItem extends ConsumableItem {
     public MonsterPheromonesItem() {
         super(1, false);
@@ -52,7 +53,7 @@ public class MonsterPheromonesItem extends ConsumableItem {
         }
 
         if (level.isServer()) {
-            player.buffManager.addBuff(new ActiveBuff("monsterpheromonesvn", player, 300.0F, (Attacker)null), true);
+            player.buffManager.addBuff(new ActiveBuff(VulpesNova.MONSTER_PHEROMONE_BUFF_VN, player, 300.0F, (Attacker)null), true);
         } else if (level.isClient()) {
             SoundManager.playSound(GameResources.shake, SoundEffect.effect(player));
         }
@@ -71,7 +72,7 @@ public class MonsterPheromonesItem extends ConsumableItem {
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "monsterpheromonestip"));
+        tooltips.add(Localization.translate("itemtooltip", "monsterpheromonesvntip"));
         tooltips.add(Localization.translate("itemtooltip", "infiniteuse"));
         return tooltips;
     }

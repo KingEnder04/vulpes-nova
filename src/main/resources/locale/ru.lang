@@ -1,0 +1,316 @@
+[tile]
+cubedeepstonetiledfloorvn=Дорожка из глубинного Кубня
+cubestonetiledfloorvn=Дорожка из Кубня
+cubewoodfloorvn=Пол из Кубической древесины
+
+[object]
+tableofawakeningvn=Стол Пробуждения
+cubedeepstonevnwall=Стена из глубинного Кубня
+cubedeepstonevndoor=Дверь из глубинного кубня
+cubedeepstonecolumnvn=Колонна из глубинного Кубня
+cubestonevnwall=Стена из Кубня
+cubestonevndoor=Дверь из Кубня
+cubestonecolumnvn=Уолонна из Кубня
+cubewoodvnwall=Стена из Кубической древесины
+cubewoodvndoor=Дверь из Кубической древесины
+cubewoodcolumnvn=Колонна из Кубической древесины
+
+[item]
+acrumplednotevn=Скомканная Записка
+novafragmentvn=Фрагмент Новы
+novashardvn=Осколок Новы
+novaclustervn=Кластер Новы
+foxtokenvn=Жетон Лисы
+novakatanavn=Катана Новы
+celestialembervn=Небесный Янтарь
+nightbladevn=Клинок Ночи
+saplingswordvn=Меч Саженца
+holytomevn=Священный Том
+unholytomevn=Нечестивый Том
+novabulletvn=Пуля Новы
+lmgvn=ЛМД
+bigbrainonastickvn=Большой Мозг на Палке
+verdantstaffvn=Посох Зелени
+doomedbowvn=Обреченный Лук
+demonwarriorsealvn=Печать Демона Воителя
+grandphoenixgreatbowvn=Великий Длинный Лук Феникса
+novaarrowvn=Стрела Новы
+codblastervn=Кодбластер
+glassshardswordvn=Меч Осколка Стекла
+repeatingcrossbowvn=Возвратный Арбалет
+ironsoulglaivevn=Глефа Стальной Души
+goldarrowvn=Золотая Стрела
+queenspiderstaffvn=Посох Королевы Пауков
+necromancersrequiemvn=Реквием Некроманта
+slimystickvn=Посох Слизи
+acornlobbervn=Желудевый Лоббер
+woodenbulletvn=Деревянная Пуля
+woodenhelmetvn=Деревянный Шлем
+woodenchestplatevn=Деревянный Нагрудник
+woodenbootsvn=Деревянные Ботинки
+ancientjunglehelmetvn=Древний Шлем Джунглей
+ancientjunglechestplatevn=Древний Нагрудник Джунглей
+ancientjunglebootsvn=Древние Ботинки Джунглей
+windhatvn=Шляпа Ветра
+windchestplatevn=Нагрудник ветра
+windbootsvn=Ботинки Ветра
+stonehelmetvn=Каменный Шлем
+stonechestplatevn=Каменный Нагрудник
+stonebootsvn=Каменные Ботинки
+meathatvn=Мясная Шляпа
+meatrobevn=Мясная Роба
+meatbootsvn=Мясные Ботинки
+chilledbloodplatehatvn=Шляпа с Пластинами холодной крови
+chilledbloodplatehoodvn=Капюшон с Пластинами холодной крови
+chilledbloodplatehelmetvn=Шлем с Пластинами холодной крови
+chilledbloodplatechestplatevn=Нагрудник с Пластинами холодной крови
+chilledbloodplatebootsvn=Ботинки с Пластинами холодной крови
+cloudsvn=Облака
+galevn=Гейл
+hurricanevn=Ураган
+windbulletvn=Круг Ветра
+windarrowvn=Стрела Ветра
+awakeninatorvn=Пробуждатор
+tableofawakeningvn=Стол Пробуждения
+theblowingwindvn=Дуновение Ветра
+thecollectorsmagnetvn=Магнит Собирателя
+novaheartvn=Сердце Новы
+sentientcrownvn=Разумная Корона (T)
+nightmareheadvn=Голова Кошмара
+heavierhammervn=Утяжеленный Молот
+heaviesthammervn=Наитяжелейший Молот
+themountainvn=Гора
+thejadewaraxevn=Нефритовый Топор
+thunderingrodvn=Посох Грома
+eyeofthestormvn=Глаз Бури
+crimsontempestvn=Багровая Буря
+monsterpheromonesvn=Феромоны Монстра
+foxtailtrinketvn=Хвост Лисы
+arachnoremotevn=Арахно-пульт
+novicetomevn=Том Новичка
+intermediatetomevn=Промежуточный Том
+experttomevn=Том Эксперта
+mastertomevn=Том Мастера
+magicfordummiesvn=Магия для чайников
+stormboltervn=Болтер Шторма
+stormbringervn=Приносящий Шторм
+arainydayvn=Дождливый День
+gemdustvn=Самоцветная пыль
+dustygemsackvn=Пыльный мешок драгоценных камней
+healthgemvn=Самоцвет Здоровья
+regengemvn=Самоцвет Регенерации
+resiliencegemvn=Самоцвет Устойчивости
+resilienceregengemvn=Самоцвет Регенерации Устойчивости
+managemvn=Самоцвет Маны
+manaregengemvn=Самоцвет Регенерации Маны
+bloodgemvn=Самоцвет Крови
+damagegemvn=Самоцвет Урона
+critgemvn=Самоцвет Крита
+speedgemvn=Самоцвет Скорости
+dashgemvn=Самоцвет Рывка
+summongemvn=Самоцвет Призыва
+armorgemvn=Самоцвет Брони
+hookgemvn=Самоцвет Крюка
+yourgemcollectionvn=Твоя Коллекция Самоцветов
+trueexplorersatchelvn=Рюкзак Настоящего Исследователя
+clovertokenvn=Жетон Клевера
+treemedallionvn=Медальон Дерева
+windmedallionvn=Медальон Ветра
+meatmedallionvn=Медальон Мяса
+stonemedallionvn=Медальон Камня
+medallionboardvn=Доска для Медальонов
+cavedemolishervn=Крушитель Пещер
+portablegearcontactbeaconvn=Портативный Контактный Маяк
+thebygonecrestvn=Давно Забытый Гребень
+halovn=Нимб
+cubaltshieldvn=Щит Кубальта
+protectorsealvn=Печать Защитника
+ruinedgolemsealvn=Печать Разрушенного Голема
+flowingenergysealvn=Печать Текучей Энергии
+speedstersealvn=Печать Скорохода
+holypaladinsealvn=Печать Святого Паладина
+archbishopcowlvn=Плащ Архиепископа
+titanbustergreatswordvn=Большой Меч Титана
+cubecallervn=Звон Куба
+eyebeamvn=Глазной Луч
+spherecererhatvn=Шляпа Сферического колдуна
+bastionboxvn=Коробка Бастиона
+gearresiliencematrixvn=Матрица устойчивости GEAR
+blockberryvn=Кубеника
+blockberrysaplingvn=Саженец куста Кубеники
+shapeshardsvn=Осколки Формы
+cubaltoreitemvn=Руда Кубольта
+cubaltbarvn=Слиток Кубальта
+cubelogvn=Бревно Кубической древесины
+cubestonevn=Кубень
+cubedeepstonevn=Глубинный кубень
+cubalthelmetvn=Кубольтовый Шлем
+cubaltchestplatevn=Кубольтовый Нагрудник
+cubaltbootsvn=Кубольтовые Ботинки
+cubaltpickaxevn=Кубольтовая Кирка
+cubaltaxevn=Кубольтовый Топор
+cubaltshovelvn=Кубольтовая Лопата
+
+luckychickenmaskvn=Маска Удачной Курочки (T)
+luckychickencostumeshirtvn=Рубашка Костюма Удачной Курочки (T)
+luckychickencostumebootsvn=Ботинки Костюма Удачной Курочки (T)
+
+[itemtooltip]
+celestialembervntip=Запускает Янтарь в противников.
+novakatanavntip=Лезвие Катаны зачарованное чистой Новой.
+novafragmentvntip=Искра небесных сил.
+novashardvntip=Гораздо более сильное пламя, теперь у нас что-то получается.
+novaclustervntip=Небесное великолепие. Разве может быть что-то лучше этого?
+nightbladevntip=Этот Меч так же Темен, как и Ночь, в которой он был выкован.
+saplingswordvntip=Саженец в горшке, который теперь используется как страшное оружие ближнего боя.
+holytomevntip=Когда-то его раздавал старый вампир. Теперь он создан на вашей рабочей станции!
+unholytomevntip=Оказалось, что использование демонической энергии создает более сильный, но менее устойчивый выстрел!
+novabulletvntip=Нападайте на врагов, нанося им огромный урон.
+woodbulletvntip=Дешевый и низкий урон, накладывает слабый эффект яда.
+lmgvntip=Снаряжение военного класса. Есть 20% шанс не потратить боеприпасы.
+bigbrainstickvntip=Большая мозговитость означает больше существ! Теперь можно призвать сразу 2 зомби!
+queenspiderstaffvntip=Опасное трио. Есть даже паук на коконе!
+verdantstaffvntip=Вы стреляете, выростает цветок, и если он кого то ударит он зацветет. Как прелестно.
+doomedbowvntip=Этот лук не предназначен для смертных, хотя кого это волнует?
+novaarrowvntip=Стрелы с наконечниками из Новы. Накладывает на врагов слабый похожий на Яд эффект.
+goldarrowvntip=Лучше, чем их железный аналог.
+codblastervntip=Легендарная рыба, которая стреляет пулями и бросается оскорблениями. (Пожертвование)
+glassshardswordvntip=Стекло, из которого сделан этот меч, неописуемо прочное.
+repeatingcrossbowvntip=Арболет с автоперезарядкой.
+ironsoulglaivevntip=Выкован из душ в самом холодном пламени. Применяет Космический огонь при попадании в течение 2 секунд
+necromancersrequiemvntip=Используется только лучшими из лучших Неживых Творцов.
+acornlobbervntip1=Стреляет быстрыми и неточными желудями, чтобы подавить врагов.
+acornlobbervntip2=Есть 50% шанс не потратить пули
+cloudsvntip=Мокренько.
+galevntip=Это мощный револьвер, приносящий сильный ветер и свинец
+hurricanevntip=Скорострельная духовая винтовка. С вероятностью 20% не расходует патроны.
+windroundvntip=Самонаводящийся Болтер ветра. Не спрашивайте, как он работает, он просто работает.
+windarrowvntip=Самонаводящаяся стрела, сделанная из ветра.
+awakeninatorvntip=Используется для «пробуждения» предмета. Позволяет использовать его в полную силу.
+theblowingwindvntip=Быстрая, бесшумная, точная, шепчущая сила природы.
+collectorsmagnetvntip=Подбирает все (выпавшие) предметы в пределах карты, на которой вы находитесь.
+nightmareheadvntip=Вот ЭТО акссесуар для передвижения (на 75% больше скорости передвижения).
+heavierhammervntip=А ты думал, что другой был тяжелым.
+heaviesthammervntip=Молот намного прочнее, тяжелее и красивее.
+themountainvntip=Колоссальный молот, прокладывающий путь с сокрушительной силой.
+thejadewaraxevntip=Изысканный нефритовый топор, предположительно использовавшийся древними племенами.
+thunderingrodvntip=Стреляет быстрой молнией.
+eyeofthestormvntip=Скопление молний.
+monsterpheromonesvntip=Это привлекает монстров... ну это не точно
+arachnoremotevntip=Только самые лучшие роботы-пауки на рынке.
+novicetomevntip=Магический фолиант, предназначенный для новичков в этом ремесле.
+intermediatetomevntip=Магический фолиант, связующее звено между новичком и мастером.
+experttomevntip=Магический фолиант, определенно показывающий больше
+mastertomevntip=Магический фолиант для тех, кто может понять все.
+magicfordummiesvntip=Теперь ты наконец-то сможешь все понять.
+stormboltervntip=Электрифицированный револьвер.
+stormbringervntip=Электрифицированная штурмовая винтовка. С вероятностью 30% не расходует патроны.
+cavedemolishervntip=Отлично подходит для того, чтобы собрать все необходимые руды!
+novaheartvntip=Навсегда увеличивает максимальное Здоровье на 20 до 400
+gearresiliencematrixvntip=Навсегда увеличивает максимальную Устойчивасть на 25 до 50
+bastionboxvntip=Навсегда увеличивает максимальную Устойчивасть на 5 до 25
+spherecererhatvntip=Слишком плохо, это нельзя надеть.
+eyebeamvntip=Причудливое маленькое существо.
+cubecallervntip=Призывает вам на помощь маленькие Кубики.
+shapeshardsvntip=Разбитые Формы для разбитых помыслов.
+cubaltshieldvntip=Дает пользователю неуязвимость на короткое время
+
+grandphoenixgreatbowvntip=Выпускает огромного Феникса.
+
+gemdustvntip=Соберите достаточно, и вы сможете превратить его в нужный вам драгоценный камень!
+dustygemsackvntip=Маленький мешочек, покрытый пылью, со звенящими звуками внутри.
+bloodgemvntip=Наносит Кровь, которую можно складывать до 10 раз. Каждая Кровь наносит 18 ед. урона в течение 6 сек.
+yourgemcollectionvntip=Все драгоценные камни, которые вы собрали! Интересно, есть ли еще...
+
+meatsetvntip=Имеет тот же эффект, что и Паучья броня
+ancientjunglesetvntip=Это пока здесь быть не должно.
+
+foxtokenvntip=Реликвия, с которой вы прибыли сюда. Вы не знаете, как она сюда попала.
+foxtokenvntip2=(Клянусь, в конце концов, это пригодится.)
+
+acrumplednotevntip1=подписывайтесь на мой канал на ютубе.... Я буду выпускать видео об этом и моих будущих модах в ближайшее время
+acrumplednotevntip2=*беспорядочная писанина*
+acrumplednotevntip3=.... скорей всего
+acrumplednotevntip4=*беспорядочная писанина*
+acrumplednotevntip5= Подпись - KingEnder04
+
+crimsontempestvntip=Раскаты грома - первобытный барабанный бой в небе,
+crimsontempestvntip2=Эхо силы, яростный ответ природы.
+crimsontempestvntip3=Столкновение облаков, яркие копья молний,
+crimsontempestvntip4=Мы с трепетом ожидаем приближения бури,
+crimsontempestvntip5=Симфония природы, боевой клич грома.
+
+arainydayvntip=Капли дождя танцуют на оконном стекле,
+arainydayvntip2=Слезы природы, нежный, успокаивающий припев.
+arainydayvntip3=Туманная пелена окутывает мир серым светом,
+arainydayvntip4=Шепот петрихора, симфония в исполнении.
+arainydayvntip5=В этот дождливый день мир находит свой путь.
+
+halovntip=Хотя его обронило не небесное существо. Он все еще связан с этим царством.
+halovntip2=Максимальное Здоровье +50, Максимальная Мана +50, Регенерация Здоровья +0.25, Регенерация Маны +0.50.
+
+thebygonecrestvntip1=Корона, которую носил давно исчезнувший король из давно исчезнувшего королевства.
+thebygonecrestvntip2=Скорость атаки +15%, весь урон +15%, шанс критического удара +10%, -20% здоровья, -50% маны.
+
+portablegearcontactbeaconvntip1=Используется для связи со штаб-квартирой GEAR
+portablegearcontactbeaconvntip2=Должен использоваться на Плоскогорье
+
+titanbustergreatswordvnchargetip1=На половине заряда призывает Титанический кубик
+titanbustergreatswordvnchargetip2=На полном заряде призывает еще один Титанический кубик
+titanbustergreatswordvnchargetip3=Титанические кубики долго не живут.
+
+demonwarriorsealvntip1=Проклятая реликвия, наделяющая своего владельца демонической силой и яростью.
+demonwarriorsealvntip2=При использовании дает 50% Скорости атаки и Урон 30%, пассивно дает 2 Защиты и 5% Шанса Критического Удара.
+
+holypaladinsealvntip1=Божественный артефакт, излучающий святость, дарующий защиту и праведную силу.
+holypaladinsealvntip2=При использовании дает 100 Здоровья и 2 к Регенерации Здоровья, пассивно дает 3 Защиты и 1 к Регенерации Здоровья.
+
+flowingenergysealvntip1=Мистический артефакт, направляющий безграничную энергию, усиливающий магию и силу.
+flowingenergysealvntip2=При использовании дает 200% Регенерации Маны, 100% к Скорости Магических Атак, 1 к Регенерации Здоровья, пассивно дает 2 Защиты и -25% к Магическому Урону.
+
+speedstersealvntip1=Магическая печать, наделяющая ее обладателя несравненной быстротой и ловкостью.
+speedstersealvntip2=При использовании дает 100% к Скорости Передвижения, пассивно дает 2 Защиты и Хождение по воде.
+
+ruinedgolemsealvntip1=Древняя печать, наделяющая своего пользователя стойкостью голема.
+ruinedgolemsealvntip2=При использовании дает +50 к Максимальному Здоровью и 10 Защиты, пассивно дает 4 Защиты, -10% к Скорости, 10 к Устойчивости.
+
+protectorsealvntip=При использовании дает 10% к Урону, 10% Шанса Критического Удара, 10% Критического Урона, пассивно дает 2 Защиты и 20 Здоровья.
+
+archbishopcowlvntip1=Она немного помята, не так ли?
+archbishopcowlvntip2=При использовании дает 50% к Любым типам Урона, 20% Шанса Критического Урона, 3 Чистого Восстановления Здоровья, 50 к Максимальному Здоровью, -25 к Защите.
+archbishopcowlvntip3=Пассивно дает 10% к Урону и 10% Шанса Критического Удара.
+
+
+cubaltsetvntip=Поджигает цель космическим огнем на 2 секунды
+
+[mob]
+nightmaremobvn=Кошмар
+snowynightmaremobvn=Снежный Кошмар
+luckychickenmobvn=Удачная Курочка
+foxmobvn=Лиса
+gustmobvn=Прызрак
+petsentientcrownvn=Разумная Корона
+gemstonecavelingvn=Самоцветный Пещерник
+deepgemstonecavelingvn=Глубинный Самоцветный Пещерник
+cubaltcavelingvn=Кубольтный Пещерник
+gearspherebossmobvn=Сфера GEAR
+gearcubemobvn=Защитный Куб GEAR
+planewalkermobvn=Равнинник
+cubemobvn=Куб
+nightmarecubemobvn=Кошмарный Куб
+icecubemobvn=Ледяной Куб
+titancubemobvn=Титанический Куб
+pyramidmobvn=Пирамида
+spheresorcerermobvn=Сферомаг
+spheresentinelmobvn=Сфера маг
+deadmahmobvn=Проклятая могила
+
+summons here
+
+babycubemobvn=Малый(?) Куб
+babytitancubemobvn=Малый(?) Титанический куб
+
+
+[buff]
+cosmicfire=Космический Огонь
+monsterpheromonesvnbuff=Феромоны Монстра

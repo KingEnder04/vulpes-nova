@@ -71,10 +71,21 @@ import vulpesnova.VNContent.VNArmors.VNWindSet.WindHatVN;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenBoots;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenChestplate;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenHelmet;
+<<<<<<< HEAD
 import vulpesnova.VNContent.VNBiomes.FlatlandsBiomeVN;
 import vulpesnova.VNContent.VNBiomes.FlatlandsCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.FlatlandsDeepCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.FlatlandsSurfaceLevelVN;
+=======
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsDeepCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsSurfaceLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenBiomeVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenDeepCaveLevelVN;
+import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
+>>>>>>> 9b5df76 (The mod)
 import vulpesnova.VNContent.VNBuffs.BleedingBuff;
 import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
 import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
@@ -151,6 +162,10 @@ public class VulpesNova {
     public static GameTexture GEARSPHEREleg;
 
     public static Biome FLATLANDS;
+<<<<<<< HEAD
+=======
+    public static Biome MINERSHAVEN;
+>>>>>>> 9b5df76 (The mod)
 
 
     public void preInit() {
@@ -295,6 +310,24 @@ public class VulpesNova {
                 new Color(255, 195, 50), "goldore", 1, 3, 2, false), 0.0F, false
         );
 
+<<<<<<< HEAD
+=======
+        registerObject("quartzrock", new RockOreObject(
+                (RockObject) getObject("rock"), "oremask", "quartzore",
+                new Color(227, 215, 189), "quartz", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("ivyorerock", new RockOreObject(
+                (RockObject) getObject("rock"), "oremask", "ivyore",
+                new Color(19, 89, 21), "ivyore", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("frostshardrock", new RockOreObject(
+                (RockObject) getObject("rock"), "oremask", "frostshardore",
+                new Color(150, 238, 217), "frostshard", 1, 3, 2, false), 0.0F, false
+        );
+
+>>>>>>> 9b5df76 (The mod)
         // Other Objects
         registerObject("gearcontactbeaconvn", new GEARContactBeaconVNObject(), 0, false);
         
@@ -306,7 +339,11 @@ public class VulpesNova {
       
         // Register our biomes
         FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
+<<<<<<< HEAD
 
+=======
+        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 1000, "minershavenvn");
+>>>>>>> 9b5df76 (The mod)
 
         // Register our tech
 
@@ -363,7 +400,7 @@ public class VulpesNova {
         registerItem("trueexplorersatchelvn", new CombinedTrinketItem(Item.Rarity.UNIQUE, 1500, new String[]{"explorersatchel", "explorercloak", "spikedbatboots", "ancientrelics", "nightmareheadvn"}), 200.0F, true);
         registerItem("foxtailtrinketvn", new SimpleTrinketItem(Item.Rarity.NORMAL, "foxtailvnbuff", 100), 400.0F, true);
         registerItem("yourgemcollectionvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "yourgemcollectionvnbuff", 1000), 5000.0F, true);
-        registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenbuff", 200), 500.0F, true);
+        registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenvnbuff", 200), 500.0F, true);
         registerItem("windmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "windmedallionvnbuff", 100), 200.0F, true);
         registerItem("treemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "treemedallionvnbuff", 100), 200.0F, true);
         registerItem("meatmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "meatmedallionvnbuff", 100), 200.0F, true);
@@ -417,7 +454,7 @@ public class VulpesNova {
         registerItem("cubelogvn", (new MatItem(250, Item.Rarity.UNCOMMON, new String[]{"anylog"})).setItemCategory(new String[]{"materials", "logs"}), 2.0F, true);
         registerItem("cubestonevn", new StonePlaceableItem(500), 0.1F, true);
         registerItem("cubedeepstonevn", new StonePlaceableItem(500), 0.1F, true);
-        registerItem("blockberryvn", (new FoodConsumableItem(100, Item.Rarity.UNCOMMON, Settler.FOOD_SIMPLE, 15, 300, new ModifierValue[]{new ModifierValue(BuffModifiers.ARMOR_FLAT, 5)})).spoilDuration(960).addGlobalIngredient(new String[]{"anycompostable", "anyfruit"}).setItemCategory(new String[]{"consumable", "rawfood"}), 4.0F, true);
+        registerItem("blockberryvn", (new FoodConsumableItem(100, Item.Rarity.UNCOMMON, Settler.FOOD_SIMPLE, 15, 300, new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.ARMOR_FLAT, 5)})).spoilDuration(960).addGlobalIngredient(new String[]{"anycompostable", "anyfruit"}).setItemCategory(new String[]{"consumable", "rawfood"}), 4.0F, true);
         registerItem("nightbladevn", new NightbladeSwordVN(), 300, true);
         registerItem("celestialembervn", new CelestEmberStaff(), 800, true);
         registerItem("saplingswordvn", new SaplingSword(), 60, true);
@@ -477,18 +514,6 @@ public class VulpesNova {
         registerItem("grandphoenixgreatbowvn", new GrandPhoenixGreatbowVN(), 1000.0F, true);
 
 
-
-        registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
-        registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
-        registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
-        registerItem("importednightmarevn", new ImportedAnimalSpawnItem(12, true, "nightmaremobvn"), 200.0F, true);
-        registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
-        registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
-        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, true, "giantcavespider"), 200.0F, true);
-        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, true, "gustmobvn"), 200.0F, true);
-
-
-
         // Register our mob
         registerMob("nightmaremobvn", NightmareMobVN.class, true);
         registerMob("snowynightmaremobvn", SnowyNightmareMobVN.class, true);
@@ -513,10 +538,19 @@ public class VulpesNova {
         registerMob("spheresorcerermobvn", SphereSorcererMobVN.class, true);
         registerMob("spheresentinelmobvn", SphereSentinelMobVN.class, true);
         registerMob("deadmahmobvn", DeadmahMobVN.class,true);
+        
+        registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
+        registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
+        registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
+        registerItem("importednightmarevn", new ImportedAnimalSpawnItem(12, true, "nightmaremobvn"), 200.0F, true);
+        registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
+        registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
+        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, true, "giantcavespider"), 200.0F, true);
+        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, true, "gustmobvn"), 200.0F, true);
 
         // Register our projectiles
         registerProjectile("celestialember", CelestEmberProjectile.class, "celestialemberprojvn", "celestialemberprojvn_shadow");
-        registerProjectile("nightblade", NightbladeVNProjectile.class, "nightbladevnprojvn", "nightbladeprojvn_shadow");
+        registerProjectile("nightblade", NightbladeVNProjectile.class, "nightbladeprojvn", "nightbladeprojvn_shadow");
         registerProjectile("leafproj", SaplingSwordProjectile.class, "leafprojvn", "leafprojvn");
         registerProjectile("holyproj", HolyTomeProjectile.class, "holyprojvn", "holyprojvn_shadow");
         registerProjectile("unholyproj", UnholyTomeProjectile.class, "unholyprojvn", "unholyprojvn_shadow");
@@ -560,12 +594,12 @@ public class VulpesNova {
         // Register buffs
 
         // Armors
-        registerBuff("woodensetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAGIC_DAMAGE, 0.15f), new ModifierValue(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05f), new ModifierValue(BuffModifiers.MAX_MANA_FLAT, 30),}));
-        registerBuff("ancientjunglesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_REGEN, 0.05F), new ModifierValue(BuffModifiers.SPEED, 0.05F), new ModifierValue(BuffModifiers.SWIM_SPEED, 0.10F), new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.05F)}));
-        registerBuff("windsetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ATTACK_SPEED, 0.25F), new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.05F), new ModifierValue(BuffModifiers.SPEED, 0.10F)}));
+        registerBuff("woodensetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.15f), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05f), new ModifierValue<Integer>(BuffModifiers.MAX_MANA_FLAT, 30),}));
+        registerBuff("ancientjunglesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_REGEN, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.05F), new ModifierValue<Float>(BuffModifiers.SWIM_SPEED, 0.10F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F)}));
+        registerBuff("windsetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.25F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.10F)}));
         registerBuff("meatsetvnbonusbuff", new MeatSetBonusBuff());
         registerBuff("cubaltsetvnbonusbuff", new CubaltSetVNBonusBuff());
-        registerBuff("stonesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ATTACK_SPEED, 0.10f), new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 10), new ModifierValue(BuffModifiers.ARMOR_FLAT, 3)}));
+        registerBuff("stonesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.10f), new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 10), new ModifierValue<Integer>(BuffModifiers.ARMOR_FLAT, 3)}));
         registerBuff("chilledbloodplatehatsetvnbonusbuff", new ChilledBloodplateHatSetBonusBuff());
         registerBuff("chilledbloodplatehoodsetvnbonusbuff", new ChilledBloodplateHoodSetBonusBuff());
         registerBuff("chilledbloodplatehelmetsetvnbonusbuff", new ChilledBloodplateHelmetSetBonusBuff());
@@ -574,14 +608,14 @@ public class VulpesNova {
         registerBuff("collectorsmagnetvnbuff", new CollectorsMagnetBuff());
         registerBuff("nightmareheadvnbuff", new NightmareHeadVNBuff());
         registerBuff("foxtokenvnbuff", new FoxTokenVNBuff());
-        registerBuff("foxtailvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, 1), new ModifierValue(BuffModifiers.DASH_COOLDOWN, -0.10F)}));
+        registerBuff("foxtailvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.DASH_STACKS, 1), new ModifierValue<Float>(BuffModifiers.DASH_COOLDOWN, -0.10F)}));
         registerBuff("yourgemcollectionvnbuff", new YourGemCollectionVNBuff());
-        registerBuff("clovertokenvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.25F), new ModifierValue(BuffModifiers.ALL_DAMAGE, -0.15F)}));
-        registerBuff("windmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.RANGED_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.RANGED_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.RANGED_CRIT_CHANCE, 0.05F)}));
-        registerBuff("stonemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MELEE_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MELEE_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MELEE_CRIT_CHANCE, 0.05F)}));
-        registerBuff("meatmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.SUMMON_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F)}));
-        registerBuff("treemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAGIC_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MAGIC_CRIT_DAMAGE, 0.05F), new ModifierValue(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05F)}));
-        registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.1F)}));
+        registerBuff("clovertokenvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.25F), new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, -0.15F)}));
+        registerBuff("windmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.RANGED_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.RANGED_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.RANGED_CRIT_CHANCE, 0.05F)}));
+        registerBuff("stonemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MELEE_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MELEE_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MELEE_CRIT_CHANCE, 0.05F)}));
+        registerBuff("meatmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SUMMON_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F)}));
+        registerBuff("treemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05F)}));
+        registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.1F)}));
         registerBuff("thebygonecrestvnbuff", new TheBygoneCrestVNBuff());
         registerBuff("halovnbuff", new HaloVNBuff());
         registerBuff("protectorsealvntrinketbuff", new ProtectorSealVNTrinketBuff());
@@ -600,20 +634,20 @@ public class VulpesNova {
         ARCHBISHOP_COWL_VN_ACTIVE = registerBuff("archbishopcowlvnactivebuff", new ArchbishopCowlVNActiveBuff());
 
         // Gem Trinkets
-        registerBuff("healthgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_HEALTH_FLAT, 50)}));
-        registerBuff("regengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 1.00F)}));
-        registerBuff("resiliencegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 50)}));
-        registerBuff("resilienceregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.RESILIENCE_REGEN_FLAT, 0.50F)}));
-        registerBuff("managemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_MANA_FLAT, 100)}));
-        registerBuff("manaregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_MANA_REGEN_FLAT, 1.00F)}));
+        registerBuff("healthgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_HEALTH_FLAT, 50)}));
+        registerBuff("regengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 1.00F)}));
+        registerBuff("resiliencegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 50)}));
+        registerBuff("resilienceregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.RESILIENCE_REGEN_FLAT, 0.50F)}));
+        registerBuff("managemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_MANA_FLAT, 100)}));
+        registerBuff("manaregengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_MANA_REGEN_FLAT, 1.00F)}));
         registerBuff("bloodgemvnbuff", new BloodGemBuff());
-        registerBuff("damagegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ALL_DAMAGE, 0.10F)}));
-        registerBuff("critgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.CRIT_CHANCE, 0.10F)}));
-        registerBuff("speedgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.SPEED, 0.25F)}));
-        registerBuff("dashgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, 1)}));
-        registerBuff("summongemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_SUMMONS, 1)}));
-        registerBuff("armorgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.ARMOR_FLAT, 10)}));
-        registerBuff("hookgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.FISHING_LINES, 1)}));
+        registerBuff("damagegemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.10F)}));
+        registerBuff("critgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.10F)}));
+        registerBuff("speedgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SPEED, 0.25F)}));
+        registerBuff("dashgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.DASH_STACKS, 1)}));
+        registerBuff("summongemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_SUMMONS, 1)}));
+        registerBuff("armorgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.ARMOR_FLAT, 10)}));
+        registerBuff("hookgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.FISHING_LINES, 1)}));
 
         // Buffs/Debuffs
         COSMIC_FIRE_VN = registerBuff("cosmicfirevn", new CosmicFireVNBuff());
@@ -632,6 +666,12 @@ public class VulpesNova {
         LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
         LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
+<<<<<<< HEAD
+=======
+        LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
+        LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
+        LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
+>>>>>>> 9b5df76 (The mod)
 
         //Register Music
 
@@ -748,7 +788,11 @@ public class VulpesNova {
 
         Biome.defaultDeepCaveMobs
                 .add(40, "nightmaremobvn")
+<<<<<<< HEAD
                 .add(10, "deadmahmobvn");
+=======
+                .add(5, "deadmahmobvn");
+>>>>>>> 9b5df76 (The mod)
 
         //ForestBiome.defaultSurfaceMobs
                         //.add(5,"allseeingcubemobvn");
