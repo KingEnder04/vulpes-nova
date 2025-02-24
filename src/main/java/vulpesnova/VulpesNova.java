@@ -29,6 +29,7 @@ import necesse.inventory.item.placeableItem.ImportedAnimalSpawnItem;
 import necesse.inventory.item.placeableItem.StonePlaceableItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
 import necesse.inventory.item.placeableItem.followerSummonItem.petFollowerPlaceableItem.PetFollowerPlaceableItem;
+import necesse.inventory.item.placeableItem.mapItem.BiomeMapItem;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.item.toolItem.axeToolItem.CustomAxeToolItem;
 import necesse.inventory.item.toolItem.pickaxeToolItem.CustomPickaxeToolItem;
@@ -303,7 +304,6 @@ public class VulpesNova {
                 new Color(255, 195, 50), "goldore", 1, 3, 2, false), 0.0F, false
         );
 
-
         registerObject("quartzrock", new RockOreObject(
                 (RockObject) getObject("rock"), "oremask", "quartzore",
                 new Color(227, 215, 189), "quartz", 1, 3, 2, false), 0.0F, false
@@ -319,6 +319,23 @@ public class VulpesNova {
                 new Color(150, 238, 217), "frostshard", 1, 3, 2, false), 0.0F, false
         );
 
+        // miners haven deepcave ores
+
+        registerObject("glacialoredeeprock", new RockOreObject(
+                (RockObject) getObject("deeprock"), "oremask", "glacialore",
+                new Color(150, 238, 217), "glacialore", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("myceliumoredeeprock", new RockOreObject(
+                (RockObject) getObject("deeprock"), "oremask", "myceliumore",
+                new Color(150, 238, 217), "myceliumore", 1, 3, 2, false), 0.0F, false
+        );
+
+        registerObject("ancientfossiloredeeprock", new RockOreObject(
+                (RockObject) getObject("deeprock"), "oremask", "ancientfossilore",
+                new Color(150, 238, 217), "ancientfossilore", 1, 3, 2, false), 0.0F, false
+        );
+
         // Other Objects
         registerObject("gearcontactbeaconvn", new GEARContactBeaconVNObject(), 0, false);
         
@@ -330,8 +347,7 @@ public class VulpesNova {
       
         // Register our biomes
         FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
-
-        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 1000, "minershavenvn");
+        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
 
 
         // Register our tech
@@ -501,7 +517,7 @@ public class VulpesNova {
         registerItem("gearresiliencematrixvn", new GEARResilienceMatrixItemVN(), 200, true);
         registerItem("cavedemolishervn", new CaveDemolisherVNToolItem(), 60.0F, true);
         registerItem("grandphoenixgreatbowvn", new GrandPhoenixGreatbowVN(), 1000.0F, true);
-
+        registerItem("minershavenmapvn", new BiomeMapItem(Item.Rarity.RARE, 18, new String[]{"minershavenvn"}), 120.0F, true);
 
         // Register our mob
         registerMob("nightmaremobvn", NightmareMobVN.class, true);
@@ -592,6 +608,8 @@ public class VulpesNova {
         registerBuff("chilledbloodplatehatsetvnbonusbuff", new ChilledBloodplateHatSetBonusBuff());
         registerBuff("chilledbloodplatehoodsetvnbonusbuff", new ChilledBloodplateHoodSetBonusBuff());
         registerBuff("chilledbloodplatehelmetsetvnbonusbuff", new ChilledBloodplateHelmetSetBonusBuff());
+
+        // hi again
 
         // Trinkets
         registerBuff("collectorsmagnetvnbuff", new CollectorsMagnetBuff());

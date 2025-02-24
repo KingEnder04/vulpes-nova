@@ -1,3 +1,7 @@
+[biome]
+flatlandsvn=Flat Lands
+minershavenvn=Miners Haven
+
 [tile]
 cubedeepstonetiledfloorvn=Cube Deepstone Tiled Floor
 cubestonetiledfloorvn=Cube Stone Tiled Floor
@@ -154,6 +158,8 @@ cubaltshovelvn=Cubalt Shovel
 luckychickenmaskvn=Lucky Chicken Mask (T)
 luckychickencostumeshirtvn=Lucky Chicken Costume Shirt (T)
 luckychickencostumebootsvn=Lucky Chicken Costume Boots (T)
+
+minershavenmapvn=Miners Haven Map
 
 [itemtooltip]
 celestialembervntip=Shoots an Ember to Destroy Opponents
