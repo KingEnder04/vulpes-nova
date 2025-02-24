@@ -303,7 +303,7 @@ public class VulpesNova {
 
         registerObject("quartzrock", new RockOreObject(
                 (RockObject) getObject("rock"), "oremask", "quartzore",
-                new Color(227, 215, 189), "quartz", 1, 3, 2, false), 0.0F, false
+                new Color(232, 227, 216), "quartz", 1, 3, 2, false), 0.0F, false
         );
 
         registerObject("ivyorerock", new RockOreObject(
@@ -313,24 +313,24 @@ public class VulpesNova {
 
         registerObject("frostshardrock", new RockOreObject(
                 (RockObject) getObject("rock"), "oremask", "frostshardore",
-                new Color(150, 238, 217), "frostshard", 1, 3, 2, false), 0.0F, false
+                new Color(90, 231, 197), "frostshard", 1, 3, 2, false), 0.0F, false
         );
 
         // miners haven deepcave ores
 
         registerObject("glacialoredeeprock", new RockOreObject(
                 (RockObject) getObject("deeprock"), "oremask", "glacialore",
-                new Color(150, 238, 217), "glacialore", 1, 3, 2, false), 0.0F, false
+                new Color(65, 210, 224), "glacialore", 1, 3, 2, false), 0.0F, false
         );
 
         registerObject("myceliumoredeeprock", new RockOreObject(
                 (RockObject) getObject("deeprock"), "oremask", "myceliumore",
-                new Color(150, 238, 217), "myceliumore", 1, 3, 2, false), 0.0F, false
+                new Color(189, 117, 91), "myceliumore", 1, 3, 2, false), 0.0F, false
         );
 
         registerObject("ancientfossiloredeeprock", new RockOreObject(
                 (RockObject) getObject("deeprock"), "oremask", "ancientfossilore",
-                new Color(150, 238, 217), "ancientfossilore", 1, 3, 2, false), 0.0F, false
+                new Color(80, 136, 85), "ancientfossilore", 1, 3, 2, false), 0.0F, false
         );
 
         // Other Objects
