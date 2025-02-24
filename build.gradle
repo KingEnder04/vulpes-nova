@@ -7,7 +7,7 @@ plugins {
 
 project.ext.modID = "vulpesnova.mod" // unique id
 project.ext.modName = "Vulpes Nova"
-project.ext.modVersion = "2.02.5" // MAJOR.MINOR.FIX
+project.ext.modVersion = "2.02.2" // MAJOR.MINOR.FIX
 project.ext.gameVersion = "0.30.0" // The target game version.
 project.ext.modDescription = "A content mod meant to add more enemies, items, weapons, blocks, and biomes. The art is done by Logar and I, and the coding is being done by yours truly (me)" // Short description of what your mod is.
 project.ext.author = "KingEnder04" // Author
@@ -24,11 +24,11 @@ project.ext.clientside = false
  * Dependencies define the default load order of mods
  * Uncomment and configure these if your mod has dependencies
  */
-project.ext.modDependencies = []
+project.ext.modDependencies = ["dianchia.increasedstacksize"]
 //project.ext.modOptionalDependencies = ["optional.modid1", "optional.modid2"]
 
 // The path to the games install directory
-def gameDirectory = "C:/Program Files (x86)/Steam/steamapps/common/Necesse"
+def gameDirectory = "E:/SteamLibrary/steamapps/common/Necesse"
 
 // =================================================
 // ========== DO NOT EDIT BELOW THIS LINE ========== this is just a suggestion. 
@@ -67,10 +67,6 @@ dependencies {
     implementation fileTree(gameDirectory + "/lib/")
     implementation fileTree("./mods/") // Add all mods located in local mods folder
 	
-    // Add any third party library dependencies here. Remember to use libDepends, so that they will be added to your jar on build
-    // These are some examples:
-//    libDepends group: 'com.google.guava', name: 'guava', version: '31.1-jre'
-//    libDepends files("path/to/library/jar.jar")
 	implementation files('libs/gson-2.8.9.jar')
 }
 

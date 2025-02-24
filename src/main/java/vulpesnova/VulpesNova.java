@@ -9,6 +9,7 @@ import necesse.engine.events.loot.MobLootTableDropsEvent;
 import necesse.engine.localization.Localization;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.sound.GameMusic;
+import necesse.engine.sound.gameSound.GameSound;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.BuffModifiers;
@@ -71,6 +72,7 @@ import vulpesnova.VNContent.VNArmors.VNWindSet.WindHatVN;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenBoots;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenChestplate;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenHelmet;
+
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsDeepCaveLevelVN;
@@ -79,6 +81,7 @@ import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenBiomeVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenDeepCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
+
 import vulpesnova.VNContent.VNBuffs.BleedingBuff;
 import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
 import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
@@ -119,7 +122,8 @@ public class VulpesNova {
     public static Tech TABLEOFAWAKENINGVN;
 
     public static GameMusic HUBMUSICVN;
-
+    public static GameSound COD_FLOPPIN ;
+    
     public static final int CUBALT_VN_TOOL_DPS = 150;
 
     public static int cubeSandVNID;
@@ -155,6 +159,7 @@ public class VulpesNova {
 
     public static Biome FLATLANDS;
     public static Biome MINERSHAVEN;
+
 
 
     public void preInit() {
@@ -299,8 +304,6 @@ public class VulpesNova {
                 new Color(255, 195, 50), "goldore", 1, 3, 2, false), 0.0F, false
         );
 
-        // cave miners haven ores
-
         registerObject("quartzrock", new RockOreObject(
                 (RockObject) getObject("rock"), "oremask", "quartzore",
                 new Color(232, 227, 216), "quartz", 1, 3, 2, false), 0.0F, false
@@ -345,6 +348,7 @@ public class VulpesNova {
         // Register our biomes
         FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
         MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
+
 
         // Register our tech
 
@@ -588,8 +592,10 @@ public class VulpesNova {
         registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
+        registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
 
-
+        
+        registerProjectile("crimsontempestvnproj", CrimsonTempestVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
         // Register buffs
 
         // Armors
@@ -667,9 +673,11 @@ public class VulpesNova {
         LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
         LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
+
         LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
         LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
         LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
+
 
         //Register Music
 
@@ -744,9 +752,10 @@ public class VulpesNova {
 
 
         CubaltShieldVNToolItem.holdTexture = GameTexture.fromFile("player/holditems/cubaltshieldvn");
-        //sounds
+        
+        COD_FLOPPIN = GameSound.fromFile("soundeffects/fishflop2.ogg");
         //electronicactivatevn = GameSound.fromFile("sound/soundeffects/electronicactivatevn");
-
+        
     }
 
     public void postInit() {
