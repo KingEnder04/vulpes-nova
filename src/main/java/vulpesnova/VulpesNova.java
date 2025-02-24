@@ -555,6 +555,8 @@ public class VulpesNova {
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
         registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
 
+        
+        registerProjectile("crimsontempestvnproj", CrimsonTempestVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
         // Register buffs
 
         // Armors

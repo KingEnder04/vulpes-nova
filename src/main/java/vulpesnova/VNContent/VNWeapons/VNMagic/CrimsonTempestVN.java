@@ -1,6 +1,7 @@
 package vulpesnova.VNContent.VNWeapons.VNMagic;
 
 
+import necesse.engine.GlobalData;
 import necesse.engine.localization.Localization;
 import necesse.engine.localization.message.GameMessage;
 import necesse.engine.network.PacketReader;
@@ -17,15 +18,25 @@ import necesse.entity.mobs.friendly.human.HumanMob;
 import necesse.entity.projectile.Projectile;
 import necesse.entity.projectile.modifiers.ResilienceOnHitProjectileModifier;
 import necesse.gfx.GameResources;
+import necesse.gfx.camera.GameCamera;
+import necesse.gfx.camera.MainGameFollowCamera;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.PlayerInventorySlot;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
 import necesse.level.maps.Level;
+import vulpesnova.VNContent.VNProjectiles.CrimsonTempestVNProjectile;
 
+import java.awt.Point;
 import java.awt.geom.Point2D;
 
 public class CrimsonTempestVN extends MagicProjectileToolItem {
+	
+	static int PROJECTILE_COUNT = 1;
+	static int MAX_JUMPS = 3;
+	static int MAX_JUMP_DISTANCE = 600;
+	static int MAX_JUMP_TARGETTING_ANGLE = 60;
+	
     public CrimsonTempestVN() {
         super(1200);
         this.rarity = Rarity.LEGENDARY;
@@ -65,35 +76,63 @@ public class CrimsonTempestVN extends MagicProjectileToolItem {
         return 10.0F;
     }
 
-    public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
-        for(int i = -2; i <= 2; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("thunderboltredvn", level, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player), player);
-            projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
-            projectile.resetUniqueID(new GameRandom((long) seed));
-            level.entityManager.projectiles.addHidden(projectile);
-            projectile.setAngle(projectile.getAngle() + (float)(12 * i));
-        if (level.isServer()) {
-            level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, player.getServerClient());
-        }
-        }
+    public void doAttack(Level level, int x, int y, Mob source, Mob target, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader)
+    {
+    	
+    	Point targetPoint;
+		if (source.isPlayer) {
+			GameCamera c = ((necesse.engine.state.MainGame)GlobalData.getCurrentState()).getCamera();
+			targetPoint = c.getMouseLevelPos();
+		}
+		else {
+			if (target == null) return;
+			targetPoint = target.getPositionPoint();
+		}
+    
+    
+           for(int i = 0; i < PROJECTILE_COUNT; i++) {    	
+           	   Projectile projectile = new CrimsonTempestVNProjectile(level,
+	           			source.getPositionPoint(),
+	           			source.x,
+	           			source.y,
+          				(float) targetPoint.x,
+          				(float) targetPoint.y,
+          				(float) this.getFlatVelocity(item),
+          				this.getAttackRange(item),
+          				MAX_JUMPS,
+          				MAX_JUMPS,
+          				MAX_JUMP_DISTANCE,
+          				MAX_JUMP_TARGETTING_ANGLE,
+          				this.getAttackDamage(item),
+          				source);
+                  projectile.resetUniqueID(new GameRandom((long) seed));
+                  level.entityManager.projectiles.addHidden(projectile);
+                  projectile.setAngle(projectile.getAngle() + GameRandom.getFloatBetween(GameRandom.globalRandom, -1.0F, 1.0F) * (PROJECTILE_COUNT-1));
+                  
+            if(level.isServer()) {
+	   	        if (source.isPlayer) 
+	   	        {
+	   	            level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, ((PlayerMob)source).getServerClient());
+	   	        }
+	   	        else
+	   	        {
+	   	        	level.getServer().network.sendToClientsAtEntireLevel(new PacketSpawnProjectile(projectile), level);
+	   	        }
+   	        }
+           }
 
+    }
+    public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
+    	
+    	doAttack(level, x, y, player,null,attackHeight, item, slot, animAttack,seed, contentReader);
+    
         this.consumeMana(player, item);
         return item;
     }
 
     public InventoryItem onSettlerAttack(Level level, HumanMob mob, Mob target, int attackHeight, int seed, InventoryItem item) {
-        int velocity = this.getVelocity(item, mob);
-        Point2D.Float targetPos = Projectile.getPredictedTargetPos(target, mob.x, mob.y, (float)velocity, -10.0F);
-        mob.attackItem((int)targetPos.x, (int)targetPos.y, item);
-        for(int i = -2; i <= 2; ++i) {
-            Projectile projectile = ProjectileRegistry.getProjectile("thunderboltredvn", level, mob.x, mob.y, targetPos.x, targetPos.y, (float)velocity, this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, mob), mob);
-            projectile.resetUniqueID(new GameRandom((long) seed));
-            level.entityManager.projectiles.addHidden(projectile);
-            projectile.setAngle(projectile.getAngle() + (float)(12 * i));
-            if (level.isServer()) {
-                level.getServer().network.sendToClientsAt(new PacketSpawnProjectile(projectile), level);
-            }
-        }
+    	
+    	doAttack(level, mob.getX(), mob.getY(), mob, target, attackHeight, item, null, 200, seed, null);
 
         return item;
     }
