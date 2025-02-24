@@ -114,7 +114,7 @@ import static necesse.engine.registries.TileRegistry.registerTile;
 
 @ModEntry
 public class VulpesNova {
-	//this is a very simple change to make sure its working again
+	//this is a very simple change to make sure its working again version 3
 	private static final Random rand = new Random();	
     public static Tech TABLEOFAWAKENINGVN;
 
