@@ -711,6 +711,7 @@ public class VulpesNova {
                     if (n <= 5) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.5% chance
                 }
 
+                // this is a random thing at the boss drops to test if this worked
             }
         });
 
