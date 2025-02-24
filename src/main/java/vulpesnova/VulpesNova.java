@@ -603,7 +603,7 @@ public class VulpesNova {
         registerBuff("chilledbloodplatehoodsetvnbonusbuff", new ChilledBloodplateHoodSetBonusBuff());
         registerBuff("chilledbloodplatehelmetsetvnbonusbuff", new ChilledBloodplateHelmetSetBonusBuff());
 
-        // hi
+        // hi again
 
         // Trinkets
         registerBuff("collectorsmagnetvnbuff", new CollectorsMagnetBuff());
