@@ -9,6 +9,7 @@ import necesse.engine.events.loot.MobLootTableDropsEvent;
 import necesse.engine.localization.Localization;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.sound.GameMusic;
+import necesse.engine.sound.gameSound.GameSound;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.BuffModifiers;
@@ -125,7 +126,8 @@ public class VulpesNova {
     public static Tech TABLEOFAWAKENINGVN;
 
     public static GameMusic HUBMUSICVN;
-
+    public static GameSound COD_FLOPPIN ;
+    
     public static final int CUBALT_VN_TOOL_DPS = 150;
 
     public static int cubeSandVNID;
@@ -585,8 +587,10 @@ public class VulpesNova {
         registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
+        registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
 
-
+        
+        registerProjectile("crimsontempestvnproj", CrimsonTempestVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
         // Register buffs
 
         // Armors
@@ -742,9 +746,10 @@ public class VulpesNova {
 
 
         CubaltShieldVNToolItem.holdTexture = GameTexture.fromFile("player/holditems/cubaltshieldvn");
-        //sounds
+        
+        COD_FLOPPIN = GameSound.fromFile("soundeffects/fishflop2.ogg");
         //electronicactivatevn = GameSound.fromFile("sound/soundeffects/electronicactivatevn");
-
+        
     }
 
     public void postInit() {
