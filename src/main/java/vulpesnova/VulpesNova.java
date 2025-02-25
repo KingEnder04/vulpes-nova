@@ -33,6 +33,7 @@ import necesse.inventory.item.placeableItem.mapItem.BiomeMapItem;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.item.toolItem.axeToolItem.CustomAxeToolItem;
 import necesse.inventory.item.toolItem.pickaxeToolItem.CustomPickaxeToolItem;
+import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
 import necesse.inventory.item.toolItem.shovelToolItem.CustomShovelToolItem;
 import necesse.inventory.item.trinketItem.CombinedTrinketItem;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
@@ -170,7 +171,7 @@ public class VulpesNova {
 
 
     public void preInit() {
-    		
+
     }
 
     // lol i have no idea what im doing
@@ -235,6 +236,9 @@ public class VulpesNova {
     
     public void init() {
         System.out.println("Hello and Welcome to Vulpes Nova!");
+
+        GunProjectileToolItem.NORMAL_AMMO_TYPES.add("novabulletvn");
+        GunProjectileToolItem.NORMAL_AMMO_TYPES.add("windbulletvn");
 
         // Use our helper methods to register Tiles.
         cubeSandVNID = registerFloorTile("cubesandtilevn", new Color(44, 50, 91), 2.0f);
@@ -343,23 +347,6 @@ public class VulpesNova {
                 new Color(80, 136, 85), "ancientfossilore", 1, 3, 2, false), 0.0F, false
         );
 
-        // miners haven deepcave ores
-
-        registerObject("glacialoredeeprock", new RockOreObject(
-                (RockObject) getObject("deeprock"), "oremask", "glacialore",
-                new Color(150, 238, 217), "glacialore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("myceliumoredeeprock", new RockOreObject(
-                (RockObject) getObject("deeprock"), "oremask", "myceliumore",
-                new Color(150, 238, 217), "myceliumore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("ancientfossiloredeeprock", new RockOreObject(
-                (RockObject) getObject("deeprock"), "oremask", "ancientfossilore",
-                new Color(150, 238, 217), "ancientfossilore", 1, 3, 2, false), 0.0F, false
-        );
-
         // Other Objects
         registerObject("gearcontactbeaconvn", new GEARContactBeaconVNObject(), 0, false);
         
@@ -384,7 +371,7 @@ public class VulpesNova {
         registerItem("woodenhelmetvn", new WoodenHelmet(), 110.0F, true);
         registerItem("woodenchestplatevn", new WoodenChestplate(), 160.0F, true);
         registerItem("woodenbootsvn", new WoodenBoots(), 80.0F, true);
-        
+
         // Anicent Jungle Wooden Set (Mage, Not supposed to be in yet)
         registerItem("ancientjunglehelmetvn", new AncientJungleHelmet(), 2000.0F, true);
         registerItem("ancientjunglechestplatevn", new AncientJungleChestplate(), 2000.0F, true);
