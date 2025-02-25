@@ -122,9 +122,9 @@ public class FlatlandsBiomeVN extends Biome {
 
     static {
         cubeSurfaceFish = (new FishingLootTable(defaultSurfaceFish)).addWater(120, "icefish");
-        surfaceMobs = (new MobSpawnTable()).add(50, "cubemobvn").add(30,"pyramidmobvn").add(100,"titancubemobvn").add(100,"spheresorcerermobvn").add(100,"spheresentinelmobvn").add(300,"planewalkermobvn");
-        caveMobs = (new MobSpawnTable()).add(100,"spheresorcerermobvn").add(100,"planewalkermobvn").add(100,"nightmarecubemobvn").add(10,"deadmahmobvn");
-        deepSnowCaveMobs = (new MobSpawnTable()).add(120, "spheresorcerermobvn").add(70, "planewalkermobvn").add(25, "nightmarecubemobvn").add(50, "cryoflake").add(15, "deadmahmobvn");
+        surfaceMobs = (new MobSpawnTable()).add(80, "cubemobvn").add(40,"pyramidmobvn").add(80,"titancubemobvn").add(100,"spheresorcerermobvn").add(50,"spheresentinelmobvn").add(300,"planewalkermobvn");
+        caveMobs = (new MobSpawnTable()).add(80, "cubemobvn").add(100,"spheresorcerermobvn").add(30,"spheresentinelmobvn").add(100,"planewalkermobvn").add(40,"nightmarecubemobvn").add(5,"deadmahmobvn");
+        deepSnowCaveMobs = (new MobSpawnTable()).add(120, "spheresorcerermobvn").add(70, "planewalkermobvn").add(25, "nightmarecubemobvn").add(50, "cryoflake").add(10, "deadmahmobvn");
         surfaceCritters = (new MobSpawnTable()).add(100, "snowhare").add(60, "bluebird").add(20, "bird").add(60, "duck");
         caveCritters = (new MobSpawnTable()).include(Biome.defaultCaveCritters).add(300, "cubaltcavelingvn");
         deepCaveCritters = (new MobSpawnTable()).include(Biome.defaultCaveCritters).add(100, "cubaltcavelingvn");

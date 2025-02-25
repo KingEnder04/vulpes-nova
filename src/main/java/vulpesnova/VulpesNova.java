@@ -83,12 +83,8 @@ import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenDeepCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
 
-import vulpesnova.VNContent.VNBuffs.BleedingBuff;
-import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
-import vulpesnova.VNContent.VNBuffs.CrimsonTempestChargeStackBuff;
-import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
+import vulpesnova.VNContent.VNBuffs.*;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
-import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
 import vulpesnova.VNContent.VNMaterials.*;
 import vulpesnova.VNContent.VNMisc.*;
@@ -142,6 +138,7 @@ public class VulpesNova {
     public static Buff COSMIC_FIRE_VN;
     public static Buff MONSTER_PHEROMONE_BUFF_VN;
     public static Buff BLEEDING_BUFF_VN;
+    public static Buff GEAR_STUN_BUFF_VN;
 
     public static Buff PROTECTOR_SEAL_VN_ACTIVE;
     public static Buff PROTECTOR_SEAL_VN_COOLDOWN;
@@ -670,6 +667,7 @@ public class VulpesNova {
         // Buffs/Debuffs
         COSMIC_FIRE_VN = registerBuff("cosmicfirevn", new CosmicFireVNBuff());
         BLEEDING_BUFF_VN = registerBuff("bleedingvn", new BleedingBuff());
+        GEAR_STUN_BUFF_VN = registerBuff("gearstunvnbuff", new GEARStunVNBuff());
         MONSTER_PHEROMONE_BUFF_VN = registerBuff("monsterpheromonesvn", new MonsterPheromonesBuff());
         PROTECTOR_SEAL_VN_COOLDOWN = registerBuff("protectorsealvncooldown", new ShownCooldownBuff());
         RUINED_GOLEM_VN_COOLDOWN = registerBuff("ruinedgolemsealvncooldown", new ShownCooldownBuff());
