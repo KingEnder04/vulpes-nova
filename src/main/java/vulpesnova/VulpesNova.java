@@ -424,6 +424,7 @@ public class VulpesNova {
         registerItem("medallionboardvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "medallionboardvnbuff", 300), 800.0F, true);
         registerItem("thebygonecrestvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "thebygonecrestvnbuff", 1000), 800.0F, true);
         registerItem("halovn", new SimpleTrinketItem(Item.Rarity.RARE, "halovnbuff", 300), 800.0F, true);
+        registerItem("amethystamuletvn", new SimpleTrinketItem(Item.Rarity.RARE, "amethystamuletvnbuff", 300), 800.0F, true);
         registerItem("cubaltshieldvn", new CubaltShieldVNToolItem(Item.Rarity.UNCOMMON, 1200), 2000, true);
         registerItem("protectorsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "protectorsealvntrinketbuff", 120), 500.0F, true);
         registerItem("ruinedgolemsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "ruinedgolemsealvntrinketbuff", 120), 500.0F, true);
@@ -634,6 +635,7 @@ public class VulpesNova {
         registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.1F)}));
         registerBuff("thebygonecrestvnbuff", new TheBygoneCrestVNBuff());
         registerBuff("halovnbuff", new HaloVNBuff());
+        registerBuff("amethystamuletvnbuff", new AmethystAmuletVNBuff());
         registerBuff("protectorsealvntrinketbuff", new ProtectorSealVNTrinketBuff());
         PROTECTOR_SEAL_VN_ACTIVE = registerBuff("protectorsealvnactivebuff", new ProtectorSealVNActiveBuff());
         registerBuff("ruinedgolemsealvntrinketbuff", new RuinedGolemSealVNTrinketBuff());
