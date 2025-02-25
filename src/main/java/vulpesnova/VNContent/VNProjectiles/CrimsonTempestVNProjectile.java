@@ -3,6 +3,8 @@ package vulpesnova.VNContent.VNProjectiles;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.network.packet.PacketSpawnProjectile;
 import necesse.engine.registries.ProjectileRegistry;
+import necesse.engine.sound.SoundEffect;
+import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GamePoint3D;
 import necesse.engine.util.GameRandom;
@@ -13,6 +15,7 @@ import necesse.entity.projectile.Projectile;
 import necesse.entity.projectile.modifiers.ResilienceOnHitProjectileModifier;
 import necesse.entity.trails.Trail;
 import necesse.entity.trails.TrailVector;
+import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.EntityDrawable;
@@ -21,6 +24,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
 import necesse.level.maps.light.GameLight;
+import vulpesnova.VulpesNova;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -119,7 +123,7 @@ public class CrimsonTempestVNProjectile extends Projectile {
     	super.doHitLogic(mob, object, x, y);
     	ArrayList<Mob> targets = getPossibleJumps(mob, object);
     	if (mob != null && targets != null && targets.size() > 0) {
-    	
+    		
 	    	if(this.jumpsLeft>0) {
 	    		this.jumpsLeft-=1;
 	    		Mob target = targets.get(GameRandom.getIntBetween(GameRandom.globalRandom, 0, targets.size()-1));
@@ -127,7 +131,7 @@ public class CrimsonTempestVNProjectile extends Projectile {
 	    		Level lev = this.getLevel();
 
 	    		// Define an interpolation factor (e.g., 20% of the way to the target)
-	    		float interpolationFactor = 0.1f;
+	    		float interpolationFactor = 0.05f;
 
 	    		// Calculate new spawn position slightly toward the target
 	    		float spawnX = x + (target.x - x) * interpolationFactor;
