@@ -1,0 +1,321 @@
+[tile]
+cubedeepstonetiledfloorvn=Pavimento in Piastrelle di Pietra Cubica Profonda
+cubestonetiledfloorvn=Pavimento in Piastrelle di Pietra Cubica
+cubewoodfloorvn=Pavimento in Legno Cubico
+
+[object]
+tableofawakening=Tavolo Del Risveglio
+cubedeepstonevnwall=Muro di Pietra Cubica Profonda
+cubedeepstonevndoor=Porta di Pietra Cubica Profonda
+cubedeepstonecolumnvn=Colonna di Pietra Cubica Profonda
+cubestonevnwall=Muro di Pietra Cubica
+cubestonevndoor=Porta di Pietra Cubica
+cubestonecolumnvn=Colonna di Pietra Cubica
+cubewoodvnwall=Muro di Legno Cubico
+cubewoodvndoor=Porta di Legno Cubico
+cubewoodcolumnvn=Colonna di Legno Cubico
+
+[item]
+acrumplednotevn=Una Nota Stropicciata
+novafragmentvn=Frammento di Nova
+novashardvn=Scheggia di Nova
+novaclustervn=Ammasso di Nova
+foxtokenvn=Gettone di Volpe
+novakatanavn=Katana di Nova
+celestialembervn=Braciere Celestiale
+nightbladevn=Lama Notturna
+saplingswordvn=Spada d'Arboscello
+holytomevn=Tomo Sacro
+unholytomevn=Tomo Empio
+novabulletvn=Proiettile di Nova
+lmgvn=LMG
+bigbrainonastickvn=Grande Cervello su un Bastone
+verdantstaffvn=Staffa Verdeggiante
+doomedbowvn=Arco Maledetto
+grandphoenixgreatbowvn=Grande Arco della Maestosa Fenice
+novaarrow=Freccia di Nova
+codblastervn=Blaster di Merluzzo
+glassshardswordvn=Spada di Schegge di Vetro
+repeatingcrossbow=Balestra a Ripetizione
+ironsoulglaivevn=Falcione di Ferro delle Anime
+goldarrow=Freccia d'Oro
+queenspiderstaff=Staffa della Regina Ragno
+necromancersrequiemvn=Il Requiem del Necromante
+slimystick=Bastone Viscido
+woodenpistol=Pistola in Legno
+woodenbullet=Proiettile in Legno
+woodenhelmet=Elmo in Legno
+woodenchestplate=Corazza in Legno
+woodenboots=Stivali in Legno
+acornlobbervn=Lanciatore di ghiande
+ancientjunglehelmetvn=Antico Elmo della Giungla
+ancientjunglechestplatevn=Antica Corazza della Giungla
+ancientjunglebootsvn=Antichi Stivali della Giungla
+windhatvn=Cappello di Vento
+windchestplatevn=Corazza di Vento
+windbootsvn=Stivali di Vento
+stonehelmetvn=Elmo di Pietra
+stonechestplatevn=Corazza di Pietra
+stonebootsvn=Stivali di Pietra
+meathatvn=Cappello di Carne
+meatrobevn=Veste di Carne
+meatbootsvn=Stivali di Carne
+chilledbloodplatehatvn=Cappello in Piastre di Sangue Congelato
+chilledbloodplatehoodvn=Cappuccio in Piastre di Sangue Congelato
+chilledbloodplatehelmetvn=Elmo in Piastre di Sangue Congelato
+chilledbloodplatechestplatevn=Corazza in Piastre di Sangue Congelato
+chilledbloodplatebootsvn=Stivali in Piastre di Sangue Congelato
+windessence=Essenza del Vento
+cloudsvn=Essenza del Vento
+galevn=Tempesta
+hurricanevn=Uragano
+windbulletvn=Colpo di Vento
+windarrowvn=Freccia di Vento
+awakeninatorvn=Risvegliatore
+tableofawakening=Tavolo Del Risveglio
+theblowingwindvn=Raffica di Vento
+thecollectorsmagnetvn=Il MAgnete del Collezionista
+novaheartvn=Cuore di Nova
+sentientcrown=Corona Senziente (T)
+nightmareheadvn=Testa dell'Incubo
+heavierhammervn=Martello Più Pesante
+heaviesthammervn=Il Martello Più Pesante
+themountainvn=La Montagna
+thejadewaraxevn=L'Ascia da Guerra in Giada
+thunderingrodvn=Bacchetta del Tuono
+eyeofthestormvn=Occhio del Ciclone
+crimsontempestvn=Tempesta Cremisi
+monsterpheromonesvn=Feromoni di Mostro
+foxtailtrinketvn=Coda di Volpe
+arachnoremotevn=Arachno-Telecomandato
+novicetomevn=Tomo Novizio
+intermediatetomevn=Tomo Intermedio
+experttomevn=Tomo Esperto
+mastertomevn=Tomo Maestro
+magicfordummiesvn=Magia Per Manichini
+stormboltervn=Sparatempesta
+stormbringervn=Portatore di Tempesta
+arainydayvn=Una Giornata Piovosa
+gemdustvn=Polvere di Gemme
+dustygemsackvn=Sacca di Polvere di Gemme
+healthgemvn=Gemma della Vita
+regengemvn=Gemma della Rigenerazione
+resiliencegemvn=Gemma della Resilienza
+resilienceregengemvn=Gemma della Rigenerazione della Resilienza
+managemvn=Gemma del Mana
+manaregengem=Gemma della Rigenerazione del mana
+bloodgemvn=Gemma del Sangue
+damagegemvn=Gemma del Danno
+critgemvn=Gemma del Critico
+speedgemvn=Gemma della Velocità
+dashgemvn=Gemma dello Scatto
+summongemvn=Gemma dell'Evocazione
+armorgemvn=Gemma dell'Armatura
+hookgemvn=Gemma del Gancio
+yourgemcollectionvn=La Tua Collezione di Gemme
+trueexplorersatchelvn=La Borsa del Vero Esploratore
+clovertoken=Gettone del Trifoglio
+treemedallionvn=Medaglione dell'Albero
+windmedallionvn=Medaglione del Vento
+meatmedallionvn=Medaglio della Carne
+stonemedallionvn=Medaglione della Pietra
+medallionboardvn=Scheda dei Medaglioni
+cavedemolishervn=Demolitore di Caverne
+portablegearcontactbeaconvn=Dispositivo di Contatto Portatile
+thebygonecrestvn=La Corona del Passato
+halovn=Aureola
+cubaltshieldvn=Scudo di Cobalto
+protectorsealvn=Sigillo del Protettore
+ruinedgolemsealvn=Sigillo del Golem Rovinato
+flowingenergysealvn=Sigillo dell'Energia Fluente
+speedstersealvn=Sigillo del Velocista
+demonwarriorsealvn=Sigillo del Demone Guerriero
+holypaladinsealvn=Sigillo del Paladino Sacro
+archbishopcowlvn=Cappuccio dell'Arcivescovo
+titanbustergreatswordvn=Spadone Distruttore di Titani
+cubecallervn=Evocatore di Cubi
+eyebeamvn=Raggio Oculare
+spherecererhatvn=Cappello dello Sferomante
+bastionboxvn=Scatola del Bastione
+gearresiliencematrixvn=Matrice di Resilienza GEAR
+blockberryvn=Bacca Cubica
+blockberrysaplingvn=Cespuglio di bacche cubiche
+shapeshardsvn=Schegge di Forma
+cubaltoreitemvn=Minerale di Cobalto
+cubaltbarvn=Lingotto di Cobalto
+cubelogvn=Tronco Cubico
+cubestonevn=Pietra Cubica
+cubedeepstonevn=Pietra Cubica Profonda
+cubalthelmetvn=Elmo di Cobalto
+cubaltchestplatevn=Corazza di Cobalto
+cubaltbootsvn=Stivali di Cobalto
+cubaltpickaxevn=Piccone di Cobalto
+cubaltaxevn=Ascia di Cobalto
+cubaltshovelvn=Pala di Cobalto
+
+luckychickenmask=Maschera del Pollo Fortunato (T)
+luckychickencostumeshirt=Maglietta del Costume del Pollo Fortunato (T)
+luckychickencostumeboots=Stivali del Costume del Pollo Fortunato (T)
+
+[itemtooltip]
+acornlobbervntip1=Spara ghiande veloci e imprecise per sopprimere i nemici.
+acornlobbervntip2=Non consumerà un proiettile il 50% delle volte.
+celestembertip=Spara una BRace per Distruggere gli Avversari
+novakatanatip=Una lama di katana potenziata con pura Nova.
+novafragmentvntip=Una scintilla di potere celeste.
+novashardvntip=Una fiamma molto più forte, ora stiamo facendo progressi.
+novaclustervntip=Una serie di luci celestiali. Può esserci qualcosa di meglio?
+nightbladevntip=Questa Spada è Scura come la Notte sotto la quale è stata forgiata
+saplingswordvntip=L'energia Nova consente a questa spada di lanciare foglie taglienti come rasoi.
+holytomevntip=Una tempo donato da un vecchio vampiro. Ora creato nel tuo Banco da Lavoro!
+unholytomevntip=Sfruttare più energia demoniaca crea un colpo più potente, ma meno stabile!
+novabulletvntip=Si dirige verso i nemici per infliggere danni enormi
+woodbulletvntip=Economico e a basso danno, applica un debole effetto velenoso.
+lmgvntip=Equipaggiamento di Grado Militare. Ha il 20% di probabilità di non consumare munizioni
+bigbrainstickvntip=Più potere mentale significa più evocazioni! Ora evoca entrambi gli zombi contemporaneamente!
+queenspiderstaffvntip=Un trio pericoloso. C'è persino un ragno sul bozzolo delle uova!
+verdantstaffvntip=Te spari, esce fuori un fiore, e se il fiore colpisce qualcosa fiorisce. Oh, che carino
+doomedbowvntip=Questo arco non è destinato ai mortali, ma a chi importa?
+novaarrowvntip=Queste frecce hanno la punta di Nova. Provocano ai nemici un effetto simile al veleno.
+goldarrowvntip=Meglio della loro controparte in Ferro.
+codblastervntip=Un pesce Leggendario che spara proiettili e scaglia insulti. (Oggetto Commemorativo)
+glassshardswordvntip=Il vetro di cui è fatta questa spada è indescrivibilmente resistente.
+repeatingcrossbowvntip=Una balestra dotata di ricarica automatica.
+ironsoulglaivevntip=Forgiato con le anime nelle fiamme più fredde. Sul colpo applica Fuoco Cosmico per 2 Secondi
+necromancersrequiemvntip=Utilizzato solo dai migliore dei migliori Creatori Non Viventi.
+slimystickvntip=Appiccicoso e Magico, queste sono tutte cose buone.
+woodenpistolvntip=È una pistola realizzata con legno, viti e potere stellare. Estremamente Lenta
+windessencevntip=È l'essenza del vento... cosa ti aspettavi?
+cloudsvntip=Sembra bagnato.
+galevntip=È un potente revolver, che sprigione forti venti e piombo
+hurricanevntip=Un fucile a vento a fuoco rapido. Ha una probabilità del 20% di non consumare munizioni
+windroundvntip=Un proiettile a ricerca di vento. Non chiedere come funziona, funziona e basta.
+windarrowvntip=Una freccia a ricerca fatta di vento.
+awakeninatorvntip=Utilizzato per "Risvegliare" un oggetto. Permettendoti di risvegliare tutto il suo potenziale.
+theblowingwindvntip=Veloce, silenzioso, preciso, una sussurante forza della natura.
+collectorsmagnetvntip=Raccoglie tutti gli oggetti (a terra) nella mappa in cui ti trovi.
+nightmareheadvntip=Ora QUELLO è un ninnolo di movimento. (75% in più di Velocità di Movimento)
+heavierhammervntip=E pensavi che l'altro fosse pesante.
+heaviesthammervntip=Un martello molto più forte, più pensante e più bello.
+themountainvntip=Un martello colossale, che crea sentieri con una forza devastante.
+thejadewaraxevntip=Una splendida ascia da guerra in giada, si vocifera che fosse usata da antiche tribù.
+thunderingrodvntip=Spara un fulmine veloce.
+eyeofthestormvntip=Una concentrazione di fulmini.
+monsterpheromonestip=Questo fa ben oltre che attrarre mostri... non proprio
+arachnoremotetip=Solo il miglior ragno giocattolo robotico sul mercato.
+novicetomevntip=Un tomo magico destinato ai principianti del mestiere.
+intermediatetomevntip=Un tomo magico, il ponte tra l'essere un principiante e diventare un maestro.
+experttomevntip=Un tomo magico, sicuramente mostra qualcosa in più
+mastertomevntip=Un tomo magico destinato a coloro che possono capire tutto
+magicfordummiesvntip=Ora puoi finalmente capire tutto.
+stormboltertip=Un revolver elettrificato.
+stormbringertip=Un Fucile d'Assalto elettrificato. Ha il 30% di probabilità di non consumare munizioni
+cavedemolishervntip=Ottimo per assicurarti di raccogliere tutti i minerali di cui avrai bisogno!
+novaheartvntip=Incrementa permanentemente la vita massima di 20 fino a 400
+gearresiliencematrixvntip=Incrementa permanentemente la resilienza massima di 25 fino a 50
+bastionboxvntip=Incrementa permanentemente la resilienza massima di 5 fino a 25
+spherecererhatvntip=Peccato che non si possa indossare.
+eyebeamvntip=Una piccola e strana creatura.
+cubecallervntip=Evoca piccoli cubi per aiutarti.
+shapeshardsvntip=Frammenti di forme per esigenze di forme.
+cubaltshieldvntip=Concede l'invincibilità al giocatore per un breve momento
+
+grandphoenixgreatbowvntip=Spara una grande fenice.
+
+gemdustvntip=Raccogline abbastanza e potrai trasformarle nella gemma di cui hai bisogno!
+dustygemsackvntip=Una piccola sacca, ricoperta di polvere con un tintinnio all'interno.
+bloodgemvntip=Applica un sangue che può accumularsi fino a 10 volte. Ognuno infligge 10 danni in 6 secondi.
+yourgemcollectionvntip=Tutte le gemme che hai collezionato! Mi chiedo se ce ne siano altre...
+
+meatsetvntip=Ha gli stessi effetti dell'Armatura di Ragno
+ancientjunglesetvntip=Questo non dovrebbe essere ancora qui.
+
+foxtokenvntip=Vuoi supportare lo sviluppatore del mod? Iscriviti oggi a KingEnder04 su Youtube!
+foxtokenvntip2=(Giuro che in futuro avrà un utilizzo effettivo)
+
+acrumplednotevntip1=Questo è stato fatto di fretta per rispettare la mia scadenza di "prima dell'aggiornamento grafico"
+acrumplednotevntip2=Per qualche motivo, provare ad entrare nella stanza della prova nella "Pianura" non ti fa apparire nella stanza della prova, con il risultato di rimanere bloccati ed essere quindi obbligati a richiamare.
+acrumplednotevntip3=Le cose non sono come dovrebbero essere, alcune cose sono sbilanciate, considera questa 'ondata uno' per il nuovo bioma (i rilasci dei boss sono elementi provvisori).
+acrumplednotevntip4=I prossimi aggiornamenti saranno incentrati sui cambiamenti degli sprite per bilanciarsi con l'aggiornamento grafico. Dopo di che torneranno contenuti nuovi di zecca
+acrumplednotevntip5=Mi scuso per eventuali problemi o anomalie non intenzionali, ricette costose di crafting, e creature assassine (il bioma è ancora in lavorazione)
+
+crimsontempestvntip=Il tuono rimbomba, un battito primordiale nel cielo,
+crimsontempestvntip2=Echi di potere, la feroce risposta della natura.
+crimsontempestvntip3=Le nuvole si scontrano, la lancia luminosa del fulmine vola,
+crimsontempestvntip4=Con timore tremiamo mentre le tempeste si avvicinano,
+crimsontempestvntip5=La sinfonia della natura, il grido di battaglia del tuono.
+
+arainydayvntip=Le gocce di pioggia danzano sul vetro della finestra,
+arainydayvntip2=Le lacrime della natura, un gentile e calmante ritornello.
+arainydayvntip3=Un velo nebbioso avvolge il mondo di grigio,
+arainydayvntip4=Sussurri di petricore, una sinfonia in gioco.
+arainydayvntip5=In questo giorno di pioggia, la pace trova la sua strada.
+
+halovntip=Anche se non è stato lasciato cadere da un essere celeste. Ha comunque dei legami con quel regno.
+halovntip2=+50 Vita Massima, +50 Mana Massimo, +0.25 Rigenerazione della Vita, +0.50 Rigenerazione Mana.
+
+thebygonecrestvntip1=Una Corona indossata da un Re scomparso da tempo, di un Regno perduto da tempo.
+thebygonecrestvntip2=15% Velocità d'Attacco, 15% Tutti i Danni, 10% Probabilità di Critico, -20% Vita, -50% Mana
+
+portablegearcontactbeaconvntip1=Usato per mettersi in Contatto con il Quartier Generale GEAR
+portablegearcontactbeaconvntip2=Deve essere usato nelle Pianure
+
+titanbustergreatswordvnchargetip1=Arrivare a metà carica evoca un piccolo cubo titano
+titanbustergreatswordvnchargetip2=Arrivare a carica completa evoca un altro piccolo cubo titano
+titanbustergreatswordvnchargetip3=Questi piccoli cubi titano hanno una vita breve.
+
+demonwarriorsealvntip1=Una reliquia maledetta che conferisce al suo utilizzatore una furia e forza demoniaca.
+demonwarriorsealvntip2=All'uso conferisce 50% Velocità d'Attacco e 30% Danno, passivamente conferisce 2 Difesa e 5% Probabilità di Critico.
+
+holypaladinsealvntip1=Un artefatto divino che irradia santità, concedendo protezione e potere virtuoso.
+holypaladinsealvntip2=All'uso conferisce 100 Vita e 2 Rigenerazione della Vita, passivamente conferisce 3 Difesa e 1 Rigenerazione della Vita.
+
+flowingenergysealvntip1=Un artefatto mistico che canalizza energia illimitata, potenziando magia e potere.
+flowingenergysealvntip2=All'uso conferisce 200% Rigenerazione Mana, 100% Velocità d'Attacco Magico, 1 Rigenerazione della Vita, passivamente conferisce 2 Difesa e -25% Danno Magico.
+
+speedstersealvntip1=Un sigillo magico che conferisce un'impareggiabile velocità ed agilità al suo utilizzatore.
+speedstersealvntip2=All'uso conferisce 100% Velocità di Movimento, passivamente conferisce 2 Difesa e Camminare sull'Acqua.
+
+ruinedgolemsealvntip1=Un antico sigillo, conferendo al suo utilizzatore la resilienza del golem.
+ruinedgolemsealvntip2=All'uso conferisce 50 Vita Massima e 10 Difesa, passivamente conferisce 4 Difesa, -10% Velocità, 10 Resilienza.
+
+protectorsealvntip=All'uso conferisce 10% Danni, 10% Probabilità di Critico, 10% Danno Critico, passivamente conferisce 2 Difesa e 20 Vita.
+
+archbishopcowlvntip1=È un po' rotto, vero?
+archbishopcowlvntip2=All'uso conferisce 50% Tutti i Danni, 20% Probabilità di Critico, 3 Rigenerazione della Vita Base, 50 Vita Massima, -25 Difesa.
+archbishopcowlvntip3=passivamente conferisce 10% Danni e 10% Probabilità di Critico.
+
+
+cubaltsetvntip=Incendia il bersaglio con Fuoco Cosmico per 2 secondi
+
+[mob]
+jumpscaremob=Incubo
+snowyjumpscaremob=Incubo di Neve
+luckychickenmob=Pollo Fortunato
+foxmob=Volpe
+gustmob=Raffica
+petsentientcrown=La Corona Senziente
+gemstonecaveling=Cavernicolo di Pietre Preziose
+deepgemstonecaveling=Cavernicolo di Pietre Preziose Profonde
+cubaltcavelingvn=Cavernicolo di Cobalto
+gearspherebossmobvn=Sfera GEAR
+gearcubemobvn=Difensore del Cubo GEAR
+planewalkermobvn=Camminatore dei Piani
+cubemobvn=Cubo
+nightmarecubemobvn=Incubo del Cubo
+icecubemobvn=Cubo di Ghiaccio
+titancubemobvn=Cubo Titano
+pyramidmobvn=Piramide
+spheresorcerermobvn=Sferomante
+spheresentinelmobvn=Sentinella della Sfera
+deadmahmobvn=Tomba Maledetta
+
+summons here
+
+babycubemobvn=Piccolo(?) Cubo
+babytitancubemobvn=Piccolo(?) Cubo Titano
+
+
+[buff]
+cosmicfire=Fuoco Cosmico
+monsterpheromonesbuff=Feromoni di Mostro

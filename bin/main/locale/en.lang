@@ -1,0 +1,330 @@
+[tile]
+cubedeepstonetiledfloorvn=Cube Deepstone Tiled Floor
+cubestonetiledfloorvn=Cube Stone Tiled Floor
+cubewoodfloorvn=Cube Wood Floor
+
+[object]
+tableofawakeningvn=Table Of Awakening
+cubedeepstonevnwall=Cube Deepstone Wall
+cubedeepstonevndoor=Cube Deepstone Door
+cubedeepstonecolumnvn=Cube Deepstone Column
+cubestonevnwall=Cube Stone Wall
+cubestonevndoor=Cube Stone Door
+cubestonecolumnvn=Cube Stone Column
+cubewoodvnwall=Cube Wood Wall
+cubewoodvndoor=Cube Wood Door
+cubewoodcolumnvn=Cube Wood Column
+
+[item]
+acrumplednotevn=A Crumpled Note
+novafragmentvn=Nova Fragment
+novashardvn=Nova Shard
+novaclustervn=Nova Cluster
+foxtokenvn=Fox Token
+novakatanavn=Nova Katana
+celestialembervn=Celestial Ember
+nightbladevn=Nightblade
+saplingswordvn=Sapling Sword
+holytomevn=Holy Tome
+unholytomevn=Unholy Tome
+novabulletvn=Nova Bullet
+lmgvn=LMG
+bigbrainonastickvn=Big Brain on a Stick
+verdantstaffvn=Verdant Staff
+doomedbowvn=Doomed Bow
+demonwarriorsealvn=Seal of the Warrior Demon
+grandphoenixgreatbowvn=Grand Phoenix Greatbow
+novaarrowvn=Nova Arrow
+codblastervn=Codblaster
+glassshardswordvn=Glass Shard Sword
+repeatingcrossbowvn=Repeating Crossbow
+ironsoulglaivevn=Ironsoul Glaive
+goldarrowvn=Gold Arrow
+queenspiderstaffvn=Queen Spider Staff
+necromancersrequiemvn=The Necromancer's Requiem
+slimystickvn=Slimy Staff
+acornlobbervn=Acorn Lobber
+woodenbulletvn=Wooden Bullet
+woodenhelmetvn=Wooden Helmet
+woodenchestplatevn=Wooden Chestplate
+woodenbootsvn=Wooden Boots
+ancientjunglehelmetvn=Ancient Jungle Helmet
+ancientjunglechestplatevn=Ancient Jungle Chestplate
+ancientjunglebootsvn=Ancient Jungle Boots
+windhatvn=Wind Hat
+windchestplatevn=Wind Chestplate
+windbootsvn=Wind Boots
+stonehelmetvn=Stone Helmet
+stonechestplatevn=Stone Chestplate
+stonebootsvn=Stone Boots
+meathatvn=Meat Hat
+meatrobevn=Meat Robe
+meatbootsvn=Meat Boots
+chilledbloodplatehatvn=Chilled Bloodplate Hat
+chilledbloodplatehoodvn=Chilled Bloodplate Hood
+chilledbloodplatehelmetvn=Chilled Bloodplate Helmet
+chilledbloodplatechestplatevn=Chilled Bloodplate Chestplate
+chilledbloodplatebootsvn=Chilled Bloodplate Boots
+cloudsvn=Clouds
+galevn=Gale
+hurricanevn=Hurricane
+windbulletvn=Wind Round
+windarrowvn=Wind Arrow
+awakeninatorvn=Awakeninator
+tableofawakeningvn=Table Of Awakening
+theblowingwindvn=The Blowing Wind
+thecollectorsmagnetvn=The Collector's Magnet
+novaheartvn=Nova Heart
+sentientcrownvn=Sentient Crown (T)
+nightmareheadvn=Nightmare Head
+heavierhammervn=Heavier Hammer
+heaviesthammervn=Heaviest Hammer
+themountainvn=The Mountain
+thejadewaraxevn=The Jade Waraxe
+thunderingrodvn=Thundering Rod
+eyeofthestormvn=Eye of the Storm
+crimsontempestvn=Crimson Tempest
+monsterpheromonesvn=Monster Pheromones
+foxtailtrinketvn=Fox Tail
+arachnoremotevn=Arachno-Remote
+novicetomevn=Novice Tome
+intermediatetomevn=Intermediate Tome
+experttomevn=Expert Tome
+mastertomevn=Master Tome
+magicfordummiesvn=Magic For Dummies
+stormboltervn=Storm Bolter
+stormbringervn=Stormbringer
+arainydayvn=A Rainy Day
+gemdustvn=Gem Dust
+dustygemsackvn=Dusty Gem Sack
+healthgemvn=Health Gem
+regengemvn=Regen Gem
+resiliencegemvn=Resilience Gem
+resilienceregengemvn=Resilience Regen Gem
+managemvn=Mana Gem
+manaregengemvn=Mana Regen Gem
+bloodgemvn=Blood Gem
+damagegemvn=Damage Gem
+critgemvn=Crit Gem
+speedgemvn=Speed Gem
+dashgemvn=Dash Gem
+summongemvn=Summon Gem
+armorgemvn=Armor Gem
+hookgemvn=Hook Gem
+yourgemcollectionvn=Your Gem Collection
+trueexplorersatchelvn=The True Explorer's Satchel
+clovertokenvn=Clover Token
+treemedallionvn=Tree Medallion
+windmedallionvn=Wind Medallion
+meatmedallionvn=Meat Medallion
+stonemedallionvn=Stone Medallion
+medallionboardvn=Medallion Board
+cavedemolishervn=Cave Demolisher
+portablegearcontactbeaconvn=Portable Gear Contact Beacon
+thebygonecrestvn=The Bygone Crest
+halovn=Halo
+cubaltshieldvn=Cubalt Shield
+protectorsealvn=Protector's Seal
+ruinedgolemsealvn=Seal of the Ruined Golem
+flowingenergysealvn=Seal of Flowing Energy
+speedstersealvn=Seal of the Speedster
+holypaladinsealvn=Seal of the Holy Paladin
+archbishopcowlvn=Archbishop's Cowl
+titanbustergreatswordvn=Titan Buster Greatsword
+cubecallervn=Cube Caller
+eyebeamvn=Eyebeam
+spherecererhatvn=Spherecerer's Hat
+bastionboxvn=Bastion Box
+gearresiliencematrixvn=GEAR Resilience Matrix
+blockberryvn=Blockberry
+blockberrysaplingvn=Blockberry Bush
+shapeshardsvn=Shape Shards
+cubaltoreitemvn=Cubalt Ore
+cubaltbarvn=Cubalt Bar
+cubelogvn=Cube Log
+cubestonevn=Cube Stone
+cubedeepstonevn=Cube Deepstone
+cubalthelmetvn=Cubalt Helmet
+cubaltchestplatevn=Cubalt Chestplate
+cubaltbootsvn=Cubalt Boots
+cubaltpickaxevn=Cubalt Pickaxe
+cubaltaxevn=Cubalt Axe
+cubaltshovelvn=Cubalt Shovel
+
+luckychickenmaskvn=Lucky Chicken Mask (T)
+luckychickencostumeshirtvn=Lucky Chicken Costume Shirt (T)
+luckychickencostumebootsvn=Lucky Chicken Costume Boots (T)
+
+[itemtooltip]
+celestialembervntip=Shoots an Ember to Destroy Opponents
+novakatanavntip=A katana blade enhanced with pure Nova.
+novafragmentvntip=A spark of celestial power.
+novashardvntip=A far stronger flame, now we're getting somewhere.
+novaclustervntip=An array of celestial brilliance. Does it get any better than this?
+nightbladevntip=This Sword is as Dark as the Night it was forged under
+saplingswordvntip=A potted sapling, now used as a terrifying melee weapon
+holytomevntip=Was once given out by an old vampire. Now created in your Workstation!
+unholytomevntip=Turns out tapping into more demonic energy creates a stronger, but less stable shot!
+novabulletvntip=Homes in on enemies for huge damage
+woodbulletvntip=Cheap and low damage, applies a weak poison effect.
+lmgvntip=Military Grade Equipment. Has a 20% chance not to consume ammo
+bigbrainstickvntip=More brain power means more summons! Now summon both zombies at once!
+queenspiderstaffvntip=A dangerous trio. There's even a spider on the egg sac!
+verdantstaffvntip=You shoot it, a flower comes out, and if the flower hits something it blooms. Oh so pretty
+doomedbowvntip=This bow is not meant for mortals, but who cares?
+novaarrowvntip=These arrows are tipped with Nova. Giving enemies a poison like effect.
+goldarrowvntip=Better than their Iron counterpart.
+codblastervntip=A Legendary fish that shoots bullets and hurls insults. (Tribute Item)
+glassshardswordvntip=The glass this sword is made of is indescribably strong.
+repeatingcrossbowvntip=A crossbow with an auto-load feature.
+ironsoulglaivevntip=Forged with souls in the coldest of flames. Applies Cosmic Fire on hit for 2 Seconds
+necromancersrequiemvntip=Used by only the best of the best Unliving Creators.
+acornlobbervntip1=Fires fast, inaccurate acorns to suppress foes.
+acornlobbervntip2=Has a 50% Chance of not consuming a bullet
+cloudsvntip=Feels wet.
+galevntip=It's a powerful revolver, delivering heavy winds and lead
+hurricanevntip=A rapid firing wind rifle. Has a 20% chance not to consume ammo
+windroundvntip=A tracking bolt of wind. Don't ask about how it works it just does.
+windarrowvntip=A tracking arrow made out of wind.
+awakeninatorvntip=Used to 'Awaken' an item. Letting you use it to it's full potential.
+theblowingwindvntip=Swift, silent, precise, a whispering force of nature.
+collectorsmagnetvntip=Picks up every (dropped) item within the map you're in.
+nightmareheadvntip=Now THAT's a movement trinket. (75% more Movement Speed)
+heavierhammervntip=And you thought the other one was heavy.
+heaviesthammervntip=A much stronger, heavier, and nicer looking hammer.
+themountainvntip=A colossal hammer, forging paths with earth-shattering force.
+thejadewaraxevntip=An exquisite jade waraxe, supposedly used by ancient tribes.
+thunderingrodvntip=Fires a fast lightning bolt.
+eyeofthestormvntip=A concentration of lightning.
+monsterpheromonesvntip=This does a bit more than attract monsters... not really
+arachnoremotevntip=Only the best robotic toy spider on the market.
+novicetomevntip=A magic tome meant for noobies of the craft.
+intermediatetomevntip=A magic tome, the bridge between being a novice and becoming a master.
+experttomevntip=A magic tome, definitely showing more off
+mastertomevntip=A magic tome for only those that can understand all
+magicfordummiesvntip=Now you can finally understand all.
+stormboltervntip=An electrified revolver.
+stormbringervntip=An electrified Assault Rifle. Has a 30% chance not to consume ammo
+cavedemolishervntip=Great for making sure you collect all the ores you'll need!
+novaheartvntip=Permanently increases max health by 20 up to 400
+gearresiliencematrixvntip=Permanently increases max resilience by 25 up to 50
+bastionboxvntip=Permanently increases max resilience by 5 up to 25
+spherecererhatvntip=Too bad it can't be worn.
+eyebeamvntip=A strange little creature.
+cubecallervntip=Calls upon baby cubes to aid you.
+shapeshardsvntip=Crushed shapes for crushed needs.
+cubaltshieldvntip=Grants the user invincibility for a short moment
+
+grandphoenixgreatbowvntip=Fires a large phoenix.
+
+gemdustvntip=Collect enough and you can turn it into a gem you need!
+dustygemsackvntip=A small bag, covered in dust with jingling noises inside.
+bloodgemvntip=Applies a blood that can stack up to 10 times. Each one doing 18 damage over 6 seconds.
+yourgemcollectionvntip=All the gems you've collected! I wonder if there's anymore...
+
+meatsetvntip=Has the same effects as the Spider Armor
+ancientjunglesetvntip=This isn't meant to be here yet.
+
+foxtokenvntip=A Relic that you had arrived here with. You're unsure of how it got there.
+foxtokenvntip2=(I swear this'll have an actual use later eventually)
+
+acrumplednotevntip1=go subscribe to my youtube channel.... I will release videos about this and my future mods soon
+acrumplednotevntip2=*random scribbling*
+acrumplednotevntip3=.... probably
+acrumplednotevntip4=*random scribbling*
+acrumplednotevntip5= Signed - KingEnder04
+
+crimsontempestvninfotip1=Right-click to charge
+crimsontempestvninfotip2=Fires multiple projectiles based on charge time, with a steeper bounce angle. Consumes more mana.
+
+crimsontempestvntip=Thunder rolls, a primal drumbeat in the sky,
+crimsontempestvntip2=Echoes of power, nature's fierce reply.
+crimsontempestvntip3=Clouds clash, lightning's bright lance does fly,
+crimsontempestvntip4=In awe we tremble as storms draw nigh,
+crimsontempestvntip5=Nature's symphony, thunder's battle cry.
+
+arainydayvntip=Raindrops dance upon the window pane,
+arainydayvntip2=Nature's tears, a gentle, soothing refrain.
+arainydayvntip3=Misty veil wraps the world in gray,
+arainydayvntip4=Whispers of petrichor, a symphony at play.
+arainydayvntip5=On this rainy day, peace finds its way.
+
+halovntip=Although it wasn't dropped by a heavenly being. It still has ties to such realm.
+halovntip2=+50 Max Health, +50 Max Mana, +0.25 Health Regen, +0.50 Mana Regen.
+
+thebygonecrestvntip1=A Crown that was worn by a long lost King, from a long lost Kingdom.
+thebygonecrestvntip2=15% Attack Speed, 15% All Damage, 10% Crit Chance, -20% Health, -50% Mana
+
+portablegearcontactbeaconvntip1=Used to get in Contact with the GEAR HQ
+portablegearcontactbeaconvntip2=Must be used in the Flatlands
+
+titanbustergreatswordvnchargetip1=Getting to half charge summons a baby titan cube
+titanbustergreatswordvnchargetip2=Getting to full charge summons another baby titan cube
+titanbustergreatswordvnchargetip3=These baby titan cubes are short lived.
+
+demonwarriorsealvntip1=A cursed relic bestowing demonic strength and fury upon its user.
+demonwarriorsealvntip2=On use gives 50% Attack Speed and 30% Damage, passively gives 2 Defense and 5% Crit Chance.
+
+holypaladinsealvntip1=A divine artifact radiating holiness, granting protection and righteous power.
+holypaladinsealvntip2=On use gives 100 Health and 2 Health Regen, passively gives 3 Defense and 1 Health Regen.
+
+flowingenergysealvntip1=A mystical artifact channeling boundless energy, enhancing magic and power.
+flowingenergysealvntip2=On use gives 200% Mana Regen, 100% Magic Attack Speed, 1 Health Regen, passively gives 2 Defense and -25% Magic Damage.
+
+speedstersealvntip1=A magical seal granting unparalleled swiftness and agility to its user.
+speedstersealvntip2=On use gives 100% movement speed, passively gives 2 Defense and Water Walking.
+
+ruinedgolemsealvntip1=An ancient seal, imbuing its user with the golem's resilience.
+ruinedgolemsealvntip2=On use gives 50 Max Health and 10 Defense, passively gives 4 Defense, -10% Speed, 10 Resilience.
+
+protectorsealvntip=On use gives 10% Damage, 10% Crit Chance, 10% Crit Damage, passively gives 2 Defense and 20 Health.
+
+archbishopcowlvntip1=It's a little busted, ain't it?
+archbishopcowlvntip2=On use gives 50% All Damage, 20% Crit Chance, 3 Flat Health Regen, 50 Max Health, -25 Defense.
+archbishopcowlvntip3=Passively gives 10% Damage and 10% Crit Chance.
+
+
+cubaltsetvntip=Sets target ablaze in cosmic fire for 2 seconds
+
+[mob]
+nightmaremobvn=Nightmare
+snowynightmaremobvn=Snowy Nightmare
+luckychickenmobvn=Lucky Chicken
+foxmobvn=Fox
+gustmobvn=Gust
+petsentientcrownvn=The Sentient Crown
+gemstonecavelingvn=Gemstone Caveling
+deepgemstonecavelingvn=Deep Gemstone Caveling
+cubaltcavelingvn=Cubalt Caveling
+gearspherebossmobvn=GEAR Sphere
+gearcubemobvn=GEAR Cube Defender
+planewalkermobvn=Planewalker
+cubemobvn=Cube
+nightmarecubemobvn=Nightmare Cube
+icecubemobvn=Ice Cube
+titancubemobvn=Titan Cube
+pyramidmobvn=Pyramid
+spheresorcerermobvn=Spherecerer
+spheresentinelmobvn=Sphere Sentinel
+deadmahmobvn=Accursed Grave
+
+summons here
+
+babycubemobvn=Baby(?) Cube
+babytitancubemobvn=Baby(?) Titan Cube
+
+
+[buff]
+cosmicfire=Cosmic Fire
+monsterpheromonesvnbuff=Monster Pheromones
+protectorsealvnbuff=Protector's Seal
+ruinedgolemsealvnbuff=Seal of the Ruined Golem
+flowingenergysealvnbuff=Seal of Flowing Energy
+speedstersealvnbuff=Seal of the Speedster
+holypaladinsealvnbuff=Seal of the Holy Paladin
+demonwarriorsealvnbuff=Seal of the Warrior Demon
+archbishopcowlvnbuff=Archbishop's Cowl
+bygonecrestvnbuff=The Bygone Crest
+waraxebleed=Bleeding
+diminished=Weakened
+

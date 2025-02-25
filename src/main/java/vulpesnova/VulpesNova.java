@@ -9,6 +9,7 @@ import necesse.engine.events.loot.MobLootTableDropsEvent;
 import necesse.engine.localization.Localization;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.sound.GameMusic;
+import necesse.engine.sound.gameSound.GameSound;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.BuffModifiers;
@@ -71,6 +72,7 @@ import vulpesnova.VNContent.VNArmors.VNWindSet.WindHatVN;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenBoots;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenChestplate;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenHelmet;
+
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsDeepCaveLevelVN;
@@ -79,8 +81,10 @@ import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenBiomeVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenDeepCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
+
 import vulpesnova.VNContent.VNBuffs.BleedingBuff;
 import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
+import vulpesnova.VNContent.VNBuffs.CrimsonTempestChargeStackBuff;
 import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
 import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
@@ -119,7 +123,11 @@ public class VulpesNova {
     public static Tech TABLEOFAWAKENINGVN;
 
     public static GameMusic HUBMUSICVN;
-
+    public static GameSound COD_FLOPPIN ;
+    public static GameSound ELECTRIC_EXPLOSION;
+    public static GameSound ELECTRIC_SHOOT;
+    public static GameSound ELECTRIC_CHARGE;
+    public static GameSound ELECTRIC_CHARGE_COMPLETE;
     public static final int CUBALT_VN_TOOL_DPS = 150;
 
     public static int cubeSandVNID;
@@ -149,12 +157,16 @@ public class VulpesNova {
     public static Buff HOLY_PALADIN_VN_COOLDOWN;
     public static Buff ARCHBISHOP_COWL_VN_ACTIVE;
     public static Buff ARCHBISHOP_COWL_VN_COOLDOWN;
+    
+    public static Buff CRIMSON_TEMPEST_CHARGE_STACKS_BUFF;
+    
     public static GameTexture GEARSPHEREbody;
     public static GameTexture GEARSPHEREhead;
     public static GameTexture GEARSPHEREleg;
 
     public static Biome FLATLANDS;
     public static Biome MINERSHAVEN;
+
 
 
     public void preInit() {
@@ -299,8 +311,6 @@ public class VulpesNova {
                 new Color(255, 195, 50), "goldore", 1, 3, 2, false), 0.0F, false
         );
 
-        // cave miners haven ores
-
         registerObject("quartzrock", new RockOreObject(
                 (RockObject) getObject("rock"), "oremask", "quartzore",
                 new Color(232, 227, 216), "quartz", 1, 3, 2, false), 0.0F, false
@@ -362,6 +372,7 @@ public class VulpesNova {
         // Register our biomes
         FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
         MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
+
 
         // Register our tech
 
@@ -605,8 +616,10 @@ public class VulpesNova {
         registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
+        registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
 
-
+        
+        registerProjectile("crimsontempestvnproj", CrimsonTempestVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
         // Register buffs
 
         // Armors
@@ -678,13 +691,16 @@ public class VulpesNova {
         ARCHBISHOP_COWL_VN_COOLDOWN = registerBuff("archbishopcowlvncooldown", new ShownCooldownBuff());
 
 
+        CRIMSON_TEMPEST_CHARGE_STACKS_BUFF = registerBuff("crimsontempestvncharge", new CrimsonTempestChargeStackBuff());
         // Register our levels
         LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
         LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
+
         LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
         LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
         LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
+
 
         //Register Music
 
@@ -759,9 +775,15 @@ public class VulpesNova {
 
 
         CubaltShieldVNToolItem.holdTexture = GameTexture.fromFile("player/holditems/cubaltshieldvn");
-        //sounds
+        
+        ELECTRIC_EXPLOSION = GameSound.fromFile("soundeffects/electric_explosion_med_cut_f.ogg");
+        ELECTRIC_SHOOT = GameSound.fromFile("soundeffects/zap_short.ogg");
+        ELECTRIC_CHARGE = GameSound.fromFile("soundeffects/electric_charge.ogg");
+        ELECTRIC_CHARGE_COMPLETE = GameSound.fromFile("soundeffects/voltage.ogg");
+        
+        COD_FLOPPIN = GameSound.fromFile("soundeffects/fishflop2.ogg");
         //electronicactivatevn = GameSound.fromFile("sound/soundeffects/electronicactivatevn");
-
+        
     }
 
     public void postInit() {

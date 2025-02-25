@@ -15,7 +15,10 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.placeableItem.consumableItem.ConsumableItem;
 import necesse.level.maps.IncursionLevel;
 import necesse.level.maps.Level;
+
+import necesse.level.maps.biomes.desert.DesertBiome;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
+
 
 public class GEARSphereSpawnItemVN extends ConsumableItem {
     public GEARSphereSpawnItemVN() {
