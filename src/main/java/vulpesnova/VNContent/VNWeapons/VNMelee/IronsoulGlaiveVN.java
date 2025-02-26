@@ -22,7 +22,7 @@ public class IronsoulGlaiveVN extends GlaiveToolItem {
     public IronsoulGlaiveVN() {
         super(1100);
         this.rarity = Rarity.EPIC;
-        this.animSpeed = 1200;
+        this.animSpeed = 600;
         this.attackDamage.setBaseValue(53.0F).setUpgradedValue(1.0F, 103.0F);
         this.attackRange.setBaseValue(160);
         this.knockback.setBaseValue(100);
