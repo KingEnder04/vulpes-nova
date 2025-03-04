@@ -13,11 +13,11 @@ public class AwakeninatorMaterialItem extends MatItem {
 
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
-        tooltips.add(Localization.translate("itemtooltip", "awakeninatortip"));
+        tooltips.add(Localization.translate("itemtooltip", "awakeninatorvntip"));
         return tooltips;
     }
     public AwakeninatorMaterialItem() {
-        super(999, Rarity.RARE);
+        super(999, Rarity.UNIQUE);
     }
 
 }

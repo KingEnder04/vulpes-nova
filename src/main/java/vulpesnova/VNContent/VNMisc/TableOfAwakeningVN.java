@@ -9,6 +9,7 @@ import necesse.gfx.drawOptions.DrawOptionsList;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
+import necesse.inventory.item.ItemCategory;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.CraftingStationObject;
@@ -21,6 +22,7 @@ import necesse.level.maps.multiTile.SideMultiTile;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class TableOfAwakeningVN extends CraftingStationObject {
@@ -29,10 +31,16 @@ public class TableOfAwakeningVN extends CraftingStationObject {
 
     private TableOfAwakeningVN() {
         super(new Rectangle(32, 32));
-        this.mapColor = new Color(150, 119, 70);
+        this.mapColor = new Color(70, 175, 72);
         this.drawDamage = false;
         this.toolType = ToolType.ALL;
         this.isLightTransparent = true;
+    }
+
+    public HashSet<ItemCategory> getForcedSoloCraftingCategories() {
+        HashSet<ItemCategory> depths = super.getForcedSoloCraftingCategories();
+        depths.add(ItemCategory.craftingManager.getCategory(new String[]{"equipment", "trinkets"}));
+        return depths;
     }
 
     public MultiTile getMultiTile(int rotation) {
