@@ -423,7 +423,16 @@ public class VulpesNova {
         registerItem("stonemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "stonemedallionvnbuff", 100), 200.0F, true);
         registerItem("medallionboardvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "medallionboardvnbuff", 300), 800.0F, true);
         registerItem("thebygonecrestvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "thebygonecrestvnbuff", 1000), 800.0F, true);
+        registerItem("frostbittenpawvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"polarclaw", "frozenwave"}), 200.0F, true);
+        registerItem("frozenpendantvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"frozensoul", "lifependant"}), 200.0F, true);
+        registerItem("glacialfrostvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"frozenpendantvn", "frostbittenpawvn"}), 200.0F, true);
+        registerItem("frozenheavenvn", new CombinedTrinketItem(Item.Rarity.RARE, 1500, new String[]{"halovn", "glacialfrostvn"}), 200.0F, true);
         registerItem("halovn", new SimpleTrinketItem(Item.Rarity.RARE, "halovnbuff", 300), 800.0F, true);
+        registerItem("demonicgauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "demonicgauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 200.0F, true);
+        registerItem("tungstengauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "tungstengauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 400.0F, true);
+        registerItem("novagauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "novagauntletvnbuff", 500)).addDisables(new String[]{"claygauntlet", "demonicgauntletvn", "tungstengauntletvn"}), 800.0F, true);
+        registerItem("gladiatorsembracevn", new CombinedTrinketItem(Item.Rarity.UNCOMMON, 800, new String[]{"manica", "challengerspauldron"}), 200.0F, true);
+        registerItem("galacticgraspvn", new CombinedTrinketItem(Item.Rarity.UNCOMMON, 1000, new String[]{"gladiatorsembracevn", "novagauntletvn"}), 200.0F, true);
         registerItem("cubaltshieldvn", new CubaltShieldVNToolItem(Item.Rarity.UNCOMMON, 1200), 2000, true);
         registerItem("protectorsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "protectorsealvntrinketbuff", 120), 500.0F, true);
         registerItem("ruinedgolemsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "ruinedgolemsealvntrinketbuff", 120), 500.0F, true);
@@ -561,8 +570,8 @@ public class VulpesNova {
         registerItem("importednightmarevn", new ImportedAnimalSpawnItem(12, true, "nightmaremobvn"), 200.0F, true);
         registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
         registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
-        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, true, "giantcavespider"), 200.0F, true);
-        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, true, "gustmobvn"), 200.0F, true);
+        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, false, "giantcavespider"), 200.0F, true);
+        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, false, "gustmobvn"), 200.0F, true);
 
         // Register our projectiles
         registerProjectile("celestialember", CelestEmberProjectile.class, "celestialemberprojvn", "celestialemberprojvn_shadow");
@@ -604,7 +613,6 @@ public class VulpesNova {
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
         registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
-
         
         registerProjectile("crimsontempestvnproj", CrimsonTempestVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
         // Register buffs
@@ -634,6 +642,9 @@ public class VulpesNova {
         registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.1F)}));
         registerBuff("thebygonecrestvnbuff", new TheBygoneCrestVNBuff());
         registerBuff("halovnbuff", new HaloVNBuff());
+        registerBuff("demonicgauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 20), new ModifierValue(BuffModifiers.RESILIENCE_DECAY, -0.80F)}));
+        registerBuff("tungstengauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 30), new ModifierValue(BuffModifiers.RESILIENCE_DECAY, -0.90F)}));
+        registerBuff("novagauntletvnbuff", new NovaGauntletVNBuff());
         registerBuff("protectorsealvntrinketbuff", new ProtectorSealVNTrinketBuff());
         PROTECTOR_SEAL_VN_ACTIVE = registerBuff("protectorsealvnactivebuff", new ProtectorSealVNActiveBuff());
         registerBuff("ruinedgolemsealvntrinketbuff", new RuinedGolemSealVNTrinketBuff());
@@ -676,7 +687,6 @@ public class VulpesNova {
         DEMON_WARRIOR_VN_COOLDOWN = registerBuff("demonwarriorsealvncooldown", new ShownCooldownBuff());
         HOLY_PALADIN_VN_COOLDOWN = registerBuff("holypaladinsealvncooldown", new ShownCooldownBuff());
         ARCHBISHOP_COWL_VN_COOLDOWN = registerBuff("archbishopcowlvncooldown", new ShownCooldownBuff());
-
 
         CRIMSON_TEMPEST_CHARGE_STACKS_BUFF = registerBuff("crimsontempestvncharge", new CrimsonTempestChargeStackBuff());
         // Register our levels

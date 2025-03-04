@@ -126,7 +126,16 @@ medallionboardvn=Medallion Board
 cavedemolishervn=Cave Demolisher
 portablegearcontactbeaconvn=Portable Gear Contact Beacon
 thebygonecrestvn=The Bygone Crest
+frostbittenpawvn=Frostbitten Paw
+frozenpendantvn=Frozen Pendant
+glacialfrostvn=Glacial Frost
+frozenheavenvn=Frozen Heaven
 halovn=Halo
+demonicgauntletvn=Demonic Gauntlet
+tungstengauntletvn=Tungsten Gauntlet
+novagauntletvn=Nova Gauntlet
+gladiatorsembracevn=Gladiator's Embrace
+galacticgraspvn=Galactic Grasp
 cubaltshieldvn=Cubalt Shield
 protectorsealvn=Protector's Seal
 ruinedgolemsealvn=Seal of the Ruined Golem
@@ -257,6 +266,8 @@ arainydayvntip5=On this rainy day, peace finds its way.
 
 halovntip=Although it wasn't dropped by a heavenly being. It still has ties to such realm.
 halovntip2=+50 Max Health, +50 Max Mana, +0.25 Health Regen, +0.50 Mana Regen.
+
+novagauntletvntip=Applies Cosmic Fire for 3 seconds, 30+ Max Resilience, Slows Resilience Decay by 90%
 
 thebygonecrestvntip1=A Crown that was worn by a long lost King, from a long lost Kingdom.
 thebygonecrestvntip2=15% Attack Speed, 15% All Damage, 10% Crit Chance, -20% Health, -50% Mana

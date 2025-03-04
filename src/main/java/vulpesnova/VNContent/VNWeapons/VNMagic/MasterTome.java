@@ -29,13 +29,13 @@ public class MasterTome extends MagicProjectileToolItem {
         super(200);
         this.rarity = Rarity.UNCOMMON;
         this.animSpeed = 200;
-        this.attackDamage.setBaseValue(43).setUpgradedValue(1.0F, 108.0F);
-        this.velocity.setBaseValue(240);
+        this.attackDamage.setBaseValue(40).setUpgradedValue(1.0F, 108.0F);
+        this.velocity.setBaseValue(160);
         this.attackXOffset = 12;
         this.attackYOffset = 12;
         this.attackRange.setBaseValue(2000);
         this.knockback.setBaseValue(50);
-        this.manaCost.setBaseValue(0.4f).setUpgradedValue(1.0F, 1.0F);
+        this.manaCost.setBaseValue(1.0f).setUpgradedValue(1.0F, 2.0F);
 
     }
 
