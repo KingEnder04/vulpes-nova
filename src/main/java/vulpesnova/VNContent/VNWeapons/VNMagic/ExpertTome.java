@@ -29,13 +29,13 @@ public class ExpertTome extends MagicProjectileToolItem {
         super(200);
         this.rarity = Rarity.UNCOMMON;
         this.animSpeed = 240;
-        this.attackDamage.setBaseValue(39).setUpgradedValue(1.0F, 102.0F);
-        this.velocity.setBaseValue(110);
+        this.attackDamage.setBaseValue(38).setUpgradedValue(1.0F, 102.0F);
+        this.velocity.setBaseValue(140);
         this.attackXOffset = 12;
         this.attackYOffset = 12;
         this.attackRange.setBaseValue(2000);
         this.knockback.setBaseValue(50);
-        this.manaCost.setBaseValue(0.4f).setUpgradedValue(1.0F, 1.0F);
+        this.manaCost.setBaseValue(0.8f).setUpgradedValue(1.0F, 1.4F);
 
     }
 

@@ -25,16 +25,16 @@ import java.awt.geom.Point2D;
 
 public class MagicForDummiesVN extends MagicProjectileToolItem {
     public MagicForDummiesVN() {
-        super(200);
+        super(1500);
         this.rarity = Rarity.UNIQUE;
-        this.animSpeed = 260;
-        this.attackDamage.setBaseValue(50).setUpgradedValue(1.0F, 126.0F);
-        this.velocity.setBaseValue(140);
+        this.animSpeed = 400;
+        this.attackDamage.setBaseValue(46).setUpgradedValue(1.0F, 126.0F);
+        this.velocity.setBaseValue(100);
         this.attackXOffset = 12;
         this.attackYOffset = 12;
-        this.attackRange.setBaseValue(3000);
+        this.attackRange.setBaseValue(1500);
         this.knockback.setBaseValue(50);
-        this.manaCost.setBaseValue(1.8f).setUpgradedValue(1.0F, 2.4F);
+        this.manaCost.setBaseValue(2.0f).setUpgradedValue(1.0F, 3.2F);
 
     }
 
@@ -60,7 +60,7 @@ public class MagicForDummiesVN extends MagicProjectileToolItem {
     }
 
     public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
-        for(int i = -1; i <= 2; ++i) {
+        for(int i = -1; i <= 1; ++i) {
             GameRandom random = new GameRandom((long) seed);
             Projectile projectile = new MagicForDummiesVNProjectile(level, player, player.x, player.y, (float) x, (float) y, (float) this.getVelocity(item, player), this.getAttackRange(item), this.getDamage(item), this.getKnockback(item, player));
             projectile.resetUniqueID(random);
@@ -76,7 +76,7 @@ public class MagicForDummiesVN extends MagicProjectileToolItem {
     }
 
     public InventoryItem onSettlerAttack(Level level, HumanMob mob, Mob target, int attackHeight, int seed, InventoryItem item) {
-        for(int i = -1; i <= 2; ++i) {
+        for(int i = -1; i <= 1; ++i) {
             int velocity = this.getVelocity(item, mob);
             Point2D.Float targetPos = Projectile.getPredictedTargetPos(target, mob.x, mob.y, (float) velocity, -50.0F);
             mob.attackItem((int) targetPos.x, (int) targetPos.y, item);
