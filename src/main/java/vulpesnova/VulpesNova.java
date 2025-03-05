@@ -32,6 +32,7 @@ import necesse.inventory.item.placeableItem.followerSummonItem.petFollowerPlacea
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.item.toolItem.axeToolItem.CustomAxeToolItem;
 import necesse.inventory.item.toolItem.pickaxeToolItem.CustomPickaxeToolItem;
+import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
 import necesse.inventory.item.toolItem.shovelToolItem.CustomShovelToolItem;
 import necesse.inventory.item.trinketItem.CombinedTrinketItem;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
@@ -677,6 +678,7 @@ public class VulpesNova {
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
         //PacketRegistry.registerPacket(ExamplePacket.class);
 
+        GunProjectileToolItem.NORMAL_AMMO_TYPES.add("novabulletvn");
         
         
         // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent

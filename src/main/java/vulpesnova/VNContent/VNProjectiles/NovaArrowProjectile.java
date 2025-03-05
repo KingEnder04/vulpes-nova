@@ -34,6 +34,7 @@ public class NovaArrowProjectile extends Projectile {
         this.height = 18.0F;
         this.heightBasedOnDistance = true;
         this.setWidth(8.0F);
+    
     }
 
     public Color getParticleColor() {
