@@ -13,3 +13,7 @@ build
 # Project specific
 steam_appid.txt
 latest-crash.log
+/bin
+*.class
+/bin/main/vulpesnova/VNContent
+/bin/main/vulpesnova/VNContent/VNProjectiles
