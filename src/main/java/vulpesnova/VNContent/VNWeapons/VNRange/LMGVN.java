@@ -8,6 +8,7 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
+import vulpesnova.VulpesNova;
 
 public class LMGVN extends GunProjectileToolItem {
 	
@@ -35,6 +36,6 @@ public class LMGVN extends GunProjectileToolItem {
 
     @Override
     public void playFireSound(AttackAnimMob mob) {
-        SoundManager.playSound(GameResources.handgun, SoundEffect.effect(mob));
+        SoundManager.playSound(VulpesNova.GUNSHOT1, SoundEffect.effect(mob));
     }
 }

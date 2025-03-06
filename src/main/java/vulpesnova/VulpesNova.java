@@ -125,12 +125,15 @@ public class VulpesNova {
 	private static final Random rand = new Random();	
     public static Tech TABLEOFAWAKENINGVN;
 
-    public static GameMusic HUBMUSICVN;
+   
     public static GameSound COD_FLOPPIN ;
     public static GameSound ELECTRIC_EXPLOSION;
     public static GameSound ELECTRIC_SHOOT;
     public static GameSound ELECTRIC_CHARGE;
     public static GameSound ELECTRIC_CHARGE_COMPLETE;
+    public static GameSound BLASTER1;
+	public static GameSound GUNSHOT1;
+	
     public static final int CUBALT_VN_TOOL_DPS = 150;
 
     public static int cubeSandVNID;
@@ -144,7 +147,8 @@ public class VulpesNova {
     public static Buff COSMIC_FIRE_VN;
     public static Buff MONSTER_PHEROMONE_BUFF_VN;
     public static Buff BLEEDING_BUFF_VN;
-
+    public static Buff JADE_WAR_AXE_BLEED_VN;
+    
     public static Buff PROTECTOR_SEAL_VN_ACTIVE;
     public static Buff PROTECTOR_SEAL_VN_COOLDOWN;
 
@@ -161,6 +165,7 @@ public class VulpesNova {
     public static Buff ARCHBISHOP_COWL_VN_ACTIVE;
     public static Buff ARCHBISHOP_COWL_VN_COOLDOWN;
     
+    
     public static Buff CRIMSON_TEMPEST_CHARGE_STACKS_BUFF;
     
     public static GameTexture GEARSPHEREbody;
@@ -170,10 +175,11 @@ public class VulpesNova {
     public static Biome FLATLANDS;
     public static Biome MINERSHAVEN;
 
-    
+    public static GameMusic HUBMUSICVN;
     public static GameMusic CUBELEVELMUSICVN;
     public static GameMusic CUBELEVELDEEPMUSICVN;
-	public static Buff JADE_WAR_AXE_BLEED_VN;
+	
+	
 
     public void preInit() {
 
@@ -788,6 +794,9 @@ public class VulpesNova {
         ELECTRIC_CHARGE_COMPLETE = GameSound.fromFile("soundeffects/voltage.ogg");
         
         COD_FLOPPIN = GameSound.fromFile("soundeffects/fishflop2.ogg");
+        
+        BLASTER1 = GameSound.fromFile("soundeffects/blaster1.ogg");
+        GUNSHOT1 = GameSound.fromFile("soundeffects/gunshot1.ogg");
         //electronicactivatevn = GameSound.fromFile("sound/soundeffects/electronicactivatevn");
         
     }

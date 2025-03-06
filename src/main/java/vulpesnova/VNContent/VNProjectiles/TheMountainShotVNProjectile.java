@@ -25,7 +25,7 @@ public class TheMountainShotVNProjectile extends Projectile {
     }
 
     public TheMountainShotVNProjectile(Level level, float x, float y, float targetX, float targetY, int speed, int distance, GameDamage damage, int knockback, Mob owner) {
-    	this.init();
+    	this();
     	this.setLevel(level);
         this.x = x;
         this.y = y;

@@ -20,7 +20,6 @@ public class VerdantStaffPetalProjectile extends Projectile {
 	
     public VerdantStaffPetalProjectile() {
     	super();
-    	this.init();
     }
 
     public VerdantStaffPetalProjectile(Level level, Mob owner, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback) {

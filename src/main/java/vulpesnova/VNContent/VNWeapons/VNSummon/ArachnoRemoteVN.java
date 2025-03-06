@@ -18,7 +18,9 @@ public class ArachnoRemoteVN extends SummonToolItem {
         super("babyspiderkinwarrior", necesse.entity.mobs.itemAttacker.FollowPosition.WALK_CLOSE, 1.0f, 500);
         this.rarity = Rarity.RARE;
         this.attackDamage.setBaseValue(20.0F).setUpgradedValue(1.0F, 50.0F);
+ 
     }
+      
     
     @Override
     public GameTooltips getSpaceTakenTooltip(InventoryItem item, PlayerMob perspective) {

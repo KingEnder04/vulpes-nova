@@ -20,10 +20,11 @@ import java.util.List;
 public class ThunderboltVNProjectile extends Projectile {
 
     public ThunderboltVNProjectile() {
+    
     }
 
     public ThunderboltVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
-    	this.init();
+    	this();
     	this.setLevel(level);
         this.x = x;
         this.y = y;

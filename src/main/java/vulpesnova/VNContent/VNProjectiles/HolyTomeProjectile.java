@@ -21,7 +21,8 @@ public class HolyTomeProjectile extends FollowingProjectile {
     }
 
     public HolyTomeProjectile(Level level, Mob owner, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback) {
-        this.setLevel(level);
+    	 this();
+    	this.setLevel(level);
         this.setOwner(owner);
         this.x = x;
         this.y = y;

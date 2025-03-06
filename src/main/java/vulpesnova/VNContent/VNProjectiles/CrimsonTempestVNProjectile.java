@@ -35,6 +35,7 @@ public class CrimsonTempestVNProjectile extends Projectile {
     }
 
     public CrimsonTempestVNProjectile(Level level, Point src, float x, float y, float targetX, float targetY, float speed, int distance, int maxJumps, int jumps, int jumpDistanceMax, int jumpAngleMax, GameDamage damage, Mob owner) {
+    	this();
     	this.setLevel(level);
 		this.setOwner(owner);
     	this.sourcePoint = src;

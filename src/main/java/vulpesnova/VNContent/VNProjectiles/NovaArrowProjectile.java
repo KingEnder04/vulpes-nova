@@ -26,6 +26,7 @@ import java.util.List;
 
 public class NovaArrowProjectile extends Projectile {
     public NovaArrowProjectile() {
+    	
     }
 
     @Override

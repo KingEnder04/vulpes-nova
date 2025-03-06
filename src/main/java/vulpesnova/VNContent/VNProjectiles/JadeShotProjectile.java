@@ -25,7 +25,7 @@ public class JadeShotProjectile extends Projectile {
     }
 
     public JadeShotProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
-    	
+    	 this();
     	this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);

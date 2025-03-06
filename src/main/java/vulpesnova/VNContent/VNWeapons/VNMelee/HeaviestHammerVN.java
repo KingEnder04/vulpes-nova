@@ -23,11 +23,11 @@ import vulpesnova.VNContent.VNProjectiles.HeaviestHammerShotVNProjectile;
 public class HeaviestHammerVN extends MeleeProjectileToolItem {
     public HeaviestHammerVN() {
         super(800);
-        this.rarity = Rarity.UNCOMMON;
+        this.rarity = Rarity.RARE;
         this.attackAnimTime.setBaseValue(450);
         this.attackDamage.setBaseValue(30).setUpgradedValue(1.0F, 95.0F);
         this.knockback.setBaseValue(40);
-        this.velocity.setBaseValue(120);
+        this.velocity.setBaseValue(120);        
         this.attackXOffset = 4;
         this.attackYOffset = 4;
         this.attackRange.setBaseValue(500);
@@ -74,12 +74,9 @@ public class HeaviestHammerVN extends MeleeProjectileToolItem {
             		this.getKnockback(item, attackerMob),
             		attackerMob);
             projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
-            projectile.resetUniqueID(new GameRandom((long) seed));
-            level.entityManager.projectiles.addHidden(projectile);
+            projectile.resetUniqueID(new GameRandom((long) seed));          
             projectile.setAngle(projectile.getAngle() + (float)(12 * i));
-            if (level.isServer()) {
-                level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, attackerMob.getServer().getLocalServerClient());
-            }
+            attackerMob.addAndSendAttackerProjectile(projectile);
         }
         return item;
     }    

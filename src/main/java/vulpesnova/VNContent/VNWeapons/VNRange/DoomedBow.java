@@ -19,7 +19,7 @@ import vulpesnova.VNContent.VNProjectiles.DoomedBowProjectile;
 public class DoomedBow extends BowProjectileToolItem {
     public DoomedBow() {
         super(800);
-        this.attackAnimTime.setBaseValue(1300);
+        this.attackAnimTime.setBaseValue(1000);
         this.rarity = Rarity.EPIC;
         this.attackDamage.setBaseValue(70).setUpgradedValue(1.0F, 120.0F);
         this.velocity.setBaseValue(150);

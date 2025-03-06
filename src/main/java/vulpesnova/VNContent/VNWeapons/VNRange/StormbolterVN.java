@@ -3,11 +3,13 @@ package vulpesnova.VNContent.VNWeapons.VNRange;
 import necesse.engine.localization.Localization;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.AttackAnimMob;
 import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
+import vulpesnova.VulpesNova;
 
 public class StormbolterVN extends GunProjectileToolItem {
     public StormbolterVN() {
@@ -30,6 +32,6 @@ public class StormbolterVN extends GunProjectileToolItem {
 
     @Override
     public void playFireSound(AttackAnimMob mob) {
-        SoundManager.playSound(GameResources.handgun, SoundEffect.effect(mob));
+        SoundManager.playSound(VulpesNova.BLASTER1, SoundEffect.effect(mob).pitch(GameRandom.globalRandom.getFloatBetween(-0.2F, 0.2F)));
     }
 }

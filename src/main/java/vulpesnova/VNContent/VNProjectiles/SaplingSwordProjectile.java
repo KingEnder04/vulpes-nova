@@ -25,7 +25,8 @@ public class SaplingSwordProjectile extends Projectile {
     }
 
     public SaplingSwordProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, Mob owner) {
-        this.setLevel(level);
+       this();
+    	this.setLevel(level);
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);

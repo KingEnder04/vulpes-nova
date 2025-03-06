@@ -2,7 +2,6 @@ package vulpesnova.VNContent.VNWeapons.VNMelee;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
-import necesse.engine.network.packet.PacketSpawnProjectile;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameBlackboard;
@@ -27,11 +26,14 @@ public class HeavierHammerVN extends MeleeProjectileToolItem {
         this.attackAnimTime.setBaseValue(400);
         this.attackDamage.setBaseValue(24.0F).setUpgradedValue(1.0F, 80.0F);
         this.knockback.setBaseValue(40);
-        this.velocity.setBaseValue(120);
+        this.velocity.setBaseValue(120);     
         this.attackRange.setBaseValue(450);
         this.attackXOffset = 4;
         this.attackYOffset = 4;
         this.itemAttackerProjectileCanHitWidth = 10.0F;
+    	this.canBeUsedForRaids = true;
+		this.raidTicketsModifier = 0.5F;
+		this.useForRaidsOnlyIfObtained = true;
     }
     
     @Override
@@ -71,18 +73,16 @@ public class HeavierHammerVN extends MeleeProjectileToolItem {
             		attackerMob.y,
             		(float) x,
             		(float) y, 
-            		this.getFlatVelocity(item),
+            		this.getProjectileVelocity(item, attackerMob),
             		this.getAttackRange(item),
             		this.getAttackDamage(item),
             		this.getKnockback(item, attackerMob),
             		attackerMob);
+            
             projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
             projectile.resetUniqueID(new GameRandom((long) seed));
-            level.entityManager.projectiles.addHidden(projectile);
             projectile.setAngle(projectile.getAngle() + (float)(8 * i));
-            if (level.isServer()) {
-                level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile,attackerMob.getServer().getLocalServerClient());
-            }
+            attackerMob.addAndSendAttackerProjectile(projectile);
         }
         return item;
     }

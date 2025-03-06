@@ -22,7 +22,7 @@ import java.util.List;
 public class WindArrowProjectile extends FollowingProjectile {
 	
     public WindArrowProjectile() {
-    	this.init();
+
     }
 
     public void init() {

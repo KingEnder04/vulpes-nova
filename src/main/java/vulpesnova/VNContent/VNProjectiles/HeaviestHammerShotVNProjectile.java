@@ -20,26 +20,28 @@ import java.util.List;
 
 public class HeaviestHammerShotVNProjectile extends Projectile {
     private int sprite;
-
+    private long spawnTime;
     public HeaviestHammerShotVNProjectile() {
-    	super();
+    
     }
 
     public HeaviestHammerShotVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
         this();
+        this.setLevel(level);
     	this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
         this.speed = 100.0F;
         this.setDamage(damage);
         this.setOwner(owner);
-        this.setDistance(400);
+        this.setDistance(distance);
     }
 
     @Override
     public void init() {
         super.init();
         this.setWidth(10.0F);
+    	this.spawnTime = this.getWorldEntity().getTime();
         this.height = 18.0F;
         this.heightBasedOnDistance = true;
         this.trailOffset = 0.0F;
@@ -89,8 +91,10 @@ public class HeaviestHammerShotVNProjectile extends Projectile {
             });
         }
     }
+    
 
-    @Override
+
+ 
     protected void playHitSound(float x, float y) {
     }
 }

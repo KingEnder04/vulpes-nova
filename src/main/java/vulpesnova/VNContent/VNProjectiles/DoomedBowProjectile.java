@@ -22,7 +22,8 @@ public class DoomedBowProjectile extends Projectile {
     }
 
     public DoomedBowProjectile(Mob owner, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback) {
-        this.setOwner(owner);
+    	 this();
+    	this.setOwner(owner);
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);

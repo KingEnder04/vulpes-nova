@@ -27,7 +27,6 @@ public class NightbladeSwordVN extends SwordToolItem {
         this.knockback.setBaseValue(75);
         this.attackXOffset = 9;
         this.attackYOffset = 10;
-  
     }
 
 	@Override
@@ -44,15 +43,18 @@ public class NightbladeSwordVN extends SwordToolItem {
     	
         item = super.onAttack(level, x, y, attackerMob, attackHeight, item, slot, animAttack, seed, mapContent);
         float rangeMod = 4.5F;
-        float velocity = 140.0F;
-        float finalVelocity = (float)Math.round( (Float)this.getEnchantment(item).getModifier(ToolItemModifiers.VELOCITY) * velocity * (Float)attackerMob.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY));
+        float velocity = 140.0F;        
+      
+        velocity *=  Math.round((Float) this.getEnchantment(item).applyModifierLimited(ToolItemModifiers.VELOCITY,
+				(Float) ToolItemModifiers.VELOCITY.defaultBuffManagerValue));
+        velocity *= attackerMob.buffManager.getModifier(BuffModifiers.PROJECTILE_VELOCITY); 
         
         Projectile projectile = new NightbladeVNProjectile(level,
         		attackerMob.x,
         		attackerMob.y,
         		(float)x,
         		(float)y, 
-        		finalVelocity,
+        		velocity,
         		(int)((float)this.getAttackRange(item) * rangeMod),
         		this.getAttackDamage(item), attackerMob);
         

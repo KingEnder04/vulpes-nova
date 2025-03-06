@@ -23,7 +23,6 @@ import java.util.List;
 public class WindRoundProjectile extends FollowingProjectile {
     public WindRoundProjectile() {
         this.height = 18.0F;
-        this.init();
     }
 
     public WindRoundProjectile(float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {

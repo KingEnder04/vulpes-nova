@@ -24,7 +24,8 @@ public class SpherecererShotVNProjectile extends Projectile {
     }
 
     public SpherecererShotVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
-        this.setLevel(level);
+     this();
+    	this.setLevel(level);
         this.setOwner(owner);
         this.x = x;
         this.y = y;

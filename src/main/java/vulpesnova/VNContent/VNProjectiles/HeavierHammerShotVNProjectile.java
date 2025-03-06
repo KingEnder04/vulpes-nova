@@ -20,13 +20,14 @@ import java.util.List;
 
 public class HeavierHammerShotVNProjectile extends Projectile {
     private int sprite;
-
+    private long spawnTime;
     public HeavierHammerShotVNProjectile() {
-    	super();
+    
     }
 
     public HeavierHammerShotVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
         this();
+        this.setLevel(level);
     	this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
@@ -41,6 +42,7 @@ public class HeavierHammerShotVNProjectile extends Projectile {
         super.init();
         this.setWidth(10.0F);
         this.height = 18.0F;
+    	this.spawnTime = this.getWorldEntity().getTime();
         this.heightBasedOnDistance = true;
         this.trailOffset = 0.0F;
         if (this.texture != null) {
@@ -89,7 +91,9 @@ public class HeavierHammerShotVNProjectile extends Projectile {
             });
         }
     }
+    
 
+    
     protected void playHitSound(float x, float y) {
     }
 }

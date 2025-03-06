@@ -28,7 +28,6 @@ public class VerdantStaffFlowerProjectile extends Projectile {
 
     public VerdantStaffFlowerProjectile() {
     	super();
-    	this.init();
     }
 
     public VerdantStaffFlowerProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
@@ -62,7 +61,7 @@ public class VerdantStaffFlowerProjectile extends Projectile {
         this.height = 18.0F;
         this.startSpeed = this.speed;
         this.setWidth(10.0F);
-        this.spawnTime = this.getLevel().getWorldEntity().getTime();
+        this.spawnTime = this.getTime();
     }
     
     @Override

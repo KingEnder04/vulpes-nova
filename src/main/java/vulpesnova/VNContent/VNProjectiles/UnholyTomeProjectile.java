@@ -21,7 +21,6 @@ public class UnholyTomeProjectile extends FollowingProjectile {
 	
     public UnholyTomeProjectile() {
     	super();
-    	this.init();
     }
 
     public UnholyTomeProjectile(Level level,  float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {

@@ -80,12 +80,9 @@ public class TheMountainVN extends MeleeProjectileToolItem {
             		attackerMob);
             
             projectile.setModifier(new ResilienceOnHitProjectileModifier(this.getResilienceGain(item)));
-            projectile.resetUniqueID(new GameRandom((long) seed));
-            level.entityManager.projectiles.addHidden(projectile);
+            projectile.resetUniqueID(new GameRandom((long) seed));           
             projectile.setAngle(projectile.getAngle() + (float)(9 * i));
-            if (level.isServer()) {
-                level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, attackerMob.getServer().getLocalServerClient());
-            }
+            attackerMob.addAndSendAttackerProjectile(projectile);          
         }
         return item;
     }

@@ -1,8 +1,6 @@
 package vulpesnova.VNContent.VNWeapons.VNMelee;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.localization.message.GameMessage;
-import necesse.engine.network.PacketReader;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketLevelEvent;
 import necesse.engine.sound.SoundEffect;
@@ -14,7 +12,6 @@ import necesse.entity.mobs.AttackAnimMob;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
-import necesse.entity.mobs.friendly.human.HumanMob;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.trails.Trail;
@@ -22,10 +19,8 @@ import necesse.entity.trails.TrailVector;
 import necesse.gfx.GameResources;
 import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.gameTexture.GameSprite;
-import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.PlayerInventorySlot;
 import necesse.level.maps.Level;
 import vulpesnova.VulpesNova;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
