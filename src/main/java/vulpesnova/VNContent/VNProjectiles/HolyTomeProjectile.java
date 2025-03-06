@@ -31,7 +31,8 @@ public class HolyTomeProjectile extends FollowingProjectile {
         this.setDamage(damage);
         this.knockback = knockback;
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.turnSpeed = 0.75F;
@@ -42,15 +43,18 @@ public class HolyTomeProjectile extends FollowingProjectile {
         this.piercing = 1;
         this.bouncing = 1;
     }
-
+    
+    @Override
     public Color getParticleColor() {
         return new Color(204, 192, 69);
     }
-
+    
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(204, 192, 69), 18.0F, 500, this.getHeight());
     }
-
+    
+    @Override
     public void updateTarget() {
         if (this.traveledDistance > 20.0F) {
             this.findTarget((m) -> {
@@ -59,7 +63,8 @@ public class HolyTomeProjectile extends FollowingProjectile {
         }
 
     }
-
+    
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);

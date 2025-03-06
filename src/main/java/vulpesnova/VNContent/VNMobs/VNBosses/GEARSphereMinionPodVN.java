@@ -48,6 +48,7 @@ public class GEARSphereMinionPodVN extends Projectile {
         this(level, owner, owner.x, owner.y, targetX, targetY, speed, distance, damage, knockback);
     }
 
+    @Override
     public void init() {
         super.init();
         this.spawnTime = this.getWorldEntity().getTime();
@@ -56,6 +57,7 @@ public class GEARSphereMinionPodVN extends Projectile {
         this.trailOffset = 0.0F;
     }
 
+    @Override
     public float tickMovement(float delta) {
         float out = super.tickMovement(delta);
         float travelPerc = GameMath.limit(this.traveledDistance / (float)this.distance, 0.0F, 1.0F);
@@ -65,14 +67,17 @@ public class GEARSphereMinionPodVN extends Projectile {
         return out;
     }
 
+    @Override
     public Color getParticleColor() {
         return new Color(220, 56, 106);
     }
 
+    @Override
     public Trail getTrail() {
         return null;
     }
 
+    @Override
     public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y) {
         super.doHitLogic(mob, object, x, y);
         if (this.isServer()) {
@@ -87,6 +92,7 @@ public class GEARSphereMinionPodVN extends Projectile {
         }
     }
 
+    @Override
     protected void spawnDeathParticles() {
         for(int i = 0; i < 6; ++i) {
             this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), this.texture, GameRandom.globalRandom.nextInt(4), 1, 32, this.x, this.y, 10.0F, this.dx, this.dy), Particle.GType.IMPORTANT_COSMETIC);
@@ -105,6 +111,7 @@ public class GEARSphereMinionPodVN extends Projectile {
         SoundManager.playSound(GameResources.crackdeath, SoundEffect.effect(this.x, this.y).volume(0.7F).pitch(pitch));
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this.getX() / 32, this.getY() / 32);

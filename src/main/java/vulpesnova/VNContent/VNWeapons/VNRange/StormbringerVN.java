@@ -13,7 +13,7 @@ public class StormbringerVN extends GunProjectileToolItem {
     public StormbringerVN() {
         super(NORMAL_AMMO_TYPES, 800);
         this.rarity = Rarity.RARE;
-        this.animSpeed = 140;
+        this.attackAnimTime.setBaseValue(140);
         this.attackDamage.setBaseValue(18).setUpgradedValue(1.0F, 78.0F);
         this.attackXOffset = 18;
         this.attackYOffset = 14;
@@ -25,11 +25,13 @@ public class StormbringerVN extends GunProjectileToolItem {
         this.addGlobalIngredient(new String[]{"bulletuser"});
     }
 
+    @Override
     protected void addAmmoTooltips(ListGameTooltips tooltips, InventoryItem item) {
         super.addAmmoTooltips(tooltips, item);
         tooltips.add(Localization.translate("itemtooltip", "stormbringervntip"));
     }
-
+    
+    @Override
     public void playFireSound(AttackAnimMob mob) {
         SoundManager.playSound(GameResources.handgun, SoundEffect.effect(mob));
     }

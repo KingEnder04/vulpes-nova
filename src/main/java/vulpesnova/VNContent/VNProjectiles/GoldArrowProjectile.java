@@ -25,6 +25,7 @@ public class GoldArrowProjectile extends Projectile {
     public GoldArrowProjectile() {
     }
 
+    @Override
     public void init() {
         super.init();
         this.height = 18.0F;
@@ -32,14 +33,17 @@ public class GoldArrowProjectile extends Projectile {
         this.setWidth(8.0F);
     }
 
+    @Override
     protected void modifySpinningParticle(ParticleOption particle) {
         particle.givesLight(75.0F, 0.5F).lifeTime(1000);
     }
 
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(246, 204, 14), 10.0F, 250, this.getHeight());
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);
@@ -55,6 +59,7 @@ public class GoldArrowProjectile extends Projectile {
         }
     }
 
+    @Override
     public void dropItem() {
         if (GameRandom.globalRandom.getChance(0.5F)) {
             this.getLevel().entityManager.pickups.add((new InventoryItem("goldarrowvn")).getPickupEntity(this.getLevel(), this.x, this.y));
@@ -62,6 +67,7 @@ public class GoldArrowProjectile extends Projectile {
 
     }
 
+    @Override
     protected void playHitSound(float x, float y) {
         SoundManager.playSound(GameResources.bowhit, SoundEffect.effect(x, y));
     }

@@ -1,7 +1,7 @@
 package vulpesnova.VNContent.VNMobs.VNPets;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.registries.MobRegistry;
+import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobDrawable;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
@@ -11,7 +11,6 @@ import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
-import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
@@ -23,7 +22,7 @@ import java.util.List;
 public class BabyCubeMobVN extends AttackingFollowingMob {
 
     public static GameTexture texture;
-
+    public GameDamage damage;
     public BabyCubeMobVN() {
         super(10);
         this.setSpeed(50.0F);
@@ -32,13 +31,16 @@ public class BabyCubeMobVN extends AttackingFollowingMob {
         this.collision = new Rectangle(-10, -7, 20, 14);
         this.hitBox = new Rectangle(-12, -14, 24, 24);
         this.selectBox = new Rectangle(-13, -14, 26, 24);
+        this.damage = new GameDamage(50.0f);
     }
 
+    @Override
     public void init() {
         super.init();
-        this.ai = new BehaviourTreeAI(this, new PlayerFollowerCollisionChaserAI(576, this.damage, 30, 500, 640, 64));
+        this.ai = new BehaviourTreeAI<AttackingFollowingMob>(this, new PlayerFollowerCollisionChaserAI<AttackingFollowingMob>(576, this.damage, 30, 500, 640, 64));
     }
 
+    @Override
     public void spawnDeathParticles(float knockbackX, float knockbackY) {
         for(int i = 0; i < 4; ++i) {
             this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), texture, 12, i, 16, this.x, this.y, 20.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
@@ -46,6 +48,7 @@ public class BabyCubeMobVN extends AttackingFollowingMob {
 
     }
 
+    @Override
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
@@ -70,6 +73,7 @@ public class BabyCubeMobVN extends AttackingFollowingMob {
 
     }
 
+    @Override
     public int getRockSpeed() {
         return 20;
     }

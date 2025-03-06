@@ -113,6 +113,7 @@ public class IceCubeMobVN extends HostileMob {
         return 100;
     }
 
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

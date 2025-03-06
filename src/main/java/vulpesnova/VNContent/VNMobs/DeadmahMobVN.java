@@ -4,15 +4,11 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
-import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MobDrawable;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.leaves.EmptyAINode;
-import necesse.entity.mobs.ai.behaviourTree.leaves.PlayerFollowerAINode;
-import necesse.entity.mobs.friendly.critters.CritterMob;
 import necesse.entity.mobs.hostile.HostileMob;
-import necesse.entity.mobs.summon.summonFollowingMob.petFollowingMob.PetFollowingMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
@@ -48,13 +44,15 @@ public class DeadmahMobVN extends HostileMob {
         this.selectBox = new Rectangle(-32, -48, 64, 64);
     }
 
+    @Override
     public LootTable getLootTable() {
         return lootTable;
     }
 
+    @Override
     public void init() {
         super.init();
-        this.ai = new BehaviourTreeAI(this, new EmptyAINode());
+        this.ai = new BehaviourTreeAI<DeadmahMobVN>(this, new EmptyAINode<DeadmahMobVN>());
     }
 
     @Override
@@ -72,6 +70,7 @@ public class DeadmahMobVN extends HostileMob {
         }
     }
 
+    @Override
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
@@ -89,10 +88,13 @@ public class DeadmahMobVN extends HostileMob {
         });
         this.addShadowDrawables(tileList, x, y, light, camera);
     }
+    
+    @Override
     public Point getAnimSprite(int x, int y, int dir) {
         return new Point(GameUtils.getAnim(this.getWorldEntity().getTime(), 4, 800), dir);
     }
 
+    @Override
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) {
         GameTexture shadowTexture = MobRegistry.Textures.human_baby_shadow;
         int res = shadowTexture.getHeight();
@@ -102,6 +104,7 @@ public class DeadmahMobVN extends HostileMob {
         return shadowTexture.initDraw().sprite(dir, 0, res).light(light).pos(drawX, drawY);
     }
 
+    @Override
     public int getBobbing(int x, int y) {
         return 0;
     }

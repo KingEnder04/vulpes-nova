@@ -28,13 +28,11 @@ import necesse.entity.mobs.Mob;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.LootTablePresets;
 import necesse.level.gameObject.GameObject;
-import necesse.level.maps.biomes.desert.DesertSurfaceLevel;
 import necesse.level.maps.generationModules.CaveGeneration;
 import necesse.level.maps.generationModules.CellAutomaton;
 import necesse.level.maps.generationModules.GenerationTools;
 import necesse.level.maps.generationModules.LinesGeneration;
 import necesse.level.maps.generationModules.PresetGeneration;
-import necesse.level.maps.presets.AncientVultureArenaPreset;
 import necesse.level.maps.presets.Preset;
 import necesse.level.maps.presets.PresetUtils;
 import necesse.level.maps.presets.RandomCaveChestRoom;
@@ -64,11 +62,11 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
         int crate = ObjectRegistry.getObjectID("crate");
         int vase = ObjectRegistry.getObjectID("vase");
         int trackObject = ObjectRegistry.getObjectID("minecarttrack");
-        LinkedList<Mob> minecartsGenerated = new LinkedList();
+        LinkedList<Mob> minecartsGenerated = new LinkedList<Mob>();
         GameEvents.triggerEvent(new GenerateCaveMiniBiomesEvent(this, cg), (e) -> {
             GenerationTools.generateRandomPoints(this, cg.random, 0.01F, 15, (p) -> {
                 LinesGeneration lg = new LinesGeneration(p.x, p.y);
-                ArrayList<LinesGeneration> tntArms = new ArrayList();
+                ArrayList<LinesGeneration> tntArms = new ArrayList<LinesGeneration>();
                 int armAngle = cg.random.nextInt(4) * 90;
                 int arms = cg.random.getIntBetween(3, 10);
 
@@ -90,13 +88,13 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
                     }
 
                 });
-                ArrayList<Point> trackTiles = new ArrayList();
+                ArrayList<Point> trackTiles = new ArrayList<Point>();
                 lg.getRoot().recursiveLines((lg2) -> {
-                    GameLinkedList<Point> tiles = new GameLinkedList();
+                    GameLinkedList<Point> tiles = new GameLinkedList<Point>();
                     LinesGeneration.pathTiles(lg2.getTileLine(), true, (from, nextx) -> {
                         tiles.add(nextx);
                     });
-                    Iterator var5 = tiles.elements().iterator();
+                    Iterator<?> var5 = tiles.elements().iterator();
 
                     while(var5.hasNext()) {
                         GameLinkedList<Point>.Element el = (GameLinkedList.Element)var5.next();
@@ -162,11 +160,11 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
                     Point2D.Float leverPoint = GameMath.getPerpendicularPoint(linePoint, 2.0F * Math.signum((float)wireLength), dir);
                     Point2D.Float tntPoint = GameMath.getPerpendicularPoint(linePoint, (float)wireLength, dir);
                     Line2D.Float wireLine = new Line2D.Float(leverPoint, tntPoint);
-                    LinkedList<Point> tiles = new LinkedList();
+                    LinkedList<Point> tiles = new LinkedList<Point>();
                     LinesGeneration.pathTiles(wireLine, true, (fromTile, nextTile) -> {
                         tiles.add(nextTile);
                     });
-                    Iterator var26 = tiles.iterator();
+                    Iterator<Point> var26 = tiles.iterator();
 
                     Point tile;
                     while(var26.hasNext()) {
@@ -255,7 +253,7 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
             cg.generateRandomCrates(0.04F, crates);
         });
         GenerationTools.checkValid(this);
-        Iterator var8 = minecartsGenerated.iterator();
+        Iterator<Mob> var8 = minecartsGenerated.iterator();
 
         while(var8.hasNext()) {
             Mob mob = (Mob)var8.next();
@@ -265,11 +263,13 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
         }
 
     }
-
+    
+	@Override
     public LootTable getCrateLootTable() {
         return LootTablePresets.desertCrate;
     }
-
+    
+	@Override
     public GameMessage getLocationMessage() {
         return new LocalMessage("biome", "cave", "biome", this.biome.getLocalization());
     }

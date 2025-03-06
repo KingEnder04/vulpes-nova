@@ -52,6 +52,7 @@ public class SphereSorcererMobVN extends HostileMob {
         this.selectBox = new Rectangle(-14, -41, 28, 48);
     }
 
+    @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
         if (this.getLevel().isCave) {
@@ -63,6 +64,7 @@ public class SphereSorcererMobVN extends HostileMob {
         return location.validAndApply();
     }
 
+    @Override
     public void init() {
         super.init();
         this.ai = new BehaviourTreeAI(this, new PlayerChaserWandererAI<Mob>((Supplier)null, 512, 320, 40000, false, false) {
@@ -72,6 +74,7 @@ public class SphereSorcererMobVN extends HostileMob {
         });
     }
 
+    @Override
     public void clientTick() {
         super.clientTick();
         if (this.isAttacking) {
@@ -80,6 +83,7 @@ public class SphereSorcererMobVN extends HostileMob {
 
     }
 
+    @Override
     public void serverTick() {
         super.serverTick();
         if (this.isAttacking) {

@@ -10,7 +10,6 @@ import necesse.entity.mobs.MobSpawnLocation;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.CollisionPlayerChaserWandererAI;
-import necesse.entity.mobs.friendly.critters.CritterMob;
 import necesse.entity.mobs.hostile.HostileMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -18,7 +17,6 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
-import necesse.inventory.lootTable.LootItemInterface;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
 import necesse.level.maps.Level;
@@ -61,6 +59,7 @@ public class CubeMobVN extends HostileMob {
         return lootTable;
     }
 
+    @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
         if (this.getLevel().isCave) {
@@ -123,6 +122,7 @@ public class CubeMobVN extends HostileMob {
         return 20;
     }
 
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

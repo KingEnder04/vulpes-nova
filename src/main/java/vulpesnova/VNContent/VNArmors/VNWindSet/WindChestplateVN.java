@@ -14,9 +14,10 @@ public class WindChestplateVN extends ChestArmorItem {
     public WindChestplateVN() {
         super(6, 200, Rarity.NORMAL, "windchestplatevn", "windchestplatevnarms");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.ATTACK_SPEED, this.attack_speed.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, this.attack_speed.getValue(this.getUpgradeTier(item)))});
     }
 
 }

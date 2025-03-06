@@ -23,6 +23,7 @@ public class GlassShardSword extends SwordToolItem {
         this.attackYOffset = 10;
     }
 
+    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "glassshardswordvntip"));

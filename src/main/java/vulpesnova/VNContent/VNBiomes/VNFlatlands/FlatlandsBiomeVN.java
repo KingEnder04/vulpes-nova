@@ -36,39 +36,51 @@ public class FlatlandsBiomeVN extends Biome {
     public static LootItemInterface randomIceCrownDrop;
 
     public FlatlandsBiomeVN() {
+    	
     }
-
+    
+    
+    
+	@Override
     protected void loadRainTexture() {
         this.rainTexture = GameTexture.fromFile("rainfall");
     }
-
+    
+	@Override
     public Color getRainColor(Level level) {
         return new Color(255, 255, 255, 200);
     }
-
+    
+	@Override
     public void tickRainEffect(GameCamera camera, Level level, int tileX, int tileY, float rainAlpha) {
     }
-
+    
+	@Override
     public GameSound getRainSound(Level level) {
         return null;
     }
-
+    
+	@Override
     public Level getNewSurfaceLevel(int islandX, int islandY, float islandSize, Server server, WorldEntity worldEntity) {
         return new FlatlandsSurfaceLevelVN(islandX, islandY, islandSize, worldEntity);
     }
-
+    
+	@Override
     public Level getNewCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
         return new FlatlandsCaveLevelVN(islandX, islandY, dimension, worldEntity);
     }
-
+    
+	@Override
     public Level getNewDeepCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
         return new FlatlandsDeepCaveLevelVN(islandX, islandY, dimension, worldEntity);
     }
-
+    
+	@Override
     public FishingLootTable getFishingLootTable(FishingSpot spot) {
         return !spot.tile.level.isCave ? cubeSurfaceFish : super.getFishingLootTable(spot);
     }
-
+    
+	@Override
     public MobSpawnTable getMobSpawnTable(Level level) {
         if (!level.isCave) {
             return surfaceMobs;
@@ -76,7 +88,8 @@ public class FlatlandsBiomeVN extends Biome {
             return level.getIslandDimension() == -2 ? deepSnowCaveMobs : caveMobs;
         }
     }
-
+    
+	@Override
     public MobSpawnTable getCritterSpawnTable(Level level) {
         if (level.isCave) {
             return level.getIslandDimension() == -2 ? deepCaveCritters : caveCritters;
@@ -84,7 +97,8 @@ public class FlatlandsBiomeVN extends Biome {
             return surfaceCritters;
         }
     }
-
+    
+	@Override
     public LootTable getExtraMobDrops(Mob mob) {
         if (mob.isHostile && !mob.isBoss() && !mob.isSummoned) {
             if (mob.getLevel().getIslandDimension() == -1) {
@@ -98,15 +112,21 @@ public class FlatlandsBiomeVN extends Biome {
 
         return super.getExtraMobDrops(mob);
     }
-
+    
+	@Override
     public AbstractMusicList getLevelMusic(Level level, PlayerMob perspective) {
         if (level.isCave) {
-            return level.getIslandDimension() == -2 ? new MusicList(new GameMusic[]{MusicRegistry.SubzeroSanctum}) : new MusicList(new GameMusic[]{MusicRegistry.GlaciersEmbrace});
+            return level.getIslandDimension() == -2 
+            		? new MusicList(new GameMusic[]{MusicRegistry.SecretsOfTheForest}) 
+            		: new MusicList(new GameMusic[]{MusicRegistry.DepthsOfTheForest});
         } else {
-            return level.getWorldEntity().isNight() ? new MusicList(new GameMusic[]{MusicRegistry.PolarNight}) : new MusicList(new GameMusic[]{MusicRegistry.AuroraTundra});
+            return level.getWorldEntity().isNight() 
+            		? new MusicList(new GameMusic[]{MusicRegistry.getMusic("cubicwoods")}) 
+            		: new MusicList(new GameMusic[]{MusicRegistry.getMusic("cubicwoods")});
         }
     }
-
+    
+	@Override
     public LootTable getExtraBiomeMobDrops(JournalRegistry.LevelType levelType) {
         LootTable lootTable = new LootTable();
         switch (levelType) {

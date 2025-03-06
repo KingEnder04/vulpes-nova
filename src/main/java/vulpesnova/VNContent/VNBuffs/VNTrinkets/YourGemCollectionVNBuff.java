@@ -15,6 +15,7 @@ public class YourGemCollectionVNBuff extends TrinketBuff {
     public YourGemCollectionVNBuff() {
     }
 
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.MAX_HEALTH_FLAT, 50);
         buff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 1.00F);
@@ -31,6 +32,8 @@ public class YourGemCollectionVNBuff extends TrinketBuff {
         buff.setModifier(BuffModifiers.FISHING_LINES, 1);
 
         }
+
+	@Override
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event) {
         super.onHasAttacked(buff, event);
         if (!event.wasPrevented) {
@@ -38,6 +41,8 @@ public class YourGemCollectionVNBuff extends TrinketBuff {
         }
 
     }
+
+	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
         tooltips.add(Localization.translate("itemtooltip", "yourgemcollectionvntip"));

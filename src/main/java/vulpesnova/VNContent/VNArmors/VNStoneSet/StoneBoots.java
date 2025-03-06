@@ -14,8 +14,14 @@ public class StoneBoots extends BootsArmorItem {
     public StoneBoots() {
         super(5, 200, Rarity.NORMAL, "stonebootsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.SWIM_SPEED, -0.10F), new ModifierValue(BuffModifiers.SPEED, -0.05f), new ModifierValue(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{
+        		new ModifierValue<Float>(BuffModifiers.SWIM_SPEED, -0.10F),
+        		new ModifierValue<Float>(BuffModifiers.SPEED, -0.05f),
+        		new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE,
+        				this.all_damage.getValue(this.getUpgradeTier(item)))
+        		});
     }
 }

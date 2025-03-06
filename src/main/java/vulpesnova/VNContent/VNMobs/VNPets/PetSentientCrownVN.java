@@ -37,9 +37,10 @@ public class PetSentientCrownVN extends PetFollowingMob {
         this.selectBox = new Rectangle(-16, -30, 32, 36);
     }
 
+    @Override
     public void init() {
         super.init();
-        this.ai = new BehaviourTreeAI(this, new PlayerFollowerAINode(480, 64));
+        this.ai = new BehaviourTreeAI<PetFollowingMob>(this, new PlayerFollowerAINode<PetFollowingMob>(480, 64));
     }
 
     @Override
@@ -57,6 +58,7 @@ public class PetSentientCrownVN extends PetFollowingMob {
         }
     }
 
+    @Override
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
@@ -75,10 +77,12 @@ public class PetSentientCrownVN extends PetFollowingMob {
         this.addShadowDrawables(tileList, x, y, light, camera);
     }
 
+    @Override
     public Point getAnimSprite(int x, int y, int dir) {
         return new Point(GameUtils.getAnim(this.getWorldEntity().getTime(), 4, 800), dir);
     }
-
+    
+    @Override
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) {
         GameTexture shadowTexture = MobRegistry.Textures.human_baby_shadow;
         int res = shadowTexture.getHeight();
@@ -88,6 +92,7 @@ public class PetSentientCrownVN extends PetFollowingMob {
         return shadowTexture.initDraw().sprite(dir, 0, res).light(light).pos(drawX, drawY);
     }
 
+    @Override
     public int getBobbing(int x, int y) {
         return 0;
     }

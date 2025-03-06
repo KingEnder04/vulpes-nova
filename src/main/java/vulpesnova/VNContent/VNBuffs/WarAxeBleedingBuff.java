@@ -1,7 +1,6 @@
 package vulpesnova.VNContent.VNBuffs;
 
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;

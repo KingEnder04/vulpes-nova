@@ -6,7 +6,6 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundEmitter;
 import necesse.engine.sound.SoundManager;
-import necesse.engine.sound.SoundPlayer;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
@@ -25,10 +24,10 @@ import necesse.engine.util.GameUtils;
 public class CodBlasterProjectile extends BulletProjectile implements SoundEmitter  {
 	
 	public CodBlasterProjectile() {
-		
+		super();
 	}
 	
-	public CodBlasterProjectile(float x, float y, float targetX, float targetY, float velocity, int range, GameDamage damage, int knockback, Mob owner) {
+	public CodBlasterProjectile(float x, float y, float targetX, float targetY, float velocity, int range, GameDamage damage, int knockback, Mob owner) {		
 		this.x = x;
 		this.y = y;
 		this.setTarget(targetX, targetY);
@@ -36,10 +35,10 @@ public class CodBlasterProjectile extends BulletProjectile implements SoundEmitt
 		this.setDamage(damage);
 		this.setOwner(owner);
 		this.setDistance(range);
-		this.knockback = knockback;
-		
+		this.knockback = knockback;	
 	}
 
+	@Override
 	public void init() {
 		super.init();
 		this.givesLight = false;
@@ -48,15 +47,17 @@ public class CodBlasterProjectile extends BulletProjectile implements SoundEmitt
 		this.bouncing = 1000;
 		
 	}
-	private SoundPlayer soundeff;
+	@Override
 	public void postInit() {
 		SoundManager.playSound(VulpesNova.COD_FLOPPIN, SoundEffect.effect(this).volume(0.6F).falloffDistance(600));	
 	}
 
+	@Override
 	public Color getParticleColor() {
 		return new Color(180, 180, 220);
 	}
 
+	@Override
 	public Trail getTrail() {
 		//return super.getTrail();
 		//return new Trail(this, this.getLevel(), new Color(0, 25, 127), 6.0F, 250, 18.0F);
@@ -64,6 +65,7 @@ public class CodBlasterProjectile extends BulletProjectile implements SoundEmitt
 	}
 	
 	
+	@Override
 	public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList,
 			OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera,
 			PlayerMob perspective) {

@@ -23,19 +23,23 @@ public class MinersHavenBiomeVN extends Biome {
 
     public MinersHavenBiomeVN() {
     }
-
+    
+	@Override
     public Level getNewSurfaceLevel(int islandX, int islandY, float islandSize, Server server, WorldEntity worldEntity) {
         return new MinersHavenSurfaceLevelVN(islandX, islandY, islandSize, worldEntity);
     }
-
+    
+	@Override
     public Level getNewCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
         return new MinersHavenCaveLevelVN(islandX, islandY, dimension, worldEntity);
     }
-
+    
+	@Override
     public Level getNewDeepCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
         return new MinersHavenDeepCaveLevelVN(islandX, islandY, dimension, worldEntity);
     }
-
+    
+	@Override
     public MobSpawnTable getCritterSpawnTable(Level level) {
         if (level.isCave) {
             return level.getIslandDimension() == -2 ? deepCaveCritters : caveCritters;
@@ -43,11 +47,13 @@ public class MinersHavenBiomeVN extends Biome {
             return super.getCritterSpawnTable(level);
         }
     }
-
+    
+	@Override
     public FishingLootTable getFishingLootTable(FishingSpot spot) {
         return !spot.tile.level.isCave ? forestSurfaceFish : super.getFishingLootTable(spot);
     }
-
+    
+	@Override
     public LootTable getExtraMobDrops(Mob mob) {
         if (mob.isHostile && !mob.isBoss() && !mob.isSummoned) {
             if (mob.getLevel().getIslandDimension() == -1) {
@@ -61,7 +67,8 @@ public class MinersHavenBiomeVN extends Biome {
 
         return super.getExtraMobDrops(mob);
     }
-
+    
+	@Override
     public LootTable getExtraBiomeMobDrops(JournalRegistry.LevelType levelType) {
         LootTable lootTable = new LootTable();
         switch (levelType) {

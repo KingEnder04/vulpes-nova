@@ -28,7 +28,7 @@ public class CelestEmberProjectile extends FollowingProjectile {
     }
 
     // We use this constructor on attack to spawn the projectile with the correct parameters
-    public CelestEmberProjectile(Level level, Mob owner, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback) {
+    public CelestEmberProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
         this.setLevel(level);
         this.setOwner(owner);
         this.x = x;
@@ -39,7 +39,8 @@ public class CelestEmberProjectile extends FollowingProjectile {
         this.setDamage(damage);
         this.knockback = knockback;
     }
-
+    
+    @Override
     public void init() {
         super.init();
         turnSpeed = 1.25f; // This is a homing projectile with a turn speed

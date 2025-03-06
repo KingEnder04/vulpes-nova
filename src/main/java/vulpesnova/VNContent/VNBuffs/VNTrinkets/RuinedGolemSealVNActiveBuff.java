@@ -10,7 +10,8 @@ public class RuinedGolemSealVNActiveBuff extends Buff {
         this.isVisible = true;
         this.isImportant = true;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.MAX_HEALTH_FLAT, 50);
         buff.setModifier(BuffModifiers.ARMOR_FLAT, 10);

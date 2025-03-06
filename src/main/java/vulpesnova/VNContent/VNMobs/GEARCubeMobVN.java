@@ -60,6 +60,7 @@ public class GEARCubeMobVN extends HostileMob {
         return lootTable;
     }
 
+    @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
         if (this.getLevel().isCave) {
@@ -122,6 +123,7 @@ public class GEARCubeMobVN extends HostileMob {
         return 20;
     }
 
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

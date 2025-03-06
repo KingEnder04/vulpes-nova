@@ -24,7 +24,8 @@ public class MonsterPheromonesBuff extends Buff {
         buff.setMinModifier(BuffModifiers.MOB_SPAWN_LIGHT_THRESHOLD, 140);
         buff.setModifier(BuffModifiers.TARGET_RANGE, 0.5F);
     }
-
+    
+	@Override
     public void clientTick(ActiveBuff buff) {
         Mob owner = buff.owner;
         if (owner.getLevel().tickManager().getTotalTicks() % 2L == 0L) {
@@ -33,12 +34,14 @@ public class MonsterPheromonesBuff extends Buff {
 
     }
     
+	@Override
     public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard) {
     	ListGameTooltips tooltips = super.getTooltip(ab, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "monsterpheromonesvntip"));
 		return tooltips;
 	}
     
+	@Override
     public void updateLocalDisplayName() {
         this.displayName = new LocalMessage("item", this.getStringID());
     }

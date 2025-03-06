@@ -35,6 +35,7 @@ public class ExpertTomeProjectile extends Projectile {
         this.knockback = knockback;
     }
 
+    @Override
     public void init() {
         super.init();
         this.height = 18.0F;
@@ -45,10 +46,12 @@ public class ExpertTomeProjectile extends Projectile {
         this.trailOffset = 0.0F;
     }
 
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(45, 111, 211), 12.0F, 500, 18.0F);
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);
@@ -64,6 +67,7 @@ public class ExpertTomeProjectile extends Projectile {
         }
     }
 
+    @Override
     public float getAngle() {
         return (float)(this.getWorldEntity().getTime() - this.spawnTime);
     }

@@ -1,13 +1,10 @@
 package vulpesnova.VNContent.VNMobs;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.network.server.Server;
-import necesse.engine.network.server.ServerClient;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobDrawable;
-import necesse.entity.mobs.MobSpawnLocation;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.CollisionPlayerChaserWandererAI;
@@ -90,8 +87,6 @@ public class PlanewalkerMobVN extends FlyingHostileMob {
         int drawY = camera.getDrawY(y) - 48 + bobbing;
 
         // A helper method to get the sprite of the current animation/direction of this mob
-        int dir = this.getDir();
-        Point sprite = getAnimSprite(x, y, dir);
 
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(getTileX(), getTileY()).getMobSinkingAmount(this);
@@ -127,6 +122,8 @@ public class PlanewalkerMobVN extends FlyingHostileMob {
         // Change the speed at which this mobs animation plays
         return 20;
     }
+
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

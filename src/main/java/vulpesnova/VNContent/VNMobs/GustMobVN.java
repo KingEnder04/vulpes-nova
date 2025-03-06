@@ -123,6 +123,8 @@ public class GustMobVN extends FlyingHostileMob {
         // Change the speed at which this mobs animation plays
         return 20;
     }
+    
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

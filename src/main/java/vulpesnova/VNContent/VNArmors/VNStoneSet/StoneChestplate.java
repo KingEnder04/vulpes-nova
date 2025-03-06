@@ -14,9 +14,15 @@ public class StoneChestplate extends ChestArmorItem {
     public StoneChestplate() {
         super(12, 200, Rarity.NORMAL, "stonechestplatevn", "stonearmsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.SWIM_SPEED, -0.10F), new ModifierValue(BuffModifiers.ATTACK_SPEED, -0.05F), new ModifierValue(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(
+        				new ModifierValue[]{
+	        				new ModifierValue<Float>(BuffModifiers.SWIM_SPEED, -0.10F),
+	        				new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, -0.05F),
+	        				new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))
+        					});
     }
 
 }

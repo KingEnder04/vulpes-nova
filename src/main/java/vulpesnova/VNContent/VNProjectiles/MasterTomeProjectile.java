@@ -18,8 +18,7 @@ import java.awt.*;
 import java.util.List;
 
 public class MasterTomeProjectile extends Projectile {
-    private long spawnTime;
-    private int sprite;
+
 
     public MasterTomeProjectile() {
     }
@@ -36,16 +35,17 @@ public class MasterTomeProjectile extends Projectile {
         this.knockback = knockback;
     }
 
+    @Override
     public void init() {
         super.init();
         this.height = 18.0F;
         this.piercing = 3;
         this.bouncing = 5;
-        this.spawnTime = this.getLevel().getWorldEntity().getTime();
         this.givesLight = true;
         this.trailOffset = 0.0F;
     }
 
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(138, 65, 227), 12.0F, 500, 18.0F);
     }

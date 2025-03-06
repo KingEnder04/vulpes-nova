@@ -13,7 +13,7 @@ public class StormbolterVN extends GunProjectileToolItem {
     public StormbolterVN() {
         super(NORMAL_AMMO_TYPES, 600);
         this.rarity = Rarity.RARE;
-        this.animSpeed = 500;
+        this.attackAnimTime.setBaseValue(500);
         this.attackDamage.setBaseValue(45).setUpgradedValue(1.0F, 100.0F);
         this.attackXOffset = 12;
         this.attackYOffset = 14;
@@ -22,11 +22,13 @@ public class StormbolterVN extends GunProjectileToolItem {
         this.addGlobalIngredient(new String[]{"bulletuser"});
     }
 
+    @Override
     protected void addAmmoTooltips(ListGameTooltips tooltips, InventoryItem item) {
         super.addAmmoTooltips(tooltips, item);
         tooltips.add(Localization.translate("itemtooltip", "stormboltervntip"));
     }
 
+    @Override
     public void playFireSound(AttackAnimMob mob) {
         SoundManager.playSound(GameResources.handgun, SoundEffect.effect(mob));
     }

@@ -19,27 +19,28 @@ import java.awt.*;
 import java.util.List;
 
 public class HeavierHammerShotVNProjectile extends Projectile {
-    private long spawnTime;
     private int sprite;
 
     public HeavierHammerShotVNProjectile() {
+    	super();
     }
 
-    public HeavierHammerShotVNProjectile(float x, float y, float targetX, float targetY, GameDamage damage, Mob owner) {
-        this.x = x;
+    public HeavierHammerShotVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
+        this();
+    	this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
         this.speed = 100.0F;
         this.setDamage(damage);
         this.setOwner(owner);
-        this.setDistance(400);
+        this.setDistance(distance);
     }
 
+    @Override
     public void init() {
         super.init();
         this.setWidth(10.0F);
         this.height = 18.0F;
-        this.spawnTime = this.getWorldEntity().getTime();
         this.heightBasedOnDistance = true;
         this.trailOffset = 0.0F;
         if (this.texture != null) {
@@ -48,22 +49,27 @@ public class HeavierHammerShotVNProjectile extends Projectile {
 
     }
 
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(218, 195, 195), 16.0F, 150, 18.0F);
     }
 
+    @Override
     public Color getParticleColor() {
         return new Color(206, 187, 187);
     }
 
+    @Override
     public float getParticleChance() {
         return super.getParticleChance() * 0.5F;
     }
 
+    @Override
     protected int getExtraSpinningParticles() {
         return 0;
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);

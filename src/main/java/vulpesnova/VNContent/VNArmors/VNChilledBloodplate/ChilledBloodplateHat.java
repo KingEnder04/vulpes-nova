@@ -16,8 +16,9 @@ public class ChilledBloodplateHat extends SetHelmetArmorItem {
     public ChilledBloodplateHat() {
         super(6, DamageTypeRegistry.MAGIC, 600, Rarity.UNCOMMON, "chilledbloodplatehatvn", "chilledbloodplatechestplatevn", "chilledbloodplatebootsvn", "chilledbloodplatehatsetvnbonusbuff");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, this.healthRegen.getValue(this.getUpgradeTier(item))), new ModifierValue(BuffModifiers.MAGIC_DAMAGE, 0.1F), new ModifierValue(BuffModifiers.COMBAT_MANA_REGEN, this.manaRegen.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, this.healthRegen.getValue(this.getUpgradeTier(item))), new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.COMBAT_MANA_REGEN, this.manaRegen.getValue(this.getUpgradeTier(item)))});
     }
 }

@@ -110,6 +110,7 @@ public class PyramidMobVN extends HostileMob {
         return 20;
     }
 
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

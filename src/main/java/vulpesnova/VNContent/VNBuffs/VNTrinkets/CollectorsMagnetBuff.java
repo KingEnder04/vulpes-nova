@@ -13,10 +13,13 @@ import necesse.inventory.item.trinketItem.TrinketItem;
 public class CollectorsMagnetBuff extends TrinketBuff {
     public CollectorsMagnetBuff() {
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.ITEM_PICKUP_RANGE, 500.00F);
     }
+    
+	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
         tooltips.add(Localization.translate("itemtooltip", "collectorsmagnetvntip"));

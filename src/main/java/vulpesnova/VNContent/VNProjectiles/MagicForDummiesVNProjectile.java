@@ -19,7 +19,6 @@ import java.awt.*;
 import java.util.List;
 
 public class MagicForDummiesVNProjectile extends Projectile {
-    private long spawnTime;
     private int sprite;
 
     public MagicForDummiesVNProjectile() {
@@ -37,12 +36,12 @@ public class MagicForDummiesVNProjectile extends Projectile {
         this.knockback = knockback;
     }
 
+    @Override
     public void init() {
         super.init();
         this.height = 18.0F;
         this.piercing = 5;
         this.bouncing = 7;
-        this.spawnTime = this.getLevel().getWorldEntity().getTime();
         this.givesLight = true;
         this.trailOffset = 0.0F;
         if (this.texture != null) {
@@ -50,10 +49,12 @@ public class MagicForDummiesVNProjectile extends Projectile {
         }
     }
 
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(215, 209, 225), 8.0F, 300, 18.0F);
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);

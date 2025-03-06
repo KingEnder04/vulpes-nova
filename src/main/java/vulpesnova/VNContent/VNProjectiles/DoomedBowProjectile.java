@@ -31,6 +31,7 @@ public class DoomedBowProjectile extends Projectile {
         this.setDistance(distance);
     }
 
+    @Override
     public void init() {
         super.init();
         this.height = 18.0F;
@@ -39,10 +40,12 @@ public class DoomedBowProjectile extends Projectile {
         this.setWidth(14.0F);
     }
 
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(201, 196, 193), 28.0F, 500, this.getHeight());
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);

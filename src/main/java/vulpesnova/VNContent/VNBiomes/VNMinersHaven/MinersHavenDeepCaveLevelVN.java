@@ -37,7 +37,8 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
         this.isCave = true;
         this.generateLevel();
     }
-
+    
+	@Override
     public void generateLevel() {
         int deepRockTile = TileRegistry.getTileID("deeprocktile");
         CaveGeneration cg = new CaveGeneration(this, "deeprocktile", "deeprock");
@@ -152,11 +153,13 @@ public class MinersHavenDeepCaveLevelVN extends MinersHavenCaveLevelVN {
         GameEvents.triggerEvent(new GeneratedCaveStructuresEvent(this, cg, presets));
         GenerationTools.checkValid(this);
     }
-
+    
+	@Override
     public LootTable getCrateLootTable() {
         return LootTablePresets.basicDeepCrate;
     }
-
+    
+	@Override
     public GameMessage getLocationMessage() {
         return new LocalMessage("biome", "deepcave", "biome", this.biome.getLocalization());
     }

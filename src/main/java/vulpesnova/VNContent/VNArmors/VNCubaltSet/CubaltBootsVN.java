@@ -14,8 +14,9 @@ public class CubaltBootsVN extends BootsArmorItem {
     public CubaltBootsVN() {
         super(10, 200, Rarity.UNCOMMON, "cubaltbootsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item)))});
     }
 }

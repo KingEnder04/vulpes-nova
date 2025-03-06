@@ -103,6 +103,7 @@ public class SnowyNightmareMobVN extends HostileMob {
         addShadowDrawables(tileList, x, y, light, camera);
     }
 
+    @Override
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) {
         GameTexture shadowTexture = MobRegistry.Textures.human_shadow;
         int res = shadowTexture.getHeight();
@@ -118,6 +119,8 @@ public class SnowyNightmareMobVN extends HostileMob {
         // Change the speed at which this mobs animation plays
         return 20;
     }
+
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

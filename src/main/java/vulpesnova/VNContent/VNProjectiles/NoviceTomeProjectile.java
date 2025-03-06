@@ -34,7 +34,8 @@ public class NoviceTomeProjectile extends Projectile {
         this.setDamage(damage);
         this.knockback = knockback;
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.height = 18.0F;
@@ -44,11 +45,13 @@ public class NoviceTomeProjectile extends Projectile {
         this.givesLight = true;
         this.trailOffset = 0.0F;
     }
-
+    
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(33, 189, 106), 12.0F, 500, 18.0F);
     }
-
+    
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);
@@ -63,7 +66,8 @@ public class NoviceTomeProjectile extends Projectile {
             this.addShadowDrawables(tileList, drawX, drawY, light, this.getAngle(), this.shadowTexture.getHeight() / 2);
         }
     }
-
+    
+    @Override
     public float getAngle() {
         return (float)(this.getWorldEntity().getTime() - this.spawnTime);
     }

@@ -12,8 +12,9 @@ public class CubaltChestplateVN extends ChestArmorItem {
     public CubaltChestplateVN() {
         super(19, 200, Rarity.UNCOMMON, "cubaltchestplatevn", "cubaltchestvnarms");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.ALL_DAMAGE, 0.1f)});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.1f)});
     }
 }

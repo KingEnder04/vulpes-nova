@@ -16,9 +16,10 @@ public class CubaltHelmetVN extends SetHelmetArmorItem {
     public CubaltHelmetVN() {
         super(16, DamageTypeRegistry.NORMAL, 200, Rarity.UNCOMMON, "cubalthelmetvn", "cubaltchestplatevn", "cubaltbootsvn", "cubaltsetvnbonusbuff");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_MANA_REGEN, this.combat_mana_regen.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_MANA_REGEN, this.combat_mana_regen.getValue(this.getUpgradeTier(item)))});
     }
 
 }

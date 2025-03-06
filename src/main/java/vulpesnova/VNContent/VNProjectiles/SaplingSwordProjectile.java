@@ -34,7 +34,8 @@ public class SaplingSwordProjectile extends Projectile {
         this.setOwner(owner);
         this.setDistance(distance);
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.piercing = 1;
@@ -43,12 +44,15 @@ public class SaplingSwordProjectile extends Projectile {
         this.isSolid = true;
         this.givesLight = false;
         this.particleRandomOffset = 10.0F;
+        this.spawnTime = this.getWorldEntity().getTime();
     }
-
+    
+    @Override
     public Color getParticleColor() {
         return new Color(48, 138, 24);
     }
-
+    
+    @Override
     public Trail getTrail() {
         return null;
     }
@@ -68,7 +72,8 @@ public class SaplingSwordProjectile extends Projectile {
             });
         }
     }
-
+    
+    @Override
     public float getAngle() {
         return (float)(this.getWorldEntity().getTime() - this.spawnTime) / 2.0F;
     }

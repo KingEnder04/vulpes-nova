@@ -1,12 +1,13 @@
 package vulpesnova.VNContent.VNWeapons.VNMelee;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.network.PacketReader;
+import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.PlayerMob;
+import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
+import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.PlayerInventorySlot;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
 import necesse.level.maps.Level;
 
@@ -18,7 +19,8 @@ public class TitanBusterGreatswordVN extends GreatswordToolItem {
         this.attackRange.setBaseValue(114);
         this.knockback.setBaseValue(150);
     }
-
+    
+    @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "titanbustergreatswordvnchargetip1"));
@@ -27,8 +29,10 @@ public class TitanBusterGreatswordVN extends GreatswordToolItem {
         return tooltips;
     }
 
-    public InventoryItem onAttack(Level level, int x, int y, PlayerMob player, int attackHeight, InventoryItem item, PlayerInventorySlot slot, int animAttack, int seed, PacketReader contentReader) {
-        player.startAttackHandler(new TitanBusterGreatswordVNAttackHandler(this, player, slot, item, this, seed, x, y, this.chargeLevels));
+    @Override
+    public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight,
+			InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent) {
+    	attackerMob.startAttackHandler(new TitanBusterGreatswordVNAttackHandler(this, attackerMob, slot, item, this, seed, x, y, this.chargeLevels));
         return item;
     }
 }

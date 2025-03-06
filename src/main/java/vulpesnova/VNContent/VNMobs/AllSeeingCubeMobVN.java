@@ -1,12 +1,9 @@
 package vulpesnova.VNContent.VNMobs;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.network.server.Server;
-import necesse.engine.network.server.ServerClient;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobDrawable;
-import necesse.entity.mobs.MobSpawnLocation;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.CollisionPlayerChaserWandererAI;
@@ -110,6 +107,7 @@ public class AllSeeingCubeMobVN extends HostileMob {
         return 20;
     }
 
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

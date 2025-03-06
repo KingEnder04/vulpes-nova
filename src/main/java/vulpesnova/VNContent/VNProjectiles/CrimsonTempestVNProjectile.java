@@ -1,21 +1,14 @@
 package vulpesnova.VNContent.VNProjectiles;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.network.packet.PacketSpawnProjectile;
-import necesse.engine.registries.ProjectileRegistry;
-import necesse.engine.sound.SoundEffect;
-import necesse.engine.sound.SoundManager;
-import necesse.engine.util.GameMath;
 import necesse.engine.util.GamePoint3D;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.projectile.Projectile;
-import necesse.entity.projectile.modifiers.ResilienceOnHitProjectileModifier;
 import necesse.entity.trails.Trail;
 import necesse.entity.trails.TrailVector;
-import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.EntityDrawable;
@@ -24,8 +17,6 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
 import necesse.level.maps.light.GameLight;
-import vulpesnova.VulpesNova;
-
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -33,7 +24,7 @@ import java.util.List;
 
 public class CrimsonTempestVNProjectile extends Projectile {
 
-    private long spawnTime;
+  
     private int maxJumps;
     private int jumpsLeft;
     private Point sourcePoint;
@@ -90,7 +81,7 @@ public class CrimsonTempestVNProjectile extends Projectile {
         return returnPossibilities;
     }
 
-    
+    @Override
     public void init() {
         super.init();
         this.piercing = 0;
@@ -105,7 +96,7 @@ public class CrimsonTempestVNProjectile extends Projectile {
   /*  public Color getParticleColor() {
         return new Color(243, 97, 141);
     }*/
-
+    @Override
     public Trail getTrail() {
     	if (this.sourcePoint== null)return null;
     	Point2D.Float vPos = new Point2D.Float( (float)this.sourcePoint.x, (float)this.sourcePoint.y);

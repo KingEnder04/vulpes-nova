@@ -18,11 +18,15 @@ import java.awt.*;
 import java.util.List;
 
 public class UnholyTomeProjectile extends FollowingProjectile {
+	
     public UnholyTomeProjectile() {
+    	super();
+    	this.init();
     }
 
-    public UnholyTomeProjectile(Level level, Mob owner, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback) {
-        this.setLevel(level);
+    public UnholyTomeProjectile(Level level,  float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
+    	this();
+    	this.setLevel(level);
         this.setOwner(owner);
         this.x = x;
         this.y = y;
@@ -32,7 +36,8 @@ public class UnholyTomeProjectile extends FollowingProjectile {
         this.setDamage(damage);
         this.knockback = knockback;
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.turnSpeed = 0.75F;
@@ -43,15 +48,18 @@ public class UnholyTomeProjectile extends FollowingProjectile {
         this.piercing = 2;
         this.bouncing = 2;
     }
-
+    
+    @Override
     public Color getParticleColor() {
         return new Color(204, 69, 110);
     }
-
+    
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(204, 69, 110), 18.0F, 500, this.getHeight());
     }
-
+    
+    @Override
     public void updateTarget() {
         if (this.traveledDistance > 20.0F) {
             this.findTarget((m) -> {
@@ -60,7 +68,8 @@ public class UnholyTomeProjectile extends FollowingProjectile {
         }
 
     }
-
+    
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);

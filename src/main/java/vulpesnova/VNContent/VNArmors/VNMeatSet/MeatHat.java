@@ -12,8 +12,9 @@ public class MeatHat extends SetHelmetArmorItem {
     public MeatHat() {
         super(6, DamageTypeRegistry.SUMMON, 200, Rarity.NORMAL, "meathatvn", "meatrobevn", "meatbootsvn", "meatsetvnbonusbuff");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_SUMMONS, 1)});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_SUMMONS, 1)});
     }
 }

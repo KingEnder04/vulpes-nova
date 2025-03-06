@@ -16,7 +16,8 @@ public class WoodenHelmet extends SetHelmetArmorItem {
     public WoodenHelmet() {
         super(4, DamageTypeRegistry.MAGIC, 200, Rarity.NORMAL, "woodenhelmetvn", "woodenchestplatevn", "woodenbootsvn", "woodensetvnbonusbuff");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
         return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_MANA_REGEN, this.combat_mana_regen.getValue(this.getUpgradeTier(item)))});
     }

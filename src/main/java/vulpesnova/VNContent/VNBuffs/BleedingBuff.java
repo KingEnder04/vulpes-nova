@@ -16,15 +16,18 @@ public class BleedingBuff extends Buff {
         this.shouldSave = false;
         this.canCancel = false;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.POISON_DAMAGE_FLAT, 3.0F);
     }
-
+    
+	@Override
     public int getStackSize() {
         return 10;
     }
-
+    
+	@Override
     public void clientTick(ActiveBuff buff) {
         super.clientTick(buff);
         Mob owner = buff.owner;

@@ -14,8 +14,9 @@ public class ChilledBloodplateChestplate extends ChestArmorItem {
     public ChilledBloodplateChestplate() {
         super(11, 700, Rarity.UNCOMMON, "chilledbloodplatechestplatevn", "chilledbloodplatearmsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, this.healthRegen.getValue(this.getUpgradeTier(item))), new ModifierValue(BuffModifiers.ATTACK_SPEED, 0.1F)});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, this.healthRegen.getValue(this.getUpgradeTier(item))), new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.1F)});
     }
 }

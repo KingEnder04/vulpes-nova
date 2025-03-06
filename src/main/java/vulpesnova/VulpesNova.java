@@ -7,6 +7,7 @@ import necesse.engine.GameEventListener;
 import necesse.engine.GameEvents;
 import necesse.engine.events.loot.MobLootTableDropsEvent;
 import necesse.engine.localization.Localization;
+import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.sound.GameMusic;
 import necesse.engine.sound.gameSound.GameSound;
@@ -89,6 +90,7 @@ import vulpesnova.VNContent.VNBuffs.CrimsonTempestChargeStackBuff;
 import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
 import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
+import vulpesnova.VNContent.VNBuffs.WarAxeBleedingBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
 import vulpesnova.VNContent.VNMaterials.*;
 import vulpesnova.VNContent.VNMisc.*;
@@ -168,7 +170,10 @@ public class VulpesNova {
     public static Biome FLATLANDS;
     public static Biome MINERSHAVEN;
 
-
+    
+    public static GameMusic CUBELEVELMUSICVN;
+    public static GameMusic CUBELEVELDEEPMUSICVN;
+	public static Buff JADE_WAR_AXE_BLEED_VN;
 
     public void preInit() {
 
@@ -642,8 +647,8 @@ public class VulpesNova {
         registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.1F)}));
         registerBuff("thebygonecrestvnbuff", new TheBygoneCrestVNBuff());
         registerBuff("halovnbuff", new HaloVNBuff());
-        registerBuff("demonicgauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 20), new ModifierValue(BuffModifiers.RESILIENCE_DECAY, -0.80F)}));
-        registerBuff("tungstengauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue(BuffModifiers.MAX_RESILIENCE_FLAT, 30), new ModifierValue(BuffModifiers.RESILIENCE_DECAY, -0.90F)}));
+        registerBuff("demonicgauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 20), new ModifierValue<Float>(BuffModifiers.RESILIENCE_DECAY, -0.80F)}));
+        registerBuff("tungstengauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 30), new ModifierValue<Float>(BuffModifiers.RESILIENCE_DECAY, -0.90F)}));
         registerBuff("novagauntletvnbuff", new NovaGauntletVNBuff());
         registerBuff("protectorsealvntrinketbuff", new ProtectorSealVNTrinketBuff());
         PROTECTOR_SEAL_VN_ACTIVE = registerBuff("protectorsealvnactivebuff", new ProtectorSealVNActiveBuff());
@@ -659,7 +664,7 @@ public class VulpesNova {
         HOLY_PALADIN_VN_ACTIVE = registerBuff("holypaladinsealvnactivebuff", new HolyPaladinSealVNActiveBuff());
         registerBuff("archbishopcowlvntrinketbuff", new ArchbishopCowlVNTrinketBuff());
         ARCHBISHOP_COWL_VN_ACTIVE = registerBuff("archbishopcowlvnactivebuff", new ArchbishopCowlVNActiveBuff());
-
+        JADE_WAR_AXE_BLEED_VN = registerBuff("jadeaxebleedingvn", new WarAxeBleedingBuff());
         // Gem Trinkets
         registerBuff("healthgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_HEALTH_FLAT, 50)}));
         registerBuff("regengemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 1.00F)}));
@@ -704,6 +709,9 @@ public class VulpesNova {
         //float oldMusicVolumeModifier = 0.6F;
         //HUBMUSICVN = registerMusic("hubmusic", "music/hubmusic", (GameMessage)null, new StaticMessage("Hubmusic"), new Color(125, 164, 45), new Color(47, 105, 12)).setVolumeModifier(oldMusicVolumeModifier);
 
+        CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(125, 164, 45), new Color(47, 105, 12), null);
+        CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(125, 164, 45), new Color(47, 105, 12), null);
+        
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
         //PacketRegistry.registerPacket(ExamplePacket.class);
 

@@ -14,7 +14,8 @@ public class TheBygoneCrestVNBuff extends TrinketBuff {
 
     public TheBygoneCrestVNBuff() {
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.ATTACK_SPEED, 0.15F);
         buff.setModifier(BuffModifiers.ALL_DAMAGE, 0.15F);
@@ -22,6 +23,8 @@ public class TheBygoneCrestVNBuff extends TrinketBuff {
         buff.setModifier(BuffModifiers.MAX_HEALTH, -0.20f);
         buff.setModifier(BuffModifiers.MAX_MANA, -0.50f);
     }
+    
+	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
         tooltips.add(Localization.translate("itemtooltip", "thebygonecrestvntip1"));
