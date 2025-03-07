@@ -21,12 +21,14 @@ public class NightbladeVNProjectile extends Projectile {
     private long spawnTime;
 
     public NightbladeVNProjectile() {
+    	
     }
 
     public NightbladeVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, Mob owner) {
         this.setLevel(level);
         this.x = x;
         this.y = y;
+        this.spawnTime = this.getTime();
         this.setTarget(targetX, targetY);
         this.speed = speed;
         this.setDamage(damage);
@@ -34,6 +36,7 @@ public class NightbladeVNProjectile extends Projectile {
         this.setDistance(distance);
     }
 
+    @Override
     public void init() {
         super.init();
         this.piercing = 1;
@@ -44,10 +47,12 @@ public class NightbladeVNProjectile extends Projectile {
         this.particleRandomOffset = 10.0F;
     }
 
+    @Override
     public Color getParticleColor() {
         return new Color(155, 110, 243);
     }
 
+    @Override
     public Trail getTrail() {
         return null;
     }
@@ -68,7 +73,8 @@ public class NightbladeVNProjectile extends Projectile {
         }
     }
 
+    @Override
     public float getAngle() {
-        return (float)(this.getWorldEntity().getTime() - this.spawnTime) / 2.0F;
+        return (float)(this.getTime() - this.spawnTime) / 2.0F;
     }
 }

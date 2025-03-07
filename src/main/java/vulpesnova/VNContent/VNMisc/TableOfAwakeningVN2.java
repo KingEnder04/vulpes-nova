@@ -13,7 +13,6 @@ import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.CraftingStationObject;
-import necesse.level.gameObject.ObjectHoverHitbox;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import necesse.level.maps.multiTile.MultiTile;
@@ -35,21 +34,25 @@ class TableOfAwakeningVN2 extends CraftingStationObject {
         this.isLightTransparent = true;
     }
 
+    @Override
     public HashSet<ItemCategory> getForcedSoloCraftingCategories() {
         HashSet<ItemCategory> depths = super.getForcedSoloCraftingCategories();
         depths.add(ItemCategory.craftingManager.getCategory(new String[]{"equipment", "trinkets"}));
         return depths;
     }
 
+    @Override
     public MultiTile getMultiTile(int rotation) {
         return new SideMultiTile(0, 0, 1, 2, rotation, false, new int[]{this.getID(), this.counterID});
     }
 
+    @Override
     public void loadTextures() {
         super.loadTextures();
         this.texture = GameTexture.fromFile("objects/tableofawakeningvn");
     }
 
+    @Override
     public Rectangle getCollision(Level level, int x, int y, int rotation) {
         if (rotation == 0) {
             return new Rectangle(x * 32 + 5, y * 32 + 16, 22, 16);
@@ -60,6 +63,7 @@ class TableOfAwakeningVN2 extends CraftingStationObject {
         }
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, Level level, int tileX, int tileY, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         GameLight light = level.getLightLevel(tileX, tileY);
         int drawX = camera.getTileDrawX(tileX);
@@ -89,10 +93,12 @@ class TableOfAwakeningVN2 extends CraftingStationObject {
         });
     }
 
-    public LootTable getLootTable(Level level, int tileX, int tileY) {
+    @Override
+    public LootTable getLootTable(Level level, int layerID, int tileX, int tileY) {
         return new LootTable();
     }
 
+    @Override
     public Tech[] getCraftingTechs() {
         return new Tech[]{RecipeTechRegistry.getTech("tableofawakeningvn")};
     }

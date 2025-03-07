@@ -19,7 +19,6 @@ import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.lootTable.LootTable;
 import necesse.level.gameObject.GameObject;
 import necesse.level.gameObject.ObjectDamagedTextureArray;
-import necesse.level.gameObject.ObjectHoverHitbox;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
@@ -38,16 +37,19 @@ public class GEARContactBeaconVNObject extends GameObject {
         this.drawDamage = false;
         this.toolType = ToolType.ALL;
     }
-
+    
+	@Override
     public void loadTextures() {
         super.loadTextures();
         this.texture = ObjectDamagedTextureArray.loadAndApplyOverlay(this, "objects/gearcontactbeaconvn");
     }
-
-    public LootTable getLootTable(Level level, int tileX, int tileY) {
+    
+	@Override
+	public LootTable getLootTable(Level level, int layerID, int tileX, int tileY) {
         return new LootTable();
     }
-
+    
+	@Override
     public void onDestroyed(Level level, int layerID, int x, int y, Attacker attacker, ServerClient client, ArrayList<ItemPickupEntity> itemsDropped) {
         super.onDestroyed(level, layerID, x, y, attacker, client, itemsDropped);
         if (level.isServer()) {
@@ -62,7 +64,8 @@ public class GEARContactBeaconVNObject extends GameObject {
         }
 
     }
-
+    
+	@Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, Level level, int tileX, int tileY, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         GameLight light = level.getLightLevel(tileX, tileY);
         int drawX = camera.getTileDrawX(tileX) - 16;
@@ -79,7 +82,8 @@ public class GEARContactBeaconVNObject extends GameObject {
             }
         });
     }
-
+    
+	@Override
     public void drawPreview(Level level, int tileX, int tileY, int rotation, float alpha, PlayerMob player, GameCamera camera) {
         GameLight light = level.getLightLevel(tileX, tileY);
         int drawX = camera.getTileDrawX(tileX) - 16;

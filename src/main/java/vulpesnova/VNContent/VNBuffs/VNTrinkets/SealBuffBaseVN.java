@@ -53,11 +53,13 @@ public abstract class SealBuffBaseVN extends Buff{
 		}
 		return false;
 	}
-	
+    
+	@Override
 	public void firstAdd(ActiveBuff buff) {
 		activeSealsAdd(buff);
 	}
-
+    
+	@Override
 	public void onRemoved(ActiveBuff buff) {
 		activeSealsRemove(buff);
 	}
@@ -69,9 +71,11 @@ public abstract class SealBuffBaseVN extends Buff{
 			}
 		}
 	}
-	
+    
+	@Override
 	public abstract void onUpdate(ActiveBuff ab);
-	
+    
+	@Override
 	public ListGameTooltips getTooltip(ActiveBuff ab, GameBlackboard blackboard) {
 		ListGameTooltips tt = new ListGameTooltips(this.getDisplayName());
 		int xnt = getActiveSealCount(ab.owner);

@@ -12,6 +12,7 @@ public class DeepGemStoneCavelingVN extends CavelingMob {
         super(500, 50);
     }
 
+    @Override
     public void init() {
         super.init();
         this.texture = Textures.deepStoneCaveling;
@@ -23,6 +24,7 @@ public class DeepGemStoneCavelingVN extends CavelingMob {
 
     }
 
+    @Override
     public LootTable getLootTable() {
         return super.getLootTable();
     }

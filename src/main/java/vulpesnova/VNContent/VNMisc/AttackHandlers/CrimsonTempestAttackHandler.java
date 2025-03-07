@@ -1,35 +1,24 @@
 package vulpesnova.VNContent.VNMisc.AttackHandlers;
 
 import java.awt.Color;
-import java.awt.geom.Point2D;
 import java.util.List;
-import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.network.Packet;
-import necesse.engine.network.packet.PacketLevelEvent;
+import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketShowAttack;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.registries.BuffRegistry.Debuffs;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.sound.SoundPlayer;
-import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.ParticleTypeSwitcher;
-import necesse.entity.levelEvent.mobAbilityLevelEvent.KatanaDashLevelEvent;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.attackHandler.MousePositionAttackHandler;
-import necesse.entity.mobs.buffs.ActiveBuff;
+import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
+import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.particle.Particle;
 import necesse.entity.particle.Particle.GType;
-import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
-import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.SortedDrawable;
-import necesse.gfx.ui.HUD;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.PlayerInventorySlot;
-import necesse.inventory.item.toolItem.swordToolItem.KatanaToolItem;
 import necesse.level.maps.hudManager.HudDrawElement;
 import vulpesnova.VulpesNova;
 import vulpesnova.VNContent.VNWeapons.VNMagic.CrimsonTempestVN;
@@ -45,24 +34,26 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 	public Color particleColors;
 	public boolean endedByInteract;
 	public SoundPlayer chargingSound;
+	private ItemAttackerMob user;
 	protected HudDrawElement hudDrawElement;
 
-	public CrimsonTempestAttackHandler(PlayerMob player, PlayerInventorySlot slot, InventoryItem item,
+	public CrimsonTempestAttackHandler(ItemAttackerMob attackerMob, ItemAttackSlot slot, InventoryItem item,
 			CrimsonTempestVN katanaItem, int chargeTime, Color particleColors, int seed) {
 		
-		super(player, slot, 20);
+		super(attackerMob, slot, 20);
+		this.user = attackerMob;
 		this.item = item;
 		this.chargeItem = katanaItem;
 		this.chargeTime = chargeTime;
 		this.particleColors = particleColors;
 		this.seed = seed;
-		this.startTime = player.getWorldEntity().getLocalTime();
+		this.startTime = attackerMob.getWorldEntity().getLocalTime();
 		this.minimumCharged = false;
-		this.chargingSound = SoundManager.playSound(VulpesNova.ELECTRIC_CHARGE, SoundEffect.effect(player).volume(0.5F));
+		this.chargingSound = SoundManager.playSound(VulpesNova.ELECTRIC_CHARGE, SoundEffect.effect(attackerMob).volume(0.5F));
 	}
 
 	public long getTimeSinceStart() {
-		return this.player.getWorldEntity().getLocalTime() - this.startTime;
+		return this.user.getWorldEntity().getLocalTime() - this.startTime;
 	}
 
 	public float getChargePercent() {
@@ -73,11 +64,11 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 		
 		super.onUpdate();
 		
-		if (this.player.isClient() && this.hudDrawElement == null) {
-			this.hudDrawElement = this.player.getLevel().hudManager.addElement(new HudDrawElement() {
+		if (this.user.isClient() && this.hudDrawElement == null) {
+			this.hudDrawElement = this.user.getLevel().hudManager.addElement(new HudDrawElement() {
 				
 				public void addDrawables(List<SortedDrawable> list, GameCamera camera, PlayerMob perspective) {
-					if (CrimsonTempestAttackHandler.this.player.getAttackHandler() != CrimsonTempestAttackHandler.this) {
+					if (CrimsonTempestAttackHandler.this.user.getAttackHandler() != CrimsonTempestAttackHandler.this) {
 						this.remove();
 					} else {
 						
@@ -99,15 +90,14 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 		showItem.getGndData().setFloat("chargePercent", chargePercent);
 		showItem.getGndData().setBoolean("chargeUp", true);
 		
-		Packet attackContent = new Packet();
-		
-		this.player.showAttack(showItem, this.lastX, this.lastY, this.seed, attackContent);
-		if (this.player.isServer()) {
+		GNDItemMap attackContent = new GNDItemMap();
+		this.user.showItemAttack(showItem, this.lastX, this.lastY, this.attackerMob.animAttack, this.seed, attackContent);
+		if (this.user.isServer()) {
 			
-			ServerClient client = this.player.getServerClient();			
-			this.player.getServer().network.sendToClientsWithEntityExcept(
-					new PacketShowAttack(this.player, showItem, this.lastX, this.lastY, this.seed, attackContent),
-					this.player, client);
+			ServerClient client = this.user.getServer().getLocalServerClient();		
+			this.user.getServer().network.sendToClientsWithEntityExcept(
+					new PacketShowAttack(this.user.getFirstPlayerOwner(), showItem, this.lastX, this.lastY, this.attackerMob.animAttack, this.seed, attackContent),
+					this.user, client);
 			
 		}
 
@@ -115,8 +105,8 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 		
 		if (chargePercent >= 1.0F && !this.fullyCharged) {
 			this.fullyCharged = true;
-			this.chargingSound = SoundManager.playSound(VulpesNova.ELECTRIC_CHARGE_COMPLETE, SoundEffect.effect(player).volume(0.5F));
-			if (this.player.isClient()) {
+			this.chargingSound = SoundManager.playSound(VulpesNova.ELECTRIC_CHARGE_COMPLETE, SoundEffect.effect(user).volume(0.5F));
+			if (this.user.isClient()) {
 				int particles = 35;
 				float anglePerParticle = 360.0F / (float) particles;
 				ParticleTypeSwitcher typeSwitcher = new ParticleTypeSwitcher(
@@ -133,7 +123,7 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 					float dy = (float) Math.cos(Math.toRadians((double) angle))
 							* (float) GameRandom.globalRandom.getIntBetween(30, 70) * 0.8F;
 					
-					this.player.getLevel().entityManager.addParticle(this.player, typeSwitcher.next())
+					this.user.getLevel().entityManager.addParticle(this.user, typeSwitcher.next())
 							.movesFriction(dx, dy, 0.8F).color(this.particleColors).heightMoves(0.0F, 30.0F)
 							.lifeTime(500);
 				}
@@ -144,7 +134,7 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 		else if (chargePercent >= 0.25F && !this.minimumCharged) {
 			this.minimumCharged = true;
 			
-			if (this.player.isClient()) {
+			if (this.user.isClient()) {
 				int particles = 5;
 				float anglePerParticle = 360.0F / (float) particles;
 				ParticleTypeSwitcher typeSwitcher = new ParticleTypeSwitcher(
@@ -161,7 +151,7 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 					float dy = (float) Math.cos(Math.toRadians((double) angle))
 							* (float) GameRandom.globalRandom.getIntBetween(30, 50) * 0.8F;
 					
-					this.player.getLevel().entityManager.addParticle(this.player, typeSwitcher.next())
+					this.user.getLevel().entityManager.addParticle(this.user, typeSwitcher.next())
 							.movesFriction(dx, dy, 0.8F).color(this.particleColors).heightMoves(0.0F, 30.0F)
 							.lifeTime(500);
 				}
@@ -174,12 +164,12 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 
 	public void onMouseInteracted(int levelX, int levelY) {
 		this.endedByInteract = true;
-		this.player.endAttackHandler(false);
+		this.user.endAttackHandler(false);
 	}
 
 	public void onControllerInteracted(float aimX, float aimY) {
 		this.endedByInteract = true;
-		this.player.endAttackHandler(false);
+		this.user.endAttackHandler(false);
 	}
 
 	public void onEndAttack(boolean bySelf) {
@@ -190,22 +180,21 @@ public class CrimsonTempestAttackHandler extends MousePositionAttackHandler {
 		}
 		if (!this.endedByInteract && chargePercent >= 0.25F) {
 			
-			this.player.constantAttack = true;
 			InventoryItem attackItem = this.item.copy();			
 			attackItem.getGndData().setFloat("chargePercent", chargePercent);
 			
-			Packet attackContent = new Packet();
-			this.player.showAttack(attackItem, this.lastX, this.lastY, this.seed, attackContent);
+			GNDItemMap attackContent = new GNDItemMap();
+			this.user.showItemAttack(attackItem, this.lastX, this.lastY,0, this.seed, attackContent);
 			
-			if (this.player.isServer()) {
+			if (this.user.isServer()) {
 				
-				ServerClient client = this.player.getServerClient();
-				this.player.getServer().network.sendToClientsWithEntityExcept(
-						new PacketShowAttack(this.player, attackItem, this.lastX, this.lastY, this.seed, attackContent),
-						this.player, client);
+				ServerClient client = this.user.getServer().getLocalServerClient();
+				this.user.getServer().network.sendToClientsWithEntityExcept(
+						new PacketShowAttack(this.user.getFirstPlayerOwner(), attackItem, this.lastX, this.lastY,0, this.seed, attackContent),
+						this.user, client);
 			}
 
-			this.chargeItem.doChargedAttack(this.player, attackItem, chargePercent);		
+			this.chargeItem.doChargedAttack(this.user, attackItem, chargePercent);		
 			
 		
 		}

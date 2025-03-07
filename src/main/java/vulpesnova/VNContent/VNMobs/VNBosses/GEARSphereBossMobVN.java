@@ -16,6 +16,7 @@ import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.MusicRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.sound.SoundManager.MusicPriority;
 import necesse.engine.util.*;
 import necesse.engine.util.gameAreaSearch.GameAreaStream;
 import necesse.entity.mobs.*;
@@ -40,7 +41,6 @@ import necesse.entity.mobs.hostile.bosses.bossAIUtils.*;
 import necesse.entity.mobs.mobMovement.MobMovementCircleLevelPos;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
-import necesse.entity.projectile.QueenSpiderEggProjectile;
 import necesse.entity.projectile.QueenSpiderSpitProjectile;
 import necesse.gfx.GameResources;
 import necesse.gfx.Renderer;
@@ -59,8 +59,6 @@ import necesse.inventory.lootTable.lootItem.*;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import vulpesnova.VulpesNova;
-import vulpesnova.VNContent.VNMobs.VNBosses.GEARSphereBossMobVN.SpiderLeg;
-
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
@@ -100,6 +98,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     public GEARSphereBossMobVN() {
         super(100);
+       
         this.difficultyChanges.setMaxHealth(MAX_HEALTH);
         this.moveAccuracy = 30;
         this.setSpeed(75.0F);
@@ -146,6 +145,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         });
     }
 
+    @Override
     public void setupMovementPacket(PacketWriter writer) {
         super.setupMovementPacket(writer);
         writer.putNextBoolean(this.isJumping);
@@ -158,6 +158,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     }
 
+    @Override
     public void applyMovementPacket(PacketReader reader, boolean isDirect) {
         super.applyMovementPacket(reader, isDirect);
         this.isJumping = reader.getNextBoolean();
@@ -170,16 +171,19 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     }
 
+    @Override
     public void setupHealthPacket(PacketWriter writer, boolean isFull) {
         this.scaling.setupHealthPacket(writer, isFull);
         super.setupHealthPacket(writer, isFull);
     }
 
+    @Override
     public void applyHealthPacket(PacketReader reader, boolean isFull) {
         this.scaling.applyHealthPacket(reader, isFull);
         super.applyHealthPacket(reader, isFull);
     }
 
+    @Override
     public void setMaxHealth(int maxHealth) {
         super.setMaxHealth(maxHealth);
         if (this.scaling != null) {
@@ -188,6 +192,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     }
 
+    @Override
     public void setPos(float x, float y, boolean isDirect) {
         super.setPos(x, y, isDirect);
         if (isDirect && this.backLegs != null && this.frontLegs != null) {
@@ -209,8 +214,10 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     }
 
+    @Override
     public void init() {
         super.init();
+            
         this.frontLegs = new ArrayList<SpiderLeg>();
         this.backLegs = new ArrayList<SpiderLeg>();
         int legCount = 8;
@@ -264,37 +271,44 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         this.backLegs.sort(Comparator.comparingDouble((l) -> {
             return (double)l.y;
         }));
-        this.ai = new BehaviourTreeAI(this, new GEARSphereBossMobVN.SpiderMotherAI(), new FlyingAIMover());
+        this.ai = new BehaviourTreeAI<FlyingBossMob>(this, new GEARSphereBossMobVN.SpiderMotherAI(), new FlyingAIMover());
         if (this.isClient()) {
             SoundManager.playSound(GameResources.roar, SoundEffect.globalEffect());
         }
 
     }
 
+    @Override
     public LootTable getLootTable() {
         return lootTable;
     }
 
+    @Override
     public LootTable getPrivateLootTable() {
         return privateLootTable;
     }
 
+    @Override
     public boolean canBePushed(Mob other) {
         return false;
     }
 
+    @Override
     public GameDamage getCollisionDamage(Mob target) {
         return collisionDamage;
     }
 
+    @Override
     public int getCollisionKnockback(Mob target) {
         return 150;
     }
 
+    @Override
     public int getMaxHealth() {
         return super.getMaxHealth() + (int)((float)(this.scaling == null ? 0 : this.scaling.getHealthIncrease()) * this.getMaxHealthModifier());
     }
 
+    @Override
     public void tickMovement(float delta) {
         float desiredHeight = this.getDesiredHeight();
         float heightDelta = desiredHeight - this.currentHeight;
@@ -342,7 +356,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
             }
 
             this.calcNetworkSmooth(delta);
-            Iterator var17 = this.backLegs.iterator();
+            Iterator<SpiderLeg> var17 = this.backLegs.iterator();
 
             GEARSphereBossMobVN.SpiderLeg leg;
             while(var17.hasNext()) {
@@ -358,7 +372,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
             }
         } else {
             super.tickMovement(delta);
-            Iterator var14 = this.backLegs.iterator();
+            Iterator<SpiderLeg> var14 = this.backLegs.iterator();
 
             GEARSphereBossMobVN.SpiderLeg leg;
             while(var14.hasNext()) {
@@ -376,15 +390,17 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     }
 
+    @Override
     public void clientTick() {
         super.clientTick();
-        SoundManager.setMusic(MusicRegistry.QueenSpidersDance, SoundManager.MusicPriority.EVENT, 1.5F);
+        SoundManager.setMusic(MusicRegistry.getMusic("gearsturning"), MusicPriority.EVENT, 1.5F);
         EventStatusBarManager.registerMobHealthStatusBar(this);
         BossNearbyBuff.applyAround(this);
         float healthPercInv = Math.abs((float)this.getHealth() / (float)this.getMaxHealth() - 1.0F);
         this.setSpeed(70.0F + healthPercInv * 40.0F);
     }
 
+    @Override
     public void serverTick() {
         super.serverTick();
         this.scaling.serverTick();
@@ -393,6 +409,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         this.setSpeed(70.0F + healthPercInv * 40.0F);
     }
 
+    @Override
     public int getFlyingHeight() {
         return (int)this.currentHeight;
     }
@@ -424,12 +441,14 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         }
     }
 
+    @Override
     public Rectangle getSelectBox(int x, int y) {
         Rectangle selectBox = super.getSelectBox(x, y);
         selectBox.y -= this.getFlyingHeight();
         return selectBox;
     }
 
+    @Override
     public void spawnDeathParticles(float knockbackX, float knockbackY) {
         for(int i = 0; i < 7; ++i) {
             this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), MobRegistry.Textures.queenSpiderDebris, i, 0, 32, this.x + GameRandom.globalRandom.floatGaussian() * 15.0F, this.y + GameRandom.globalRandom.floatGaussian() * 15.0F, 10.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
@@ -437,6 +456,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     }
 
+    @Override
     protected void addDrawables(java.util.List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
@@ -452,7 +472,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         DrawOptionsList backLegsDrawsTop = new DrawOptionsList();
         DrawOptionsList frontLegsDrawBottom = new DrawOptionsList();
         DrawOptionsList frontLegsDrawsTop = new DrawOptionsList();
-        Iterator var21 = this.backLegs.iterator();
+        Iterator<SpiderLeg> var21 = this.backLegs.iterator();
 
         GEARSphereBossMobVN.SpiderLeg leg;
         while(var21.hasNext()) {
@@ -480,6 +500,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         });
     }
 
+    @Override
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) {
         GameTexture shadowTexture = MobRegistry.Textures.ancientVulture_shadow;
         int drawX = camera.getDrawX(x) - shadowTexture.getWidth() / 2;
@@ -487,27 +508,33 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         return shadowTexture.initDraw().light(light).pos(drawX, drawY);
     }
 
+    @Override
     public boolean shouldDrawOnMap() {
         return true;
     }
 
+    @Override
     public void drawOnMap(TickManager tickManager, int x, int y) {
         super.drawOnMap(tickManager, x, y);
         VulpesNova.GEARSPHEREbody.initDraw().size(VulpesNova.GEARSPHEREbody.getWidth() / 2, VulpesNova.GEARSPHEREbody.getHeight() / 2).posMiddle(x, y).draw();
     }
 
+    @Override
     public Rectangle drawOnMapBox() {
         return new Rectangle(-16, -16, 32, 32);
     }
 
+    @Override
     public GameTooltips getMapTooltips() {
         return new StringTooltips(this.getDisplayName() + " " + this.getHealth() + "/" + this.getMaxHealth());
     }
 
+    @Override
     public Stream<ModifierValue<?>> getDefaultModifiers() {
-        return Stream.of((new ModifierValue(BuffModifiers.SLOW, 0.0F)).max(0.2F));
+        return Stream.of((new ModifierValue<Float>(BuffModifiers.SLOW, 0.0F)).max(0.2F));
     }
 
+    @Override
     protected void onDeath(Attacker attacker, HashSet<Attacker> attackers) {
         super.onDeath(attacker, attackers);
         attackers.stream().map(Attacker::getAttackOwner).filter((m) -> {
@@ -703,47 +730,47 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     public static class SpiderMotherAI<T extends GEARSphereBossMobVN> extends SequenceAINode<T> {
         public SpiderMotherAI() {
-            this.addChild(new RemoveOnNoTargetNode(100));
+            this.addChild(new RemoveOnNoTargetNode<T>(100));
             this.addChild(new TargetFinderAINode<T>(3200) {
                 public GameAreaStream<? extends Mob> streamPossibleTargets(T mob, Point base, TargetFinderDistance<T> distance) {
                     return TargetFinderAINode.streamPlayers(mob, base, distance);
                 }
             });
-            AttackStageManagerNode<T> attackStages = new AttackStageManagerNode();
-            this.addChild(new IsolateRunningAINode(attackStages));
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            AttackStageManagerNode<T> attackStages = new AttackStageManagerNode<T>();
+            this.addChild(new IsolateRunningAINode<T>(attackStages));
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 400);
             }));
-            attackStages.addChild(new FlyToRandomPositionAttackStage(true, 300));
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new FlyToRandomPositionAttackStage<T>(true, 300));
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 100);
             }));
             attackStages.addChild(new GEARSphereBossMobVN.LaunchEggsStage());
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 1000);
             }));
-            attackStages.addChild(new FlyToOppositeDirectionAttackStage(true, 300.0F, 20.0F));
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new FlyToOppositeDirectionAttackStage<T>(true, 300.0F, 20.0F));
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 100);
             }));
-            attackStages.addChild(new FlyToRandomPositionAttackStage(true, 300));
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new FlyToRandomPositionAttackStage<T>(true, 300));
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 100);
             }));
             attackStages.addChild(new GEARSphereBossMobVN.SpitStage());
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 500);
             }));
-            attackStages.addChild(new FlyToRandomPositionAttackStage(true, 300));
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new FlyToRandomPositionAttackStage<T>(true, 300));
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 1000);
             }));
             attackStages.addChild(new GEARSphereBossMobVN.ChargeTargetStage());
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 1000);
             }));
             attackStages.addChild(new GEARSphereBossMobVN.ChargeTargetStage());
-            attackStages.addChild(new IdleTimeAttackStage((m) -> {
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 1000);
             }));
             attackStages.addChild(new GEARSphereBossMobVN.ChargeTargetStage());
@@ -866,7 +893,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
                 float jumpHeight = this.getJumpHeight();
                 float perspectiveMod = 0.6F;
                 synchronized(this) {
-                    this.shadowLines = Collections.synchronizedList(new LinkedList());
+                    this.shadowLines = Collections.synchronizedList(new LinkedList<java.awt.geom.Line2D.Float>());
                     this.shadowLines.add(new Line2D.Float(centerPos.x, centerPos.y + 18.0F, jointPos.x, jointPos.y - jointPos.height * perspectiveMod));
                     this.shadowLines.add(new Line2D.Float(jointPos.x, jointPos.y - jointPos.height * perspectiveMod, this.x, this.y));
                 }
@@ -892,11 +919,11 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         public abstract GamePoint3D getCenterPosition();
 
         private static Shape generateShadowShape(Iterable<Line2D.Float> lines, float radius) {
-            LinkedList<Line2D.Float> reverse = new LinkedList();
+            LinkedList<Line2D.Float> reverse = new LinkedList<java.awt.geom.Line2D.Float>();
             Path2D.Float path = new Path2D.Float();
             Line2D.Float first = null;
             Line2D.Float last = null;
-            Iterator var6 = lines.iterator();
+            Iterator<java.awt.geom.Line2D.Float> var6 = lines.iterator();
 
             Line2D.Float line;
             Point2D.Float dir;
@@ -974,12 +1001,12 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         }
 
         private static LinkedList<Point2D.Float> generateShadowTriangles(Iterable<Line2D.Float> lines, float radius) {
-            LinkedList<Point2D.Float> out = new LinkedList();
+            LinkedList<Point2D.Float> out = new LinkedList<java.awt.geom.Point2D.Float>();
             Line2D.Float last = null;
 
             Line2D.Float line;
             Point2D.Float rightP2;
-            for(Iterator var4 = lines.iterator(); var4.hasNext(); last = line) {
+            for(Iterator<java.awt.geom.Line2D.Float> var4 = lines.iterator(); var4.hasNext(); last = line) {
                 line = (Line2D.Float)var4.next();
                 rightP2 = GameMath.normalize(line.x1 - line.x2, line.y1 - line.y2);
                 Point2D.Float leftP1 = GameMath.getPerpendicularPoint(line.x1, line.y1, radius, rightP2);
@@ -1029,7 +1056,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
                 //should be a shadow texture
                 int legShadowWidth = VulpesNova.GEARSPHEREleg.getWidth();
                 synchronized(this) {
-                    Iterator var8 = this.shadowLines.iterator();
+                    Iterator<java.awt.geom.Line2D.Float> var8 = this.shadowLines.iterator();
 
                     while(true) {
                         if (!var8.hasNext()) {
@@ -1048,7 +1075,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
                 float jumpHeight = this.getJumpHeight();
                 int legTextureWidth = VulpesNova.GEARSPHEREleg.getWidth();
-                Iterator var17 = this.ik.limbs.iterator();
+                Iterator<?> var17 = this.ik.limbs.iterator();
 
                 while(var17.hasNext()) {
                     InverseKinematics.Limb limb = (InverseKinematics.Limb)var17.next();

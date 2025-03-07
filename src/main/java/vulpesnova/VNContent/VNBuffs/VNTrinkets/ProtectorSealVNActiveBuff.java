@@ -10,7 +10,8 @@ public class ProtectorSealVNActiveBuff extends Buff {
         this.isVisible = true;
         this.isImportant = true;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.ALL_DAMAGE, 0.10F);
         buff.setModifier(BuffModifiers.CRIT_CHANCE, 0.10F);

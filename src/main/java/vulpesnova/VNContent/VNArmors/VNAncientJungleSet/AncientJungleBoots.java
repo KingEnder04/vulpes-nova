@@ -19,11 +19,13 @@ public class AncientJungleBoots extends BootsArmorItem {
     public AncientJungleBoots() {
         super(13, 1000, Rarity.LEGENDARY, "ancientjunglebootsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
         return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item))),new ModifierValue(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))});
     }
-
+    
+	@Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "ancientjunglesetvntip"));

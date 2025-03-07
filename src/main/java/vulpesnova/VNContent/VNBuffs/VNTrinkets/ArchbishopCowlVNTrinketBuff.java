@@ -23,12 +23,14 @@ import java.util.concurrent.atomic.AtomicReference;
 public class ArchbishopCowlVNTrinketBuff extends TrinketBuff implements BuffAbility {
     public ArchbishopCowlVNTrinketBuff() {
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.ALL_DAMAGE, 0.1f);
         buff.setModifier(BuffModifiers.CRIT_CHANCE, 0.1f);
     }
-
+    
+	@Override
     public void runAbility(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 30.0F;
         float cooldown = 90.0F;
@@ -41,7 +43,7 @@ public class ArchbishopCowlVNTrinketBuff extends TrinketBuff implements BuffAbil
 
         for(int i = 0; i < particles; ++i) {
             float height = (float)minHeight + (float)(maxHeight - minHeight) * (float)i / (float)particles;
-            AtomicReference<Float> currentAngle = new AtomicReference(GameRandom.globalRandom.nextFloat() * 360.0F);
+            AtomicReference<Float> currentAngle = new AtomicReference<Float>(GameRandom.globalRandom.nextFloat() * 360.0F);
             float distance = 20.0F;
             player.getLevel().entityManager.addParticle(player.x + GameMath.sin((Float)currentAngle.get()) * distance, player.y + GameMath.cos((Float)currentAngle.get()) * distance * 0.75F, Particle.GType.CRITICAL).color(new Color(246, 193, 123)).height(height).moves((pos, delta, lifeTime, timeAlive, lifePercent) -> {
                 float angle = (Float)currentAngle.accumulateAndGet(delta * 150.0F / 250.0F, Float::sum);
@@ -52,11 +54,13 @@ public class ArchbishopCowlVNTrinketBuff extends TrinketBuff implements BuffAbil
         }
 
     }
-
+    
+	@Override
     public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content) {
         return !buff.owner.buffManager.hasBuff(VulpesNova.ARCHBISHOP_COWL_VN_COOLDOWN);
     }
-
+    
+	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = new ListGameTooltips();
         tooltips.add(Localization.translate("itemtooltip", "archbishopcowlvntip1"));

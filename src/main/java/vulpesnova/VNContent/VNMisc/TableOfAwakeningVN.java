@@ -13,7 +13,6 @@ import necesse.inventory.item.ItemCategory;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.CraftingStationObject;
-import necesse.level.gameObject.ObjectHoverHitbox;
 import necesse.level.gameObject.ObjectPlaceOption;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
@@ -37,25 +36,30 @@ public class TableOfAwakeningVN extends CraftingStationObject {
         this.isLightTransparent = true;
     }
 
+    @Override
     public HashSet<ItemCategory> getForcedSoloCraftingCategories() {
         HashSet<ItemCategory> depths = super.getForcedSoloCraftingCategories();
         depths.add(ItemCategory.craftingManager.getCategory(new String[]{"equipment", "trinkets"}));
         return depths;
     }
 
+    @Override
     public MultiTile getMultiTile(int rotation) {
         return new SideMultiTile(0, 1, 1, 2, rotation, true, new int[]{this.counterID, this.getID()});
     }
 
+    @Override
     public ArrayList<ObjectPlaceOption> getPlaceOptions(Level level, int levelX, int levelY, PlayerMob playerMob, int playerDir, boolean offsetMultiTile) {
         return super.getPlaceOptions(level, levelX, levelY, playerMob, Math.floorMod(playerDir - 1, 4), offsetMultiTile);
     }
 
+    @Override
     public void loadTextures() {
         super.loadTextures();
         this.texture = GameTexture.fromFile("objects/tableofawakeningvn");
     }
 
+    @Override
     public Rectangle getCollision(Level level, int x, int y, int rotation) {
         if (rotation == 0) {
             return new Rectangle(x * 32 + 5, y * 32, 22, 26);
@@ -66,6 +70,7 @@ public class TableOfAwakeningVN extends CraftingStationObject {
         }
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, Level level, int tileX, int tileY, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         GameLight light = level.getLightLevel(tileX, tileY);
         int drawX = camera.getTileDrawX(tileX);
@@ -95,6 +100,7 @@ public class TableOfAwakeningVN extends CraftingStationObject {
         });
     }
 
+    @Override
     public void drawPreview(Level level, int tileX, int tileY, int rotation, float alpha, PlayerMob player, GameCamera camera) {
         int drawX = camera.getTileDrawX(tileX);
         int drawY = camera.getTileDrawY(tileY);
@@ -118,6 +124,7 @@ public class TableOfAwakeningVN extends CraftingStationObject {
 
     }
 
+    @Override
     public Tech[] getCraftingTechs() {
         return new Tech[]{RecipeTechRegistry.getTech("tableofawakeningvn")};
     }

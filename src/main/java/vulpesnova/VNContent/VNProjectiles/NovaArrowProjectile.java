@@ -26,30 +26,37 @@ import java.util.List;
 
 public class NovaArrowProjectile extends Projectile {
     public NovaArrowProjectile() {
+    	
     }
 
+    @Override
     public void init() {
         super.init();
         this.givesLight = true;
         this.height = 18.0F;
         this.heightBasedOnDistance = true;
         this.setWidth(8.0F);
+    
     }
 
+    @Override
     public Color getParticleColor() {
         return new Color(153, 78, 234);
     }
 
+    @Override
     protected void modifySpinningParticle(ParticleOption particle) {
         particle.givesLight(75.0F, 0.5F).lifeTime(1000);
     }
-
+    
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(95, 36, 157), 12.0F, 250, this.getHeight());
     }
 
+    @Override
     public void doHitLogic(Mob mob, LevelObjectHit object, float x, float y) {
-        if (this.getLevel().isServerLevel()) {
+        if (this.getLevel().isServer()) {
             if (mob != null) {
                 ActiveBuff ab = new ActiveBuff("cosmicfirevn", mob, 10.0F, this.getOwner());
                 mob.addBuff(ab, true);
@@ -58,6 +65,7 @@ public class NovaArrowProjectile extends Projectile {
         }
     }
 
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);
@@ -73,13 +81,15 @@ public class NovaArrowProjectile extends Projectile {
         }
     }
 
+    @Override
     public void dropItem() {
         if (GameRandom.globalRandom.getChance(0.5F)) {
             this.getLevel().entityManager.pickups.add((new InventoryItem("goldarrowvn")).getPickupEntity(this.getLevel(), this.x, this.y));
         }
 
     }
-
+    
+    @Override
     protected void playHitSound(float x, float y) {
         SoundManager.playSound(GameResources.bowhit, SoundEffect.effect(x, y));
     }

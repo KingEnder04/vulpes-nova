@@ -1,8 +1,6 @@
 package vulpesnova.VNContent.VNBuffs.VNArmorBuffs;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.modifiers.Modifier;
-import necesse.engine.registries.BuffRegistry.Debuffs;
 import necesse.engine.util.GameBlackboard;
 import necesse.entity.mobs.MobWasHitEvent;
 import necesse.entity.mobs.buffs.ActiveBuff;
@@ -11,7 +9,6 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SetBonusBuff;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 
-import necesse.engine.modifiers.ModifierTooltip;
 import necesse.inventory.item.ItemStatTip;
 import necesse.inventory.item.upgradeUtils.IntUpgradeValue;
 import vulpesnova.VulpesNova;

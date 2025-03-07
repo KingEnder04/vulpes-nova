@@ -10,7 +10,8 @@ public class DemonWarriorSealVNActiveBuff extends Buff {
         this.isVisible = true;
         this.isImportant = true;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.ATTACK_SPEED, 0.5F);
         buff.setModifier(BuffModifiers.ALL_DAMAGE, 0.3F);

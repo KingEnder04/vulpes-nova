@@ -9,10 +9,12 @@ import necesse.inventory.lootTable.LootTable;
 import java.awt.*;
 
 public class CubaltCavelingVN extends CavelingMob {
+	
     public CubaltCavelingVN() {
         super(200, 40);
     }
 
+    @Override
     public void init() {
         super.init();
         this.texture = MobRegistry.Textures.stoneCaveling;
@@ -24,6 +26,7 @@ public class CubaltCavelingVN extends CavelingMob {
 
     }
 
+    @Override
     public LootTable getLootTable() {
         return super.getLootTable();
     }

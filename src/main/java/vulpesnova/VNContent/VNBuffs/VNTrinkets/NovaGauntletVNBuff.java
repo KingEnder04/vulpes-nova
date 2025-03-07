@@ -15,18 +15,21 @@ import vulpesnova.VulpesNova;
 public class NovaGauntletVNBuff extends TrinketBuff {
     public NovaGauntletVNBuff() {
     }
-
+    
+	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = super.getTrinketTooltip(trinketItem, item, perspective);
         tooltips.add(Localization.translate("itemtooltip", "novagauntletvntip"));
         return tooltips;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
             buff.setModifier(BuffModifiers.MAX_RESILIENCE_FLAT, 30);
             buff.setModifier(BuffModifiers.RESILIENCE_DECAY, -0.90f);
     }
-
+    
+	@Override
     public void onHasAttacked(ActiveBuff buff, MobWasHitEvent event) {
         super.onHasAttacked(buff, event);
         if (!event.wasPrevented) {

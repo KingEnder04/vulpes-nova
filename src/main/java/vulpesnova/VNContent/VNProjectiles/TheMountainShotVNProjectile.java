@@ -19,27 +19,28 @@ import java.awt.*;
 import java.util.List;
 
 public class TheMountainShotVNProjectile extends Projectile {
-    private long spawnTime;
     private int sprite;
 
     public TheMountainShotVNProjectile() {
     }
 
-    public TheMountainShotVNProjectile(float x, float y, float targetX, float targetY, GameDamage damage, Mob owner) {
+    public TheMountainShotVNProjectile(Level level, float x, float y, float targetX, float targetY, int speed, int distance, GameDamage damage, int knockback, Mob owner) {
+    	this();
+    	this.setLevel(level);
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
-        this.speed = 100.0F;
+        this.speed = speed;
         this.setDamage(damage);
         this.setOwner(owner);
-        this.setDistance(400);
+        this.setDistance(distance);
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.setWidth(10.0F);
         this.height = 18.0F;
-        this.spawnTime = this.getWorldEntity().getTime();
         this.heightBasedOnDistance = true;
         this.trailOffset = 0.0F;
         if (this.texture != null) {
@@ -47,23 +48,28 @@ public class TheMountainShotVNProjectile extends Projectile {
         }
 
     }
-
+    
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(50, 50, 50), 16.0F, 150, 18.0F);
     }
-
+    
+    @Override
     public Color getParticleColor() {
         return new Color(50, 50, 50);
     }
-
+    
+    @Override
     public float getParticleChance() {
         return super.getParticleChance() * 0.5F;
     }
-
+    
+    @Override
     protected int getExtraSpinningParticles() {
         return 0;
     }
-
+    
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);
@@ -83,7 +89,8 @@ public class TheMountainShotVNProjectile extends Projectile {
             });
         }
     }
-
+    
+    @Override
     protected void playHitSound(float x, float y) {
     }
 }

@@ -11,9 +11,10 @@ public class MeatRobe extends ChestArmorItem {
     public MeatRobe() {
         super(8, 200, Rarity.NORMAL, "meatrobevn", "meatrobearmsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.KNOCKBACK_INCOMING_MOD, 0.5F)});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.KNOCKBACK_INCOMING_MOD, 0.5F)});
     }
 
 }

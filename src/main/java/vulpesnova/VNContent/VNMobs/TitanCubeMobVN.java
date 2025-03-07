@@ -55,6 +55,7 @@ public class TitanCubeMobVN extends HostileMob {
         ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 4000, new GameDamage(100), 5, 40000));
     }
 
+    @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
         if (this.getLevel().isCave) {
@@ -86,6 +87,7 @@ public class TitanCubeMobVN extends HostileMob {
         }
     }
 
+    @Override
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
@@ -110,6 +112,7 @@ public class TitanCubeMobVN extends HostileMob {
         return 25;
     }
 
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

@@ -22,6 +22,7 @@ import necesse.level.maps.generationModules.IslandGeneration;
 import necesse.level.maps.presets.RandomRuinsPreset;
 import vulpesnova.VulpesNova;
 
+import java.awt.Point;
 import java.util.function.Consumer;
 
 public class FlatlandsSurfaceLevelVN extends Level {
@@ -69,7 +70,7 @@ public class FlatlandsSurfaceLevelVN extends Level {
             ig.generateObjects(ObjectRegistry.getObjectID("cubegroundrockvn"), -1, 0.001F, false);
             ig.generateObjects(ObjectRegistry.getObjectID("cubegroundrocksmallvn"), -1, 0.002F, false);
             
-            ig.generateFruitGrowerVeins("blockberrybushvn", 0.04F, 8, 10, 0.1F, (Consumer)null, new int[]{landTile});
+            ig.generateFruitGrowerVeins("blockberrybushvn", 0.04F, 8, 10, 0.1F, (Consumer<Point>)null, new int[]{landTile});
             GenerationTools.generateRandomObjectVeinsOnTile(this, ig.random, 0.03F, 6, 12, landTile, ObjectRegistry.getObjectID("wildiceblossom"), 0.2F, false);
         });
         GameEvents.triggerEvent(new GeneratedIslandFloraEvent(this, islandSize, ig));
@@ -85,7 +86,8 @@ public class FlatlandsSurfaceLevelVN extends Level {
         GameEvents.triggerEvent(new GeneratedIslandAnimalsEvent(this, islandSize, ig));
         GenerationTools.checkValid(this);
     }
-
+    
+	@Override
     public GameMessage getLocationMessage() {
         return new LocalMessage("biome", "surface", "biome", this.biome.getLocalization());
     }

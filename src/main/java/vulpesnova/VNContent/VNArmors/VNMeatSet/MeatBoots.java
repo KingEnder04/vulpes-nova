@@ -14,8 +14,9 @@ public class MeatBoots extends BootsArmorItem {
     public MeatBoots() {
         super(5, 200, Rarity.NORMAL, "meatbootsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item))), new ModifierValue(BuffModifiers.SUMMONS_SPEED, 0.2F)});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item))), new ModifierValue<Float>(BuffModifiers.SUMMONS_SPEED, 0.2F)});
     }
 }

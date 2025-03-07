@@ -14,8 +14,9 @@ public class WindBootsVN extends BootsArmorItem {
     public WindBootsVN() {
         super(2, 200, Rarity.NORMAL, "windbootsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item)))});
     }
 }

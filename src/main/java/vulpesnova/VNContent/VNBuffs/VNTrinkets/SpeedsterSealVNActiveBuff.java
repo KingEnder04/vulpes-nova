@@ -10,7 +10,8 @@ public class SpeedsterSealVNActiveBuff extends Buff {
         this.isVisible = true;
         this.isImportant = true;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.SPEED, 1.0F);
     }

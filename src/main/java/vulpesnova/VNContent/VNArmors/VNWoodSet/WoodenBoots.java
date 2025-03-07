@@ -14,8 +14,9 @@ public class WoodenBoots extends BootsArmorItem {
     public WoodenBoots() {
         super(2, 200, Rarity.NORMAL, "woodenbootsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SPEED, this.speed.getValue(this.getUpgradeTier(item)))});
     }
 }

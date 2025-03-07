@@ -107,6 +107,8 @@ public class NightmareMobVN extends HostileMob {
         // Change the speed at which this mobs animation plays
         return 20;
     }
+
+    @Override
     public boolean isLavaImmune() {
         return true;
     }

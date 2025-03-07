@@ -54,11 +54,12 @@ public class SphereSentinelMobVN extends HostileMob {
         selectBox = new Rectangle(-32, -44, 64, 100);
     }
 
-    public void init() {
+    @Override
+	public void init() {
         super.init();
-        this.ai = new BehaviourTreeAI(this, new StationaryPlayerShooterAI<SphereSentinelMobVN>(800) {
+        this.ai = new BehaviourTreeAI<SphereSentinelMobVN>(this, new StationaryPlayerShooterAI<SphereSentinelMobVN>(800) {
             public void shootTarget(SphereSentinelMobVN mob, Mob target) {
-                SpherecererShotVNProjectile projectile = new SpherecererShotVNProjectile(SphereSentinelMobVN.this.getLevel(), mob, mob.x, mob.y, target.x, target.y, 100.0F, 1000, SphereSentinelMobVN.damage, 50);
+                SpherecererShotVNProjectile projectile = new SpherecererShotVNProjectile(SphereSentinelMobVN.this.getLevel(),mob.x, mob.y, target.x, target.y, 100.0F, 1000, SphereSentinelMobVN.damage, 50, mob);
                 projectile.setTargetPrediction(target);
                 SphereSentinelMobVN.this.attack((int)(mob.x + projectile.dx * 100.0F), (int)(mob.y + projectile.dy * 100.0F), false);
                 projectile.x += Math.signum(SphereSentinelMobVN.this.attackDir.x) * 10.0F;
@@ -68,6 +69,7 @@ public class SphereSentinelMobVN extends HostileMob {
         });
     }
 
+    @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
         if (this.getLevel().isCave) {
@@ -79,6 +81,7 @@ public class SphereSentinelMobVN extends HostileMob {
         return location.validAndApply();
     }
 
+    @Override
     public MobSpawnLocation checkSpawnLocation(MobSpawnLocation location) {
         return location.checkNotLevelCollides().checkTile((tileX, tileY) -> {
             int tileID = this.getLevel().getTileID(tileX, tileY);
@@ -91,6 +94,7 @@ public class SphereSentinelMobVN extends HostileMob {
         });
     }
 
+    @Override
     public void clientTick() {
         super.clientTick();
         if (this.isAttacking) {
@@ -99,6 +103,7 @@ public class SphereSentinelMobVN extends HostileMob {
 
     }
 
+    @Override
     public void serverTick() {
         super.serverTick();
         if (this.isAttacking) {
@@ -107,10 +112,12 @@ public class SphereSentinelMobVN extends HostileMob {
 
     }
 
+    @Override
     public boolean canBePushed(Mob other) {
         return false;
     }
 
+    @Override
     public LootTable getLootTable() {
         return lootTable;
     }
@@ -130,6 +137,7 @@ public class SphereSentinelMobVN extends HostileMob {
         }
     }
 
+    @Override
     public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         GameLight light = level.getLightLevel(x / 32, y / 32);
@@ -190,6 +198,7 @@ public class SphereSentinelMobVN extends HostileMob {
         });
     }
 
+    @Override
     public void showAttack(int x, int y, int seed, boolean showAllDirections) {
         super.showAttack(x, y, seed, showAllDirections);
         if (this.isClient()) {

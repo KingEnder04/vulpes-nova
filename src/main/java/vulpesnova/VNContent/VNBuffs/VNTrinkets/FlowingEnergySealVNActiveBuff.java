@@ -10,7 +10,8 @@ public class FlowingEnergySealVNActiveBuff extends Buff {
         this.isVisible = true;
         this.isImportant = true;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.MANA_REGEN, 2.0F);
         buff.setModifier(BuffModifiers.MAGIC_ATTACK_SPEED, 1.0F);

@@ -11,9 +11,10 @@ import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.
 
 public class ARainyDayVN extends GunProjectileToolItem {
     public ARainyDayVN() {
+    	
         super(NORMAL_AMMO_TYPES, 1000);
         this.rarity = Rarity.UNCOMMON;
-        this.animSpeed = 70;
+        this.attackAnimTime.setBaseValue(70);
         this.attackDamage.setBaseValue(18).setUpgradedValue(1.0F, 90.0F);
         this.attackXOffset = 12;
         this.attackYOffset = 14;
@@ -23,8 +24,10 @@ public class ARainyDayVN extends GunProjectileToolItem {
         this.knockback.setBaseValue(25);
         this.ammoConsumeChance = 0.3F;
         this.addGlobalIngredient(new String[]{"bulletuser"});
+        
     }
-
+    
+    @Override
     protected void addAmmoTooltips(ListGameTooltips tooltips, InventoryItem item) {
         super.addAmmoTooltips(tooltips, item);
         tooltips.add(Localization.translate("itemtooltip", "arainydayvntip"));
@@ -33,7 +36,8 @@ public class ARainyDayVN extends GunProjectileToolItem {
         tooltips.add(Localization.translate("itemtooltip", "arainydayvntip4"));
         tooltips.add(Localization.translate("itemtooltip", "arainydayvntip5"));
     }
-
+    
+    @Override
     public void playFireSound(AttackAnimMob mob) {
         SoundManager.playSound(GameResources.handgun, SoundEffect.effect(mob));
     }

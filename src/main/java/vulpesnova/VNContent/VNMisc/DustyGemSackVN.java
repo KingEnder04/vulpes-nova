@@ -16,12 +16,14 @@ import necesse.inventory.item.matItem.MultiTextureMatItem;
 import vulpesnova.VNContent.DustyGemSackLootTableVN;
 
 public class DustyGemSackVN extends MultiTextureMatItem {
+	
     public DustyGemSackVN() {
         super(4, 50, new String[0]);
         this.rarity = Rarity.COMMON;
         this.setItemCategory(new String[]{"misc"});
     }
-
+    
+    @Override
     public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "dustygemsackvntip"));
@@ -29,6 +31,7 @@ public class DustyGemSackVN extends MultiTextureMatItem {
         return tooltips;
     }
 
+    @Override
     public Supplier<ContainerActionResult> getInventoryRightClickAction(Container container, InventoryItem item, int slotIndex, ContainerSlot slot) {
         return () -> {
             if (container.getClient().isServer()) {

@@ -13,7 +13,7 @@ public class EyebeamVN extends GunProjectileToolItem {
     public EyebeamVN() {
         super(NORMAL_AMMO_TYPES, 400);
         this.rarity = Rarity.UNCOMMON;
-        this.animSpeed = 300;
+        this.attackAnimTime.setBaseValue(300);
         this.attackDamage.setBaseValue(26).setUpgradedValue(1.0F, 100.0F);
         this.attackXOffset = 10;
         this.attackYOffset = 14;
@@ -22,12 +22,14 @@ public class EyebeamVN extends GunProjectileToolItem {
         this.addGlobalIngredient(new String[]{"bulletuser"});
     }
 
+    @Override
     protected void addAmmoTooltips(ListGameTooltips tooltips, InventoryItem item) {
         super.addAmmoTooltips(tooltips, item);
         tooltips.add(Localization.translate("itemtooltip", "eyebeamvntip"));
 
     }
 
+    @Override
     public void playFireSound(AttackAnimMob mob) {
         SoundManager.playSound(GameResources.spit, SoundEffect.effect(mob));
     }

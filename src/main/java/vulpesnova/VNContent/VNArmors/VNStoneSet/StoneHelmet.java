@@ -15,9 +15,10 @@ public class StoneHelmet extends SetHelmetArmorItem {
     public StoneHelmet() {
         super(8, DamageTypeRegistry.MELEE, 200, Rarity.NORMAL, "stonehelmetvn", "stonechestplatevn", "stonebootsvn", "stonesetvnbonusbuff");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
-        return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))});
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))});
     }
 
 }

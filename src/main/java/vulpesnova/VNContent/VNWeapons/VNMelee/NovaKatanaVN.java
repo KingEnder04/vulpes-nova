@@ -2,6 +2,7 @@ package vulpesnova.VNContent.VNWeapons.VNMelee;
 
 import necesse.inventory.item.toolItem.swordToolItem.KatanaToolItem;
 public class NovaKatanaVN extends KatanaToolItem {
+	
     public NovaKatanaVN() {
         super(1400);
         this.rarity = Rarity.UNIQUE;
@@ -15,4 +16,5 @@ public class NovaKatanaVN extends KatanaToolItem {
         this.attackXOffset = 4;
         this.attackYOffset = 4;
     }
+    
 }

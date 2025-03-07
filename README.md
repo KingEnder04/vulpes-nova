@@ -1,14 +1,25 @@
-# Vulpes Nova 2.02.5
-## Target Necesse Version: 0.30.0
+# Vulpes Nova 2.04.0
+## Target Necesse Version: 0.32.0
 
 This repository contains the development resources and code for Vulpes Nova, a mod authored by @KingEnder04 for Necesse.
 Credits: 	
-- @KingEnder04	- Original project creator :fox:
+- @KingEnder04		- Original project creator :fox:
+- @Logar			- Sprites
 - @Meffestoffel 	- RU locale
-- @FerrenF 		- Compatibility fixes/Version Update
+- @FerrenF 			- Compatibility fixes/Version Update
 
 
-Test edit
+### 03-06-25 **Mod Update: Version 2.04.0**  
+
+#### **Changes**  
+- LMG has new sound FX
+- Stormbringer/Stormbolter have new sound FX.
+- Jade Waraxe has been reworked to be a slashing bleeding weapon.
+- Crimson Tempest has been reworked to be a special projectile weapon.  
+
+#### **Fixes**  
+- Too many fixes to list. Many compatibility changes for Necesse version 0.32.0
+
 
 ### 02-20-25 **Mod Update: Version 2.02.5**  
 

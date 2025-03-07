@@ -9,18 +9,22 @@ public class CrimsonTempestChargeStackBuff extends Buff {
 		this.isImportant = true;
 		this.canCancel = false;
 	}
-
+    
+	@Override
 	public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
 	}
-
+    
+	@Override
 	public int getStackSize(ActiveBuff buff) {
 		return 100;
 	}
-
+    
+	@Override
 	public boolean overridesStackDuration() {
 		return true;
 	}
-
+      
+	@Override
 	public boolean showsFirstStackDurationText() {
 		return super.showsFirstStackDurationText();
 	}

@@ -24,7 +24,8 @@ public class IntermediateTomeProjectile extends Projectile {
     }
 
     public IntermediateTomeProjectile(Level level, Mob owner, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback) {
-        this.setLevel(level);
+    	 this();
+    	this.setLevel(level);
         this.setOwner(owner);
         this.x = x;
         this.y = y;
@@ -34,7 +35,8 @@ public class IntermediateTomeProjectile extends Projectile {
         this.setDamage(damage);
         this.knockback = knockback;
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.height = 18.0F;
@@ -44,11 +46,13 @@ public class IntermediateTomeProjectile extends Projectile {
         this.givesLight = true;
         this.trailOffset = 0.0F;
     }
-
+    
+    @Override
     public Trail getTrail() {
         return new Trail(this, this.getLevel(), new Color(211, 114, 45), 12.0F, 500, 18.0F);
     }
-
+    
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         if (!this.removed()) {
             GameLight light = level.getLightLevel(this);
@@ -63,7 +67,8 @@ public class IntermediateTomeProjectile extends Projectile {
             this.addShadowDrawables(tileList, drawX, drawY, light, this.getAngle(), this.shadowTexture.getHeight() / 2);
         }
     }
-
+    
+    @Override
     public float getAngle() {
         return (float)(this.getWorldEntity().getTime() - this.spawnTime);
     }

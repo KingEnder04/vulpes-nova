@@ -12,6 +12,7 @@ public class GemStoneCavelingVN extends CavelingMob {
         super(200, 40);
     }
 
+    @Override
     public void init() {
         super.init();
         this.texture = Textures.stoneCaveling;
@@ -23,6 +24,7 @@ public class GemStoneCavelingVN extends CavelingMob {
 
     }
 
+    @Override
     public LootTable getLootTable() {
         return super.getLootTable();
     }

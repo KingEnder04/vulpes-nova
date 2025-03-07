@@ -10,7 +10,8 @@ public class HolyPaladinSealVNActiveBuff extends Buff {
         this.isVisible = true;
         this.isImportant = true;
     }
-
+    
+	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
         buff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, 2F);
         buff.setModifier(BuffModifiers.MAX_HEALTH_FLAT, 100);

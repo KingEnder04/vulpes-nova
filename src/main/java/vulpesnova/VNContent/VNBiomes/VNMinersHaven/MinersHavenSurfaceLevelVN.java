@@ -1,9 +1,4 @@
 package vulpesnova.VNContent.VNBiomes.VNMinersHaven;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.function.Consumer;
-
 import necesse.engine.GameEvents;
 import necesse.engine.events.worldGeneration.GenerateIslandAnimalsEvent;
 import necesse.engine.events.worldGeneration.GenerateIslandFloraEvent;
@@ -15,34 +10,16 @@ import necesse.engine.events.worldGeneration.GeneratedIslandLayoutEvent;
 import necesse.engine.events.worldGeneration.GeneratedIslandStructuresEvent;
 import necesse.engine.localization.message.GameMessage;
 import necesse.engine.localization.message.LocalMessage;
-import necesse.engine.network.server.Server;
-import necesse.engine.registries.BiomeRegistry;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.ObjectRegistry;
 import necesse.engine.registries.TileRegistry;
-import necesse.engine.util.GameMath;
 import necesse.engine.util.LevelIdentifier;
-import necesse.engine.util.TicketSystemList;
 import necesse.engine.world.WorldEntity;
-import necesse.entity.mobs.Mob;
 import necesse.level.gameObject.GameObject;
 import necesse.level.gameTile.GameTile;
 import necesse.level.maps.Level;
-import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.GenerationTools;
 import necesse.level.maps.generationModules.IslandGeneration;
-import necesse.level.maps.generationModules.PresetGeneration;
-import necesse.level.maps.presets.BrokenHusbandryFencePreset;
-import necesse.level.maps.presets.FarmersRefugePreset;
-import necesse.level.maps.presets.FishingHutPreset;
-import necesse.level.maps.presets.HunterCabinPreset;
 import necesse.level.maps.presets.RandomRuinsPreset;
-import necesse.level.maps.presets.set.BushSet;
-import necesse.level.maps.presets.set.FenceSet;
-import necesse.level.maps.presets.set.FurnitureSet;
-import necesse.level.maps.presets.set.TreeSet;
-import necesse.level.maps.presets.set.WallSet;
-import vulpesnova.VulpesNova;
 
 public class MinersHavenSurfaceLevelVN extends Level {
     public MinersHavenSurfaceLevelVN(LevelIdentifier identifier, int width, int height, WorldEntity worldEntity) {
@@ -134,7 +111,8 @@ public class MinersHavenSurfaceLevelVN extends Level {
         GameEvents.triggerEvent(new GeneratedIslandAnimalsEvent(this, islandSize, ig));
         GenerationTools.checkValid(this);
     }
-
+    
+	@Override
     public GameMessage getLocationMessage() {
         return new LocalMessage("biome", "surface", "biome", this.biome.getLocalization());
     }

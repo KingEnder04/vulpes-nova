@@ -18,11 +18,13 @@ public class AncientJungleChestplate extends ChestArmorItem {
     public AncientJungleChestplate() {
         super(22, 1000, Rarity.LEGENDARY, "ancientjunglechestplatevn", "ancientjunglearmsvn");
     }
-
+    
+	@Override
     public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
         return new ArmorModifiers(new ModifierValue[]{new ModifierValue(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))});
     }
-
+    
+	@Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
         ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "ancientjunglesetvntip"));

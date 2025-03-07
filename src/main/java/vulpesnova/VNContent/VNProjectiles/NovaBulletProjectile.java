@@ -38,17 +38,20 @@ public class NovaBulletProjectile extends FollowingProjectile {
         this.knockback = knockback;
         this.setOwner(owner);
     }
-
+    
+    @Override
     public void setupSpawnPacket(PacketWriter writer) {
         super.setupSpawnPacket(writer);
         writer.putNextFloat(this.height);
     }
-
+    
+    @Override
     public void applySpawnPacket(PacketReader reader) {
         super.applySpawnPacket(reader);
         this.height = reader.getNextFloat();
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.turnSpeed = 0.1F;
@@ -56,21 +59,25 @@ public class NovaBulletProjectile extends FollowingProjectile {
         this.trailOffset = 0.0F;
         this.bouncing = 1;
     }
-
+    
+    @Override
     public Trail getTrail() {
         Trail trail = new Trail(this, this.getLevel(), new Color(98, 19, 239), 22.0F, 100, this.height);
         trail.sprite = new GameSprite(GameResources.chains, 7, 0, 32);
         return trail;
     }
-
+    
+    @Override
     protected Color getWallHitColor() {
         return new Color(98, 19, 239);
     }
-
+    
+    @Override
     public void refreshParticleLight() {
         this.getLevel().lightManager.refreshParticleLightFloat(this.x, this.y, 260.0F, this.lightSaturation);
     }
-
+    
+    @Override
     public void updateTarget() {
         if (this.traveledDistance > 50.0F) {
             this.findTarget((m) -> {
@@ -79,7 +86,8 @@ public class NovaBulletProjectile extends FollowingProjectile {
         }
 
     }
-
+    
+    @Override
     public float getTurnSpeed(int targetX, int targetY, float delta) {
         return this.getTurnSpeed(delta) * this.getTurnSpeedMod(targetX, targetY, 20.0F, 90.0F, 160.0F);
     }
@@ -95,10 +103,12 @@ public class NovaBulletProjectile extends FollowingProjectile {
             return 1.0F;
         }
     }
-
+    
+    @Override
     public void addDrawables(List<LevelSortedDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, OrderableDrawables overlayList, Level level, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
     }
-
+    
+    @Override
     public void playHitSound(float x, float y) {
         SoundManager.playSound(GameResources.gunhit, SoundEffect.effect(x, y));
     }

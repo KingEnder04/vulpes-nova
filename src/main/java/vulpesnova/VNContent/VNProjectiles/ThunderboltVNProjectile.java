@@ -19,13 +19,13 @@ import java.util.List;
 
 public class ThunderboltVNProjectile extends Projectile {
 
-    private long spawnTime;
-
     public ThunderboltVNProjectile() {
+    
     }
 
-    public ThunderboltVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, Mob owner) {
-        this.setLevel(level);
+    public ThunderboltVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
+    	this();
+    	this.setLevel(level);
         this.x = x;
         this.y = y;
         this.setTarget(targetX, targetY);
@@ -33,8 +33,10 @@ public class ThunderboltVNProjectile extends Projectile {
         this.setDamage(damage);
         this.setOwner(owner);
         this.setDistance(distance);
+        this.knockback = knockback;
     }
-
+    
+    @Override
     public void init() {
         super.init();
         this.piercing = 5;
@@ -45,11 +47,13 @@ public class ThunderboltVNProjectile extends Projectile {
         this.givesLight = true;
         this.particleRandomOffset = 10.0F;
     }
-
+    
+    @Override
     public Color getParticleColor() {
         return new Color(239, 236, 52);
     }
-
+    
+    @Override
     public Trail getTrail() {
         return null;
     }
