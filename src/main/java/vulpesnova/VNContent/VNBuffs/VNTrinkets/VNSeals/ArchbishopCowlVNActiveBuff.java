@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNBuffs.VNTrinkets;
+package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;

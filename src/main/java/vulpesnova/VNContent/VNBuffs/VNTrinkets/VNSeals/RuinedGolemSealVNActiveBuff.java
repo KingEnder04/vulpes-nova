@@ -1,18 +1,19 @@
-package vulpesnova.VNContent.VNBuffs.VNTrinkets;
+package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 
-public class SpeedsterSealVNActiveBuff extends Buff {
-    public SpeedsterSealVNActiveBuff() {
+public class RuinedGolemSealVNActiveBuff extends Buff {
+    public RuinedGolemSealVNActiveBuff() {
         this.isVisible = true;
         this.isImportant = true;
     }
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
-        buff.setModifier(BuffModifiers.SPEED, 1.0F);
+        buff.setModifier(BuffModifiers.MAX_HEALTH_FLAT, 50);
+        buff.setModifier(BuffModifiers.ARMOR_FLAT, 10);
     }
 }

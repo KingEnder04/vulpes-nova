@@ -55,8 +55,8 @@ public class NecromancersRequiemVN extends SummonToolItem {
 		return item;
 	}
     
-    @Override
+    /*@Override
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob) {
 		return 4;
-	}
+	}*/
 }

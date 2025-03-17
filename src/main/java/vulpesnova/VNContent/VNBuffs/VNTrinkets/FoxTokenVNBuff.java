@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNBuffs;
+package vulpesnova.VNContent.VNBuffs.VNTrinkets;
 
 import necesse.engine.localization.Localization;
 import necesse.entity.mobs.PlayerMob;

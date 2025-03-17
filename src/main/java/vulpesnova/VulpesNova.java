@@ -19,6 +19,7 @@ import necesse.entity.mobs.buffs.staticBuffs.ShownCooldownBuff;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.setBonusBuffs.SimpleSetBonusBuff;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.SimpleTrinketBuff;
 import necesse.entity.mobs.gameDamageType.DamageType;
+import necesse.entity.mobs.hostile.bosses.EvilsProtectorMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
@@ -87,9 +88,13 @@ import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
 import vulpesnova.VNContent.VNBuffs.BleedingBuff;
 import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
 import vulpesnova.VNContent.VNBuffs.CrimsonTempestChargeStackBuff;
-import vulpesnova.VNContent.VNBuffs.FoxTokenVNBuff;
+import vulpesnova.VNContent.VNBuffs.VNTrinkets.FoxTokenVNBuff;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
 import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
+import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNActiveBuff;
+import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNCooldownBuff;
+import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNTrinketBuff;
+import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals.*;
 import vulpesnova.VNContent.VNBuffs.WarAxeBleedingBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
 import vulpesnova.VNContent.VNMaterials.*;
@@ -164,7 +169,9 @@ public class VulpesNova {
     public static Buff HOLY_PALADIN_VN_COOLDOWN;
     public static Buff ARCHBISHOP_COWL_VN_ACTIVE;
     public static Buff ARCHBISHOP_COWL_VN_COOLDOWN;
-    
+    public static Buff AMETHYST_AMULET_VN_ACTIVE;
+    public static Buff AMETHYST_AMULET_VN_COOLDOWN;
+
     
     public static Buff CRIMSON_TEMPEST_CHARGE_STACKS_BUFF;
     
@@ -426,13 +433,16 @@ public class VulpesNova {
         registerItem("nightmareheadvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "nightmareheadvnbuff", 400), 400.0F, true);
         registerItem("trueexplorersatchelvn", new CombinedTrinketItem(Item.Rarity.UNIQUE, 1500, new String[]{"explorersatchel", "explorercloak", "spikedbatboots", "ancientrelics", "nightmareheadvn"}), 200.0F, true);
         registerItem("foxtailtrinketvn", new SimpleTrinketItem(Item.Rarity.NORMAL, "foxtailvnbuff", 100), 400.0F, true);
+        registerItem("berserkerorbvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "berserkerorbvnbuff", 800).addDisables(new String[]{"frenzyorb"}), 800.0F, true);
+        registerItem("cosmictalismanvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "cosmictalismanvnbuff", 1000).addDisables(new String[]{"nightmaretalisman", "dreamcatcher"}), 1200.0F, true);
         registerItem("yourgemcollectionvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "yourgemcollectionvnbuff", 1000), 5000.0F, true);
         registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenvnbuff", 200), 500.0F, true);
         registerItem("windmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "windmedallionvnbuff", 100), 200.0F, true);
         registerItem("treemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "treemedallionvnbuff", 100), 200.0F, true);
         registerItem("meatmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "meatmedallionvnbuff", 100), 200.0F, true);
         registerItem("stonemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "stonemedallionvnbuff", 100), 200.0F, true);
-        registerItem("medallionboardvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "medallionboardvnbuff", 300), 800.0F, true);
+        registerItem("medallionboardvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "medallionboardvnbuff", 300).addDisables(new String[]{"windmedallionvn", "treemedallionvn", "stonemedallionvn", "meatmedallionvn"}), 800.0F, true);
+        registerItem("fortunecollectionvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "fortunecollectionvnbuff", 800).addDisables(new String[]{"medallionboardvn", "windmedallionvn", "treemedallionvn", "stonemedallionvn", "meatmedallionvn", "clovertokenvn"}), 1000.0F, true);
         registerItem("thebygonecrestvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "thebygonecrestvnbuff", 1000), 800.0F, true);
         registerItem("frostbittenpawvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"polarclaw", "frozenwave"}), 200.0F, true);
         registerItem("frozenpendantvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"frozensoul", "lifependant"}), 200.0F, true);
@@ -442,6 +452,8 @@ public class VulpesNova {
         registerItem("demonicgauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "demonicgauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 200.0F, true);
         registerItem("tungstengauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "tungstengauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 400.0F, true);
         registerItem("novagauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "novagauntletvnbuff", 500)).addDisables(new String[]{"claygauntlet", "demonicgauntletvn", "tungstengauntletvn"}), 800.0F, true);
+        registerItem("calmingminersexoskeletonvn", (new CalmingMinersExoskeletonVNTrinket()).addDisables(new String[]{"minersbonquet", "calmingrose", "toolbox", "diggingclaw"}), 800.0F, true);
+        registerItem("minersexoskeletonvn", (new MinersExoskeletonVNTrinket()).addDisables(new String[]{"minersbonquet", "calmingrose", "toolbox", "diggingclaw"}), 800.0F, true);
         registerItem("gladiatorsembracevn", new CombinedTrinketItem(Item.Rarity.UNCOMMON, 800, new String[]{"manica", "challengerspauldron"}), 200.0F, true);
         registerItem("galacticgraspvn", new CombinedTrinketItem(Item.Rarity.UNCOMMON, 1000, new String[]{"gladiatorsembracevn", "novagauntletvn"}), 200.0F, true);
         registerItem("cubaltshieldvn", new CubaltShieldVNToolItem(Item.Rarity.UNCOMMON, 1200), 2000, true);
@@ -451,8 +463,8 @@ public class VulpesNova {
         registerItem("speedstersealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "speedstersealvntrinketbuff", 120), 500.0F, true);
         registerItem("demonwarriorsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "demonwarriorsealvntrinketbuff", 120), 500.0F, true);
         registerItem("holypaladinsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "holypaladinsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("archbishopcowlvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "archbishopcowlvntrinketbuff", 120), 500.0F, true);
-
+        registerItem("archbishopcowlvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "archbishopcowlvntrinketbuff", 1500), 2000.0F, true);
+        registerItem("amethystamuletvn", new SimpleTrinketItem(Item.Rarity.RARE, "amethystamuletvntrinketbuff", 120), 500.0F, true);
 
         // Lawyer Up, Hit the Gems
         registerItem("healthgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "healthgemvnbuff", 200), 100.0F, true);
@@ -519,6 +531,7 @@ public class VulpesNova {
         registerItem("hurricanevn", new HurricaneVN(), 100, true);
         registerItem("windbulletvn", new WindRoundItem(), 5, true);
         registerItem("novaheartvn", new NovaHeartItem(), 200, true);
+        // ignore this i couldn't be bothered to make a new mod just to add this lol registerItem("onehealthconsumevn", new ToOneHealthItem(), 0, true);
         registerItem("sentientcrownvn", new PetFollowerPlaceableItem("petsentientcrownvn", Item.Rarity.LEGENDARY), 1000.0F, true);
         registerItem("thejadewaraxevn", new TheJadeWaraxe(), 600, true);
         registerItem("heavierhammervn", new HeavierHammerVN(), 300, true);
@@ -549,12 +562,15 @@ public class VulpesNova {
         registerItem("cavedemolishervn", new CaveDemolisherVNToolItem(), 60.0F, true);
         registerItem("grandphoenixgreatbowvn", new GrandPhoenixGreatbowVN(), 1000.0F, true);
         registerItem("minershavenmapvn", new BiomeMapItem(Item.Rarity.RARE, 18, new String[]{"minershavenvn"}), 120.0F, true);
+        registerItem("rawvulpinevn", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 240, new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, -1)})).debuff().spoilDuration(240).addGlobalIngredient(new String[]{"anyrawmeat"}).setItemCategory(new String[]{"consumable", "rawfood"}), 4.0F, true);
+        registerItem("roastedvulpinevn", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_FINE, 20, 480, new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, 1)})).spoilDuration(240), 12.0F, true);
 
         // Register our mob
         registerMob("nightmaremobvn", NightmareMobVN.class, true);
         registerMob("snowynightmaremobvn", SnowyNightmareMobVN.class, true);
         registerMob("foxmobvn", FoxMobVN.class, true);
         registerMob("gustmobvn", GustMobVN.class, true);
+        registerMob("apocawindmobvn", ApocaWindMobVN.class, false);
         registerMob("petsentientcrownvn", PetSentientCrownVN.class, true);
         registerMob("cubaltcavelingvn", CubaltCavelingVN.class, true);
         registerMob("gemstonecavelingvn", GemStoneCavelingVN.class, true);
@@ -578,7 +594,7 @@ public class VulpesNova {
         registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
         registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
         registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
-        registerItem("importednightmarevn", new ImportedAnimalSpawnItem(12, true, "nightmaremobvn"), 200.0F, true);
+        registerItem("importednightmarecubevn", new ImportedAnimalSpawnItem(12, true, "nightmarecubemobvn"), 200.0F, true);
         registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
         registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
         registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, false, "giantcavespider"), 200.0F, true);
@@ -644,6 +660,8 @@ public class VulpesNova {
         registerBuff("nightmareheadvnbuff", new NightmareHeadVNBuff());
         registerBuff("foxtokenvnbuff", new FoxTokenVNBuff());
         registerBuff("foxtailvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.DASH_STACKS, 1), new ModifierValue<Float>(BuffModifiers.DASH_COOLDOWN, -0.10F)}));
+        registerBuff("berserkerorbvnbuff", new BerserkerOrbVNBuff());
+        registerBuff("cosmictalismanvnbuff", new SimpleTrinketBuff("cosmictalismanvntip", new ModifierValue[]{new ModifierValue(BuffModifiers.COMBAT_MANA_REGEN, 3F), new ModifierValue<Integer>(BuffModifiers.MAX_MANA_FLAT, 50)}));
         registerBuff("yourgemcollectionvnbuff", new YourGemCollectionVNBuff());
         registerBuff("clovertokenvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.25F), new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, -0.15F)}));
         registerBuff("windmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.RANGED_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.RANGED_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.RANGED_CRIT_CHANCE, 0.05F)}));
@@ -651,15 +669,18 @@ public class VulpesNova {
         registerBuff("meatmedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.SUMMON_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.SUMMON_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.SUMMON_CRIT_CHANCE, 0.05F)}));
         registerBuff("treemedallionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05F)}));
         registerBuff("medallionboardvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.1F)}));
+        registerBuff("fortunecollectionvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, -0.05F), new ModifierValue<Float>(BuffModifiers.CRIT_DAMAGE, 0.1F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.35F)}));
         registerBuff("thebygonecrestvnbuff", new TheBygoneCrestVNBuff());
         registerBuff("halovnbuff", new HaloVNBuff());
         registerBuff("demonicgauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 20), new ModifierValue<Float>(BuffModifiers.RESILIENCE_DECAY, -0.80F)}));
         registerBuff("tungstengauntletvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 30), new ModifierValue<Float>(BuffModifiers.RESILIENCE_DECAY, -0.90F)}));
         registerBuff("novagauntletvnbuff", new NovaGauntletVNBuff());
+        registerBuff("calmingminersexoskeletonvnbuff", new CalmingMinersExoskeletonVNBuff());
+        registerBuff("minersexoskeletonvnbuff", new MinersExoskeletonVNBuff());
         registerBuff("protectorsealvntrinketbuff", new ProtectorSealVNTrinketBuff());
         PROTECTOR_SEAL_VN_ACTIVE = registerBuff("protectorsealvnactivebuff", new ProtectorSealVNActiveBuff());
         registerBuff("ruinedgolemsealvntrinketbuff", new RuinedGolemSealVNTrinketBuff());
-        RUINED_GOLEM_VN_ACTIVE = registerBuff("ruinedgolemsealvnactivebuff", new ProtectorSealVNActiveBuff());
+        RUINED_GOLEM_VN_ACTIVE = registerBuff("ruinedgolemsealvnactivebuff", new RuinedGolemSealVNActiveBuff());
         registerBuff("flowingenergysealvntrinketbuff", new FlowingEnergySealVNTrinketBuff());
         FLOWING_ENERGY_VN_ACTIVE = registerBuff("flowingenergyvnactivebuff", new FlowingEnergySealVNActiveBuff());
         registerBuff("speedstersealvntrinketbuff", new SpeedsterSealVNTrinketBuff());
@@ -670,6 +691,8 @@ public class VulpesNova {
         HOLY_PALADIN_VN_ACTIVE = registerBuff("holypaladinsealvnactivebuff", new HolyPaladinSealVNActiveBuff());
         registerBuff("archbishopcowlvntrinketbuff", new ArchbishopCowlVNTrinketBuff());
         ARCHBISHOP_COWL_VN_ACTIVE = registerBuff("archbishopcowlvnactivebuff", new ArchbishopCowlVNActiveBuff());
+        registerBuff("amethystamuletvntrinketbuff", new AmethystAmuletVNTrinketBuff());
+        AMETHYST_AMULET_VN_ACTIVE = registerBuff("amethystamuletvnactivebuff", new AmethystAmuletVNActiveBuff());
         JADE_WAR_AXE_BLEED_VN = registerBuff("jadeaxebleedingvn", new WarAxeBleedingBuff());
         // Gem Trinkets
         registerBuff("healthgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.MAX_HEALTH_FLAT, 50)}));
@@ -698,6 +721,7 @@ public class VulpesNova {
         DEMON_WARRIOR_VN_COOLDOWN = registerBuff("demonwarriorsealvncooldown", new ShownCooldownBuff());
         HOLY_PALADIN_VN_COOLDOWN = registerBuff("holypaladinsealvncooldown", new ShownCooldownBuff());
         ARCHBISHOP_COWL_VN_COOLDOWN = registerBuff("archbishopcowlvncooldown", new ShownCooldownBuff());
+        AMETHYST_AMULET_VN_COOLDOWN = registerBuff("amethystamuletvncooldown", new AmethystAmuletVNCooldownBuff());
 
         CRIMSON_TEMPEST_CHARGE_STACKS_BUFF = registerBuff("crimsontempestvncharge", new CrimsonTempestChargeStackBuff());
         // Register our levels
@@ -715,15 +739,13 @@ public class VulpesNova {
         //float oldMusicVolumeModifier = 0.6F;
         //HUBMUSICVN = registerMusic("hubmusic", "music/hubmusic", (GameMessage)null, new StaticMessage("Hubmusic"), new Color(125, 164, 45), new Color(47, 105, 12)).setVolumeModifier(oldMusicVolumeModifier);
 
-        CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(125, 164, 45), new Color(47, 105, 12), null);
-        CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(125, 164, 45), new Color(47, 105, 12), null);
+        CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(45, 154, 164), new Color(119, 74, 196), null);
+        CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(45, 118, 164), new Color(24, 79, 141), null);
         
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
         //PacketRegistry.registerPacket(ExamplePacket.class);
 
-        GunProjectileToolItem.NORMAL_AMMO_TYPES.add("novabulletvn");
-        
-        
+
         // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent
         GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
             @Override
@@ -764,6 +786,7 @@ public class VulpesNova {
         SnowyNightmareMobVN.texture = GameTexture.fromFile("mobs/snowynightmaremobvn");
         FoxMobVN.texture = GameTexture.fromFile("mobs/foxmobvn");
         GustMobVN.texture = GameTexture.fromFile("mobs/gustmobvn");
+        ApocaWindMobVN.texture = GameTexture.fromFile("mobs/apocawindmobvn");
         PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrownvn");
         LuckyChickenMobVN.texture = GameTexture.fromFile("mobs/luckychickenmobvn");
         PlanewalkerMobVN.texture = GameTexture.fromFile("mobs/planewalkermobvn");
@@ -831,13 +854,19 @@ public class VulpesNova {
         CaveChestLootTable.bars.add(
                 LootItem.offset("itemStringID", (int)middle, (int)offset));
         */
+        EvilsProtectorMob.lootTable.items.add(
+                new LootItem("protectorsealvn"));
 
         // Mobs no way
         // Spawn tables use a ticket/weight system. In general, common mobs have about 100 tickets.
 
         Biome.defaultDeepCaveMobs
                 .add(40, "nightmaremobvn")
-                .add(5, "deadmahmobvn");
+                .add(20, "deadmahmobvn");
+
+        Biome.defaultSurfaceMobs
+                        .addLimited(20,"gustmobvn", 5, 48*48);
+                        //.addLimited(1,"apocawindmobvn", 1, 32*32);
 
         //ForestBiome.defaultSurfaceMobs
                         //.add(5,"allseeingcubemobvn");

@@ -1,13 +1,10 @@
 package vulpesnova.VNContent.VNMobs;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.network.server.Server;
-import necesse.engine.network.server.ServerClient;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobDrawable;
-import necesse.entity.mobs.MobSpawnLocation;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.CollisionPlayerChaserWandererAI;
@@ -28,7 +25,7 @@ import necesse.level.maps.light.GameLight;
 import java.awt.*;
 import java.util.List;
 
-public class GustMobVN extends HostileMob {
+public class ApocaWindMobVN extends FlyingHostileMob {
 
     // Loaded in vulpesnova.VulpesNova.initResources()
     public static GameTexture texture;
@@ -41,9 +38,10 @@ public class GustMobVN extends HostileMob {
     );
 
     // MUST HAVE an empty constructor
-    public GustMobVN() {
-        super(70);
-        this.setSpeed(40.0F);
+    public ApocaWindMobVN() {
+        super(20);
+        this.setArmor(999);
+        this.setSpeed(10.0F);
         this.setFriction(0.5F);
         this.setKnockbackModifier(0.2F);
 
@@ -57,10 +55,10 @@ public class GustMobVN extends HostileMob {
     public void init() {
         super.init();
         // Setup AI
-        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 456, new GameDamage(14), 5, 40000));
+        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 456, new GameDamage(999), 5, 20000), new FlyingAIMover());
     }
 
-    @Override
+    /*@Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
         if (this.getLevel().isCave) {
@@ -70,7 +68,7 @@ public class GustMobVN extends HostileMob {
         }
 
         return location.validAndApply();
-    }
+    } */
     @Override
     public LootTable getLootTable() {
         return lootTable;
