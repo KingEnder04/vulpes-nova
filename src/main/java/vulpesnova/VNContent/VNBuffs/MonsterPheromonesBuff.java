@@ -19,10 +19,10 @@ public class MonsterPheromonesBuff extends Buff {
     }
 
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
-        buff.setModifier(BuffModifiers.MOB_SPAWN_CAP, 0.1F);
-        buff.setModifier(BuffModifiers.MOB_SPAWN_RATE, 0.1F);
-        buff.setMinModifier(BuffModifiers.MOB_SPAWN_LIGHT_THRESHOLD, 140);
-        buff.setModifier(BuffModifiers.TARGET_RANGE, 0.5F);
+        buff.setModifier(BuffModifiers.MOB_SPAWN_CAP, 50F);
+        buff.setModifier(BuffModifiers.MOB_SPAWN_RATE, 10F);
+        buff.setMinModifier(BuffModifiers.MOB_SPAWN_LIGHT_THRESHOLD, 500);
+        buff.setModifier(BuffModifiers.TARGET_RANGE, 5F);
     }
     
 	@Override

@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNBuffs.VNTrinkets;
+package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;
@@ -20,22 +20,23 @@ import vulpesnova.VulpesNova;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class SpeedsterSealVNTrinketBuff extends TrinketBuff implements BuffAbility {
-    public SpeedsterSealVNTrinketBuff() {
+public class RuinedGolemSealVNTrinketBuff extends TrinketBuff implements BuffAbility {
+    public RuinedGolemSealVNTrinketBuff() {
     }
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
-        buff.setModifier(BuffModifiers.ARMOR_FLAT, 2);
-        buff.setModifier(BuffModifiers.WATER_WALKING, true);
+        buff.setModifier(BuffModifiers.ARMOR_FLAT, 4);
+        buff.setModifier(BuffModifiers.SPEED, -0.1f);
+        buff.setModifier(BuffModifiers.MAX_RESILIENCE_FLAT, 10);
     }
     
 	@Override
     public void runAbility(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 45.0F;
-        float cooldown = 90.0F;
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.SPEEDSTER_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.SPEEDSTER_VN_ACTIVE, player, active, (Attacker)null), false);
+        float cooldown = 5.0F;
+        player.buffManager.addBuff(new ActiveBuff(VulpesNova.RUINED_GOLEM_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
+        player.buffManager.addBuff(new ActiveBuff(VulpesNova.RUINED_GOLEM_VN_ACTIVE, player, active, (Attacker)null), false);
         player.buffManager.forceUpdateBuffs();
         int minHeight = 0;
         int maxHeight = 40;
@@ -57,14 +58,14 @@ public class SpeedsterSealVNTrinketBuff extends TrinketBuff implements BuffAbili
     
 	@Override
     public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content) {
-        return !buff.owner.buffManager.hasBuff(VulpesNova.SPEEDSTER_VN_COOLDOWN);
+        return !buff.owner.buffManager.hasBuff(VulpesNova.RUINED_GOLEM_VN_COOLDOWN);
     }
     
 	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = new ListGameTooltips();
-        tooltips.add(Localization.translate("itemtooltip", "speedstersealvntip1"));
-        tooltips.add(Localization.translate("itemtooltip", "speedstersealvntip2"));
+        tooltips.add(Localization.translate("itemtooltip", "ruinedgolemsealvntip1"));
+        tooltips.add(Localization.translate("itemtooltip", "ruinedgolemsealvntip2"));
         return tooltips;
     }
 }

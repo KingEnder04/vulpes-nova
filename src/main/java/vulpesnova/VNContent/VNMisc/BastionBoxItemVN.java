@@ -36,7 +36,7 @@ public class BastionBoxItemVN extends ConsumableItem {
     @Override
     public InventoryItem onPlace(Level level, int x, int y, PlayerMob player, int seed, InventoryItem item,
 			GNDItemMap mapContent) {
-        player.setMaxResilience(Math.min(25, player.getMaxResilienceFlat() + 5));
+        player.setMaxResilience(Math.min(50, player.getMaxResilienceFlat() + 5));
         if (level.isServer()) {
             level.getServer().network.sendToAllClientsExcept(new PacketPlayerGeneral(player.getServerClient()), player.getServerClient());
         } else if (level.isClient()) {
@@ -52,7 +52,7 @@ public class BastionBoxItemVN extends ConsumableItem {
 
     @Override
    	public String canPlace(Level level, int x, int y, PlayerMob player, InventoryItem item, GNDItemMap mapContent) {
-        return player.getMaxResilienceFlat() >= 25 ? "incorrectresilience" : null;
+        return player.getMaxResilienceFlat() >= 50 ? "incorrectresilience" : null;
     }
     
     @Override
