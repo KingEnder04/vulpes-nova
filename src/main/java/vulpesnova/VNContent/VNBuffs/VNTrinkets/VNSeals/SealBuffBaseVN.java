@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNBuffs.VNTrinkets;
+package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;

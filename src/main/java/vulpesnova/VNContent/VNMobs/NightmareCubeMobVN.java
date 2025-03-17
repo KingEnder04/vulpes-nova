@@ -30,7 +30,8 @@ public class NightmareCubeMobVN extends HostileMob {
     // Loaded in vulpesnova.VulpesNova.initResources()
     public static GameTexture texture;
     public static LootTable lootTable = new LootTable(
-            ChanceLootItem.between(0.4f, "shapeshardsvn", 1, 3)
+            ChanceLootItem.between(0.4f, "shapeshardsvn", 1, 3),
+            new ChanceLootItem(0.08F, "nightmareheadvn")
 
     );
 

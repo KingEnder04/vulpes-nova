@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNBuffs.VNTrinkets;
+package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;
@@ -20,22 +20,22 @@ import vulpesnova.VulpesNova;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class DemonWarriorSealVNTrinketBuff extends TrinketBuff implements BuffAbility {
-    public DemonWarriorSealVNTrinketBuff() {
+public class HolyPaladinSealVNTrinketBuff extends TrinketBuff implements BuffAbility {
+    public HolyPaladinSealVNTrinketBuff() {
     }
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
-        buff.setModifier(BuffModifiers.ARMOR_FLAT, 2);
-        buff.setModifier(BuffModifiers.CRIT_CHANCE, 0.05F);
+        buff.setModifier(BuffModifiers.ARMOR_FLAT, 3);
+        buff.setModifier(BuffModifiers.HEALTH_REGEN_FLAT, 1f);
     }
     
 	@Override
     public void runAbility(PlayerMob player, ActiveBuff buff, Packet content) {
-        float active = 10.0F;
-        float cooldown = 45.0F;
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.DEMON_WARRIOR_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.DEMON_WARRIOR_VN_ACTIVE, player, active, (Attacker)null), false);
+        float active = 45.0F;
+        float cooldown = 90.0F;
+        player.buffManager.addBuff(new ActiveBuff(VulpesNova.HOLY_PALADIN_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
+        player.buffManager.addBuff(new ActiveBuff(VulpesNova.HOLY_PALADIN_VN_ACTIVE, player, active, (Attacker)null), false);
         player.buffManager.forceUpdateBuffs();
         int minHeight = 0;
         int maxHeight = 40;
@@ -45,7 +45,7 @@ public class DemonWarriorSealVNTrinketBuff extends TrinketBuff implements BuffAb
             float height = (float)minHeight + (float)(maxHeight - minHeight) * (float)i / (float)particles;
             AtomicReference<Float> currentAngle = new AtomicReference<Float>(GameRandom.globalRandom.nextFloat() * 360.0F);
             float distance = 20.0F;
-            player.getLevel().entityManager.addParticle(player.x + GameMath.sin((Float)currentAngle.get()) * distance, player.y + GameMath.cos((Float)currentAngle.get()) * distance * 0.75F, Particle.GType.CRITICAL).color(new Color(222, 96, 138)).height(height).moves((pos, delta, lifeTime, timeAlive, lifePercent) -> {
+            player.getLevel().entityManager.addParticle(player.x + GameMath.sin((Float)currentAngle.get()) * distance, player.y + GameMath.cos((Float)currentAngle.get()) * distance * 0.75F, Particle.GType.CRITICAL).color(new Color(243, 224, 111)).height(height).moves((pos, delta, lifeTime, timeAlive, lifePercent) -> {
                 float angle = (Float)currentAngle.accumulateAndGet(delta * 150.0F / 250.0F, Float::sum);
                 float distY = distance * 0.75F;
                 pos.x = player.x + GameMath.sin(angle) * distance;
@@ -57,14 +57,14 @@ public class DemonWarriorSealVNTrinketBuff extends TrinketBuff implements BuffAb
     
 	@Override
     public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content) {
-        return !buff.owner.buffManager.hasBuff(VulpesNova.DEMON_WARRIOR_VN_COOLDOWN);
+        return !buff.owner.buffManager.hasBuff(VulpesNova.HOLY_PALADIN_VN_COOLDOWN);
     }
     
 	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = new ListGameTooltips();
-        tooltips.add(Localization.translate("itemtooltip", "demonwarriorsealvntip1"));
-        tooltips.add(Localization.translate("itemtooltip", "demonwarriorsealvntip2"));
+        tooltips.add(Localization.translate("itemtooltip", "holypaladinsealvntip1"));
+        tooltips.add(Localization.translate("itemtooltip", "holypaladinsealvntip2"));
         return tooltips;
     }
 }

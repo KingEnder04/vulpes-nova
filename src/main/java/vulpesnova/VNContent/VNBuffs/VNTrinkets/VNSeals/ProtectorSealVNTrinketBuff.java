@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNBuffs.VNTrinkets;
+package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;

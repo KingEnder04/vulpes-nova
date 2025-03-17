@@ -1,4 +1,13 @@
 [
+  {
+    "result": "roastedvulpinevn",
+    "quantity": 1,
+    "tech": "ROASTING_STATION",
+    "ingredients": [
+      { "item": "rawvulpinevn", "amount": 1 }
+    ],
+    "showAfter": "roastedpork"
+  },
 	{
     "result": "novashardvn",
     "quantity": 1,
@@ -49,6 +58,30 @@
       { "item": "novaclustervn", "amount": 1 }
     ],
     "showAfter": "craftingguide"
+  },
+  {
+    "result": "berserkerorbvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "frenzyorb", "amount": 1 },
+      { "item": "firemone", "amount": 30 },
+      { "item": "ruby", "amount": 6 },
+      { "item": "novaclustervn", "amount": 1 },
+      { "item": "awakeninatorvn", "amount": 1 }
+    ],
+    "showAfter": "craftingguide"
+  },
+  {
+    "result": "cosmictalismanvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "nightmaretalisman", "amount": 1 },
+      { "item": "cloudsvn", "amount": 20 },
+      { "item": "novaclustervn", "amount": 2 }
+    ],
+    "showAfter": "nightmaretalisman"
   },
   {
     "result": "cubaltbarvn",
@@ -129,6 +162,17 @@
     "showAfter": "experttomevn"
   },
   {
+    "result": "amethystamuletvn",
+    "quantity": 1,
+    "tech": "DEMONIC_WORKSTATION",
+    "ingredients": [
+      { "item": "amethyst", "amount": 1 },
+      { "item": "ironbar", "amount": 8 },
+      { "item": "novashardvn", "amount": 26 }
+    ],
+    "showAfter": "experttomevn"
+  },
+  {
     "result": "magicfordummiesvn",
     "quantity": 1,
     "tech": "TABLEOFAWAKENINGVN",
@@ -140,7 +184,7 @@
       { "item": "awakeninatorvn", "amount": 1 },
       { "item": "novaclustervn", "amount": 2 }
     ],
-    "showAfter": "necromancersrequiemvn"
+    "showAfter": "crimsontempestvn"
   },
   {
     "result": "novakatanavn",
@@ -327,7 +371,7 @@
     "quantity": 1,
     "tech": "DEMONIC_WORKSTATION",
     "ingredients": [
-      { "item": "sandtile", "amount": 50 },
+      { "item": "glass", "amount": 50 },
       { "item": "ironbar", "amount": 15 },
       { "item": "novashardvn", "amount": 6 }
     ],
@@ -609,6 +653,18 @@
     "showAfter": "dreamcatcher"
   },
   {
+    "result": "fortunecollectionvn",
+    "quantity": 1,
+    "tech": "ADVANCED_WORKSTATION",
+    "ingredients": [
+      { "item": "medallionboardvn", "amount": 1 },
+      { "item": "clovertokenvn", "amount": 1 },
+      { "item": "tungstenbar", "amount": 4 },
+      { "item": "novashardvn", "amount": 24 }
+    ],
+    "showAfter": "medallionboardvn"
+  },
+  {
     "result": "demonicgauntletvn",
     "quantity": 1,
     "tech": "DEMONIC_WORKSTATION",
@@ -641,6 +697,24 @@
       { "item": "novaclustervn", "amount": 1 }
     ],
     "showAfter": "tungstengauntletvn"
+  },
+  {
+    "result": "calmingminersexoskeletonvn",
+    "quantity": 1,
+    "tech": "TABLEOFAWAKENINGVN",
+    "ingredients": [
+      { "item": "toolbox", "amount": 1 },
+      { "item": "calmingminersbouquet", "amount": 1 },
+      { "item": "diggingclaw", "amount": 1 },
+      { "item": "minersprosthetic", "amount": 1 },
+      { "item": "ironbar", "amount": 40 },
+      { "item": "tungstenbar", "amount": 20 },
+      { "item": "spelunkerpotion", "amount": 10 },
+      { "item": "treasurepotion", "amount": 10 },
+      { "item": "greaterminingpotion", "amount": 5 },
+      { "item": "awakeninatorvn", "amount": 1 }
+    ],
+    "showAfter": "frozenheavenvn"
   },
   {
     "result": "gladiatorsembracevn",
@@ -912,17 +986,6 @@
     "ingredients": [
       { "item": "speedpotion", "amount": 8 },
       { "item": "ironbar", "amount": 4 },
-      { "item": "novashardvn", "amount": 12 }
-    ],
-    "showAfter": "woodshield"
-  },
-  {
-    "result": "protectorsealvn",
-    "quantity": 1,
-    "tech": "DEMONIC_WORKSTATION",
-    "ingredients": [
-      { "item": "demonicbar", "amount": 8 },
-      { "item": "woodshield", "amount": 1 },
       { "item": "novashardvn", "amount": 12 }
     ],
     "showAfter": "woodshield"
