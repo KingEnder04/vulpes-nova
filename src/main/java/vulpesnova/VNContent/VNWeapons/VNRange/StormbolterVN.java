@@ -22,6 +22,7 @@ public class StormbolterVN extends GunProjectileToolItem {
         this.attackRange.setBaseValue(800);
         this.velocity.setBaseValue(300);
         this.addGlobalIngredient(new String[]{"bulletuser"});
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
 
     @Override

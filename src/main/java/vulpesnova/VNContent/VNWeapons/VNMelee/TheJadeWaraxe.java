@@ -50,6 +50,8 @@ public class TheJadeWaraxe extends SwordToolItem {
         
         this.attackDamage.setBaseValue(30).setUpgradedValue(1.0F, 94.0F);
         this.knockback.setBaseValue(40);
+        
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
        
     }
 	

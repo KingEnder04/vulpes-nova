@@ -404,7 +404,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("glassshardswordvn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("glass", 50)
 				.ingredient("ironbar", 15)
 				.ingredient("novashardvn", 6)
@@ -424,7 +424,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("acornlobbervn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("anylog", 30)
 				.ingredient("anysapling", 16)
 				.ingredient("novafragmentvn", 16)
@@ -442,7 +442,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("galevn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("acornlobbervn", 1)
 				.ingredient("cloudsvn", 24)
 				.ingredient("novashardvn", 6)
@@ -496,7 +496,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("thunderingrodvn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("ironbar", 12)
 				.ingredient("cloudsvn", 24)
 				.ingredient("novashardvn", 16)

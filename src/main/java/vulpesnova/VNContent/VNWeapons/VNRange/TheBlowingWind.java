@@ -25,6 +25,7 @@ public class TheBlowingWind extends BowProjectileToolItem {
         this.attackXOffset = 12;
         this.attackYOffset = 31;
         this.resilienceGain.setBaseValue(0.5f);
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
 
     @Override

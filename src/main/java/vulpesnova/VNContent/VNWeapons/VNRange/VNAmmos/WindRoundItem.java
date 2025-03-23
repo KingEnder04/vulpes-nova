@@ -16,6 +16,7 @@ public class WindRoundItem extends BulletItem {
         super(1000);
         this.damage = 3;
         this.rarity = Rarity.NORMAL;
+        this.setItemCategory("equipment", "ammo");
     }
     
     @Override

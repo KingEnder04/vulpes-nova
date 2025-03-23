@@ -27,6 +27,7 @@ public class NightbladeSwordVN extends SwordToolItem {
         this.knockback.setBaseValue(75);
         this.attackXOffset = 9;
         this.attackYOffset = 10;
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
 
 	@Override

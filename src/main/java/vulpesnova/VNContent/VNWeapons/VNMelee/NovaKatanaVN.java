@@ -15,6 +15,7 @@ public class NovaKatanaVN extends KatanaToolItem {
         this.dashRange.setBaseValue(600);
         this.attackXOffset = 4;
         this.attackYOffset = 4;
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
     
 }

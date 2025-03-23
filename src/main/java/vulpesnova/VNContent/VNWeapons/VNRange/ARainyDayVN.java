@@ -24,7 +24,7 @@ public class ARainyDayVN extends GunProjectileToolItem {
         this.knockback.setBaseValue(25);
         this.ammoConsumeChance = 0.3F;
         this.addGlobalIngredient(new String[]{"bulletuser"});
-        
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
     
     @Override

@@ -19,6 +19,7 @@ public class TitanBusterGreatswordVN extends GreatswordToolItem {
         this.attackDamage.setBaseValue(80.0F).setUpgradedValue(1.0F, 170.0F);
         this.attackRange.setBaseValue(114);
         this.knockback.setBaseValue(150);
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
     
     @Override

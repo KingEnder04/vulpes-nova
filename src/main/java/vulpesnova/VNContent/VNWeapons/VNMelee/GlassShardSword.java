@@ -21,6 +21,7 @@ public class GlassShardSword extends SwordToolItem {
         this.resilienceGain.setBaseValue(0.5F);
         this.attackXOffset = 9;
         this.attackYOffset = 10;
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
 
     @Override

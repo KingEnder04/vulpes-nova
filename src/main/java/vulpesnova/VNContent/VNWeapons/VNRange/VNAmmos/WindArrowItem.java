@@ -16,6 +16,7 @@ public class WindArrowItem extends ArrowItem {
     public WindArrowItem() {
         this.damage = 7;
         this.rarity = Rarity.NORMAL;
+        this.setItemCategory("equipment", "ammo");
     }
 
     @Override
