@@ -5,7 +5,8 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 
-public class ProtectorSealVNActiveBuff extends Buff {
+public class ProtectorSealVNActiveBuff extends SealBuffBaseVN {
+	
     public ProtectorSealVNActiveBuff() {
         this.isVisible = true;
         this.isImportant = true;
@@ -13,8 +14,17 @@ public class ProtectorSealVNActiveBuff extends Buff {
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
-        buff.setModifier(BuffModifiers.ALL_DAMAGE, 0.10F);
-        buff.setModifier(BuffModifiers.CRIT_CHANCE, 0.10F);
-        buff.setModifier(BuffModifiers.CRIT_DAMAGE, 0.10F);
+		setBuffModifiers(buff, 1.0F);
     }
+	
+	public void setBuffModifiers(ActiveBuff self, float multi) {
+		self.setModifier(BuffModifiers.ALL_DAMAGE, 0.10F * multi);
+		self.setModifier(BuffModifiers.CRIT_CHANCE, 0.10F * multi);
+		self.setModifier(BuffModifiers.CRIT_DAMAGE, 0.10F * multi);
+    }
+	
+	@Override
+	public void onUpdate(ActiveBuff ab) {
+		this.setBuffModifiers(ab, getActiveModifier(ab));
+	}
 }

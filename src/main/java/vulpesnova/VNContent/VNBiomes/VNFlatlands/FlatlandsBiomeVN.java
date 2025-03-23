@@ -142,7 +142,7 @@ public class FlatlandsBiomeVN extends Biome {
 
     static {
         cubeSurfaceFish = (new FishingLootTable(defaultSurfaceFish)).addWater(120, "icefish");
-        surfaceMobs = (new MobSpawnTable()).add(50, "cubemobvn").add(30,"pyramidmobvn").add(100,"titancubemobvn").add(100,"spheresorcerermobvn").add(100,"spheresentinelmobvn").add(300,"planewalkermobvn");
+        surfaceMobs = (new MobSpawnTable()).add(30, "cubemobvn").add(15,"pyramidmobvn").add(10,"titancubemobvn").add(30,"spheresorcerermobvn").add(20,"spheresentinelmobvn").add(30,"planewalkermobvn");
         caveMobs = (new MobSpawnTable()).add(100,"spheresorcerermobvn").add(100,"planewalkermobvn").add(100,"nightmarecubemobvn").add(10,"deadmahmobvn");
         deepSnowCaveMobs = (new MobSpawnTable()).add(120, "spheresorcerermobvn").add(70, "planewalkermobvn").add(25, "nightmarecubemobvn").add(50, "cryoflake").add(15, "deadmahmobvn");
         surfaceCritters = (new MobSpawnTable()).add(100, "snowhare").add(60, "bluebird").add(20, "bird").add(60, "duck");

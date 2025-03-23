@@ -10,6 +10,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
 import necesse.level.maps.Level;
+import vulpesnova.VNContent.VNMisc.AttackHandlers.TitanBusterGreatswordVNAttackHandler;
 
 public class TitanBusterGreatswordVN extends GreatswordToolItem {
     public TitanBusterGreatswordVN() {

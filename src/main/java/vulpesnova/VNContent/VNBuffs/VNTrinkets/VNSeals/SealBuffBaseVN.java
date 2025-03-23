@@ -82,7 +82,7 @@ public abstract class SealBuffBaseVN extends Buff{
 		if (xnt > 1) {
 			GameMessageBuilder b = new GameMessageBuilder();
 			b.append(new LocalMessage("buff", "diminished"));
-			b.append(new StaticMessage(String.format(" %d%%", (int)(1 - (this.getActiveModifier(ab)*100)))));
+			b.append(new StaticMessage(String.format(" %d%%", (int)Math.ceil(this.getActiveModifier(ab)*100))));
 			tt.add(b);
 		}
 		return tt;
