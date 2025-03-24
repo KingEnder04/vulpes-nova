@@ -25,6 +25,7 @@ public class LMGVN extends GunProjectileToolItem {
         this.knockback.setBaseValue(25);
         this.ammoConsumeChance = 0.2F;
         this.addGlobalIngredient(new String[]{"bulletuser"});
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
     
     @Override

@@ -32,12 +32,11 @@ public class GustMobVN extends HostileMob {
 
     // Loaded in vulpesnova.VulpesNova.initResources()
     public static GameTexture texture;
-
+    public static int SPAWNS_AFTER_X_DAYS = 3;
 
 
     public static LootTable lootTable = new LootTable(
             ChanceLootItem.between(0.4f, "cloudsvn", 3, 5)
-
     );
 
     // MUST HAVE an empty constructor
@@ -56,13 +55,15 @@ public class GustMobVN extends HostileMob {
     @Override
     public void init() {
         super.init();
-        // Setup AI
         ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 456, new GameDamage(14), 5, 40000));
     }
-
+ 	
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
-        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
+        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation().checkMaxHostilesAround(2, 15, client);   
+        if(server.world.worldEntity.getDay() < (SPAWNS_AFTER_X_DAYS+1)) {
+        	return false;        
+        }
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);
         } else {
@@ -71,6 +72,7 @@ public class GustMobVN extends HostileMob {
 
         return location.validAndApply();
     }
+    
     @Override
     public LootTable getLootTable() {
         return lootTable;

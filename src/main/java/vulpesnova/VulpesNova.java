@@ -53,8 +53,6 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.levelData.settlementData.settler.Settler;
 
-import static vulpesnova.VNRecipeRegistry.registerRecipes;
-
 import vulpesnova.VNContent.*;
 import vulpesnova.VNContent.VNArmors.VNAncientJungleSet.AncientJungleBoots;
 import vulpesnova.VNContent.VNArmors.VNAncientJungleSet.AncientJungleChestplate;
@@ -113,6 +111,7 @@ import vulpesnova.VNContent.VNWeapons.VNMelee.*;
 import vulpesnova.VNContent.VNWeapons.VNRange.*;
 import vulpesnova.VNContent.VNWeapons.VNRange.VNAmmos.*;
 import vulpesnova.VNContent.VNWeapons.VNSummon.*;
+import vulpesnova.helpers.RecipeHelper;
 
 import static necesse.engine.registries.BiomeRegistry.registerBiome;
 import static necesse.engine.registries.BuffRegistry.registerBuff;
@@ -428,59 +427,59 @@ public class VulpesNova {
         registerItem("luckychickencostumebootsvn", new BootsArmorItem(0, 0, Item.Rarity.COMMON, "luckychickencostumebootsvn"), 50.0F, true);
         
         // Trinkets
-        registerItem("foxtokenvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "foxtokenvnbuff", 200), 300.0F, true);
-        registerItem("thecollectorsmagnetvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "collectorsmagnetvnbuff", 200).addDisables(new String[]{"itemattractor"}), 800.0F, true);
-        registerItem("nightmareheadvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "nightmareheadvnbuff", 400), 400.0F, true);
-        registerItem("trueexplorersatchelvn", new CombinedTrinketItem(Item.Rarity.UNIQUE, 1500, new String[]{"explorersatchel", "explorercloak", "spikedbatboots", "ancientrelics", "nightmareheadvn"}), 200.0F, true);
-        registerItem("foxtailtrinketvn", new SimpleTrinketItem(Item.Rarity.NORMAL, "foxtailvnbuff", 100), 400.0F, true);
-        registerItem("berserkerorbvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "berserkerorbvnbuff", 800).addDisables(new String[]{"frenzyorb"}), 800.0F, true);
-        registerItem("cosmictalismanvn", new SimpleTrinketItem(Item.Rarity.LEGENDARY, "cosmictalismanvnbuff", 1000).addDisables(new String[]{"nightmaretalisman", "dreamcatcher"}), 1200.0F, true);
-        registerItem("yourgemcollectionvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "yourgemcollectionvnbuff", 1000), 5000.0F, true);
-        registerItem("clovertokenvn", new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenvnbuff", 200), 500.0F, true);
-        registerItem("windmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "windmedallionvnbuff", 100), 200.0F, true);
-        registerItem("treemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "treemedallionvnbuff", 100), 200.0F, true);
-        registerItem("meatmedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "meatmedallionvnbuff", 100), 200.0F, true);
-        registerItem("stonemedallionvn", new SimpleTrinketItem(Item.Rarity.RARE, "stonemedallionvnbuff", 100), 200.0F, true);
-        registerItem("medallionboardvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "medallionboardvnbuff", 300).addDisables(new String[]{"windmedallionvn", "treemedallionvn", "stonemedallionvn", "meatmedallionvn"}), 800.0F, true);
-        registerItem("fortunecollectionvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "fortunecollectionvnbuff", 800).addDisables(new String[]{"medallionboardvn", "windmedallionvn", "treemedallionvn", "stonemedallionvn", "meatmedallionvn", "clovertokenvn"}), 1000.0F, true);
-        registerItem("thebygonecrestvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "thebygonecrestvnbuff", 1000), 800.0F, true);
-        registerItem("frostbittenpawvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"polarclaw", "frozenwave"}), 200.0F, true);
-        registerItem("frozenpendantvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"frozensoul", "lifependant"}), 200.0F, true);
-        registerItem("glacialfrostvn", new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"frozenpendantvn", "frostbittenpawvn"}), 200.0F, true);
-        registerItem("frozenheavenvn", new CombinedTrinketItem(Item.Rarity.RARE, 1500, new String[]{"halovn", "glacialfrostvn"}), 200.0F, true);
-        registerItem("halovn", new SimpleTrinketItem(Item.Rarity.RARE, "halovnbuff", 300), 800.0F, true);
-        registerItem("demonicgauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "demonicgauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 200.0F, true);
-        registerItem("tungstengauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "tungstengauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 400.0F, true);
-        registerItem("novagauntletvn", (new SimpleTrinketItem(Item.Rarity.RARE, "novagauntletvnbuff", 500)).addDisables(new String[]{"claygauntlet", "demonicgauntletvn", "tungstengauntletvn"}), 800.0F, true);
+        registerItem("foxtokenvn", 				new SimpleTrinketItem(Item.Rarity.UNIQUE, "foxtokenvnbuff", 200), 300.0F, true);
+        registerItem("thecollectorsmagnetvn", 	new SimpleTrinketItem(Item.Rarity.LEGENDARY, "collectorsmagnetvnbuff", 200).addDisables(new String[]{"itemattractor"}), 800.0F, true);
+        registerItem("nightmareheadvn", 		new SimpleTrinketItem(Item.Rarity.LEGENDARY, "nightmareheadvnbuff", 400), 400.0F, true);
+        registerItem("trueexplorersatchelvn", 	new CombinedTrinketItem(Item.Rarity.UNIQUE, 1500, new String[]{"explorersatchel", "explorercloak", "spikedbatboots", "ancientrelics", "nightmareheadvn"}), 200.0F, true);
+        registerItem("foxtailtrinketvn", 		new SimpleTrinketItem(Item.Rarity.NORMAL, "foxtailvnbuff", 100), 400.0F, true);
+        registerItem("berserkerorbvn", 			new SimpleTrinketItem(Item.Rarity.LEGENDARY, "berserkerorbvnbuff", 800).addDisables(new String[]{"frenzyorb"}), 800.0F, true);
+        registerItem("cosmictalismanvn", 		new SimpleTrinketItem(Item.Rarity.LEGENDARY, "cosmictalismanvnbuff", 1000).addDisables(new String[]{"nightmaretalisman", "dreamcatcher"}), 1200.0F, true);
+        registerItem("yourgemcollectionvn", 	new SimpleTrinketItem(Item.Rarity.UNIQUE, "yourgemcollectionvnbuff", 1000), 5000.0F, true);
+        registerItem("clovertokenvn", 			new SimpleTrinketItem(Item.Rarity.RARE, "clovertokenvnbuff", 200), 500.0F, true);
+        registerItem("windmedallionvn", 		new SimpleTrinketItem(Item.Rarity.RARE, "windmedallionvnbuff", 100), 200.0F, true);
+        registerItem("treemedallionvn", 		new SimpleTrinketItem(Item.Rarity.RARE, "treemedallionvnbuff", 100), 200.0F, true);
+        registerItem("meatmedallionvn", 		new SimpleTrinketItem(Item.Rarity.RARE, "meatmedallionvnbuff", 100), 200.0F, true);
+        registerItem("stonemedallionvn", 		new SimpleTrinketItem(Item.Rarity.RARE, "stonemedallionvnbuff", 100), 200.0F, true);
+        registerItem("medallionboardvn", 		new SimpleTrinketItem(Item.Rarity.UNIQUE, "medallionboardvnbuff", 300).addDisables(new String[]{"windmedallionvn", "treemedallionvn", "stonemedallionvn", "meatmedallionvn"}), 800.0F, true);
+        registerItem("fortunecollectionvn", 	new SimpleTrinketItem(Item.Rarity.UNIQUE, "fortunecollectionvnbuff", 800).addDisables(new String[]{"medallionboardvn", "windmedallionvn", "treemedallionvn", "stonemedallionvn", "meatmedallionvn", "clovertokenvn"}), 1000.0F, true);
+        registerItem("thebygonecrestvn", 		new SimpleTrinketItem(Item.Rarity.UNIQUE, "thebygonecrestvnbuff", 1000), 800.0F, true);
+        registerItem("frostbittenpawvn", 		new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"polarclaw", "frozenwave"}), 200.0F, true);
+        registerItem("frozenpendantvn", 		new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"frozensoul", "lifependant"}), 200.0F, true);
+        registerItem("glacialfrostvn", 			new CombinedTrinketItem(Item.Rarity.RARE, 700, new String[]{"frozenpendantvn", "frostbittenpawvn"}), 200.0F, true);
+        registerItem("frozenheavenvn", 			new CombinedTrinketItem(Item.Rarity.RARE, 1500, new String[]{"halovn", "glacialfrostvn"}), 200.0F, true);
+        registerItem("halovn", 					new SimpleTrinketItem(Item.Rarity.RARE, "halovnbuff", 300), 800.0F, true);
+        registerItem("demonicgauntletvn", 		(new SimpleTrinketItem(Item.Rarity.RARE, "demonicgauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 200.0F, true);
+        registerItem("tungstengauntletvn", 		(new SimpleTrinketItem(Item.Rarity.RARE, "tungstengauntletvnbuff", 300)).addDisables(new String[]{"claygauntlet", "demonicgaunletvn", "tungstengauntletvn"}), 400.0F, true);
+        registerItem("novagauntletvn", 			(new SimpleTrinketItem(Item.Rarity.RARE, "novagauntletvnbuff", 500)).addDisables(new String[]{"claygauntlet", "demonicgauntletvn", "tungstengauntletvn"}), 800.0F, true);
         registerItem("calmingminersexoskeletonvn", (new CalmingMinersExoskeletonVNTrinket()).addDisables(new String[]{"minersbonquet", "calmingrose", "toolbox", "diggingclaw"}), 800.0F, true);
-        registerItem("minersexoskeletonvn", (new MinersExoskeletonVNTrinket()).addDisables(new String[]{"minersbonquet", "calmingrose", "toolbox", "diggingclaw"}), 800.0F, true);
-        registerItem("gladiatorsembracevn", new CombinedTrinketItem(Item.Rarity.UNCOMMON, 800, new String[]{"manica", "challengerspauldron"}), 200.0F, true);
-        registerItem("galacticgraspvn", new CombinedTrinketItem(Item.Rarity.UNCOMMON, 1000, new String[]{"gladiatorsembracevn", "novagauntletvn"}), 200.0F, true);
-        registerItem("cubaltshieldvn", new CubaltShieldVNToolItem(Item.Rarity.UNCOMMON, 1200), 2000, true);
-        registerItem("protectorsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "protectorsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("ruinedgolemsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "ruinedgolemsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("flowingenergysealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "flowingenergysealvntrinketbuff", 120), 500.0F, true);
-        registerItem("speedstersealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "speedstersealvntrinketbuff", 120), 500.0F, true);
-        registerItem("demonwarriorsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "demonwarriorsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("holypaladinsealvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "holypaladinsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("archbishopcowlvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "archbishopcowlvntrinketbuff", 1500), 2000.0F, true);
-        registerItem("amethystamuletvn", new SimpleTrinketItem(Item.Rarity.RARE, "amethystamuletvntrinketbuff", 120), 500.0F, true);
+        registerItem("minersexoskeletonvn", 	(new MinersExoskeletonVNTrinket()).addDisables(new String[]{"minersbonquet", "calmingrose", "toolbox", "diggingclaw"}), 800.0F, true);
+        registerItem("gladiatorsembracevn", 	new CombinedTrinketItem(Item.Rarity.UNCOMMON, 800, new String[]{"manica", "challengerspauldron"}), 200.0F, true);
+        registerItem("galacticgraspvn", 		new CombinedTrinketItem(Item.Rarity.UNCOMMON, 1000, new String[]{"gladiatorsembracevn", "novagauntletvn"}), 200.0F, true);
+        registerItem("cubaltshieldvn", 			new CubaltShieldVNToolItem(Item.Rarity.UNCOMMON, 1200), 2000, true);
+        registerItem("protectorsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "protectorsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("ruinedgolemsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "ruinedgolemsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("flowingenergysealvn", 	new SimpleTrinketItem(Item.Rarity.UNCOMMON, "flowingenergysealvntrinketbuff", 120), 500.0F, true);
+        registerItem("speedstersealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "speedstersealvntrinketbuff", 120), 500.0F, true);
+        registerItem("demonwarriorsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "demonwarriorsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("holypaladinsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "holypaladinsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("archbishopcowlvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "archbishopcowlvntrinketbuff", 1500), 2000.0F, true);
+        registerItem("amethystamuletvn", 		new SimpleTrinketItem(Item.Rarity.RARE, "amethystamuletvntrinketbuff", 120), 500.0F, true);
 
         // Lawyer Up, Hit the Gems
-        registerItem("healthgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "healthgemvnbuff", 200), 100.0F, true);
-        registerItem("regengemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "regengemvnbuff", 200), 100.0F, true);
-        registerItem("resiliencegemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "resiliencegemvnbuff", 200), 100.0F, true);
-        registerItem("resilienceregengemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "resilienceregengemvnbuff", 200), 100.0F, true);
-        registerItem("managemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "managemvnbuff", 200), 100.0F, true);
-        registerItem("manaregengemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "manaregengemvnbuff", 200), 100.0F, true);
-        registerItem("bloodgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "bloodgemvnbuff", 200), 100.0F, true);
-        registerItem("damagegemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "damagegemvnbuff", 200), 100.0F, true);
-        registerItem("critgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "critgemvnbuff", 200), 100.0F, true);
-        registerItem("speedgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "speedgemvnbuff", 200), 100.0F, true);
-        registerItem("dashgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "dashgemvnbuff", 200), 100.0F, true);
-        registerItem("summongemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "summongemvnbuff", 200), 100.0F, true);
-        registerItem("armorgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "armorgemvnbuff", 200), 100.0F, true);
-        registerItem("hookgemvn", new SimpleTrinketItem(Item.Rarity.UNCOMMON, "hookgemvnbuff", 200), 100.0F, true);
+        registerItem("healthgemvn", 			new SimpleTrinketItem(Item.Rarity.UNCOMMON, "healthgemvnbuff", 200), 100.0F, true);
+        registerItem("regengemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "regengemvnbuff", 200), 100.0F, true);
+        registerItem("resiliencegemvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "resiliencegemvnbuff", 200), 100.0F, true);
+        registerItem("resilienceregengemvn", 	new SimpleTrinketItem(Item.Rarity.UNCOMMON, "resilienceregengemvnbuff", 200), 100.0F, true);
+        registerItem("managemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "managemvnbuff", 200), 100.0F, true);
+        registerItem("manaregengemvn", 			new SimpleTrinketItem(Item.Rarity.UNCOMMON, "manaregengemvnbuff", 200), 100.0F, true);
+        registerItem("bloodgemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "bloodgemvnbuff", 200), 100.0F, true);
+        registerItem("damagegemvn", 			new SimpleTrinketItem(Item.Rarity.UNCOMMON, "damagegemvnbuff", 200), 100.0F, true);
+        registerItem("critgemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "critgemvnbuff", 200), 100.0F, true);
+        registerItem("speedgemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "speedgemvnbuff", 200), 100.0F, true);
+        registerItem("dashgemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "dashgemvnbuff", 200), 100.0F, true);
+        registerItem("summongemvn", 			new SimpleTrinketItem(Item.Rarity.UNCOMMON, "summongemvnbuff", 200), 100.0F, true);
+        registerItem("armorgemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "armorgemvnbuff", 200), 100.0F, true);
+        registerItem("hookgemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "hookgemvnbuff", 200), 100.0F, true);
 
         // Items
         registerItem("acrumplednotevn", new ACrumpledNoteVN(), 1000, true);
@@ -826,13 +825,7 @@ public class VulpesNova {
 
     public void postInit() {
     	
-    	
-    	
-    	String recipes_location = "resources/data/recipes.json";
-        
-    	
-    	// Add recipes from the JSON file "recipes.json" 
-    	registerRecipes(recipes_location);
+    	RecipeHelper.initialize();
     	
         // look at necesse.inventory.lootTable.presets
 
@@ -865,7 +858,7 @@ public class VulpesNova {
                 .add(20, "deadmahmobvn");
 
         Biome.defaultSurfaceMobs
-                        .addLimited(20,"gustmobvn", 5, 48*48);
+                        .addLimited(20,"gustmobvn", 5, 64*64);
                         //.addLimited(1,"apocawindmobvn", 1, 32*32);
 
         //ForestBiome.defaultSurfaceMobs

@@ -29,6 +29,7 @@ public class GrandPhoenixGreatbowVN extends GreatbowProjectileToolItem {
         this.attackXOffset = 12;
         this.attackYOffset = 38;
         this.particleColor = new Color(169, 150, 236);
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
 
     @Override

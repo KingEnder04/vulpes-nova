@@ -26,6 +26,7 @@ public class DoomedBow extends BowProjectileToolItem {
         this.attackRange.setBaseValue(1000);
         this.attackXOffset = 12;
         this.attackYOffset = 28;
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
     
     @Override

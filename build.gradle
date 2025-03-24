@@ -28,8 +28,8 @@ project.ext.clientside = false
 //project.ext.modOptionalDependencies = ["optional.modid1", "optional.modid2"]
 
 // The path to the games install directory
+def gameDirectory = "E:/SteamLibrary/steamapps/common/Necesse"
 //def gameDirectory = "C:/Program Files (x86)/Steam/steamapps/common/Necesse"
-def gameDirectory = "C:/Program Files (x86)/Steam/steamapps/common/Necesse"
 // =================================================
 // ========== DO NOT EDIT BELOW THIS LINE ========== this is just a suggestion. 
 // ================================================= a strongly worded suggestion.
@@ -145,13 +145,6 @@ task buildModJar(type: Jar) {
     from sourceSets.main.java.outputDir
     // Add the dependencies
     from configurations.libDepends.collect { it.isDirectory() ? it : zipTree(it) } 
-
-	// Add only gson-2.12.1.jar, but exclude module-info.class
-    from {
-        zipTree(file('libs/gson-2.8.9.jar')).matching {
-            exclude 'module-info.class', 'META-INF/versions/**'
-        }
-    }
     
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE // Prevents duplicate conflicts
      

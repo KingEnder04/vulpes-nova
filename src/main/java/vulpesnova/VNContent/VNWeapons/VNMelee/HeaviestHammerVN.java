@@ -32,6 +32,7 @@ public class HeaviestHammerVN extends MeleeProjectileToolItem {
         this.attackYOffset = 4;
         this.attackRange.setBaseValue(500);
         this.itemAttackerProjectileCanHitWidth = 10.0F;
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
     
     @Override

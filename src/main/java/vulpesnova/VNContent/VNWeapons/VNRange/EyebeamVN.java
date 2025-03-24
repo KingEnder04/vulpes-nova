@@ -20,6 +20,7 @@ public class EyebeamVN extends GunProjectileToolItem {
         this.attackRange.setBaseValue(800);
         this.velocity.setBaseValue(200);
         this.addGlobalIngredient(new String[]{"bulletuser"});
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
 
     @Override

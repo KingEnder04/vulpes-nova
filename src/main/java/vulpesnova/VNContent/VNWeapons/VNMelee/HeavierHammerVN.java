@@ -34,6 +34,7 @@ public class HeavierHammerVN extends MeleeProjectileToolItem {
     	this.canBeUsedForRaids = true;
 		this.raidTicketsModifier = 0.5F;
 		this.useForRaidsOnlyIfObtained = true;
+		this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
     
     @Override

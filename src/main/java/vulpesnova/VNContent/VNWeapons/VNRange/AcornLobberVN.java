@@ -33,6 +33,7 @@ public class AcornLobberVN extends GunProjectileToolItem {
         this.velocity.setBaseValue(200);
         this.ammoConsumeChance = 0.50f;
         this.addGlobalIngredient(new String[]{"bulletuser"});
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
     
     @Override

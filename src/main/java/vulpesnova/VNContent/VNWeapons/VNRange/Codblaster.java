@@ -32,7 +32,7 @@ public class Codblaster extends GunProjectileToolItem {
         this.velocity.setBaseValue(80);
         this.knockback.setBaseValue(100);
         this.addGlobalIngredient(new String[]{"bulletuser"});
-       
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
     
     @Override

@@ -123,6 +123,7 @@ windmedallionvn=Wind Medallion
 meatmedallionvn=Meat Medallion
 stonemedallionvn=Stone Medallion
 medallionboardvn=Medallion Board
+fortunecollectionvn=Fortune Collection
 cavedemolishervn=Cave Demolisher
 portablegearcontactbeaconvn=Portable Gear Contact Beacon
 thebygonecrestvn=The Bygone Crest
@@ -131,9 +132,13 @@ frozenpendantvn=Frozen Pendant
 glacialfrostvn=Glacial Frost
 frozenheavenvn=Frozen Heaven
 halovn=Halo
+berserkerorbvn=Berserker Orb
+cosmictalismanvn=Cosmic Talisman
 demonicgauntletvn=Demonic Gauntlet
 tungstengauntletvn=Tungsten Gauntlet
 novagauntletvn=Nova Gauntlet
+calmingminersexoskeletonvn=Calming Miner's Exoskeleton
+minersexoskeletonvn=Miner's Exoskeleton
 gladiatorsembracevn=Gladiator's Embrace
 galacticgraspvn=Galactic Grasp
 cubaltshieldvn=Cubalt Shield
@@ -143,6 +148,7 @@ flowingenergysealvn=Seal of Flowing Energy
 speedstersealvn=Seal of the Speedster
 holypaladinsealvn=Seal of the Holy Paladin
 archbishopcowlvn=Archbishop's Cowl
+amethystamuletvn=Amethyst Amulet
 titanbustergreatswordvn=Titan Buster Greatsword
 cubecallervn=Cube Caller
 eyebeamvn=Eyebeam
@@ -222,8 +228,8 @@ stormboltervntip=An electrified revolver.
 stormbringervntip=An electrified Assault Rifle. Has a 30% chance not to consume ammo
 cavedemolishervntip=Great for making sure you collect all the ores you'll need!
 novaheartvntip=Permanently increases max health by 20 up to 400
-gearresiliencematrixvntip=Permanently increases max resilience by 25 up to 50
-bastionboxvntip=Permanently increases max resilience by 5 up to 25
+gearresiliencematrixvntip=Permanently increases max resilience by 25 up to 25
+bastionboxvntip=Permanently increases max resilience by 5 up to 50
 spherecererhatvntip=Too bad it can't be worn.
 eyebeamvntip=A strange little creature.
 cubecallervntip=Calls upon baby cubes to aid you.
@@ -267,7 +273,14 @@ arainydayvntip5=On this rainy day, peace finds its way.
 halovntip=Although it wasn't dropped by a heavenly being. It still has ties to such realm.
 halovntip2=+50 Max Health, +50 Max Mana, +0.25 Health Regen, +0.50 Mana Regen.
 
+cosmictalismanvntip=Increases mana regen by 300%, +50 Max Mana.
+
+berserkerorbvntip=Gain up to +80% damage based on missing health, +5 Armor Pen.
+berserkerorbvntip2=Gain up to +40% health regen based on missing health.
+
 novagauntletvntip=Applies Cosmic Fire for 3 seconds, 30+ Max Resilience, Slows Resilience Decay by 90%
+
+minersexoskeletonvntip=An Exoskeleton that most "Experienced" Miners use. Equipt with everything one should need spelunking.
 
 thebygonecrestvntip1=A Crown that was worn by a long lost King, from a long lost Kingdom.
 thebygonecrestvntip2=15% Attack Speed, 15% All Damage, 10% Crit Chance, -20% Health, -50% Mana
@@ -300,6 +313,7 @@ archbishopcowlvntip1=It's a little busted, ain't it?
 archbishopcowlvntip2=On use gives 50% All Damage, 20% Crit Chance, 3 Flat Health Regen, 50 Max Health, -25 Defense.
 archbishopcowlvntip3=Passively gives 10% Damage and 10% Crit Chance.
 
+amethystamuletvntip=+5 Resistance. When you hit 1/4th of your remaining HP gain a HUGE armor boost for 2 seconds.
 
 cubaltsetvntip=Sets target ablaze in cosmic fire for 2 seconds
 
@@ -334,14 +348,23 @@ babytitancubemobvn=Baby(?) Titan Cube
 [buff]
 cosmicfire=Cosmic Fire
 monsterpheromonesvnbuff=Monster Pheromones
-protectorsealvnbuff=Protector's Seal
-ruinedgolemsealvnbuff=Seal of the Ruined Golem
-flowingenergysealvnbuff=Seal of Flowing Energy
-speedstersealvnbuff=Seal of the Speedster
-holypaladinsealvnbuff=Seal of the Holy Paladin
-demonwarriorsealvnbuff=Seal of the Warrior Demon
 archbishopcowlvnbuff=Archbishop's Cowl
 bygonecrestvnbuff=The Bygone Crest
 waraxebleed=Bleeding
-diminished=Weakened
 
+protectorsealvnactivebuff=Protector's Seal
+ruinedgolemsealvnactivebuff=Seal of the Ruined Golem
+flowingenergysealvnactivebuff=Seal of Flowing Energy
+speedstersealvnactivebuff=Seal of the Speedster
+holypaladinsealvnactivebuff=Seal of the Holy Paladin
+demonwarriorsealvnactivebuff=Seal of the Warrior Demon
+
+protectorsealvncooldown=Cooldown: Protector's Seal
+ruinedgolemsealvncooldown=Cooldown: Seal of the Ruined Golem
+holypaladinsealvncooldown=Cooldown: Seal of the Holy Paladin
+flowingenergysealvncooldown=Cooldown: Seal of Flowing Energy
+speedstersealvncooldown=Cooldown: Seal of the Speedster
+demonwarriorsealvncooldown=Cooldown: Seal of the Warrior Demon
+archbishopcowlvncooldown=Cooldown: Archbishop's Cowl
+
+diminished=Weakened

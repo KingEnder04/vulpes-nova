@@ -17,6 +17,7 @@ public class WoodenBulletVNItem extends BulletItem {
         super(1000);
         this.damage = 4;
         this.rarity = Rarity.COMMON;
+        this.setItemCategory("equipment", "ammo");
     }
 
     @Override

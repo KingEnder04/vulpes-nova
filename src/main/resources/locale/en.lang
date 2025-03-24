@@ -348,14 +348,23 @@ babytitancubemobvn=Baby(?) Titan Cube
 [buff]
 cosmicfire=Cosmic Fire
 monsterpheromonesvnbuff=Monster Pheromones
-protectorsealvnbuff=Protector's Seal
-ruinedgolemsealvnbuff=Seal of the Ruined Golem
-flowingenergysealvnbuff=Seal of Flowing Energy
-speedstersealvnbuff=Seal of the Speedster
-holypaladinsealvnbuff=Seal of the Holy Paladin
-demonwarriorsealvnbuff=Seal of the Warrior Demon
 archbishopcowlvnbuff=Archbishop's Cowl
 bygonecrestvnbuff=The Bygone Crest
 waraxebleed=Bleeding
-diminished=Weakened
 
+protectorsealvnactivebuff=Protector's Seal
+ruinedgolemsealvnactivebuff=Seal of the Ruined Golem
+flowingenergysealvnactivebuff=Seal of Flowing Energy
+speedstersealvnactivebuff=Seal of the Speedster
+holypaladinsealvnactivebuff=Seal of the Holy Paladin
+demonwarriorsealvnactivebuff=Seal of the Warrior Demon
+
+protectorsealvncooldown=Cooldown: Protector's Seal
+ruinedgolemsealvncooldown=Cooldown: Seal of the Ruined Golem
+holypaladinsealvncooldown=Cooldown: Seal of the Holy Paladin
+flowingenergysealvncooldown=Cooldown: Seal of Flowing Energy
+speedstersealvncooldown=Cooldown: Seal of the Speedster
+demonwarriorsealvncooldown=Cooldown: Seal of the Warrior Demon
+archbishopcowlvncooldown=Cooldown: Archbishop's Cowl
+
+diminished=Weakened

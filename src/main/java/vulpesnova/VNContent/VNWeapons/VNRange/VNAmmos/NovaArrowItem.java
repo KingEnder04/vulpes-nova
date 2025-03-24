@@ -16,6 +16,7 @@ public class NovaArrowItem extends ArrowItem {
     public NovaArrowItem() {
         this.damage = 13;
         this.rarity = Rarity.UNCOMMON;
+        this.setItemCategory("equipment", "ammo");
     }
 
     @Override

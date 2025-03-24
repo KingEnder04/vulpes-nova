@@ -22,6 +22,7 @@ public class RepeatingCrossbow extends BowProjectileToolItem {
         this.attackRange.setBaseValue(800);
         this.attackXOffset = 5;
         this.attackYOffset = 14;
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
 
     @Override

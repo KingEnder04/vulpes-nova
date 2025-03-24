@@ -10,6 +10,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
 import necesse.level.maps.Level;
+import vulpesnova.VNContent.VNMisc.AttackHandlers.TitanBusterGreatswordVNAttackHandler;
 
 public class TitanBusterGreatswordVN extends GreatswordToolItem {
     public TitanBusterGreatswordVN() {
@@ -18,6 +19,7 @@ public class TitanBusterGreatswordVN extends GreatswordToolItem {
         this.attackDamage.setBaseValue(80.0F).setUpgradedValue(1.0F, 170.0F);
         this.attackRange.setBaseValue(114);
         this.knockback.setBaseValue(150);
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
     
     @Override

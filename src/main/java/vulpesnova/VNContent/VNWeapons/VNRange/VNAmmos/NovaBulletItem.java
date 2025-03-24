@@ -16,6 +16,7 @@ public class NovaBulletItem extends BulletItem {
         super(1000);
         this.damage = 11;
         this.rarity = Rarity.UNCOMMON;
+        this.setItemCategory("equipment", "ammo");
     }
     
     @Override

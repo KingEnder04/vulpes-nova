@@ -16,6 +16,7 @@ public class GoldArrowItem extends ArrowItem {
     public GoldArrowItem() {
         this.damage = 12;
         this.rarity = Rarity.NORMAL;
+        this.setItemCategory("equipment", "ammo");
     }
 
     @Override

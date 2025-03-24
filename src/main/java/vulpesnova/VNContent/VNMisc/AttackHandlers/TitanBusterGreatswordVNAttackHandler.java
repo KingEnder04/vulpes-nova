@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNWeapons.VNMelee;
+package vulpesnova.VNContent.VNMisc.AttackHandlers;
 
 import necesse.engine.network.server.ServerClient;
 import necesse.engine.util.GameMath;
@@ -15,6 +15,7 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNMobs.VNPets.BabyTitanCubeMobVN;
+import vulpesnova.VNContent.VNWeapons.VNMelee.TitanBusterGreatswordVN;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;

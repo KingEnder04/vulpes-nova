@@ -30,6 +30,7 @@ public class IronsoulGlaiveVN extends GlaiveToolItem {
         this.width = 20.0F;
         this.attackXOffset = 45;
         this.attackYOffset = 45;
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
 
     @Override

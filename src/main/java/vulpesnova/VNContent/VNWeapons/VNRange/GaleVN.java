@@ -15,7 +15,7 @@ import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.
 public class GaleVN extends GunProjectileToolItem {
     public GaleVN() {
         super(NORMAL_AMMO_TYPES, 50);
-        this.rarity = Rarity.COMMON;
+        this.rarity = Rarity.UNCOMMON;
         this.attackAnimTime.setBaseValue(500);
         this.attackDamage.setBaseValue(35).setUpgradedValue(1.0F, 104.0F);
         this.attackXOffset = 12;
@@ -23,6 +23,7 @@ public class GaleVN extends GunProjectileToolItem {
         this.attackRange.setBaseValue(800);
         this.velocity.setBaseValue(300);
         this.addGlobalIngredient(new String[]{"bulletuser"});
+        this.setItemCategory("equipment", "weapons", "rangedweapons");
     }
 
     @Override

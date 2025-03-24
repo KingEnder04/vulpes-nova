@@ -33,6 +33,7 @@ public class TheMountainVN extends MeleeProjectileToolItem {
         this.attackYOffset = 6;
         this.attackRange.setBaseValue(500);
         this.itemAttackerProjectileCanHitWidth = 10.0F;
+        this.setItemCategory("equipment", "weapons", "meleeweapons");
     }
 
     @Override
