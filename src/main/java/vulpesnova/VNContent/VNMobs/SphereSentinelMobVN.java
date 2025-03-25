@@ -65,7 +65,7 @@ public class SphereSentinelMobVN extends HostileMob {
         this.ai = new BehaviourTreeAI<SphereSentinelMobVN>(this, new StationaryPlayerShooterAI<SphereSentinelMobVN>(450) {
             public void shootTarget(SphereSentinelMobVN mob, Mob target) {
             	
-                SpherecererShotVNProjectile projectile = new SphereSentinelShotVNProjectile(SphereSentinelMobVN.this.getLevel(),mob.x, mob.y, target.x, target.y, 100.0F, 1000, SphereSentinelMobVN.damage, 50, mob);
+                SpherecererShotVNProjectile projectile = new SphereSentinelShotVNProjectile(SphereSentinelMobVN.this.getLevel(),mob.x, mob.y, target.x, target.y, 100.0F, 1500, SphereSentinelMobVN.damage, 50, mob);
                 SphereSentinelMobVN.this.attack((int)(mob.x + projectile.dx * 100.0F), (int)(mob.y + projectile.dy * 100.0F), false);
                 projectile.setTargetPrediction(target);
                 projectile.x += Math.signum(SphereSentinelMobVN.this.attackDir.x) * 10.0F;
@@ -80,7 +80,7 @@ public class SphereSentinelMobVN extends HostileMob {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
         		.checkInLiquid()
         		.checkNotLevelCollides()
-        		.checkMaxHostilesAround(3, 50, client);   
+        		.checkMaxHostilesAround(1, 200, client);   
         
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);

@@ -75,8 +75,8 @@ public class SphereSorcererMobVN extends HostileMob {
             	
             	//T mob, Mob target, String projectileID, GameDamage damage, int speed,	int distance, int moveDist
             	Projectile p = this.shootAndGetSimpleProjectile(mob, target, "spherecererproj", damage, 90, 450, 1);
-            	if(p != null) p.setTargetPrediction(target);
-                return (p!=null);
+            	if(p != null) p.setTargetPrediction(target, 2.0F);
+            		return (p!=null);
             }
         });
     }

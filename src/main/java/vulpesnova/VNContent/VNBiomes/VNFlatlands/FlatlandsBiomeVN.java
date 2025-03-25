@@ -148,7 +148,7 @@ public class FlatlandsBiomeVN extends Biome {
         		.add(3,"pyramidmobvn")
         		.add(3,"titancubemobvn")
         		.add(7,"spheresorcerermobvn")
-        		.add(20,"spheresentinelmobvn")
+        		.add(50,"spheresentinelmobvn")
         		.add(8,"planewalkermobvn");
         
         caveMobs = (new MobSpawnTable())
