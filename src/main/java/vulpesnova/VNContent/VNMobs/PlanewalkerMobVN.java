@@ -1,10 +1,13 @@
 package vulpesnova.VNContent.VNMobs;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.server.Server;
+import necesse.engine.network.server.ServerClient;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.MobDrawable;
+import necesse.entity.mobs.MobSpawnLocation;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.CollisionPlayerChaserWandererAI;
@@ -53,9 +56,25 @@ public class PlanewalkerMobVN extends FlyingHostileMob {
     public void init() {
         super.init();
         // Setup AI
-        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 456, new GameDamage(20), 5, 40000), new FlyingAIMover());
+        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(()->{
+			return !this.getLevel().isCave && !this.getLevel().getServer().world.worldEntity.isNight();
+		}, 600, new GameDamage(20), 5, 40000), new FlyingAIMover());
     }
+    
+    @Override
+    public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
+        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
+        		.checkMobSpawnLocation();
+        
+        if (this.getLevel().isCave) {
+            location = location.checkLightThreshold(client);
+        } else {
+            location = location.checkMaxStaticLightThreshold(10).checkMaxLightThreshold(50);
+        }
 
+        return location.validAndApply();
+    }
+    
     @Override
     public LootTable getLootTable() {
         return lootTable;

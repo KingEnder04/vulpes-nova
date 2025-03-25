@@ -1,6 +1,8 @@
 package vulpesnova.VNContent.VNMobs;
 
+import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import java.util.List;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
@@ -9,6 +11,7 @@ import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.TileRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
@@ -26,6 +29,7 @@ import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import vulpesnova.VNContent.VNProjectiles.SphereSentinelShotVNProjectile;
 import vulpesnova.VNContent.VNProjectiles.SpherecererShotVNProjectile;
 
 public class SphereSentinelMobVN extends HostileMob {
@@ -49,6 +53,7 @@ public class SphereSentinelMobVN extends HostileMob {
         this.setFriction(3.0F);
         this.setKnockbackModifier(0.0F);
         this.setArmor(10);
+        this.attackCooldown = 3000;
         collision = new Rectangle(-32, 0, 64, 64);
         hitBox = new Rectangle(-32, 0, 64, 64);
         selectBox = new Rectangle(-32, -44, 64, 100);
@@ -57,11 +62,12 @@ public class SphereSentinelMobVN extends HostileMob {
     @Override
 	public void init() {
         super.init();
-        this.ai = new BehaviourTreeAI<SphereSentinelMobVN>(this, new StationaryPlayerShooterAI<SphereSentinelMobVN>(800) {
+        this.ai = new BehaviourTreeAI<SphereSentinelMobVN>(this, new StationaryPlayerShooterAI<SphereSentinelMobVN>(450) {
             public void shootTarget(SphereSentinelMobVN mob, Mob target) {
-                SpherecererShotVNProjectile projectile = new SpherecererShotVNProjectile(SphereSentinelMobVN.this.getLevel(),mob.x, mob.y, target.x, target.y, 100.0F, 1000, SphereSentinelMobVN.damage, 50, mob);
-                projectile.setTargetPrediction(target);
+            	
+                SpherecererShotVNProjectile projectile = new SphereSentinelShotVNProjectile(SphereSentinelMobVN.this.getLevel(),mob.x, mob.y, target.x, target.y, 100.0F, 1000, SphereSentinelMobVN.damage, 50, mob);
                 SphereSentinelMobVN.this.attack((int)(mob.x + projectile.dx * 100.0F), (int)(mob.y + projectile.dy * 100.0F), false);
+                projectile.setTargetPrediction(target);
                 projectile.x += Math.signum(SphereSentinelMobVN.this.attackDir.x) * 10.0F;
                 projectile.y += SphereSentinelMobVN.this.attackDir.y * 6.0F;
                 SphereSentinelMobVN.this.getLevel().entityManager.projectiles.add(projectile);
@@ -71,7 +77,11 @@ public class SphereSentinelMobVN extends HostileMob {
 
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
-        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
+        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
+        		.checkInLiquid()
+        		.checkNotLevelCollides()
+        		.checkMaxHostilesAround(3, 50, client);   
+        
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);
         } else {
@@ -79,19 +89,6 @@ public class SphereSentinelMobVN extends HostileMob {
         }
 
         return location.validAndApply();
-    }
-
-    @Override
-    public MobSpawnLocation checkSpawnLocation(MobSpawnLocation location) {
-        return location.checkNotLevelCollides().checkTile((tileX, tileY) -> {
-            int tileID = this.getLevel().getTileID(tileX, tileY);
-            if (tileID == TileRegistry.waterID) {
-                return true;
-            } else {
-                int height = this.getLevel().liquidManager.getHeight(tileX, tileY);
-                return height >= 0 && height <= 1000;
-            }
-        });
     }
 
     @Override

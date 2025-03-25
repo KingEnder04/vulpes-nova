@@ -38,11 +38,10 @@ public class SphereSorcererMobVN extends HostileMob {
 
     public static LootTable lootTable = new LootTable(
             ChanceLootItem.between(0.4f, "shapeshardsvn", 1, 3)
-
     );
 
     public SphereSorcererMobVN() {
-        super(200);
+        super(200);     
         this.setSpeed(20);
         this.setFriction(3.0F);
         this.setKnockbackModifier(3.0F);
@@ -54,7 +53,10 @@ public class SphereSorcererMobVN extends HostileMob {
 
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
-        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
+        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
+        		.checkMobSpawnLocation()
+        		.checkMaxHostilesAround(6, 50, client);
+        
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);
         } else {
@@ -66,10 +68,15 @@ public class SphereSorcererMobVN extends HostileMob {
 
     @Override
     public void init() {
+    	
         super.init();
-        this.ai = new BehaviourTreeAI(this, new PlayerChaserWandererAI<Mob>((Supplier)null, 512, 320, 40000, false, false) {
+        this.ai = new BehaviourTreeAI<>(this, new PlayerChaserWandererAI<Mob>((Supplier<Boolean>)null, 600, 320, 40000, false, false) {
             public boolean attackTarget(Mob mob, Mob target) {
-                return this.shootSimpleProjectile(mob, target, "spherecererproj", damage, 90, 640);
+            	
+            	//T mob, Mob target, String projectileID, GameDamage damage, int speed,	int distance, int moveDist
+            	Projectile p = this.shootAndGetSimpleProjectile(mob, target, "spherecererproj", damage, 90, 450, 1);
+            	if(p != null) p.setTargetPrediction(target);
+                return (p!=null);
             }
         });
     }

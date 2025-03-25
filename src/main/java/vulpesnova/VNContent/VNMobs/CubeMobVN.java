@@ -51,7 +51,9 @@ public class CubeMobVN extends HostileMob {
     public void init() {
         super.init();
         // Setup AI
-        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 3000, new GameDamage(20), 5, 40000));
+        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(()->{
+			return !this.getLevel().isCave && this.getLevel().getServer().world.worldEntity.isNight();
+		}, 400, new GameDamage(20), 5, 40000));
     }
 
     @Override
@@ -61,7 +63,7 @@ public class CubeMobVN extends HostileMob {
 
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
-        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
+        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation().checkMaxHostilesAround(10, 400, client);
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);
         } else {

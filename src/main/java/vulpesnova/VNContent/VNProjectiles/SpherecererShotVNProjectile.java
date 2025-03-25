@@ -1,6 +1,7 @@
 package vulpesnova.VNContent.VNProjectiles;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.util.GameMath;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
@@ -15,16 +16,15 @@ import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SpherecererShotVNProjectile extends Projectile {
-    private long spawnTime;
-
     public SpherecererShotVNProjectile() {
     }
 
     public SpherecererShotVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
-     this();
+    	this();
     	this.setLevel(level);
         this.setOwner(owner);
         this.x = x;
@@ -42,10 +42,10 @@ public class SpherecererShotVNProjectile extends Projectile {
         this.height = 18.0F;
         this.piercing = 0;
         this.bouncing = 3;
-        this.spawnTime = this.getLevel().getWorldEntity().getTime();
         this.givesLight = true;
         this.trailOffset = 0.0F;
     }
+    
     
     @Override
     public Trail getTrail() {
@@ -68,8 +68,4 @@ public class SpherecererShotVNProjectile extends Projectile {
         }
     }
     
-    @Override
-    public float getAngle() {
-        return (float)(this.getWorldEntity().getTime() - this.spawnTime);
-    }
 }

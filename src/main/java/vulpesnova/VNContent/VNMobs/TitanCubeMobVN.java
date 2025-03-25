@@ -40,8 +40,6 @@ public class TitanCubeMobVN extends HostileMob {
         setSpeed(15);
         setFriction(1);
         this.setKnockbackModifier(0.1F);
-
-        // Hitbox, collision box, and select box (for hovering)
         this.moveAccuracy = 20;
         collision = new Rectangle(-32, 0, 64, 64);
         hitBox = new Rectangle(-32, 0, 64, 64);
@@ -52,16 +50,23 @@ public class TitanCubeMobVN extends HostileMob {
     public void init() {
         super.init();
         // Setup AI
-        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(null, 4000, new GameDamage(100), 5, 40000));
+        ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(()->{
+			return !this.getLevel().isCave && this.getLevel().getServer().world.worldEntity.isNight();
+		}, 700, new GameDamage(100), 5, 40000));
+        
+        //this.registerAbility(null)
     }
 
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
-        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
+        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
+        		.checkMobSpawnLocation().checkMaxHostilesAround(10, 400, client);
+        
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);
         } else {
-            location = location.checkMaxStaticLightThreshold(10);
+            location = location.checkMaxStaticLightThreshold(10)
+            		.checkMinLightThreshold(50);
         }
 
         return location.validAndApply();
