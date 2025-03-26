@@ -41,7 +41,7 @@ public class PlanewalkerMobVN extends FlyingHostileMob {
 
     // MUST HAVE an empty constructor
     public PlanewalkerMobVN() {
-        super(70);
+        super(170);
         this.setSpeed(40.0F);
         this.setFriction(0.5F);
         this.setKnockbackModifier(0.2F);
@@ -58,7 +58,7 @@ public class PlanewalkerMobVN extends FlyingHostileMob {
         // Setup AI
         ai = new BehaviourTreeAI<>(this, new CollisionPlayerChaserWandererAI<>(()->{
 			return !this.getLevel().isCave && !this.getLevel().getServer().world.worldEntity.isNight();
-		}, 600, new GameDamage(20), 5, 40000), new FlyingAIMover());
+		}, 700, new GameDamage(20), 5, 40000), new FlyingAIMover());
     }
     
     @Override

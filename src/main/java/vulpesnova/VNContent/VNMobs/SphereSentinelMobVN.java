@@ -80,7 +80,7 @@ public class SphereSentinelMobVN extends HostileMob {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
         		.checkInLiquid()
         		.checkNotLevelCollides()
-        		.checkMaxHostilesAround(1, 200, client);   
+        		.checkMaxHostilesAround(2, 25, client);   
         
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);

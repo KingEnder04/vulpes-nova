@@ -60,7 +60,7 @@ public class TitanCubeMobVN extends HostileMob {
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
-        		.checkMobSpawnLocation().checkMaxHostilesAround(10, 400, client);
+        		.checkMobSpawnLocation().checkMaxHostilesAround(10, 25, client);
         
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);
