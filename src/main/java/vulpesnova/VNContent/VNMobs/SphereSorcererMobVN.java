@@ -4,6 +4,7 @@ import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.network.server.Server;
 import necesse.engine.network.server.ServerClient;
 import necesse.engine.registries.MobRegistry;
+import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
@@ -23,8 +24,10 @@ import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import vulpesnova.VNContent.VNProjectiles.SpherecererShotVNProjectile;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -38,11 +41,10 @@ public class SphereSorcererMobVN extends HostileMob {
 
     public static LootTable lootTable = new LootTable(
             ChanceLootItem.between(0.4f, "shapeshardsvn", 1, 3)
-
     );
 
     public SphereSorcererMobVN() {
-        super(200);
+        super(200);     
         this.setSpeed(20);
         this.setFriction(3.0F);
         this.setKnockbackModifier(3.0F);
@@ -54,7 +56,10 @@ public class SphereSorcererMobVN extends HostileMob {
 
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
-        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY)).checkMobSpawnLocation();
+        MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
+        		.checkMobSpawnLocation()
+        		.checkMaxHostilesAround(3, 10, client);
+        
         if (this.getLevel().isCave) {
             location = location.checkLightThreshold(client);
         } else {
@@ -66,11 +71,32 @@ public class SphereSorcererMobVN extends HostileMob {
 
     @Override
     public void init() {
+    	
         super.init();
-        this.ai = new BehaviourTreeAI(this, new PlayerChaserWandererAI<Mob>((Supplier)null, 512, 320, 40000, false, false) {
+        this.ai = new BehaviourTreeAI<Mob>(this, new PlayerChaserWandererAI<Mob>((Supplier<Boolean>)null, 600, 320, 40000, false, false) {
             public boolean attackTarget(Mob mob, Mob target) {
-                return this.shootSimpleProjectile(mob, target, "spherecererproj", damage, 90, 640);
+            	
+            	//T mob, Mob target, String projectileID, GameDamage damage, int speed,	int distance, int moveDist
+            	Projectile p = this.shootAndGetSimpleProjectile(mob, target, "spherecererproj", damage, 90, 450, 1);            	
+            	return (p!=null);
             }
+            
+            public Projectile shootAndGetSimpleProjectile(Mob mob, Mob target, String projectileID, GameDamage damage, int speed,
+        			int distance, int moveDist) {
+        		if (mob.canAttack()) {
+        			mob.attack(target.getX(), target.getY(), false);
+        			
+        			Point2D.Float predictor = Projectile.getPredictedTargetPos(target, SphereSorcererMobVN.this.x, SphereSorcererMobVN.this.y, speed, Math.max(1, target.getCurrentSpeed() / 10));
+        			SpherecererShotVNProjectile projectile = (SpherecererShotVNProjectile)ProjectileRegistry.getProjectile(projectileID, mob.getLevel(), mob.x, mob.y,
+        					predictor.x, predictor.y, (float) speed, distance, damage, mob);
+        			projectile.setSpriteResize(20);
+        			projectile.moveDist((double) moveDist);
+        			mob.getLevel().entityManager.projectiles.add(projectile);
+        			return projectile;
+        		} else {
+        			return null;
+        		}
+        	}
         });
     }
 

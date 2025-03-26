@@ -635,6 +635,7 @@ public class VulpesNova {
         
         registerProjectile("magicfordummiesproj", MagicForDummiesVNProjectile.class, "magicfordummiesprojvn", "novicetomeprojvn_shadow");
         registerProjectile("spherecererproj", SpherecererShotVNProjectile.class, "spherecererprojvn", "novicetomeprojvn_shadow");
+        registerProjectile("spheresentinelproj", SphereSentinelShotVNProjectile.class, "spherecererprojvn", "novicetomeprojvn_shadow");
         registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");

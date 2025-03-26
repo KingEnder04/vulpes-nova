@@ -208,7 +208,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("intermediatetomevn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("novicetomevn", 1)
 				.ingredient("demonicbar", 6)
 				.ingredient("novashardvn", 8)
@@ -319,7 +319,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("novabulletvn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("voidbullet", 100)
 				.ingredient("novashardvn", 1)
 				.showAfter("voidbullet")
@@ -350,7 +350,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("novaarrowvn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("goldarrowvn", 50)
 				.ingredient("novashardvn", 1)
 				.showAfter("poisonarrow")
