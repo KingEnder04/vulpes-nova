@@ -43,6 +43,7 @@ import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.*;
 import necesse.inventory.recipe.Tech;
 import necesse.level.gameObject.*;
+import necesse.level.gameObject.furniture.StorageBoxInventoryObject;
 import necesse.level.gameTile.SimpleFloorTile;
 import necesse.level.maps.biomes.desert.DesertBiome;
 import necesse.level.maps.biomes.forest.ForestBiome;
@@ -146,6 +147,7 @@ public class VulpesNova {
     public static int cubeStoneTiledFloorVNID;
     public static int cubeDeepStoneFloorVNID;
     public static int cubeDeepStoneTiledFloorVNID;
+    public static int gearFactoryFloorVNID;
     public static int cubeWoodFloorVNID;
 
     public static Buff COSMIC_FIRE_VN;
@@ -263,12 +265,15 @@ public class VulpesNova {
         cubeStoneFloorVNID = registerFloorTile("cubestonefloorvn", new Color(161, 89, 238), 2.0f);
         cubeDeepStoneFloorVNID = registerFloorTile("cubedeepstonefloorvn", new Color(126, 53, 204), 2.0f);
         cubeWoodFloorVNID = registerFloorTile("cubewoodfloorvn", new Color(117, 126, 197), 4.0f);
-        cubeDeepStoneTiledFloorVNID = registerFloorTile("cubestonetiledfloorvn", new Color(94, 53, 177), 2.0f);
+        cubeStoneTiledFloorVNID = registerFloorTile("cubestonetiledfloorvn", new Color(94, 53, 177), 2.0f);
         cubeDeepStoneTiledFloorVNID = registerFloorTile("cubedeepstonetiledfloorvn", new Color(76, 37, 154), 2.0f);
-        
+        gearFactoryFloorVNID = registerFloorTile("gearfactoryfloorvn", new Color(242, 240, 243), 2.0f);
+
         // Register our objects
         TableOfAwakeningVN.registerTableOfAwakeningVN();
-        
+
+        registerObject("gearstorageboxvn", new StorageBoxInventoryObject("gearstorageboxvn", 40, new Color(97, 95, 132)), 20.0F, true);
+
         registerObject("cubetreevn", new TreeObject(
                 "cubetreevn", "cubelogvn", "cubesaplingvn", 
                 new Color(86, 69, 40), 45, 60, 110, "fruitpalmleaves"), 
@@ -297,6 +302,7 @@ public class VulpesNova {
         registerWallObjects("cubewood", "cubewoodwallvn", new Color(74, 84, 166), 2.0F, 6.0F);
         registerWallObjects("cubestone", "cubestonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
         registerWallObjects("cubedeepstone", "cubedeepstonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
+        registerWallObjects("gearfactory", "gearfactorywallvn", new Color(222, 221, 227), 0.5F, 1.0F);
 
         // Registering Rocks.
         // It will attempt to register the rock + "rockvn", rock + "groundrockvn", rock + "groundrocksmallvn" also
