@@ -61,7 +61,13 @@ public class SpherecererShotVNProjectile extends Projectile {
             GameLight light = level.getLightLevel(this);
             int drawX = camera.getDrawX(this.x) - this.texture.getWidth() / 2;
             int drawY = camera.getDrawY(this.y) - this.texture.getHeight() / 2;
-            final TextureDrawOptions options = this.texture.initDraw().light(light).rotate(this.getAngle(), this.texture.getWidth() / 2, this.texture.getHeight() / 2).pos(drawX, drawY - (int)this.getHeight()).size(spriteSize, true);
+            
+            final TextureDrawOptions options = this.texture.initDraw()
+            		.light(light).rotate(this.getAngle(), this.texture.getWidth() / 2, this.texture.getHeight() / 2)
+            		.pos(drawX, drawY - (int)this.getHeight())
+            		.shrinkHeight(spriteSize, true)
+            		.shrinkWidth(spriteSize, true);
+            
             list.add(new EntityDrawable(this) {
                 public void draw(TickManager tickManager) {
                     options.draw();
