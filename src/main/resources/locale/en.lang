@@ -2,6 +2,9 @@
 flatlandsvn=Flat Lands
 minershavenvn=Miners Haven
 
+[journal]
+flatlandsjournalvn=The Flatlands
+
 [tile]
 cubedeepstonetiledfloorvn=Cube Deepstone Tiled Floor
 cubestonetiledfloorvn=Cube Stone Tiled Floor
@@ -25,6 +28,7 @@ cubewoodcolumnvn=Cube Wood Column
 cubesaplingvn=Cube Tree Sapling
 
 [item]
+rawvulpinevn=Fox Meat
 acrumplednotevn=A Crumpled Note
 novafragmentvn=Nova Fragment
 novashardvn=Nova Shard
@@ -371,5 +375,6 @@ flowingenergysealvncooldown=Cooldown: Seal of Flowing Energy
 speedstersealvncooldown=Cooldown: Seal of the Speedster
 demonwarriorsealvncooldown=Cooldown: Seal of the Warrior Demon
 archbishopcowlvncooldown=Cooldown: Archbishop's Cowl
+amethystamuletvncooldown=Cooldown: Amethyst Amulet
 
 diminished=Weakened

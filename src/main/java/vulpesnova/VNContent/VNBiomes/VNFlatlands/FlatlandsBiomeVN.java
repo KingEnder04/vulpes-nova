@@ -25,6 +25,7 @@ import necesse.level.maps.biomes.MobSpawnTable;
 import java.awt.*;
 
 public class FlatlandsBiomeVN extends Biome {
+	
     public static FishingLootTable cubeSurfaceFish;
     public static MobSpawnTable surfaceMobs;
     public static MobSpawnTable caveMobs;
@@ -40,7 +41,14 @@ public class FlatlandsBiomeVN extends Biome {
     }
     
     
-    
+    public float getWindModifier(Level level, int tileX, int tileY) {
+		return level.isCave ? 0.1F : super.getWindModifier(level, tileX, tileY);
+	}
+
+	public Color getWindColor(Level level) {
+		return level.getIslandDimension() == -1 ? new Color(177, 182, 255) : super.getWindColor(level);
+	}
+	
 	@Override
     protected void loadRainTexture() {
         this.rainTexture = GameTexture.fromFile("rainfall");
@@ -48,7 +56,8 @@ public class FlatlandsBiomeVN extends Biome {
     
 	@Override
     public Color getRainColor(Level level) {
-        return new Color(255, 255, 255, 200);
+		
+        return new Color(177, 182, 255, 200);
     }
     
 	@Override
@@ -81,26 +90,34 @@ public class FlatlandsBiomeVN extends Biome {
     }
     
 	@Override
-    public MobSpawnTable getMobSpawnTable(Level level) {
-        if (!level.isCave) {
+    public MobSpawnTable getMobSpawnTable(Level level) {	
+		
+        if (!level.isCave) {        	
             return surfaceMobs;
-        } else {
+            
+        } else {        	
+        	
             return level.getIslandDimension() == -2 ? deepSnowCaveMobs : caveMobs;
         }
+        
     }
     
 	@Override
     public MobSpawnTable getCritterSpawnTable(Level level) {
+		
         if (level.isCave) {
             return level.getIslandDimension() == -2 ? deepCaveCritters : caveCritters;
         } else {
             return surfaceCritters;
         }
+        
     }
     
 	@Override
     public LootTable getExtraMobDrops(Mob mob) {
+		
         if (mob.isHostile && !mob.isBoss() && !mob.isSummoned) {
+        	
             if (mob.getLevel().getIslandDimension() == -1) {
                 return new LootTable(new LootItemInterface[]{randomRoyalEggDrop, super.getExtraMobDrops(mob)});
             }
@@ -108,6 +125,7 @@ public class FlatlandsBiomeVN extends Biome {
             if (mob.getLevel().getIslandDimension() == -2) {
                 return new LootTable(new LootItemInterface[]{randomIceCrownDrop, super.getExtraMobDrops(mob)});
             }
+            
         }
 
         return super.getExtraMobDrops(mob);
@@ -128,7 +146,9 @@ public class FlatlandsBiomeVN extends Biome {
     
 	@Override
     public LootTable getExtraBiomeMobDrops(JournalRegistry.LevelType levelType) {
+		
         LootTable lootTable = new LootTable();
+        
         switch (levelType) {
             case CAVE:
                 lootTable = new LootTable(new LootItemInterface[]{randomRoyalEggDrop});
@@ -141,7 +161,8 @@ public class FlatlandsBiomeVN extends Biome {
     }
 
     static {
-        cubeSurfaceFish = (new FishingLootTable(defaultSurfaceFish)).addWater(120, "icefish");
+        cubeSurfaceFish = (new FishingLootTable(defaultSurfaceFish))
+        		.addWater(120, "icefish");
         
         surfaceMobs = (new MobSpawnTable())
         		.add(15, "cubemobvn")
@@ -157,10 +178,26 @@ public class FlatlandsBiomeVN extends Biome {
         		.add(100,"nightmarecubemobvn")
         		.add(10,"deadmahmobvn");
         
-        deepSnowCaveMobs = (new MobSpawnTable()).add(120, "spheresorcerermobvn").add(70, "planewalkermobvn").add(25, "nightmarecubemobvn").add(50, "cryoflake").add(15, "deadmahmobvn");
-        surfaceCritters = (new MobSpawnTable()).add(100, "snowhare").add(60, "bluebird").add(20, "bird").add(60, "duck");
-        caveCritters = (new MobSpawnTable()).include(Biome.defaultCaveCritters).add(300, "cubaltcavelingvn");
-        deepCaveCritters = (new MobSpawnTable()).include(Biome.defaultCaveCritters).add(100, "cubaltcavelingvn");
+        deepSnowCaveMobs = (new MobSpawnTable())
+        		.add(120, "spheresorcerermobvn")
+        		.add(70, "planewalkermobvn")
+        		.add(25, "nightmarecubemobvn")
+        		.add(50, "cryoflake")
+        		.add(15, "deadmahmobvn");
+       
+        surfaceCritters = (new MobSpawnTable())
+        		.add(30, "snowhare")
+        		.add(60, "bluebird")
+        		.add(20, "bird");
+        
+        caveCritters = (new MobSpawnTable())
+        		.include(Biome.defaultCaveCritters)
+        		.add(300, "cubaltcavelingvn");
+        
+        deepCaveCritters = (new MobSpawnTable())
+        		.include(Biome.defaultCaveCritters)
+        		.add(100, "cubaltcavelingvn");
+        
         randomRoyalEggDrop = new LootItemList(new LootItemInterface[]{new ChanceLootItem(0.005F, "portablegearcontactbeaconvn")});
         randomIceCrownDrop = new LootItemList(new LootItemInterface[]{new ChanceLootItem(0.004F, "portablegearcontactbeaconvn")});
     }

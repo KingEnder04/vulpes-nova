@@ -6,6 +6,7 @@ import java.util.Random;
 import necesse.engine.GameEventListener;
 import necesse.engine.GameEvents;
 import necesse.engine.events.loot.MobLootTableDropsEvent;
+import necesse.engine.journal.JournalEntry;
 import necesse.engine.localization.Localization;
 import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modifiers.ModifierValue;
@@ -39,6 +40,8 @@ import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.
 import necesse.inventory.item.toolItem.shovelToolItem.CustomShovelToolItem;
 import necesse.inventory.item.trinketItem.CombinedTrinketItem;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
+import necesse.inventory.lootTable.LootTable;
+import necesse.inventory.lootTable.LootTablePresets;
 import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.*;
 import necesse.inventory.recipe.Tech;
@@ -129,8 +132,7 @@ public class VulpesNova {
 	//this is a very simple change to make sure its working again version 3
 	private static final Random rand = new Random();	
     public static Tech TABLEOFAWAKENINGVN;
-
-   
+ 
     public static GameSound COD_FLOPPIN ;
     public static GameSound ELECTRIC_EXPLOSION;
     public static GameSound ELECTRIC_SHOOT;
@@ -153,11 +155,9 @@ public class VulpesNova {
     public static Buff COSMIC_FIRE_VN;
     public static Buff MONSTER_PHEROMONE_BUFF_VN;
     public static Buff BLEEDING_BUFF_VN;
-    public static Buff JADE_WAR_AXE_BLEED_VN;
-    
+    public static Buff JADE_WAR_AXE_BLEED_VN;    
     public static Buff PROTECTOR_SEAL_VN_ACTIVE;
     public static Buff PROTECTOR_SEAL_VN_COOLDOWN;
-
     public static Buff RUINED_GOLEM_VN_ACTIVE;
     public static Buff RUINED_GOLEM_VN_COOLDOWN;
     public static Buff FLOWING_ENERGY_VN_ACTIVE;
@@ -172,8 +172,7 @@ public class VulpesNova {
     public static Buff ARCHBISHOP_COWL_VN_COOLDOWN;
     public static Buff AMETHYST_AMULET_VN_ACTIVE;
     public static Buff AMETHYST_AMULET_VN_COOLDOWN;
-
-    
+ 
     public static Buff CRIMSON_TEMPEST_CHARGE_STACKS_BUFF;
     
     public static GameTexture GEARSPHEREbody;
@@ -259,6 +258,9 @@ public class VulpesNova {
         GunProjectileToolItem.NORMAL_AMMO_TYPES.add("novabulletvn");
         GunProjectileToolItem.NORMAL_AMMO_TYPES.add("windbulletvn");
 
+        
+       
+        
         // Use our helper methods to register Tiles.
         cubeSandVNID = registerFloorTile("cubesandtilevn", new Color(44, 50, 91), 2.0f);
         cubeMainLandVNID = registerTile("cubemainlandtilevn", new CubeMainLandTileVN(), 2.0f, true);
@@ -269,7 +271,83 @@ public class VulpesNova {
         cubeDeepStoneTiledFloorVNID = registerFloorTile("cubedeepstonetiledfloorvn", new Color(76, 37, 154), 2.0f);
         gearFactoryFloorVNID = registerFloorTile("gearfactoryfloorvn", new Color(242, 240, 243), 2.0f);
 
-        // Register our objects
+        register_objects();
+        
+        // Register our biomes
+        FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
+        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
+
+
+        register_items();
+
+        register_mobs();
+        
+        registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
+        registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
+        registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
+        registerItem("importednightmarecubevn", new ImportedAnimalSpawnItem(12, true, "nightmarecubemobvn"), 200.0F, true);
+        registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
+        registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
+        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, false, "giantcavespider"), 200.0F, true);
+        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, false, "gustmobvn"), 200.0F, true);
+
+        register_projectiles();
+
+        register_buffs();        
+        
+        register_levels();
+        
+        register_journal_entries();
+        //Register Music
+
+        //float oldMusicVolumeModifier = 0.6F;
+        //HUBMUSICVN = registerMusic("hubmusic", "music/hubmusic", (GameMessage)null, new StaticMessage("Hubmusic"), new Color(125, 164, 45), new Color(47, 105, 12)).setVolumeModifier(oldMusicVolumeModifier);
+
+        CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(45, 154, 164), new Color(119, 74, 196), null);
+        CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(45, 118, 164), new Color(24, 79, 141), null);
+        
+        TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
+        //PacketRegistry.registerPacket(ExamplePacket.class);
+
+
+        // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent
+        GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
+            @Override
+            public void onEvent(MobLootTableDropsEvent event) {
+            	
+            	// By setting baseFactor, we set the scale of the order of magnitude for which drops are calculated.
+            	// So: (baseFactor / n) = drop_chance.
+            	// As an example: (1000 / 20) = 2% drop chance where 1000 is the baseFactor and 20 is n (drop chance),
+            	// Another example: (100 / 20) = 20% drop chance if 100 is set as the base factor.
+            	int baseFactor = 1000;           	  
+                int n = rand.nextInt(baseFactor)+1;
+                
+                // Always drops Nova Fragment for hostile mobs
+                if (event.mob.isHostile) {
+                    event.drops.add(new InventoryItem("novafragmentvn"));
+                }
+
+                // Drops for both hostile and boss mobs
+                if (event.mob.isHostile || event.mob.isBoss()) {
+                    if (n <= 20) event.drops.add(new InventoryItem("novashardvn")); // 2% chance
+                    if (n <= 1) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.1% chance
+                }
+
+                // Additional drops for bosses
+                if (event.mob.isBoss()) {
+                    event.drops.add(new InventoryItem("novashardvn", 2)); // Always drops 2 Nova Shards for boss mobs
+                    if (n <= 80) event.drops.add(new InventoryItem("awakeninatorvn")); // 8% chance
+                    if (n <= 5) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.5% chance
+                }
+
+            }
+        });
+
+    }
+
+   
+	private void register_objects() {
+		// Register our objects
         TableOfAwakeningVN.registerTableOfAwakeningVN();
 
         registerObject("gearstorageboxvn", new StorageBoxInventoryObject("gearstorageboxvn", 40, new Color(97, 95, 132)), 20.0F, true);
@@ -372,25 +450,10 @@ public class VulpesNova {
 
         // Other Objects
         registerObject("gearcontactbeaconvn", new GEARContactBeaconVNObject(), 0, false);
-        
-        
-        // Things we did not modify/refactor, but want to keep here for reference
-        //registerObject("ultrabrighttorchvn", new UltrabrightTorchVNObject("torch", new Color(47, 231, 187), 50.0F, 0.2F), 0.1F, true);
-         
-        
-      
-        // Register our biomes
-        FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
-        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
+	}
 
-
-        // Register our tech
-
-        // Register our items
-
-        // Armor Sets
-
-        // Wooden (Mage) Set
+	private void register_items() {
+		// Wooden (Mage) Set
         registerItem("woodenhelmetvn", new WoodenHelmet(), 110.0F, true);
         registerItem("woodenchestplatevn", new WoodenChestplate(), 160.0F, true);
         registerItem("woodenbootsvn", new WoodenBoots(), 80.0F, true);
@@ -569,8 +632,10 @@ public class VulpesNova {
         registerItem("minershavenmapvn", new BiomeMapItem(Item.Rarity.RARE, 18, new String[]{"minershavenvn"}), 120.0F, true);
         registerItem("rawvulpinevn", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 240, new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, -1)})).debuff().spoilDuration(240).addGlobalIngredient(new String[]{"anyrawmeat"}).setItemCategory(new String[]{"consumable", "rawfood"}), 4.0F, true);
         registerItem("roastedvulpinevn", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_FINE, 20, 480, new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, 1)})).spoilDuration(240), 12.0F, true);
+	}
 
-        // Register our mob
+	private void register_mobs() {
+		// Register our mob
         registerMob("nightmaremobvn", NightmareMobVN.class, true);
         registerMob("snowynightmaremobvn", SnowyNightmareMobVN.class, true);
         registerMob("foxmobvn", FoxMobVN.class, true);
@@ -595,18 +660,10 @@ public class VulpesNova {
         registerMob("spheresorcerermobvn", SphereSorcererMobVN.class, true);
         registerMob("spheresentinelmobvn", SphereSentinelMobVN.class, true);
         registerMob("deadmahmobvn", DeadmahMobVN.class,true);
-        
-        registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
-        registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
-        registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
-        registerItem("importednightmarecubevn", new ImportedAnimalSpawnItem(12, true, "nightmarecubemobvn"), 200.0F, true);
-        registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
-        registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
-        registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, false, "giantcavespider"), 200.0F, true);
-        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, false, "gustmobvn"), 200.0F, true);
+	}
 
-        // Register our projectiles
-        registerProjectile("celestialember", CelestEmberProjectile.class, "celestialemberprojvn", "celestialemberprojvn_shadow");
+	private void register_projectiles() {
+		registerProjectile("celestialember", CelestEmberProjectile.class, "celestialemberprojvn", "celestialemberprojvn_shadow");
         registerProjectile("nightblade", NightbladeVNProjectile.class, "nightbladeprojvn", "nightbladeprojvn_shadow");
         registerProjectile("leafproj", SaplingSwordProjectile.class, "leafprojvn", "leafprojvn");
         registerProjectile("holyproj", HolyTomeProjectile.class, "holyprojvn", "holyprojvn_shadow");
@@ -640,17 +697,21 @@ public class VulpesNova {
         registerProjectile("mastertomeproj", MasterTomeProjectile.class, "mastertomeprojvn", "novicetomeprojvn_shadow");
         
         registerProjectile("magicfordummiesproj", MagicForDummiesVNProjectile.class, "magicfordummiesprojvn", "novicetomeprojvn_shadow");
-        registerProjectile("spherecererproj", SpherecererShotVNProjectile.class, "spherecererprojvn", "novicetomeprojvn_shadow");
-        registerProjectile("spheresentinelproj", SphereSentinelShotVNProjectile.class, "spherecererprojvn", "novicetomeprojvn_shadow");
+        
+        registerProjectile("spherecererproj", SpherecererShotVNProjectile.class, "spherecererprojvn", "spherecererprojvn_shadow");
+        registerProjectile("spheresentinelproj", SphereSentinelShotVNProjectile.class, "spheresentinelprojvn", "novicetomeprojvn_shadow");
+        
         registerProjectile("cavedemolisherproj", CaveDemolisherVNProjectile.class, "cavedemolisherprojvn", "cavedemolisherprojvn_shadow");
+        
         registerProjectile("gearsphereminionpodproj", GEARSphereMinionPodVN.class, "gearsphereminionpodvn", "queenspideregg_shadow");
         registerProjectile("acornproj", AcornProjectile.class, "acornprojvn", "acornprojvn_shadow");
         registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
         
         registerProjectile("crimsontempestvnproj", CrimsonTempestVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
-        // Register buffs
+	}
 
-        // Armors
+	private void register_buffs() {
+		// Armors
         registerBuff("woodensetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.15f), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05f), new ModifierValue<Integer>(BuffModifiers.MAX_MANA_FLAT, 30),}));
         registerBuff("ancientjunglesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_REGEN, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.05F), new ModifierValue<Float>(BuffModifiers.SWIM_SPEED, 0.10F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F)}));
         registerBuff("windsetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.25F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.10F)}));
@@ -728,9 +789,11 @@ public class VulpesNova {
         HOLY_PALADIN_VN_COOLDOWN = registerBuff("holypaladinsealvncooldown", new ShownCooldownBuff());
         ARCHBISHOP_COWL_VN_COOLDOWN = registerBuff("archbishopcowlvncooldown", new ShownCooldownBuff());
         AMETHYST_AMULET_VN_COOLDOWN = registerBuff("amethystamuletvncooldown", new AmethystAmuletVNCooldownBuff());
-
         CRIMSON_TEMPEST_CHARGE_STACKS_BUFF = registerBuff("crimsontempestvncharge", new CrimsonTempestChargeStackBuff());
-        // Register our levels
+	}
+
+	private void register_levels() {
+		// Register our levels        
         LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
         LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
@@ -738,56 +801,25 @@ public class VulpesNova {
         LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
         LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
         LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
+	}
 
+    private void register_journal_entries() {
+    	
+    	JournalEntry flatlandsSurface = JournalRegistry.registerJournalEntry("flatlandsjournalvn",
+				new JournalEntry(FLATLANDS, JournalRegistry.LevelType.SURFACE));
+    	
+		flatlandsSurface.addBiomeLootEntry(new String[]{"cubelogvn", "blockberryvn"});
+		
+		flatlandsSurface.addMobEntries(new String[]{"foxmobvn", "penguin", "snowhare", "bluebird", "bird", "cubemobvn", "pyramidmobvn",
+				"titancubevn", "planewalkermobvn", "spheresorcerermobvn", "spheresentinelmobvn"});
+		
+		flatlandsSurface.addTreasureEntry(
+				new LootTable[]{LootTablePresets.surfaceRuinsChest});
+		
+		//flatlandsSurface.addEntryChallenges(new Integer[]{JournalChallengeRegistry.FOREST_SURFACE_CHALLENGES_ID});
+	}
 
-        //Register Music
-
-        //float oldMusicVolumeModifier = 0.6F;
-        //HUBMUSICVN = registerMusic("hubmusic", "music/hubmusic", (GameMessage)null, new StaticMessage("Hubmusic"), new Color(125, 164, 45), new Color(47, 105, 12)).setVolumeModifier(oldMusicVolumeModifier);
-
-        CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(45, 154, 164), new Color(119, 74, 196), null);
-        CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(45, 118, 164), new Color(24, 79, 141), null);
-        
-        TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
-        //PacketRegistry.registerPacket(ExamplePacket.class);
-
-
-        // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent
-        GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
-            @Override
-            public void onEvent(MobLootTableDropsEvent event) {
-            	
-            	// By setting baseFactor, we set the scale of the order of magnitude for which drops are calculated.
-            	// So: (baseFactor / n) = drop_chance.
-            	// As an example: (1000 / 20) = 2% drop chance where 1000 is the baseFactor and 20 is n (drop chance),
-            	// Another example: (100 / 20) = 20% drop chance if 100 is set as the base factor.
-            	int baseFactor = 1000;           	  
-                int n = rand.nextInt(baseFactor)+1;
-                
-                // Always drops Nova Fragment for hostile mobs
-                if (event.mob.isHostile) {
-                    event.drops.add(new InventoryItem("novafragmentvn"));
-                }
-
-                // Drops for both hostile and boss mobs
-                if (event.mob.isHostile || event.mob.isBoss()) {
-                    if (n <= 20) event.drops.add(new InventoryItem("novashardvn")); // 2% chance
-                    if (n <= 1) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.1% chance
-                }
-
-                // Additional drops for bosses
-                if (event.mob.isBoss()) {
-                    event.drops.add(new InventoryItem("novashardvn", 2)); // Always drops 2 Nova Shards for boss mobs
-                    if (n <= 80) event.drops.add(new InventoryItem("awakeninatorvn")); // 8% chance
-                    if (n <= 5) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.5% chance
-                }
-
-            }
-        });
-
-    }
-
-    public void initResources() {
+	public void initResources() {
         NightmareMobVN.texture = GameTexture.fromFile("mobs/nightmaremobvn");
         SnowyNightmareMobVN.texture = GameTexture.fromFile("mobs/snowynightmaremobvn");
         FoxMobVN.texture = GameTexture.fromFile("mobs/foxmobvn");
@@ -911,6 +943,7 @@ public class VulpesNova {
         DesertBiome.surfaceMobs
                 .add(10, "pyramidmobvn");
 
+       
     }
 
 }

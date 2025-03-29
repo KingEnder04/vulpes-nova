@@ -89,7 +89,6 @@ public class SphereSorcererMobVN extends HostileMob {
         			Point2D.Float predictor = Projectile.getPredictedTargetPos(target, SphereSorcererMobVN.this.x, SphereSorcererMobVN.this.y, speed, Math.max(1, target.getCurrentSpeed() / 10));
         			SpherecererShotVNProjectile projectile = (SpherecererShotVNProjectile)ProjectileRegistry.getProjectile(projectileID, mob.getLevel(), mob.x, mob.y,
         					predictor.x, predictor.y, (float) speed, distance, damage, mob);
-        			projectile.setSpriteResize(20);
         			projectile.moveDist((double) moveDist);
         			mob.getLevel().entityManager.projectiles.add(projectile);
         			return projectile;
