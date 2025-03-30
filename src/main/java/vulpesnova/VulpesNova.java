@@ -258,9 +258,6 @@ public class VulpesNova {
         GunProjectileToolItem.NORMAL_AMMO_TYPES.add("novabulletvn");
         GunProjectileToolItem.NORMAL_AMMO_TYPES.add("windbulletvn");
 
-        
-       
-        
         // Use our helper methods to register Tiles.
         cubeSandVNID = registerFloorTile("cubesandtilevn", new Color(44, 50, 91), 2.0f);
         cubeMainLandVNID = registerTile("cubemainlandtilevn", new CubeMainLandTileVN(), 2.0f, true);
@@ -273,11 +270,9 @@ public class VulpesNova {
 
         register_objects();
         
-        // Register our biomes
         FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
         MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
-
-
+        
         register_items();
 
         register_mobs();
@@ -298,17 +293,11 @@ public class VulpesNova {
         register_levels();
         
         register_journal_entries();
-        //Register Music
-
-        //float oldMusicVolumeModifier = 0.6F;
-        //HUBMUSICVN = registerMusic("hubmusic", "music/hubmusic", (GameMessage)null, new StaticMessage("Hubmusic"), new Color(125, 164, 45), new Color(47, 105, 12)).setVolumeModifier(oldMusicVolumeModifier);
 
         CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(45, 154, 164), new Color(119, 74, 196), null);
         CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(45, 118, 164), new Color(24, 79, 141), null);
         
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
-        //PacketRegistry.registerPacket(ExamplePacket.class);
-
 
         // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent
         GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
@@ -381,21 +370,11 @@ public class VulpesNova {
         registerWallObjects("cubestone", "cubestonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
         registerWallObjects("cubedeepstone", "cubedeepstonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
         registerWallObjects("gearfactory", "gearfactorywallvn", new Color(222, 221, 227), 0.5F, 1.0F);
-
-        // Registering Rocks.
-        // It will attempt to register the rock + "rockvn", rock + "groundrockvn", rock + "groundrocksmallvn" also
+        
         registerRockObjects("cube", new Color(109, 35, 241), "cubestonevn", 1);
         registerRockObjects("cubedeep", new Color(57, 11, 141), "cubedeepstonevn", 3);
         
-        
-        // Registering Rock Ore Variants
-        // CLASS INFO:
-        // RockOreObject(RockObject parentRock, String oreMaskTextureName, String oreTextureName, Color oreColor, 
-        //						String droppedOre, int droppedOreMin, int droppedOreMax, int placedDroppedOre)
-        //
-        // We are using the longer constructor to allow us to more easily modify these attributes in the future.
-        // The values of the added parameters have been set to their default values described in the class definition.
-        
+               
         registerObject("cubaltorecuberockvn", new RockOreObject(
                 (RockObject) getObject("cuberockvn"), "oremask", "cubaltorevn",
                 new Color(150, 115, 65), "cubaltoreitemvn", 1, 3, 2, false), 0.0F, false
@@ -897,17 +876,8 @@ public class VulpesNova {
                 .add(20, "deadmahmobvn");
 
         Biome.defaultSurfaceMobs
-                        .addLimited(20,"gustmobvn", 5, 64*64);
+                       .addLimited(3,"gustmobvn", 5, 1200);
                         //.addLimited(1,"apocawindmobvn", 1, 32*32);
-
-        //ForestBiome.defaultSurfaceMobs
-                        //.add(5,"allseeingcubemobvn");
-
-        //ForestBiome.defaultCaveMobs
-        //.add(5,"allseeingcubemobvn");
-
-        //ForestBiome.defaultDeepCaveMobs
-        //.add(5,"allseeingcubemobvn");
 
         ForestBiome.caveCritters
                 .add(90,"gemstonecavelingvn");
