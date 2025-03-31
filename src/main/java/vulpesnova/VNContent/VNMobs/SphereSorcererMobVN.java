@@ -1,25 +1,23 @@
 package vulpesnova.VNContent.VNMobs;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
+import necesse.engine.network.packet.PacketMobFollowUpdate;
 import necesse.engine.network.server.Server;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.ai.behaviourTree.BehaviourTreeAI;
 import necesse.entity.mobs.ai.behaviourTree.trees.PlayerChaserWandererAI;
-import necesse.entity.mobs.ai.behaviourTree.trees.StationaryPlayerShooterAI;
 import necesse.entity.mobs.hostile.HostileMob;
+import necesse.entity.mobs.summon.summonFollowingMob.petFollowingMob.WillOWispMob;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.entity.projectile.Projectile;
-import necesse.entity.projectile.SwampBoltProjectile;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
-import necesse.inventory.lootTable.LootItemInterface;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
 import necesse.level.maps.Level;
@@ -54,6 +52,7 @@ public class SphereSorcererMobVN extends HostileMob {
         this.selectBox = new Rectangle(-14, -41, 28, 48);
     }
 
+    
     @Override
     public boolean isValidSpawnLocation(Server server, ServerClient client, int targetX, int targetY) {
         MobSpawnLocation location = (new MobSpawnLocation(this, targetX, targetY))
@@ -73,10 +72,10 @@ public class SphereSorcererMobVN extends HostileMob {
     public void init() {
     	
         super.init();
+        
         this.ai = new BehaviourTreeAI<Mob>(this, new PlayerChaserWandererAI<Mob>((Supplier<Boolean>)null, 600, 320, 40000, false, false) {
             public boolean attackTarget(Mob mob, Mob target) {
             	
-            	//T mob, Mob target, String projectileID, GameDamage damage, int speed,	int distance, int moveDist
             	Projectile p = this.shootAndGetSimpleProjectile(mob, target, "spherecererproj", damage, 90, 450, 1);            	
             	return (p!=null);
             }
@@ -98,6 +97,8 @@ public class SphereSorcererMobVN extends HostileMob {
         	}
         });
     }
+    
+    protected boolean nightSwitch = false;
 
     @Override
     public void clientTick() {
@@ -105,16 +106,66 @@ public class SphereSorcererMobVN extends HostileMob {
         if (this.isAttacking) {
             this.getAttackAnimProgress();
         }
-
+      
     }
 
-    @Override
+    
+    private void runWispSpawnCheck() {
+    	 if((!this.getLevel().isCave) && this.getLevel().getWorldEntity().isNight()) {  	
+         	if(!nightSwitch) {
+         		nightSwitch = true;
+         		this.onNightTime();
+         		
+         	}
+         }
+         else {
+         	if(nightSwitch) {
+         		nightSwitch = false;
+         		this.onDayTime();
+         	}
+         }
+    }
+        
+    protected WillOWispMob myWisp;
+    private void onDayTime() {
+		if(myWisp != null) {
+			myWisp.remove();
+			myWisp = null;
+		}
+		
+	}
+
+
+	private void onNightTime() {
+		if(myWisp == null) {		
+			
+				myWisp = new WillOWispMob();
+				Point spawnPoint = new Point(getX() + GameRandom.globalRandom.getIntBetween(-5, 5),
+						getY() + GameRandom.globalRandom.getIntBetween(-5, 5));
+				this.getLevel().entityManager.addMob(myWisp, (float) spawnPoint.x, (float) spawnPoint.y);
+				myWisp.setFollowing(this, false);
+				this.getLevel().getServer().network.sendToClientsWithEntity(
+						new PacketMobFollowUpdate(this.getUniqueID(), this.followingUniqueID), this);
+			}
+		
+		
+	}
+
+	@Override
+	public void remove(float knockbackX, float knockbackY, Attacker attacker, boolean isDeath) {
+		super.remove(knockbackX, knockbackY, attacker, isDeath);
+		if(myWisp!=null) {
+			myWisp.remove();
+			myWisp = null;
+		}
+	}
+	@Override
     public void serverTick() {
         super.serverTick();
         if (this.isAttacking) {
             this.getAttackAnimProgress();
         }
-
+        runWispSpawnCheck();
     }
 
     @Override

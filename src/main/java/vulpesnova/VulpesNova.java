@@ -1,18 +1,22 @@
 package vulpesnova;
 
-import java.awt.*;
 import java.util.Random;
+import java.awt.Color;
+import java.util.*;
 
 import necesse.engine.GameEventListener;
 import necesse.engine.GameEvents;
 import necesse.engine.events.loot.MobLootTableDropsEvent;
 import necesse.engine.journal.JournalEntry;
+import necesse.engine.journal.MultiJournalChallenge;
 import necesse.engine.localization.Localization;
 import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.sound.GameMusic;
 import necesse.engine.sound.gameSound.GameSound;
 import necesse.engine.util.GameBlackboard;
+import necesse.engine.util.GameRandom;
+import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
@@ -40,8 +44,11 @@ import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.
 import necesse.inventory.item.toolItem.shovelToolItem.CustomShovelToolItem;
 import necesse.inventory.item.trinketItem.CombinedTrinketItem;
 import necesse.inventory.item.trinketItem.SimpleTrinketItem;
+import necesse.inventory.lootTable.LootItemInterface;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.LootTablePresets;
+import necesse.inventory.lootTable.lootItem.ChanceLootItem;
+import necesse.inventory.lootTable.lootItem.ConditionLootItem;
 import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.*;
 import necesse.inventory.recipe.Tech;
@@ -97,6 +104,7 @@ import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNActiveB
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNCooldownBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNTrinketBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals.*;
+import vulpesnova.VNContent.VNJournal.KillTitancubesInFlatlandsChallenge;
 import vulpesnova.VNContent.VNBuffs.WarAxeBleedingBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
 import vulpesnova.VNContent.VNMaterials.*;
@@ -184,10 +192,14 @@ public class VulpesNova {
 
     public static GameMusic HUBMUSICVN;
     public static GameMusic CUBELEVELMUSICVN;
+    public static GameMusic SALZBERRY_FTT;
     public static GameMusic CUBELEVELDEEPMUSICVN;
-	
-	
+    
+    public static int FLATLANDS_SURFACE_CHALLENGES_ID;
+    public static LootTable FLATLANDS_SURFACE_REWARD = new LootTable(
+			new LootItemInterface[]{new LootItem("sentientcrownvn")});
 
+    public static int KILL_TITANCUBES_ID;
     public void preInit() {
 
     }
@@ -296,18 +308,22 @@ public class VulpesNova {
 
         CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(45, 154, 164), new Color(119, 74, 196), null);
         CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(45, 118, 164), new Color(24, 79, 141), null);
-        
+        SALZBERRY_FTT = MusicRegistry.registerMusic("salzberry_ftt", "music/salzberry_ftt", new StaticMessage("Salzberry In F"), new Color(45, 118, 164), new Color(24, 79, 141), null);
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
 
+        
+        LootTablePresets.globalMobDrops.items.add(new ChanceLootItem(0.02F,"novafragmentvn"));
+        
+        LootTablePresets.globalMobDrops.items.add(new ConditionLootItem("novashardvn", (r, o) -> {
+			Mob self = (Mob) LootTable.expectExtra(Mob.class, o, 0);
+			return self.isBoss();
+		}));
         // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent
-        GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
+      /* GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
             @Override
             public void onEvent(MobLootTableDropsEvent event) {
             	
-            	// By setting baseFactor, we set the scale of the order of magnitude for which drops are calculated.
-            	// So: (baseFactor / n) = drop_chance.
-            	// As an example: (1000 / 20) = 2% drop chance where 1000 is the baseFactor and 20 is n (drop chance),
-            	// Another example: (100 / 20) = 20% drop chance if 100 is set as the base factor.
+            	e
             	int baseFactor = 1000;           	  
                 int n = rand.nextInt(baseFactor)+1;
                 
@@ -330,7 +346,7 @@ public class VulpesNova {
                 }
 
             }
-        });
+        });*/
 
     }
 
@@ -504,12 +520,12 @@ public class VulpesNova {
         registerItem("gladiatorsembracevn", 	new CombinedTrinketItem(Item.Rarity.UNCOMMON, 800, new String[]{"manica", "challengerspauldron"}), 200.0F, true);
         registerItem("galacticgraspvn", 		new CombinedTrinketItem(Item.Rarity.UNCOMMON, 1000, new String[]{"gladiatorsembracevn", "novagauntletvn"}), 200.0F, true);
         registerItem("cubaltshieldvn", 			new CubaltShieldVNToolItem(Item.Rarity.UNCOMMON, 1200), 2000, true);
-        registerItem("protectorsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "protectorsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("ruinedgolemsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "ruinedgolemsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("flowingenergysealvn", 	new SimpleTrinketItem(Item.Rarity.UNCOMMON, "flowingenergysealvntrinketbuff", 120), 500.0F, true);
+        registerItem("protectorsealvn", 		new AOESimpleTrinketItem(Item.Rarity.UNCOMMON, "protectorsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("ruinedgolemsealvn", 		new AOESimpleTrinketItem(Item.Rarity.UNCOMMON, "ruinedgolemsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("flowingenergysealvn", 	new AOESimpleTrinketItem(Item.Rarity.UNCOMMON, "flowingenergysealvntrinketbuff", 120), 500.0F, true);
         registerItem("speedstersealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "speedstersealvntrinketbuff", 120), 500.0F, true);
-        registerItem("demonwarriorsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "demonwarriorsealvntrinketbuff", 120), 500.0F, true);
-        registerItem("holypaladinsealvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "holypaladinsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("demonwarriorsealvn", 		new AOESimpleTrinketItem(Item.Rarity.UNCOMMON, "demonwarriorsealvntrinketbuff", 120), 500.0F, true);
+        registerItem("holypaladinsealvn", 		new AOESimpleTrinketItem(Item.Rarity.UNCOMMON, "holypaladinsealvntrinketbuff", 120), 500.0F, true);
         registerItem("archbishopcowlvn", 		new SimpleTrinketItem(Item.Rarity.UNCOMMON, "archbishopcowlvntrinketbuff", 1500), 2000.0F, true);
         registerItem("amethystamuletvn", 		new SimpleTrinketItem(Item.Rarity.RARE, "amethystamuletvntrinketbuff", 120), 500.0F, true);
 
@@ -790,12 +806,17 @@ public class VulpesNova {
 		flatlandsSurface.addBiomeLootEntry(new String[]{"cubelogvn", "blockberryvn"});
 		
 		flatlandsSurface.addMobEntries(new String[]{"foxmobvn", "penguin", "snowhare", "bluebird", "bird", "cubemobvn", "pyramidmobvn",
-				"titancubevn", "planewalkermobvn", "spheresorcerermobvn", "spheresentinelmobvn"});
+				"titancubemobvn", "planewalkermobvn", "spheresorcerermobvn", "spheresentinelmobvn"});
 		
 		flatlandsSurface.addTreasureEntry(
 				new LootTable[]{LootTablePresets.surfaceRuinsChest});
 		
-		//flatlandsSurface.addEntryChallenges(new Integer[]{JournalChallengeRegistry.FOREST_SURFACE_CHALLENGES_ID});
+		
+		KILL_TITANCUBES_ID = JournalChallengeRegistry.registerChallenge("killtitancubes", new KillTitancubesInFlatlandsChallenge());
+		FLATLANDS_SURFACE_CHALLENGES_ID = JournalChallengeRegistry.registerChallenge("flatlandsvnsurface",
+				(new MultiJournalChallenge(new Integer[]{KILL_TITANCUBES_ID}))
+						.setReward(FLATLANDS_SURFACE_REWARD));
+		flatlandsSurface.addEntryChallenges(new Integer[]{FLATLANDS_SURFACE_CHALLENGES_ID});
 	}
 
 	public void initResources() {

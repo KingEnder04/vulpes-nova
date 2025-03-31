@@ -13,6 +13,7 @@ import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
+import necesse.engine.util.IntersectionPoint;
 import necesse.engine.util.gameAreaSearch.GameAreaStream;
 import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.GameDamage;
@@ -52,14 +53,16 @@ import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class TitanCubeMobVN extends HostileMob {
 
-    // Loaded in vulpesnova.VulpesNova.initResources()
     public static GameTexture texture;
     public static LootTable lootTable = new LootTable(
             ChanceLootItem.between(0.4f, "shapeshardsvn", 3, 6)
@@ -84,7 +87,6 @@ public class TitanCubeMobVN extends HostileMob {
 	public long nextJumpTime;
 	public long endTime;
 	
-    // MUST HAVE an empty constructor
     public TitanCubeMobVN() {
         super(600);
         setSpeed(15);
@@ -404,6 +406,83 @@ public class TitanCubeMobVN extends HostileMob {
 		public TitanCubeAI(int searchDistance, int wanderFrequency, GameDamage damage, final Supplier<Boolean> shouldEscape) {
 			this.shouldEscape = shouldEscape;
 			this.jumpDistanceMax = 300;
+			
+			this.addChild(new WandererAINode<T>(wanderFrequency) {
+				public long nextPathFind;
+				public Point escapePoint;
+				public boolean isEscaping = false;
+				public boolean shouldEscape(T mob, Blackboard<T> blackboard) {
+					return (!mob.getLevel().isCave) && mob.getLevel().getWorldEntity().isNight();
+				}
+				
+				public void onEscaped(T mob) {
+					mob.remove();
+				}
+				
+				public AINodeResult tickNode(T mob, Blackboard<T> blackboard) {
+					
+					if (this.shouldEscape(mob, blackboard)) {
+						if (!(new Rectangle(160, 160, mob.getLevel().width * 32 - 320, mob.getLevel().height * 32 - 320))
+								.contains(mob.getPositionPoint())) {
+							this.onEscaped(mob);
+						}
+
+						if (this.escapePoint == null) {
+							ServerClient closest = (ServerClient) GameUtils.streamServerClients(mob.getLevel())
+									.min(Comparator.comparing((c) -> {
+										return mob.getDistance(c.playerMob);
+									})).orElse((ServerClient) null);
+							Level level = mob.getLevel();
+							if (closest != null) {
+								float xAway = mob.x - closest.playerMob.x;
+								float yAway = mob.y - closest.playerMob.y;
+								Point2D.Float dir = GameMath.normalize(xAway, yAway);
+								Rectangle edgeRect = new Rectangle(2, 2, level.width - 4, level.height - 4);
+								Line2D line = new Line2D.Float(mob.x / 32.0F, mob.y / 32.0F,
+										mob.x / 32.0F + dir.x * (float) edgeRect.width * 4.0F,
+										mob.y / 32.0F + dir.y * (float) edgeRect.height * 4.0F);
+								IntersectionPoint<Object> iPoint = GameMath.getIntersectionPoint((Object) null, line, edgeRect,
+										true);
+								if (iPoint != null) {
+									this.escapePoint = new Point((int) iPoint.x, (int) iPoint.y);
+								}
+							}
+
+							if (this.escapePoint == null) {
+								this.escapePoint = (Point) GameRandom.globalRandom.getOneOf(new Point[]{
+										new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), 2),
+										new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), level.height - 2),
+										new Point(2, GameRandom.globalRandom.getIntBetween(2, level.height - 2)),
+										new Point(level.width - 2, GameRandom.globalRandom.getIntBetween(2, level.height - 2))});
+							}
+						}
+						isEscaping = true;
+						if (this.nextPathFind < mob.getWorldEntity().getLocalTime()) {
+							this.nextPathFind = mob.getWorldEntity().getLocalTime() + 1000L;
+							return this.moveToTileTask(this.escapePoint.x, this.escapePoint.y, (BiPredicate<Point, Point>) null, (path) -> {
+								if (path.moveIfWithin(-1, -1, () -> {
+									this.nextPathFind = 0L;
+								})) {
+									int nextPathTimeAdd = path.getNextPathTimeBasedOnPathTime(mob.getSpeed(), 1.5F, 2000, 0.1F);
+									this.nextPathFind = mob.getWorldEntity().getLocalTime() + (long) nextPathTimeAdd;
+								}
+
+								return AINodeResult.SUCCESS;
+							});
+						} else {
+							return AINodeResult.SUCCESS;
+						}
+					} else {
+						if(isEscaping) {
+							this.findNewPosition(mob, getBaseOptions());
+							this.isEscaping = false;
+						}
+						return super.tickNode(mob, blackboard);
+					}
+				}
+				
+			});
+			
 			this.addChild(new TargetFinderAINode<T>(searchDistance) {
 				
 				public GameAreaStream<? extends Mob> streamPossibleTargets(T mob, Point base,
@@ -412,26 +491,20 @@ public class TitanCubeMobVN extends HostileMob {
 				}
 
 			});
-			this.addChild(new WandererAINode<T>(wanderFrequency));
-			AttackStageManagerNode<T> attackStages = new AttackStageManagerNode<T>();
-			this.addChild(new IsolateRunningAINode<T>(attackStages));
 			
+			AttackStageManagerNode<T> attackStages = new AttackStageManagerNode<T>();
+			this.addChild(new IsolateRunningAINode<T>(attackStages));			
 			attackStages.addChild(new WaitForJumpDoneStage());			
 			attackStages.addChild(new ChaseIdleStage((m) -> {
 				return this.getIdleTime((T) m, 1000, 10000);
 			}));
-			
+						
 			attackStages.addChild(new JumpSlamStage());
 			attackStages.addChild(new WaitForJumpDoneStage());
 			attackStages.addChild(new ChaseIdleStage((m) -> {
 				return this.getIdleTime((T) m, 3000, 10000);
 			}));
-			
-			attackStages.addChild(new EscapeAINode<T>() {				
-				public boolean shouldEscape(T mob, Blackboard<T> blackboard) {
-					return shouldEscape != null && (Boolean) shouldEscape.get();					
-				}
-			});	
+		
 			//attackStages.addChild(new SquishLaunchStage());
 		}
 
@@ -447,11 +520,20 @@ public class TitanCubeMobVN extends HostileMob {
 			
 			public Function<T, Integer> idleTimeMSGetter;
 			public int timer;
-
+			public long nextPathFind;
+			public Point escapePoint;
+			public boolean isEscaping = false;
+			public boolean shouldEscape(T mob, Blackboard<T> blackboard) {
+				return (!mob.getLevel().isCave) && mob.getLevel().getWorldEntity().isNight();
+			}
+			
+			public void onEscaped(T mob) {
+				mob.remove();
+			}
+			
 			public ChaseIdleStage(Function<T, Integer> idleTimeMSGetter) {
 				super("currentTarget");
 				this.idleTimeMSGetter = idleTimeMSGetter;
-			
 			}
 
 			public ChaseIdleStage(int idleTimeMS) {
@@ -484,11 +566,70 @@ public class TitanCubeMobVN extends HostileMob {
 			}
 
 			public AINodeResult tick(T mob, Blackboard<T> blackboard) {	
-				super.tick(mob, blackboard);
-				this.timer += 50;
+									
+				if (this.shouldEscape(mob, blackboard)) {
+					if (!(new Rectangle(160, 160, mob.getLevel().width * 32 - 320, mob.getLevel().height * 32 - 320))
+							.contains(mob.getPositionPoint())) {
+						this.onEscaped(mob);
+					}
+
+					if (this.escapePoint == null) {
+						ServerClient closest = (ServerClient) GameUtils.streamServerClients(mob.getLevel())
+								.min(Comparator.comparing((c) -> {
+									return mob.getDistance(c.playerMob);
+								})).orElse((ServerClient) null);
+						Level level = mob.getLevel();
+						if (closest != null) {
+							float xAway = mob.x - closest.playerMob.x;
+							float yAway = mob.y - closest.playerMob.y;
+							Point2D.Float dir = GameMath.normalize(xAway, yAway);
+							Rectangle edgeRect = new Rectangle(2, 2, level.width - 4, level.height - 4);
+							Line2D line = new Line2D.Float(mob.x / 32.0F, mob.y / 32.0F,
+									mob.x / 32.0F + dir.x * (float) edgeRect.width * 4.0F,
+									mob.y / 32.0F + dir.y * (float) edgeRect.height * 4.0F);
+							IntersectionPoint<Object> iPoint = GameMath.getIntersectionPoint((Object) null, line, edgeRect,
+									true);
+							if (iPoint != null) {
+								this.escapePoint = new Point((int) iPoint.x, (int) iPoint.y);
+							}
+						}
+
+						if (this.escapePoint == null) {
+							this.escapePoint = (Point) GameRandom.globalRandom.getOneOf(new Point[]{
+									new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), 2),
+									new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), level.height - 2),
+									new Point(2, GameRandom.globalRandom.getIntBetween(2, level.height - 2)),
+									new Point(level.width - 2, GameRandom.globalRandom.getIntBetween(2, level.height - 2))});
+						}
+					}
+					isEscaping = true;
+					if (this.nextPathFind < mob.getWorldEntity().getLocalTime()) {
+						this.nextPathFind = mob.getWorldEntity().getLocalTime() + 1000L;
+						return this.moveToTileTask(this.escapePoint.x, this.escapePoint.y, (BiPredicate<Point, Point>) null, (path) -> {
+							if (path.moveIfWithin(-1, -1, () -> {
+								this.nextPathFind = 0L;
+							})) {
+								int nextPathTimeAdd = path.getNextPathTimeBasedOnPathTime(mob.getSpeed(), 1.5F, 2000, 0.1F);
+								this.nextPathFind = mob.getWorldEntity().getLocalTime() + (long) nextPathTimeAdd;
+							}
+
+							return AINodeResult.RUNNING;
+						});
+					} else {
+						return AINodeResult.RUNNING;
+					}
+				} else {	
+					
+					if(isEscaping) {
+						isEscaping = false;
+						this.getBlackboard().mover.stopMoving(this.mob());
+					}
+					super.tick(mob, blackboard);
+					
+				}
 				
-				float targetDistance = mob.getDistance(TitanCubeAI.this.getCurrentTarget());	
-				
+				this.timer += 50;				
+				float targetDistance = mob.getDistance(TitanCubeAI.this.getCurrentTarget());					
 				return (this.timer >= (Integer) this.idleTimeMSGetter.apply(mob) && targetDistance <= TitanCubeAI.this.jumpDistanceMax) ? AINodeResult.SUCCESS : AINodeResult.RUNNING;
 			}
 
