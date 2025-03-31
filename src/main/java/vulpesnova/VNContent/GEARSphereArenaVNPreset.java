@@ -14,9 +14,9 @@ public class GEARSphereArenaVNPreset extends Preset {
         super(size, size);
         int mid = size / 2;
         int maxDistance = size / 2 * 32;
-        int woodfloor = TileRegistry.getTileID("cubewoodfloorvn");
+        int woodfloor = TileRegistry.getTileID("gearfactoryfloorvn");
         int sandstone = TileRegistry.getTileID("cubestonefloorvn");
-        int sandbrick = TileRegistry.getTileID("cubestonetiledfloorvn");
+        int sandbrick = TileRegistry.getTileID("gearfactoryfloorvn");
         int[] breakObjects = new int[]{ObjectRegistry.getObjectID("crate"), ObjectRegistry.getObjectID("vase")};
 
         int x;
@@ -51,10 +51,10 @@ public class GEARSphereArenaVNPreset extends Preset {
             }
         }
 
-        x = random.getIntBetween(8, 10);
+        x = random.getIntBetween(15, 18);
         float columnAngle = (float)random.nextInt(360);
         anglePerColumn = 360.0F / (float)x;
-        int columnID = ObjectRegistry.getObjectID("cubestonecolumnvn");
+        int columnID = ObjectRegistry.getObjectID("gearfactoryvnwall");
 
         for(int i = 0; i < x; ++i) {
             columnAngle += random.getFloatOffset(anglePerColumn, anglePerColumn / 10.0F);

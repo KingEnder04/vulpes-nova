@@ -41,6 +41,8 @@ import necesse.level.maps.presets.set.ChestRoomSet;
 import necesse.level.maps.presets.set.FurnitureSet;
 import necesse.level.maps.presets.set.WallSet;
 import vulpesnova.VNContent.GEARSphereArenaVNPreset;
+import vulpesnova.VNContent.VNMisc.VNChestRoomSet;
+import vulpesnova.VNContent.VNMisc.VNWallSet;
 import vulpesnova.VNContent.VulpesNovaLootTablePresets;
 
 public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
@@ -232,7 +234,7 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
             int chestRoomAmount = cg.random.getIntBetween(13, 18);
 
             for(int ix = 0; ix < chestRoomAmount; ++ix) {
-                Preset chestRoom = new RandomCaveChestRoom(cg.random, VulpesNovaLootTablePresets.flatlandsCaveChest, chestRoomRotation, new ChestRoomSet[]{ChestRoomSet.sandstone, ChestRoomSet.wood});
+                Preset chestRoom = new RandomCaveChestRoom(cg.random, VulpesNovaLootTablePresets.flatlandsCaveChest, chestRoomRotation, new ChestRoomSet[]{VNChestRoomSet.factory, VNChestRoomSet.factory});
                 chestRoom.replaceTile(TileRegistry.stoneFloorID, (Integer)cg.random.getOneOf(new Integer[]{TileRegistry.stoneFloorID, TileRegistry.stoneBrickFloorID}));
                 chestRoom.replaceTile(TileRegistry.sandstoneFloorID, (Integer)cg.random.getOneOf(new Integer[]{TileRegistry.sandstoneFloorID, TileRegistry.sandstoneBrickFloorID}));
                 presets.findRandomValidPositionAndApply(cg.random, 5, chestRoom, 10, true, true);
@@ -242,7 +244,7 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
             int caveRuinsCount = cg.random.getIntBetween(25, 35);
 
             for(int ixx = 0; ixx < caveRuinsCount; ++ixx) {
-                WallSet wallSet = (WallSet)cg.random.getOneOf(new WallSet[]{WallSet.sandstone, WallSet.wood});
+                WallSet wallSet = (WallSet)cg.random.getOneOf(new WallSet[]{VNWallSet.gearfactorywall});
                 FurnitureSet furnitureSet = (FurnitureSet)cg.random.getOneOf(new FurnitureSet[]{FurnitureSet.palm, FurnitureSet.spruce});
                 String floorStringID = (String)cg.random.getOneOf(new String[]{"woodfloor", "woodfloor", "sandstonefloor", "sandstonebrickfloor"});
                 Preset room = ((CaveRuins.CaveRuinGetter)cg.random.getOneOf(CaveRuins.caveRuinGetters)).get(cg.random, wallSet, furnitureSet, floorStringID, LootTablePresets.desertCaveRuinsChest, caveRuinsRotation);

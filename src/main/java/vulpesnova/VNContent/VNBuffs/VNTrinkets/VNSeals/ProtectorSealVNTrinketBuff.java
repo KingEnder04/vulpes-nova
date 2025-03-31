@@ -7,10 +7,8 @@ import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
-import necesse.entity.mobs.buffs.BuffAbility;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
-import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
@@ -20,8 +18,10 @@ import vulpesnova.VulpesNova;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class ProtectorSealVNTrinketBuff extends TrinketBuff implements BuffAbility {
+public class ProtectorSealVNTrinketBuff extends AOETrinketBuff {
+	public static int BUFF_RANGE = 10;
     public ProtectorSealVNTrinketBuff() {
+    	super(BUFF_RANGE, true);
     }
     
 	@Override
@@ -31,7 +31,7 @@ public class ProtectorSealVNTrinketBuff extends TrinketBuff implements BuffAbili
     }
     
 	@Override
-    public void runAbility(PlayerMob player, ActiveBuff buff, Packet content) {
+    public void runAbilityFor(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 45.0F;
         float cooldown = 90.0F;
         player.buffManager.addBuff(new ActiveBuff(VulpesNova.PROTECTOR_SEAL_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
@@ -55,10 +55,6 @@ public class ProtectorSealVNTrinketBuff extends TrinketBuff implements BuffAbili
 
     }
     
-	@Override
-    public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content) {
-        return !buff.owner.buffManager.hasBuff(VulpesNova.PROTECTOR_SEAL_VN_COOLDOWN);
-    }
     
 	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {

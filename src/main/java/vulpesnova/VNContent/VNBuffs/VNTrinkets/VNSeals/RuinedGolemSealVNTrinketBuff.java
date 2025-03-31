@@ -20,8 +20,10 @@ import vulpesnova.VulpesNova;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class RuinedGolemSealVNTrinketBuff extends TrinketBuff implements BuffAbility {
+public class RuinedGolemSealVNTrinketBuff extends AOETrinketBuff {
+	public static int BUFF_RANGE = 10;
     public RuinedGolemSealVNTrinketBuff() {
+    	super(BUFF_RANGE, true);
     }
     
 	@Override
@@ -32,7 +34,7 @@ public class RuinedGolemSealVNTrinketBuff extends TrinketBuff implements BuffAbi
     }
     
 	@Override
-    public void runAbility(PlayerMob player, ActiveBuff buff, Packet content) {
+    public void runAbilityFor(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 45.0F;
         float cooldown = 5.0F;
         player.buffManager.addBuff(new ActiveBuff(VulpesNova.RUINED_GOLEM_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
@@ -54,13 +56,8 @@ public class RuinedGolemSealVNTrinketBuff extends TrinketBuff implements BuffAbi
             }).lifeTime((int)(active * 1000.0F)).sizeFades(16, 24);
         }
 
-    }
-    
-	@Override
-    public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content) {
-        return !buff.owner.buffManager.hasBuff(VulpesNova.RUINED_GOLEM_VN_COOLDOWN);
-    }
-    
+    }    
+	
 	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = new ListGameTooltips();
@@ -68,4 +65,5 @@ public class RuinedGolemSealVNTrinketBuff extends TrinketBuff implements BuffAbi
         tooltips.add(Localization.translate("itemtooltip", "ruinedgolemsealvntip2"));
         return tooltips;
     }
+
 }

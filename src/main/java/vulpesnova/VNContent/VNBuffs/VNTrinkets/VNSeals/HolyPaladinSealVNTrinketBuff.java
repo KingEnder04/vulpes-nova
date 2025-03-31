@@ -20,8 +20,10 @@ import vulpesnova.VulpesNova;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class HolyPaladinSealVNTrinketBuff extends TrinketBuff implements BuffAbility {
+public class HolyPaladinSealVNTrinketBuff extends AOETrinketBuff {
+	public static int BUFF_RANGE = 10;
     public HolyPaladinSealVNTrinketBuff() {
+    	super(BUFF_RANGE, true);
     }
     
 	@Override
@@ -31,7 +33,7 @@ public class HolyPaladinSealVNTrinketBuff extends TrinketBuff implements BuffAbi
     }
     
 	@Override
-    public void runAbility(PlayerMob player, ActiveBuff buff, Packet content) {
+    public void runAbilityFor(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 45.0F;
         float cooldown = 90.0F;
         player.buffManager.addBuff(new ActiveBuff(VulpesNova.HOLY_PALADIN_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
@@ -54,12 +56,7 @@ public class HolyPaladinSealVNTrinketBuff extends TrinketBuff implements BuffAbi
         }
 
     }
-    
-	@Override
-    public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content) {
-        return !buff.owner.buffManager.hasBuff(VulpesNova.HOLY_PALADIN_VN_COOLDOWN);
-    }
-    
+        
 	@Override
     public ListGameTooltips getTrinketTooltip(TrinketItem trinketItem, InventoryItem item, PlayerMob perspective) {
         ListGameTooltips tooltips = new ListGameTooltips();
