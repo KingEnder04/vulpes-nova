@@ -63,6 +63,7 @@ import java.util.function.Supplier;
 
 public class TitanCubeMobVN extends HostileMob {
 
+	public static GameTexture shadowTexture;
     public static GameTexture texture;
     public static LootTable lootTable = new LootTable(
             ChanceLootItem.between(0.4f, "shapeshardsvn", 3, 6)
@@ -128,7 +129,8 @@ public class TitanCubeMobVN extends HostileMob {
         collision = new Rectangle(-48, 32, 64, 64);
         hitBox = new Rectangle(-48, 32, 64, 64);
         selectBox = new Rectangle(-48, 32, 64, 64);
-    }
+        
+    }   
 
     @Override
     public void init() {
@@ -254,7 +256,7 @@ public class TitanCubeMobVN extends HostileMob {
 		int shadowDrawX = camera.getDrawX(x) - shadowWidth / 2;
 		int shadowDrawY = camera.getDrawY(y) - 10 + (128 - shadowHeight);
 		
-		TextureDrawOptions shadowOptions = Textures.motherSlime.shadow.initDraw().sprite(0, 0, 256).light(light)
+		TextureDrawOptions shadowOptions = TitanCubeMobVN.shadowTexture.initDraw().sprite(0, 0, 80).light(light)
 				.size(shadowWidth, shadowHeight).pos(shadowDrawX, shadowDrawY);				
 		list.add(new MobDrawable() {
 			public void draw(TickManager tickManager) {

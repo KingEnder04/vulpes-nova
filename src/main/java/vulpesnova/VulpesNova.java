@@ -838,6 +838,7 @@ public class VulpesNova {
         NightmareCubeMobVN.texture = GameTexture.fromFile("mobs/nightmarecubemobvn");
         IceCubeMobVN.texture = GameTexture.fromFile("mobs/icecubemobvn");
         TitanCubeMobVN.texture = GameTexture.fromFile("mobs/titancubemobvn");
+        TitanCubeMobVN.shadowTexture = GameTexture.fromFile("mobs/titancubemobvn_shadow");
         PyramidMobVN.texture = GameTexture.fromFile("mobs/pyramidmobvn");
         SphereSorcererMobVN.texture = GameTexture.fromFile("mobs/spheresorcerermobvn");
         SphereSentinelMobVN.texture = GameTexture.fromFile("mobs/spheresentinelmobvn");
@@ -848,7 +849,7 @@ public class VulpesNova {
         GEARSPHEREhead = GameTexture.fromFile("mobs/gearspherebossmobheadvn");
         GEARSPHEREleg = GameTexture.fromFile("mobs/gearspherebossmobheadvn");
         GEARCubeMobVN.texture = GameTexture.fromFile("mobs/gearcubemobvn");
-
+      
 
         CubaltShieldVNToolItem.holdTexture = GameTexture.fromFile("player/holditems/cubaltshieldvn");
         
