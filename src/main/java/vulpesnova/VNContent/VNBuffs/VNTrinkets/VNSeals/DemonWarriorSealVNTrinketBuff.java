@@ -27,6 +27,7 @@ public class DemonWarriorSealVNTrinketBuff extends AOETrinketBuff {
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
+		this.setBuffs(VulpesNova.DEMON_WARRIOR_VN_ACTIVE,VulpesNova.DEMON_WARRIOR_VN_COOLDOWN);
         buff.setModifier(BuffModifiers.ARMOR_FLAT, 2);
         buff.setModifier(BuffModifiers.CRIT_CHANCE, 0.05F);
     }
@@ -35,9 +36,9 @@ public class DemonWarriorSealVNTrinketBuff extends AOETrinketBuff {
     public void runAbilityFor(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 10.0F;
         float cooldown = 45.0F;
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.DEMON_WARRIOR_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.DEMON_WARRIOR_VN_ACTIVE, player, active, (Attacker)null), false);
-        player.buffManager.forceUpdateBuffs();
+
+        this.applyBuffs(player, active, cooldown);
+        
         int minHeight = 0;
         int maxHeight = 40;
         int particles = 20;

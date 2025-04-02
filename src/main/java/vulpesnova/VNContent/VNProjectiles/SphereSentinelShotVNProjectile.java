@@ -1,24 +1,14 @@
 package vulpesnova.VNContent.VNProjectiles;
 
-import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.util.GameMath;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.projectile.Projectile;
 import necesse.entity.trails.Trail;
-import necesse.gfx.camera.GameCamera;
-import necesse.gfx.drawOptions.texture.TextureDrawOptions;
-import necesse.gfx.drawables.EntityDrawable;
-import necesse.gfx.drawables.LevelSortedDrawable;
-import necesse.gfx.drawables.OrderableDrawables;
 import necesse.level.maps.Level;
-import necesse.level.maps.light.GameLight;
-
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SphereSentinelShotVNProjectile extends SpherecererShotVNProjectile {
 	
@@ -30,6 +20,11 @@ public class SphereSentinelShotVNProjectile extends SpherecererShotVNProjectile 
 
     public SphereSentinelShotVNProjectile(Level level, float x, float y, float targetX, float targetY, float speed, int distance, GameDamage damage, int knockback, Mob owner) {
     	super(level, x, y, targetX, targetY, speed, distance, damage, knockback, owner);
+    }
+    
+    @Override
+    public Trail getTrail() {
+        return new Trail(this, this.getLevel(), new Color(160, 90, 236), 8.0F, 500, 18.0F);
     }
     
     @Override

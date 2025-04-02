@@ -4,7 +4,6 @@ import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
@@ -26,6 +25,7 @@ public class ProtectorSealVNTrinketBuff extends AOETrinketBuff {
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
+		this.setBuffs(VulpesNova.PROTECTOR_SEAL_VN_ACTIVE, VulpesNova.PROTECTOR_SEAL_VN_COOLDOWN);
         buff.setModifier(BuffModifiers.ARMOR_FLAT, 2);
         buff.setModifier(BuffModifiers.MAX_HEALTH_FLAT, 20);
     }
@@ -34,9 +34,9 @@ public class ProtectorSealVNTrinketBuff extends AOETrinketBuff {
     public void runAbilityFor(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 45.0F;
         float cooldown = 90.0F;
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.PROTECTOR_SEAL_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.PROTECTOR_SEAL_VN_ACTIVE, player, active, (Attacker)null), false);
-        player.buffManager.forceUpdateBuffs();
+
+        this.applyBuffs(player, active, cooldown);
+       
         int minHeight = 0;
         int maxHeight = 40;
         int particles = 20;
