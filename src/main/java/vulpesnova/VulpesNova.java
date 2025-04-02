@@ -192,7 +192,6 @@ public class VulpesNova {
 
     public static GameMusic HUBMUSICVN;
     public static GameMusic CUBELEVELMUSICVN;
-    public static GameMusic SALZBERRY_FTT;
     public static GameMusic CUBELEVELDEEPMUSICVN;
     
     public static int FLATLANDS_SURFACE_CHALLENGES_ID;
@@ -308,7 +307,6 @@ public class VulpesNova {
 
         CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(45, 154, 164), new Color(119, 74, 196), null);
         CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(45, 118, 164), new Color(24, 79, 141), null);
-        SALZBERRY_FTT = MusicRegistry.registerMusic("salzberry_ftt", "music/salzberry_ftt", new StaticMessage("Salzberry In F"), new Color(45, 118, 164), new Color(24, 79, 141), null);
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
 
         
@@ -317,6 +315,11 @@ public class VulpesNova {
         LootTablePresets.globalMobDrops.items.add(new ConditionLootItem("novashardvn", (r, o) -> {
 			Mob self = (Mob) LootTable.expectExtra(Mob.class, o, 0);
 			return self.isBoss();
+		}));
+        
+        LootTablePresets.globalMobDrops.items.add(new ConditionLootItem("novashardvn", (r, o) -> { 	
+			Mob self = (Mob) LootTable.expectExtra(Mob.class, o, 0);
+			return r.getChance(0.08) ? self.isBoss() : false;
 		}));
         // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent
       /* GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {

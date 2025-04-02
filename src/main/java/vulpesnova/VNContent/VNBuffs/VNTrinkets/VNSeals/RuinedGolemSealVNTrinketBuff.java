@@ -4,13 +4,10 @@ import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
-import necesse.entity.mobs.buffs.BuffAbility;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
-import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
@@ -28,6 +25,7 @@ public class RuinedGolemSealVNTrinketBuff extends AOETrinketBuff {
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
+		this.setBuffs(VulpesNova.RUINED_GOLEM_VN_ACTIVE, VulpesNova.RUINED_GOLEM_VN_COOLDOWN);
         buff.setModifier(BuffModifiers.ARMOR_FLAT, 4);
         buff.setModifier(BuffModifiers.SPEED, -0.1f);
         buff.setModifier(BuffModifiers.MAX_RESILIENCE_FLAT, 10);
@@ -37,9 +35,8 @@ public class RuinedGolemSealVNTrinketBuff extends AOETrinketBuff {
     public void runAbilityFor(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 45.0F;
         float cooldown = 5.0F;
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.RUINED_GOLEM_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.RUINED_GOLEM_VN_ACTIVE, player, active, (Attacker)null), false);
-        player.buffManager.forceUpdateBuffs();
+        this.applyBuffs(player, active, cooldown);
+        
         int minHeight = 0;
         int maxHeight = 40;
         int particles = 20;

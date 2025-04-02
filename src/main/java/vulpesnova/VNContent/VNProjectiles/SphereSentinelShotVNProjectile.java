@@ -33,6 +33,11 @@ public class SphereSentinelShotVNProjectile extends SpherecererShotVNProjectile 
     }
     
     @Override
+    public Trail getTrail() {
+        return new Trail(this, this.getLevel(), new Color(160, 90, 236), 8.0F, 500, 18.0F);
+    }
+    
+    @Override
     public void onMoveTick(Point2D.Float startPos, double movedDist) {
 		if (this.modifier != null) {
 			this.modifier.onMoveTick(startPos, movedDist);

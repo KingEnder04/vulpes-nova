@@ -50,7 +50,7 @@ public class SpherecererShotVNProjectile extends Projectile {
     
     @Override
     public Trail getTrail() {
-        return new Trail(this, this.getLevel(), new Color(160, 90, 236), 12.0F, 500, 18.0F);
+        return new Trail(this, this.getLevel(), new Color(160, 90, 236), 2.0F, 500, 18.0F);
     }
     
     @Override
@@ -62,7 +62,7 @@ public class SpherecererShotVNProjectile extends Projectile {
             
             final TextureDrawOptions options = this.texture.initDraw()
             		.light(light).rotate(this.getAngle(), this.texture.getWidth() / 2, this.texture.getHeight() / 2)
-            		.alpha(this.getFadeAlphaDistance(10, this.distance - (this.distance / 10)))
+            		.alpha(this.getFadeAlphaDistance(50, 50))
             		.pos(drawX, drawY - (int)this.getHeight());
             
             list.add(new EntityDrawable(this) {

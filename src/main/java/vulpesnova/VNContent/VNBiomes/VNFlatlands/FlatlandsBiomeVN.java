@@ -141,7 +141,7 @@ public class FlatlandsBiomeVN extends Biome {
             		: new MusicList(new GameMusic[]{MusicRegistry.DepthsOfTheForest});
         } else {
             return level.getWorldEntity().isNight() 
-            		? new MusicList(new GameMusic[]{MusicRegistry.getMusic("salzberry_ftt")}) 
+            		? new MusicList(new GameMusic[]{MusicRegistry.getMusic("cubicwoods")}) 
             		: new MusicList(new GameMusic[]{MusicRegistry.getMusic("cubicwoods")});
         }
     }

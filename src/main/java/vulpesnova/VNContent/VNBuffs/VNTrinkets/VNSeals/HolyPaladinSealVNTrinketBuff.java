@@ -28,6 +28,7 @@ public class HolyPaladinSealVNTrinketBuff extends AOETrinketBuff {
     
 	@Override
     public void init(ActiveBuff buff, BuffEventSubscriber eventSubscriber) {
+		this.setBuffs(VulpesNova.HOLY_PALADIN_VN_ACTIVE, VulpesNova.HOLY_PALADIN_VN_COOLDOWN);
         buff.setModifier(BuffModifiers.ARMOR_FLAT, 3);
         buff.setModifier(BuffModifiers.HEALTH_REGEN_FLAT, 1f);
     }
@@ -36,9 +37,9 @@ public class HolyPaladinSealVNTrinketBuff extends AOETrinketBuff {
     public void runAbilityFor(PlayerMob player, ActiveBuff buff, Packet content) {
         float active = 45.0F;
         float cooldown = 90.0F;
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.HOLY_PALADIN_VN_COOLDOWN, player, cooldown, (Attacker)null), false);
-        player.buffManager.addBuff(new ActiveBuff(VulpesNova.HOLY_PALADIN_VN_ACTIVE, player, active, (Attacker)null), false);
-        player.buffManager.forceUpdateBuffs();
+        
+        this.applyBuffs(player, active, cooldown);
+        
         int minHeight = 0;
         int maxHeight = 40;
         int particles = 20;
