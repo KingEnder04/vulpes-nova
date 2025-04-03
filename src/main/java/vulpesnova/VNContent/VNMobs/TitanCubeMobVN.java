@@ -7,7 +7,6 @@ import necesse.engine.network.PacketReader;
 import necesse.engine.network.PacketWriter;
 import necesse.engine.network.server.Server;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.registries.MobRegistry.Textures;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameMath;
@@ -21,8 +20,6 @@ import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MobDrawable;
 import necesse.entity.mobs.MobSpawnLocation;
 import necesse.entity.mobs.PlayerMob;
-import necesse.entity.mobs.ability.EmptyMobAbility;
-import necesse.entity.mobs.ability.IntMobAbility;
 import necesse.entity.mobs.ability.MobAbility;
 import necesse.entity.mobs.ai.behaviourTree.AINode;
 import necesse.entity.mobs.ai.behaviourTree.AINodeResult;
@@ -31,7 +28,6 @@ import necesse.entity.mobs.ai.behaviourTree.Blackboard;
 import necesse.entity.mobs.ai.behaviourTree.composites.SequenceAINode;
 import necesse.entity.mobs.ai.behaviourTree.decorators.IsolateRunningAINode;
 import necesse.entity.mobs.ai.behaviourTree.leaves.CollisionChaserAINode;
-import necesse.entity.mobs.ai.behaviourTree.leaves.EscapeAINode;
 import necesse.entity.mobs.ai.behaviourTree.leaves.TargetFinderAINode;
 import necesse.entity.mobs.ai.behaviourTree.leaves.WandererAINode;
 import necesse.entity.mobs.ai.behaviourTree.util.TargetFinderDistance;
@@ -81,10 +77,7 @@ public class TitanCubeMobVN extends HostileMob {
 	protected long squishStartTime;
 	protected int squishAnimationTime;
 	public CameraShake squishShake;
-	public IntMobAbility squishLaunchAbility;
 	public static GameDamage collisionDamage;
-	public EmptyMobAbility flickSoundAbility;
-	public EmptyMobAbility popSoundAbility;
 	public long nextJumpTime;
 	public long endTime;
 	
@@ -93,38 +86,10 @@ public class TitanCubeMobVN extends HostileMob {
         setSpeed(15);
         setFriction(1);
         collisionDamage = new GameDamage(60);
-        this.setKnockbackModifier(0.2F);
+        this.setKnockbackModifier(0.1F);
         this.jumpAbility = (TitanJumpMobAbility) this.registerAbility(new TitanJumpMobAbility());
-        
-        this.squishLaunchAbility = (IntMobAbility) this.registerAbility(new IntMobAbility() {
-			protected void run(int value) {
-				TitanCubeMobVN.this.squishStartTime = TitanCubeMobVN.this.getLocalTime();
-				TitanCubeMobVN.this.squishAnimationTime = value;
-				TitanCubeMobVN.this.squishShake = new CameraShake(TitanCubeMobVN.this.getLocalTime(),
-				TitanCubeMobVN.this.squishAnimationTime, 50, 2.0F, 2.0F, true);
-			}
-		});
-        
-        this.flickSoundAbility = (EmptyMobAbility) this.registerAbility(new EmptyMobAbility() {
-			protected void run() {
-				if (TitanCubeMobVN.this.isClient()) {
-					SoundManager.playSound(GameResources.slimesplash,
-							SoundEffect.effect(TitanCubeMobVN.this).pitch(1.0F));
-					SoundManager.playSound(GameResources.flick, SoundEffect.effect(TitanCubeMobVN.this).pitch(0.8F));
-				}
 
-			}
-		});
         
-		this.popSoundAbility = (EmptyMobAbility) this.registerAbility(new EmptyMobAbility() {
-			protected void run() {
-				if (TitanCubeMobVN.this.isClient()) {
-					SoundManager.playSound(GameResources.pop,
-							SoundEffect.effect(TitanCubeMobVN.this).volume(0.3F).pitch(0.5F).falloffDistance(1400));
-				}
-
-			}
-		});     
         this.moveAccuracy = 20;
         collision = new Rectangle(-48, 32, 64, 64);
         hitBox = new Rectangle(-48, 32, 64, 64);

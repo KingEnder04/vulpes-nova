@@ -21,7 +21,7 @@ public class DemonWarriorSealVNTrinketBuff extends AOETrinketBuff {
 	
 	public static int BUFF_RANGE = 10;
     public DemonWarriorSealVNTrinketBuff() {
-    	super(BUFF_RANGE, true);
+    	super(Color.RED, BUFF_RANGE, true);
     }
     
 	@Override

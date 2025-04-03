@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class HolyPaladinSealVNTrinketBuff extends AOETrinketBuff {
 	public static int BUFF_RANGE = 10;
     public HolyPaladinSealVNTrinketBuff() {
-    	super(BUFF_RANGE, true);
+    	super(Color.YELLOW,BUFF_RANGE, true);
     }
     
 	@Override

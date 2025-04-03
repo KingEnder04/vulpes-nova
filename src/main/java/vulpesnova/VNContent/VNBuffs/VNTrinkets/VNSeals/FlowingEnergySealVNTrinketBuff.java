@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class FlowingEnergySealVNTrinketBuff extends AOETrinketBuff {
 	public static int BUFF_RANGE = 10;
     public FlowingEnergySealVNTrinketBuff() {
-    	super(BUFF_RANGE, true);
+    	super(Color.MAGENTA, BUFF_RANGE, true);
     }
     
 	@Override

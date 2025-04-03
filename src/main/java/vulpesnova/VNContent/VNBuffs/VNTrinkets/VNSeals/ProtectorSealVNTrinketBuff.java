@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class ProtectorSealVNTrinketBuff extends AOETrinketBuff {
 	public static int BUFF_RANGE = 10;
     public ProtectorSealVNTrinketBuff() {
-    	super(BUFF_RANGE, true);
+    	super(Color.BLUE,BUFF_RANGE, true);
     }
     
 	@Override

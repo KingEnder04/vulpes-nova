@@ -3,8 +3,10 @@ flatlandsvn=Flat Lands
 minershavenvn=Miners Haven
 
 [journal]
-flatlandsjournalvn=The Flatlands
+flatlandssurfacevn=The Flatlands
 killtitancubes=Cull the Titan Cubes
+harvestblockberries=Harvest Block Berries
+killplanewalkercrowd=Kill 20 Planewalkers in 3 seconds
 
 [tile]
 cubedeepstonetiledfloorvn=Cube Deepstone Tiled Floor

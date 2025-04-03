@@ -104,6 +104,8 @@ import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNActiveB
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNCooldownBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNTrinketBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals.*;
+import vulpesnova.VNContent.VNJournal.HarvestBlockBerriesInFlatlandsChallenge;
+import vulpesnova.VNContent.VNJournal.KillPlanewalkerCrowdChallenge;
 import vulpesnova.VNContent.VNJournal.KillTitancubesInFlatlandsChallenge;
 import vulpesnova.VNContent.VNBuffs.WarAxeBleedingBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
@@ -199,6 +201,9 @@ public class VulpesNova {
 			new LootItemInterface[]{new LootItem("sentientcrownvn")});
 
     public static int KILL_TITANCUBES_ID;
+    public static int HARVEST_BLOCKBERRIES_ID;
+    public static int KILL_PLANEWALKERS_CROWD_ID;
+    
     public void preInit() {
 
     }
@@ -281,8 +286,8 @@ public class VulpesNova {
 
         register_objects();
         
-        FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, "flatlandsvn");
-        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, "minershavenvn");
+        FLATLANDS = registerBiome("flatlandsvn", new FlatlandsBiomeVN(), 100, true, "flatlandsvn");
+        MINERSHAVEN = registerBiome("minershavenvn", new MinersHavenBiomeVN(), 10, true, "minershavenvn");
         
         register_items();
 
@@ -320,36 +325,7 @@ public class VulpesNova {
         LootTablePresets.globalMobDrops.items.add(new ConditionLootItem("novashardvn", (r, o) -> { 	
 			Mob self = (Mob) LootTable.expectExtra(Mob.class, o, 0);
 			return r.getChance(0.08) ? self.isBoss() : false;
-		}));
-        // This section of code modifies the event that is triggered whenever a LootTable is accessed after a mob dies, hence the name, MobLootTableDropsEvent
-      /* GameEvents.addListener(MobLootTableDropsEvent.class, new GameEventListener<MobLootTableDropsEvent>() {
-            @Override
-            public void onEvent(MobLootTableDropsEvent event) {
-            	
-            	e
-            	int baseFactor = 1000;           	  
-                int n = rand.nextInt(baseFactor)+1;
-                
-                // Always drops Nova Fragment for hostile mobs
-                if (event.mob.isHostile) {
-                    event.drops.add(new InventoryItem("novafragmentvn"));
-                }
-
-                // Drops for both hostile and boss mobs
-                if (event.mob.isHostile || event.mob.isBoss()) {
-                    if (n <= 20) event.drops.add(new InventoryItem("novashardvn")); // 2% chance
-                    if (n <= 1) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.1% chance
-                }
-
-                // Additional drops for bosses
-                if (event.mob.isBoss()) {
-                    event.drops.add(new InventoryItem("novashardvn", 2)); // Always drops 2 Nova Shards for boss mobs
-                    if (n <= 80) event.drops.add(new InventoryItem("awakeninatorvn")); // 8% chance
-                    if (n <= 5) event.drops.add(new InventoryItem("sentientcrownvn")); // 0.5% chance
-                }
-
-            }
-        });*/
+		}));      
 
     }
 
@@ -803,9 +779,9 @@ public class VulpesNova {
 
     private void register_journal_entries() {
     	
-    	JournalEntry flatlandsSurface = JournalRegistry.registerJournalEntry("flatlandsjournalvn",
+    	JournalEntry flatlandsSurface = JournalRegistry.registerJournalEntry("flatlandssurfacevn",
 				new JournalEntry(FLATLANDS, JournalRegistry.LevelType.SURFACE));
-    	
+    
 		flatlandsSurface.addBiomeLootEntry(new String[]{"cubelogvn", "blockberryvn"});
 		
 		flatlandsSurface.addMobEntries(new String[]{"foxmobvn", "penguin", "snowhare", "bluebird", "bird", "cubemobvn", "pyramidmobvn",
@@ -814,10 +790,15 @@ public class VulpesNova {
 		flatlandsSurface.addTreasureEntry(
 				new LootTable[]{LootTablePresets.surfaceRuinsChest});
 		
-		
+		HARVEST_BLOCKBERRIES_ID = JournalChallengeRegistry.registerChallenge("harvestblockberries", new HarvestBlockBerriesInFlatlandsChallenge());
 		KILL_TITANCUBES_ID = JournalChallengeRegistry.registerChallenge("killtitancubes", new KillTitancubesInFlatlandsChallenge());
+		KILL_PLANEWALKERS_CROWD_ID = JournalChallengeRegistry.registerChallenge("killplanewalkercrowd", new KillPlanewalkerCrowdChallenge(20, 3000));
 		FLATLANDS_SURFACE_CHALLENGES_ID = JournalChallengeRegistry.registerChallenge("flatlandsvnsurface",
-				(new MultiJournalChallenge(new Integer[]{KILL_TITANCUBES_ID}))
+				(new MultiJournalChallenge(new Integer[]{
+						KILL_TITANCUBES_ID,
+						HARVEST_BLOCKBERRIES_ID,
+						KILL_PLANEWALKERS_CROWD_ID
+						}))
 						.setReward(FLATLANDS_SURFACE_REWARD));
 		flatlandsSurface.addEntryChallenges(new Integer[]{FLATLANDS_SURFACE_CHALLENGES_ID});
 	}
@@ -864,6 +845,8 @@ public class VulpesNova {
         GUNSHOT1 = GameSound.fromFile("soundeffects/gunshot1.ogg");
         //electronicactivatevn = GameSound.fromFile("sound/soundeffects/electronicactivatevn");
         
+        
+        SealBuffGlyphParticle.buffGlyph = GameTexture.fromFile("buffs/sealbuffglyph");
     }
 
     public void postInit() {
