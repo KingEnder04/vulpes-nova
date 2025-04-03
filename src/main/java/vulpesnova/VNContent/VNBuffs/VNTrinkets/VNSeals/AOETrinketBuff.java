@@ -2,7 +2,6 @@ package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 
 import java.util.ArrayList;
 import necesse.engine.network.Packet;
-import necesse.engine.registries.BuffRegistry;
 import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
@@ -12,6 +11,7 @@ import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff
 
 public abstract class AOETrinketBuff extends TrinketBuff implements BuffAbility {
 	
+	protected float manaPercentageConsumption = 0.3F;
 	protected int aoeRange = 2;
 	protected boolean teamOnly;
 	protected Buff appliedBuff;
@@ -31,8 +31,17 @@ public abstract class AOETrinketBuff extends TrinketBuff implements BuffAbility 
 	
 	@Override
     public boolean canRunAbility(PlayerMob player, ActiveBuff buff, Packet content) {		
+		
         return (cooldownBuff != null ? !player.buffManager.hasBuff(cooldownBuff.getID()) : true);
     }
+	
+	public boolean hasManaForAbility(PlayerMob player) {
+		return (player.getMaxMana() / player.getMana()) >= manaPercentageConsumption;
+	}
+	
+	public float manaCost(PlayerMob player) {
+		return player.getMaxMana() * manaPercentageConsumption;
+	}
     
 	public void applyBuffs(PlayerMob player, float activeDuration, float cooldownDuration) {
 		if(cooldownBuff != null) player.buffManager.addBuff(
@@ -49,10 +58,10 @@ public abstract class AOETrinketBuff extends TrinketBuff implements BuffAbility 
        
 		ArrayList<PlayerMob> playersInRange = player.getLevel()
 				.entityManager.players.getInRegionRangeByTile(player.getTileX(), player.getTileY(), aoeRange);
-		if(this.canRunAbility(player, buff, content)) { // only if we can use it for the original player
+		if(this.canRunAbility(player, buff, content) && hasManaForAbility(player)) { // only if we can use it for the original player and the player has mana
+			player.useMana(manaCost(player), player.getServerClient()); // Use the mana
 			for(PlayerMob p : playersInRange) {
-				if(this.canRunAbility(p, buff, content) 
-						&& (this.teamOnly ? p.isSameTeam(player) : true)) {
+				if(this.canRunAbility(p, buff, content)) {
 					runAbilityFor(p, buff, content);
 				}
 			}

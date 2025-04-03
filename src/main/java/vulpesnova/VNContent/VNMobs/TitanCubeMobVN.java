@@ -251,10 +251,10 @@ public class TitanCubeMobVN extends HostileMob {
 		
 		
 		float shadowSize = 1.0F - GameMath.limit(this.height / 700.0F, 0.0F, 0.8F);
-		int shadowWidth = (int) ((float) width * shadowSize);
-		int shadowHeight = (int) ((float) height * shadowSize);
+		int shadowWidth = (int) (80.0F * shadowSize);
+		int shadowHeight = (int) (80.0F * shadowSize);
 		int shadowDrawX = camera.getDrawX(x) - shadowWidth / 2;
-		int shadowDrawY = camera.getDrawY(y) - 10 + (128 - shadowHeight);
+		int shadowDrawY = camera.getDrawY(y) - 10 + (115 - shadowHeight);
 		
 		TextureDrawOptions shadowOptions = TitanCubeMobVN.shadowTexture.initDraw().sprite(0, 0, 80).light(light)
 				.size(shadowWidth, shadowHeight).pos(shadowDrawX, shadowDrawY);				

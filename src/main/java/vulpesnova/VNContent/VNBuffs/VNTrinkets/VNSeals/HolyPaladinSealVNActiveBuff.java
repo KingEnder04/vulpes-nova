@@ -5,7 +5,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 
-public class HolyPaladinSealVNActiveBuff extends SealBuffBaseVN {
+public class HolyPaladinSealVNActiveBuff extends Buff {
 	
     public HolyPaladinSealVNActiveBuff() {
         this.isVisible = true;
@@ -22,8 +22,4 @@ public class HolyPaladinSealVNActiveBuff extends SealBuffBaseVN {
 	    self.setModifier(BuffModifiers.MAX_HEALTH_FLAT, Math.round(100 * multi));
     }
 	
-	@Override
-	public void onUpdate(ActiveBuff ab) {
-		this.setBuffModifiers(ab, getActiveModifier(ab));
-	}
 }
