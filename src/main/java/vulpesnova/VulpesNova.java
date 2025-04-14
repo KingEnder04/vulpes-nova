@@ -884,7 +884,7 @@ public class VulpesNova {
                 .add(20, "deadmahmobvn");
 
         Biome.defaultSurfaceMobs
-                       .addLimited(3,"gustmobvn", 5, 1200);
+                       .addLimited(3,"gustmobvn", 5, 32*(128*128));
                         //.addLimited(1,"apocawindmobvn", 1, 32*32);
 
         ForestBiome.caveCritters
@@ -894,7 +894,7 @@ public class VulpesNova {
                 .add(90,"deepgemstonecavelingvn");
 
         Biome.defaultCaveMobs
-                .add(40,"gustmobvn");
+                .add(10,"gustmobvn");
 
         Biome.defaultSurfaceCritters
                 .add(30,"foxmobvn");

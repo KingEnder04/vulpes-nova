@@ -172,6 +172,7 @@ public class CrimsonTempestVN extends MagicProjectileToolItem implements ItemInt
 		item.getGndData().setBoolean("chargeUp", false);
 		
 		
+		
     	Point targetPoint;
 		
 		GameCamera c = ((necesse.engine.state.MainGame)GlobalData.getCurrentState()).getCamera();
