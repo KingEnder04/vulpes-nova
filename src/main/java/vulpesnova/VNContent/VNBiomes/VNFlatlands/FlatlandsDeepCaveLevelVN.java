@@ -24,6 +24,7 @@ import necesse.level.maps.presets.modularPresets.abandonedMinePreset.AbandonedMi
 import necesse.level.maps.presets.set.ChestRoomSet;
 import necesse.level.maps.presets.set.FurnitureSet;
 import necesse.level.maps.presets.set.WallSet;
+import vulpesnova.VNContent.GEARBossArenaPreset;
 
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -93,10 +94,10 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
         GameEvents.triggerEvent(new GenerateCaveStructuresEvent(this, cg, presets), (e) -> {
             int abandonedMineCount = cg.random.getIntBetween(2, 3);
 
-            for(int i = 0; i < 4; ++i) {
-                Preset arena = new AncientVultureArenaPreset(36, cg.random);
-                presets.findRandomValidPositionAndApply(cg.random, 5, arena, 10, true, true);
-            }
+          
+            Preset arena = new GEARBossArenaPreset();
+            presets.findRandomValidPositionAndApply(cg.random, 5, arena, 10, false, false);
+            
 
             for(int i = 0; i < abandonedMineCount; ++i) {
                 Rectangle abandonedMineRec = AbandonedMinePreset.generateAbandonedMineOnLevel(this, cg.random, presets.getOccupiedSpace());

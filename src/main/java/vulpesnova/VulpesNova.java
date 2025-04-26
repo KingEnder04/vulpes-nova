@@ -2,11 +2,6 @@ package vulpesnova;
 
 import java.util.Random;
 import java.awt.Color;
-import java.util.*;
-
-import necesse.engine.GameEventListener;
-import necesse.engine.GameEvents;
-import necesse.engine.events.loot.MobLootTableDropsEvent;
 import necesse.engine.journal.JournalEntry;
 import necesse.engine.journal.MultiJournalChallenge;
 import necesse.engine.localization.Localization;
@@ -15,7 +10,6 @@ import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.sound.GameMusic;
 import necesse.engine.sound.gameSound.GameSound;
 import necesse.engine.util.GameBlackboard;
-import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.BuffModifiers;
@@ -32,6 +26,7 @@ import necesse.inventory.item.armorItem.BootsArmorItem;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.armorItem.HelmetArmorItem;
 import necesse.inventory.item.matItem.MatItem;
+import necesse.inventory.item.miscItem.VinylItem;
 import necesse.inventory.item.placeableItem.ImportedAnimalSpawnItem;
 import necesse.inventory.item.placeableItem.StonePlaceableItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
@@ -57,6 +52,7 @@ import necesse.level.gameObject.furniture.StorageBoxInventoryObject;
 import necesse.level.gameTile.SimpleFloorTile;
 import necesse.level.maps.biomes.desert.DesertBiome;
 import necesse.level.maps.biomes.forest.ForestBiome;
+import necesse.level.maps.biomes.plains.PlainsBiome;
 import necesse.level.maps.biomes.snow.SnowBiome;
 import necesse.engine.modLoader.annotations.ModEntry;
 import necesse.engine.registries.*;
@@ -139,8 +135,7 @@ import static necesse.engine.registries.TileRegistry.registerTile;
 
 @ModEntry
 public class VulpesNova {
-	//this is a very simple change to make sure its working again version 3
-	private static final Random rand = new Random();	
+	//this is a very simple change to make sure its working again version 3	
     public static Tech TABLEOFAWAKENINGVN;
  
     public static GameSound COD_FLOPPIN ;
@@ -267,6 +262,11 @@ public class VulpesNova {
     //==========================================================
     
   
+    public static GameMusic registerMusic(String id, String path, String name, Color color1, Color color2) {
+    	GameMusic music_id = MusicRegistry.registerMusic(id, path,	new StaticMessage(name), color1, color2, null);
+    	ItemRegistry.registerItem(id + "vinyl", new VinylItem(music_id), 50.0F, true, false);
+    	return music_id;
+    }
     
     public void init() {
         System.out.println("Hello and Welcome to Vulpes Nova!");
@@ -294,13 +294,14 @@ public class VulpesNova {
         register_mobs();
         
         registerItem("portablegearcontactbeaconvn", new GEARSphereSpawnItemVN(), 10,true);
-        registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
+        
+       /* registerItem("importedcubevn", new ImportedAnimalSpawnItem(12, true, "cubemobvn"), 200.0F, true);
         registerItem("importedpyramidvn", new ImportedAnimalSpawnItem(12, true, "pyramidmobvn"), 200.0F, true);
         registerItem("importednightmarecubevn", new ImportedAnimalSpawnItem(12, true, "nightmarecubemobvn"), 200.0F, true);
         registerItem("importedfoxvn", new ImportedAnimalSpawnItem(1, true, "foxmobvn"), 200.0F, true);
         registerItem("importedluckychickenvn", new ImportedAnimalSpawnItem(1, true, "luckychickenmobvn"), 200.0F, true);
         registerItem("importedcavespidervn", new ImportedAnimalSpawnItem(12, false, "giantcavespider"), 200.0F, true);
-        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, false, "gustmobvn"), 200.0F, true);
+        registerItem("importedgustvn", new ImportedAnimalSpawnItem(12, false, "gustmobvn"), 200.0F, true);*/
 
         register_projectiles();
 
@@ -310,10 +311,13 @@ public class VulpesNova {
         
         register_journal_entries();
 
-        CUBELEVELMUSICVN = MusicRegistry.registerMusic("cubicwoods", "music/cubicwoods", new StaticMessage("Cubic Woods"), new Color(45, 154, 164), new Color(119, 74, 196), null);
-        CUBELEVELDEEPMUSICVN = MusicRegistry.registerMusic("gearsturning", "music/gearsturning", new StaticMessage("Gears Turning"), new Color(45, 118, 164), new Color(24, 79, 141), null);
+       
+        
+        CUBELEVELMUSICVN = registerMusic("cubicwoods", "music/cubicwoods", "Cubic Woods", new Color(45, 154, 164), new Color(119, 74, 196));
+        CUBELEVELDEEPMUSICVN = registerMusic("gearsturning", "music/gearsturning", "Gears Turning", new Color(45, 118, 164), new Color(24, 79, 141));
+   
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
-
+        
         
         LootTablePresets.globalMobDrops.items.add(new ChanceLootItem(0.02F,"novafragmentvn"));
         
@@ -879,49 +883,48 @@ public class VulpesNova {
         // Mobs no way
         // Spawn tables use a ticket/weight system. In general, common mobs have about 100 tickets.
 
+        Biome.defaultSurfaceCritters
+        .add(30,"foxmobvn");
+        
         Biome.defaultDeepCaveMobs
-                .add(40, "nightmaremobvn")
-                .add(20, "deadmahmobvn");
-
-        Biome.defaultSurfaceMobs
-                       .addLimited(3,"gustmobvn", 5, 32*(128*128));
-                        //.addLimited(1,"apocawindmobvn", 1, 32*32);
-
+                .add(10, "nightmaremobvn")
+                .add(5, "deadmahmobvn");
+  
+        JournalRegistry.getJournalEntry("forestsurface").addMobEntries("foxmobvn");
+        
+        
         ForestBiome.caveCritters
                 .add(90,"gemstonecavelingvn");
 
         ForestBiome.deepCaveCritters
                 .add(90,"deepgemstonecavelingvn");
 
-        Biome.defaultCaveMobs
-                .add(10,"gustmobvn");
-
-        Biome.defaultSurfaceCritters
-                .add(30,"foxmobvn");
 
         SnowBiome.caveMobs
-                .add(15,"snowynightmaremobvn")
-                .add(10, "gustmobvn")
-                .add(10,"icecubemobvn");
-                //.add(5,"allseeingcubemobvn");
-
-        DesertBiome.caveMobs
-                .add(10, "gustmobvn");
-        //.add(5,"allseeingcubemobvn");
+                .add(10,"snowynightmaremobvn")
+                .add(5,"icecubemobvn");
 
         SnowBiome.surfaceMobs
-                .add(10,"icecubemobvn");
-
+                .add(10,"icecubemobvn")
+        		.addLimited(3,"gustmobvn", 5, 32*(128*128));  
+        
         SnowBiome.surfaceCritters
-                .add(8,"luckychickenmobvn");
-
+                .add(8,"luckychickenmobvn");        
+    	
         SnowBiome.caveCritters
                 .add(5,"luckychickenmobvn");
-
+        
+        
+        JournalRegistry.getJournalEntry("snowsurface").addMobEntries("gustmobvn");
+        JournalRegistry.getJournalEntry("snowsurface").addMobEntries("luckychickenmobvn");
+        
         DesertBiome.surfaceMobs
-                .add(10, "pyramidmobvn");
-
+                .add(10, "pyramidmobvn")
+        		.addLimited(3,"gustmobvn", 5, 32*(128*128));   
        
+        
+        JournalRegistry.getJournalEntry("desertsurface").addMobEntries("gustmobvn");
+        JournalRegistry.getJournalEntry("desertsurface").addMobEntries("pyramidmobvn");
     }
 
 }

@@ -189,7 +189,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("queenspiderstaffvn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("spiderstaff", 1)
 				.ingredient("cavespidergland", 12)
 				.ingredient("wool", 10)
@@ -199,7 +199,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("novicetomevn")
-				.tech(RecipeTechRegistry.WORKSTATION)
+				.tech(RecipeTechRegistry.IRON_ANVIL)
 				.ingredient("anylog", 16)
 				.ingredient("anysapling", 6)
 				.ingredient("novafragmentvn", 24)
@@ -217,7 +217,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("experttomevn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("intermediatetomevn", 1)
 				.ingredient("ectoplasm", 12)
 				.ingredient("tungstenbar", 6)
@@ -227,7 +227,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("mastertomevn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("experttomevn", 1)
 				.ingredient("ectoplasm", 16)
 				.ingredient("amethyst", 8)
@@ -275,7 +275,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("celestialembervn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("tungstenbar", 15)
 				.ingredient("ectoplasm", 20)
 				.ingredient("novaclustervn", 2)
@@ -293,7 +293,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("holytomevn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("ectoplasm", 20)
 				.ingredient("goldbar", 3)
 				.ingredient("book", 1)
@@ -358,7 +358,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("lmgvn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("machinegun", 1)
 				.ingredient("tungstenbar", 16)
 				.ingredient("novashardvn", 12)
@@ -367,7 +367,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("doomedbowvn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("bone", 20)
 				.ingredient("ectoplasm", 15)
 				.ingredient("tungstenbar", 12)
@@ -377,7 +377,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("repeatingcrossbowvn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("tungstenbar", 14)
 				.ingredient("novashardvn", 10)
 				.showAfter("tungstenbow")
@@ -385,7 +385,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("ironsoulglaivevn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("ironbar", 12)
 				.ingredient("tungstenbar", 12)
 				.ingredient("ectoplasm", 8)
@@ -487,7 +487,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("heaviesthammervn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("heavierhammervn", 1)
 				.ingredient("tungstenbar", 24)
 				.ingredient("novashardvn", 32)
@@ -505,7 +505,7 @@ public class RecipeHelper {
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("eyeofthestormvn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
+				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("thunderingrodvn", 1)
 				.ingredient("tungstenbar", 12)
 				.ingredient("cloudsvn", 32)
