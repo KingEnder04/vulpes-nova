@@ -16,6 +16,8 @@ public class KillPlanewalkerCrowdChallenge extends MobsKilledJournalChallenge {
 
 	@Override
 	public void onMobKilled(ServerClient serverClient, Mob mob) {
+		if(this.isCompleted(serverClient)) return;
+		
 		Level level = mob.getLevel();
 		if (!level.isCave && VNJournalChallengeUtils.isFlatlandsBiome(level.biome)) {
 	
@@ -30,7 +32,7 @@ public class KillPlanewalkerCrowdChallenge extends MobsKilledJournalChallenge {
 				firstKillTime = currentTime;
 				resetKillCount(serverClient, firstKillTime);
 			}
-			serverClient.playerMob.spawnDamageText(this.getProgress(serverClient.playerStats()), 24, true);
+			//serverClient.playerMob.spawnDamageText(this.getProgress(serverClient.playerStats()), 24, true);
 			// Check if the time window has expired
 			if ((currentTime - firstKillTime) <= timeGiven) {			
 				super.onMobKilled(serverClient, mob); // Increments kill count

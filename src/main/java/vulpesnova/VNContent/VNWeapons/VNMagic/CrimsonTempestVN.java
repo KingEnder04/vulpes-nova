@@ -53,6 +53,7 @@ public class CrimsonTempestVN extends MagicProjectileToolItem implements ItemInt
         this.attackYOffset = 20;
         this.attackRange.setBaseValue(1200);
         this.manaCost.setBaseValue(1.3F).setUpgradedValue(1.0F, 2.5F);
+        this.setItemCategory("equipment", "weapons", "magicweapons");
         
     }
 

@@ -32,7 +32,8 @@ public class MagicForDummiesVN extends MagicProjectileToolItem {
         this.knockback.setBaseValue(50);
         this.itemAttackerProjectileCanHitWidth = 5.0F;
         this.manaCost.setBaseValue(2.0f).setUpgradedValue(1.0F, 3.2F);
-
+        this.setItemCategory("equipment", "weapons", "magicweapons");
+        
     }
     
     @Override

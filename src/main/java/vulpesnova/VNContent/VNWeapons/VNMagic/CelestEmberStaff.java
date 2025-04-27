@@ -32,6 +32,7 @@ public class CelestEmberStaff extends MagicProjectileToolItem {
         this.knockback.setBaseValue(50);
         this.manaCost.setBaseValue(1.0F).setUpgradedValue(1.0F, 1.5F);
         this.itemAttackerProjectileCanHitWidth = 5.0F;
+        this.setItemCategory("equipment", "weapons", "magicweapons");
     }
 
     @Override

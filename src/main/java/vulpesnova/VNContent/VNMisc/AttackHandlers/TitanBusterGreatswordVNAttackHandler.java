@@ -42,9 +42,9 @@ public class TitanBusterGreatswordVNAttackHandler extends GreatswordAttackHandle
 
     private void summonCubeMob(Point2D.Float dir) {
     	
-        if (this.attackerMob.getLevel().isServer()) {
+        if (this.attackerMob.getLevel().isServer() && attackerMob instanceof PlayerMob) {
         	
-            ServerClient client = attackerMob.getServer().getLocalServerClient();
+            ServerClient client = ((PlayerMob)attackerMob).getServerClient();
             BabyTitanCubeMobVN mob = new BabyTitanCubeMobVN();
             this.attackerMob.serverFollowersManager.addFollower("babytitancubemobvn", mob, FollowPosition.WALK_CLOSE, "summonedmob", 1.0F, 10, (BiConsumer<ItemAttackerMob, Mob>)null, false);
             Point2D.Float spawnPoint = this.findSpawnLocation(mob, this.attackerMob.getLevel(), client.playerMob);

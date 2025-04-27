@@ -33,6 +33,7 @@ public class EyeOfTheStormVN extends MagicProjectileToolItem {
         this.attackRange.setBaseValue(1200);
         this.manaCost.setBaseValue(1.0F).setUpgradedValue(1.0F, 55.0F);
         this.itemAttackerProjectileCanHitWidth = 10.0F;
+        this.setItemCategory("equipment", "weapons", "magicweapons");
 
     }
 

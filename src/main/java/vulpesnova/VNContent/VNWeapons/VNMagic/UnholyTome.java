@@ -1,33 +1,22 @@
 package vulpesnova.VNContent.VNWeapons.VNMagic;
 
 import necesse.engine.localization.Localization;
-import necesse.engine.localization.message.GameMessage;
-import necesse.engine.network.PacketReader;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketSpawnProjectile;
-import necesse.engine.registries.DamageTypeRegistry;
-import necesse.engine.registries.ProjectileRegistry;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
 import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.AttackAnimMob;
-import necesse.entity.mobs.GameDamage;
-import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
-import necesse.entity.mobs.friendly.human.HumanMob;
 import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.projectile.Projectile;
 import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
-import necesse.inventory.PlayerInventorySlot;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.UnholyTomeProjectile;
-
-import java.awt.geom.Point2D;
 
 public class UnholyTome extends MagicProjectileToolItem {
     public UnholyTome() {
@@ -43,6 +32,7 @@ public class UnholyTome extends MagicProjectileToolItem {
         this.attackRange.setBaseValue(350);
         this.manaCost.setBaseValue(0.7f).setUpgradedValue(1.0F, 1.0F);
         this.itemAttackerProjectileCanHitWidth = 10.0F;
+        this.setItemCategory("equipment", "weapons", "magicweapons");
     }
     
     @Override
