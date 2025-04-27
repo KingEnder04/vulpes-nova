@@ -31,7 +31,8 @@ public class MasterTome extends MagicProjectileToolItem {
         this.knockback.setBaseValue(50);
         this.manaCost.setBaseValue(1.0f).setUpgradedValue(1.0F, 2.0F);
         this.itemAttackerProjectileCanHitWidth = 5.0F;
-
+        this.setItemCategory("equipment", "weapons", "magicweapons");
+        
     }
     @Override
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {

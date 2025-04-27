@@ -32,6 +32,7 @@ public class VerdantStaff extends MagicProjectileToolItem {
         this.manaCost.setBaseValue(1.00f).setUpgradedValue(1.0F, 1.3F);
         this.resilienceGain.setBaseValue(2.00f);
         this.itemAttackerProjectileCanHitWidth = 10.0F;
+        this.setItemCategory("equipment", "weapons", "magicweapons");
     }
 
     @Override

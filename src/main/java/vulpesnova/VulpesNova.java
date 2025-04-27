@@ -1,6 +1,5 @@
 package vulpesnova;
 
-import java.util.Random;
 import java.awt.Color;
 import necesse.engine.journal.JournalEntry;
 import necesse.engine.journal.MultiJournalChallenge;
@@ -27,7 +26,6 @@ import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.armorItem.HelmetArmorItem;
 import necesse.inventory.item.matItem.MatItem;
 import necesse.inventory.item.miscItem.VinylItem;
-import necesse.inventory.item.placeableItem.ImportedAnimalSpawnItem;
 import necesse.inventory.item.placeableItem.StonePlaceableItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
 import necesse.inventory.item.placeableItem.followerSummonItem.petFollowerPlaceableItem.PetFollowerPlaceableItem;
@@ -52,7 +50,6 @@ import necesse.level.gameObject.furniture.StorageBoxInventoryObject;
 import necesse.level.gameTile.SimpleFloorTile;
 import necesse.level.maps.biomes.desert.DesertBiome;
 import necesse.level.maps.biomes.forest.ForestBiome;
-import necesse.level.maps.biomes.plains.PlainsBiome;
 import necesse.level.maps.biomes.snow.SnowBiome;
 import necesse.engine.modLoader.annotations.ModEntry;
 import necesse.engine.registries.*;
@@ -914,7 +911,7 @@ public class VulpesNova {
         SnowBiome.caveCritters
                 .add(5,"luckychickenmobvn");
         
-        
+        JournalRegistry.getJournalEntry("snowsurface").addMobEntries("foxmobvn");
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("gustmobvn");
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("icecubemobvn");
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("luckychickenmobvn");
@@ -923,7 +920,7 @@ public class VulpesNova {
                 .add(10, "pyramidmobvn")
         		.addLimited(3,"gustmobvn", 5, 32*(128*128));   
        
-        
+        JournalRegistry.getJournalEntry("desertsurface").addMobEntries("foxmobvn");
         JournalRegistry.getJournalEntry("desertsurface").addMobEntries("gustmobvn");
         JournalRegistry.getJournalEntry("desertsurface").addMobEntries("pyramidmobvn");
     }
