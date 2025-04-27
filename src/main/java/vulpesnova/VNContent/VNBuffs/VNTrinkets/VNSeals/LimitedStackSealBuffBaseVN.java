@@ -13,13 +13,13 @@ import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.localization.message.GameMessageBuilder;
 
 
-public abstract class SealBuffBaseVN extends Buff{
+public abstract class LimitedStackSealBuffBaseVN extends Buff{
 	
 	public static float LOSS_PER_ACTIVE_SEAL = 0.2F;
 	protected static Set<ActiveBuff> activeSeals = ConcurrentHashMap.newKeySet();
 
 	protected float getActiveModifier(ActiveBuff var1) {
-		return Math.max(0, 1 - (SealBuffBaseVN.getActiveSealCount(var1.owner) *LOSS_PER_ACTIVE_SEAL));
+		return Math.max(0, 1 - (LimitedStackSealBuffBaseVN.getActiveSealCount(var1.owner) *LOSS_PER_ACTIVE_SEAL));
 	}
 	
 	public static int getActiveSealCount(Mob holder) {
@@ -82,7 +82,7 @@ public abstract class SealBuffBaseVN extends Buff{
 		if (xnt > 1) {
 			GameMessageBuilder b = new GameMessageBuilder();
 			b.append(new LocalMessage("buff", "diminished"));
-			b.append(new StaticMessage(String.format(" %d%%", (int)Math.ceil(this.getActiveModifier(ab)*100))));
+			b.append(new StaticMessage(String.format(" %d%%", (int)Math.floor(1.0F - this.getActiveModifier(ab)*100))));
 			tt.add(b);
 		}
 		return tt;

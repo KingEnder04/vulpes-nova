@@ -46,18 +46,17 @@ public class FlatlandsBiomeVN extends Biome {
 	}
 
 	public Color getWindColor(Level level) {
-		return level.getIslandDimension() == -1 ? new Color(177, 182, 255) : super.getWindColor(level);
+		return level.getIslandDimension() == -1 ? new Color(177, 24, 255) : super.getWindColor(level);
 	}
 	
 	@Override
     protected void loadRainTexture() {
-        this.rainTexture = GameTexture.fromFile("rainfall");
+        this.rainTexture = GameTexture.fromFile("particles/mystery_drop");
     }
     
 	@Override
-    public Color getRainColor(Level level) {
-		
-        return new Color(177, 182, 255, 200);
+    public Color getRainColor(Level level) {		
+        return new Color(177, 24, 255, 200);
     }
     
 	@Override

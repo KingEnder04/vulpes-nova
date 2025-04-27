@@ -4,13 +4,10 @@ import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
-import necesse.entity.mobs.buffs.BuffAbility;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
-import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
@@ -23,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class HolyPaladinSealVNTrinketBuff extends AOETrinketBuff {
 	public static int BUFF_RANGE = 10;
     public HolyPaladinSealVNTrinketBuff() {
-    	super(BUFF_RANGE, true);
+    	super(Color.YELLOW,BUFF_RANGE, true);
     }
     
 	@Override

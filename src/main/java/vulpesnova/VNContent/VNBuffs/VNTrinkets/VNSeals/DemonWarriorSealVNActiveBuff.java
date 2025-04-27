@@ -5,7 +5,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 
-public class DemonWarriorSealVNActiveBuff extends SealBuffBaseVN {
+public class DemonWarriorSealVNActiveBuff extends Buff {
 	
     public DemonWarriorSealVNActiveBuff() {
         this.isVisible = true;
@@ -23,8 +23,4 @@ public class DemonWarriorSealVNActiveBuff extends SealBuffBaseVN {
         buff.setModifier(BuffModifiers.ALL_DAMAGE, 0.3F);
     }
 
-	@Override
-	public void onUpdate(ActiveBuff ab) {
-		this.setBuffModifiers(ab, getActiveModifier(ab));
-	}
 }

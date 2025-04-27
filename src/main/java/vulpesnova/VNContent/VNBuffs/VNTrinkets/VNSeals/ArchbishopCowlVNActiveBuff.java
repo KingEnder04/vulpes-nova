@@ -5,7 +5,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
 
-public class ArchbishopCowlVNActiveBuff extends SealBuffBaseVN {
+public class ArchbishopCowlVNActiveBuff extends Buff {
     public ArchbishopCowlVNActiveBuff() {
         this.isVisible = true;
         this.isImportant = true;
@@ -24,8 +24,4 @@ public class ArchbishopCowlVNActiveBuff extends SealBuffBaseVN {
 		setBuffModifiers(buff, 1);
     }
 
-	@Override
-	public void onUpdate(ActiveBuff ab) {
-		this.setBuffModifiers(ab, getActiveModifier(ab));		
-	}
 }

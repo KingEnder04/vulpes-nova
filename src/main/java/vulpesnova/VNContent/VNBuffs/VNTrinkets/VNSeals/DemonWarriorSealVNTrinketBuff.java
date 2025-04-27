@@ -4,7 +4,6 @@ import necesse.engine.localization.Localization;
 import necesse.engine.network.Packet;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
@@ -22,7 +21,7 @@ public class DemonWarriorSealVNTrinketBuff extends AOETrinketBuff {
 	
 	public static int BUFF_RANGE = 10;
     public DemonWarriorSealVNTrinketBuff() {
-    	super(BUFF_RANGE, true);
+    	super(Color.RED, BUFF_RANGE, true);
     }
     
 	@Override

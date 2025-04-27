@@ -17,7 +17,7 @@ public class DeepGemStoneCavelingVN extends CavelingMob {
         super.init();
         this.texture = Textures.deepStoneCaveling;
         this.popParticleColor = new Color(139, 58, 222);
-        this.singleRockSmallStringID = "deepcaverocksmall";
+        this.singleRockSmallStringID = "cubegroundrocksmallvn";
         if (this.item == null) {
             this.item = new InventoryItem("dustygemsackvn", GameRandom.globalRandom.getIntBetween(1, 1));
         }

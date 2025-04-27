@@ -1,9 +1,6 @@
 package vulpesnova.VNContent.VNBuffs.VNTrinkets;
 
-import necesse.engine.localization.Localization;
-import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.server.ServerClient;
-import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.*;
@@ -12,16 +9,9 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.MinersProstheticTrinketBuff;
 import necesse.entity.mobs.buffs.staticBuffs.armorBuffs.trinketBuffs.TrinketBuff;
-import necesse.entity.mobs.itemAttacker.ItemAttackSlot;
-import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
-import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
-import necesse.gfx.gameTooltips.ListGameTooltips;
-import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.ToolDamageItem;
-import necesse.inventory.item.trinketItem.TrinketItem;
 import necesse.level.gameObject.GameObject;
 import necesse.level.maps.CollisionFilter;
-import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
 
 import java.awt.*;

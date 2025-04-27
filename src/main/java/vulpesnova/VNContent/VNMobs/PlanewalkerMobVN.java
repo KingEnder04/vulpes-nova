@@ -44,7 +44,7 @@ public class PlanewalkerMobVN extends FlyingHostileMob {
         super(170);
         this.setSpeed(40.0F);
         this.setFriction(0.5F);
-        this.setKnockbackModifier(0.2F);
+        this.setKnockbackModifier(0.05F);
 
         this.moveAccuracy = 10;
         this.collision = new Rectangle(-12, -12, 24, 24);

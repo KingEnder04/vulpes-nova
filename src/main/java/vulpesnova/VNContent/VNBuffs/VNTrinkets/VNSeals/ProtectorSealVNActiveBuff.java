@@ -3,8 +3,9 @@ package vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
+import necesse.entity.mobs.buffs.staticBuffs.Buff;
 
-public class ProtectorSealVNActiveBuff extends SealBuffBaseVN {
+public class ProtectorSealVNActiveBuff extends Buff {
 	
     public ProtectorSealVNActiveBuff() {
         this.isVisible = true;
@@ -22,8 +23,4 @@ public class ProtectorSealVNActiveBuff extends SealBuffBaseVN {
 		self.setModifier(BuffModifiers.CRIT_DAMAGE, 0.10F * multi);
     }
 	
-	@Override
-	public void onUpdate(ActiveBuff ab) {
-		this.setBuffModifiers(ab, getActiveModifier(ab));
-	}
 }

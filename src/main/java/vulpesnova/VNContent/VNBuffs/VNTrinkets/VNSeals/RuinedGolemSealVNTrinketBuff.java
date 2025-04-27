@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class RuinedGolemSealVNTrinketBuff extends AOETrinketBuff {
 	public static int BUFF_RANGE = 10;
     public RuinedGolemSealVNTrinketBuff() {
-    	super(BUFF_RANGE, true);
+    	super(new Color(190,0,190), BUFF_RANGE, true);
     }
     
 	@Override
