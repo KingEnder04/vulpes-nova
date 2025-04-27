@@ -916,6 +916,7 @@ public class VulpesNova {
         
         
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("gustmobvn");
+        JournalRegistry.getJournalEntry("snowsurface").addMobEntries("icecubemobvn");
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("luckychickenmobvn");
         
         DesertBiome.surfaceMobs
