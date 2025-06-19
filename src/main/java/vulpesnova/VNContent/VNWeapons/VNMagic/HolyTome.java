@@ -32,6 +32,7 @@ public class HolyTome extends MagicProjectileToolItem {
         this.attackRange.setBaseValue(800);
         this.manaCost.setBaseValue(1.2F).setUpgradedValue(1.0F, 55.0F);
         this.itemAttackerProjectileCanHitWidth = 12.0F;
+        this.setItemCategory("equipment", "weapons", "magicweapons");
     }
     
     @Override
