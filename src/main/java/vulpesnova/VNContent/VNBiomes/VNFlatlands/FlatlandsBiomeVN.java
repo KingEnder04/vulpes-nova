@@ -8,6 +8,7 @@ import necesse.engine.registries.MobRegistry;
 import necesse.engine.registries.MusicRegistry;
 import necesse.engine.sound.GameMusic;
 import necesse.engine.sound.gameSound.GameSound;
+import necesse.engine.util.LevelIdentifier;
 import necesse.engine.world.WorldEntity;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
@@ -25,7 +26,7 @@ import necesse.level.maps.biomes.MobSpawnTable;
 import java.awt.Color;
 
 public class FlatlandsBiomeVN extends Biome {
-	
+
     public static FishingLootTable cubeSurfaceFish;
     public static MobSpawnTable surfaceMobs;
     public static MobSpawnTable caveMobs;
@@ -37,10 +38,10 @@ public class FlatlandsBiomeVN extends Biome {
     public static LootItemInterface randomIceCrownDrop;
 
     public FlatlandsBiomeVN() {
-    	
+
     }
-    
-    
+
+
     public float getWindModifier(Level level, int tileX, int tileY) {
 		return level.isCave ? 0.1F : super.getWindModifier(level, tileX, tileY);
 	}
@@ -48,112 +49,98 @@ public class FlatlandsBiomeVN extends Biome {
 	public Color getWindColor(Level level) {
 		return level.getIslandDimension() == -1 ? new Color(177, 24, 255) : super.getWindColor(level);
 	}
-	
-	@Override
+
     protected void loadRainTexture() {
-        this.rainTexture = GameTexture.fromFile("particles/mystery_drop");
+        this.rainTexture = rainTextures.addTexture(GameTexture.fromFile("particles/mystery_drop"));
     }
-    
-	@Override
-    public Color getRainColor(Level level) {		
+    public Color getRainColor(Level level, int tileX, int tileY) {
         return new Color(177, 24, 255, 200);
     }
-    
-	@Override
+
+    @Override
     public void tickRainEffect(GameCamera camera, Level level, int tileX, int tileY, float rainAlpha) {
     }
-    
+
 	@Override
     public GameSound getRainSound(Level level) {
         return null;
     }
-    
+
 	@Override
     public Level getNewSurfaceLevel(int islandX, int islandY, float islandSize, Server server, WorldEntity worldEntity) {
         return new FlatlandsSurfaceLevelVN(islandX, islandY, islandSize, worldEntity);
     }
-    
+
 	@Override
     public Level getNewCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
         return new FlatlandsCaveLevelVN(islandX, islandY, dimension, worldEntity);
     }
-    
+
 	@Override
     public Level getNewDeepCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
         return new FlatlandsDeepCaveLevelVN(islandX, islandY, dimension, worldEntity);
     }
-    
+
 	@Override
     public FishingLootTable getFishingLootTable(FishingSpot spot) {
         return !spot.tile.level.isCave ? cubeSurfaceFish : super.getFishingLootTable(spot);
     }
-    
+
 	@Override
-    public MobSpawnTable getMobSpawnTable(Level level) {	
-		
-        if (!level.isCave) {        	
+    public MobSpawnTable getMobSpawnTable(Level level) {
+
+        if (!level.isCave) {
             return surfaceMobs;
-            
-        } else {        	
-        	
+
+        } else {
+
             return level.getIslandDimension() == -2 ? deepSnowCaveMobs : caveMobs;
         }
- 
+
     }
-    
+
 	@Override
     public MobSpawnTable getCritterSpawnTable(Level level) {
-		
+
         if (level.isCave) {
             return level.getIslandDimension() == -2 ? deepCaveCritters : caveCritters;
         } else {
             return surfaceCritters;
         }
-        
+
     }
-    
+
 	@Override
     public LootTable getExtraMobDrops(Mob mob) {
-		
+
 		LootTable result = new LootTable();
-		
-        if (mob.isHostile && !mob.isBoss() && !mob.isSummoned) {   	        	   
-        	result.items.add(new ChanceLootItem(.005F, "portablegearcontactbeaconvn"));        
+
+        if (mob.isHostile && !mob.isBoss() && !mob.isSummoned) {
+        	result.items.add(new ChanceLootItem(.005F, "portablegearcontactbeaconvn"));
         }
-        
-        if(mob.isBoss()) {        	
-        	result.items.add(new ChanceLootItem(.1F, "awakeninatorvn"));  	
+
+        if(mob.isBoss()) {
+        	result.items.add(new ChanceLootItem(.1F, "awakeninatorvn"));
         }
-        
+
         if(mob.getID() == MobRegistry.getMobID("titancubemobvn")) {
-        	result.items.add(new ChanceLootItem(.3F, "novashardvn"));        
+        	result.items.add(new ChanceLootItem(.3F, "novashardvn"));
         }
-        
+
         return result;
     }
-    
+
 	@Override
     public AbstractMusicList getLevelMusic(Level level, PlayerMob perspective) {
         if (level.isCave) {
-            return level.getIslandDimension() == -2 
-            		? new MusicList(new GameMusic[]{MusicRegistry.SecretsOfTheForest}) 
+            return level.getIslandDimension() == -2
+            		? new MusicList(new GameMusic[]{MusicRegistry.SecretsOfTheForest})
             		: new MusicList(new GameMusic[]{MusicRegistry.DepthsOfTheForest});
         } else {
-            return level.getWorldEntity().isNight() 
-            		? new MusicList(new GameMusic[]{MusicRegistry.getMusic("cubicwoods")}) 
+            return level.getWorldEntity().isNight()
+            		? new MusicList(new GameMusic[]{MusicRegistry.getMusic("cubicwoods")})
             		: new MusicList(new GameMusic[]{MusicRegistry.getMusic("cubicwoods")});
         }
-    }
-    
-	@Override
-    public LootTable getExtraBiomeMobDrops(JournalRegistry.LevelType levelType) {
-		
-        LootTable lootTable = new LootTable();
-        
-        lootTable.items.add(new ChanceLootItem(1.0F, "novafragmentvn"));
-        lootTable.items.add(new ChanceLootItem(.08F, "novashardvn"));
-         
-        return lootTable;
     }
 
     static {

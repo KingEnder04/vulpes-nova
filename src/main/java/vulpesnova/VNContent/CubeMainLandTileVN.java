@@ -11,7 +11,7 @@ import necesse.level.gameObject.GameObject;
 import necesse.level.gameTile.GrassTile;
 import necesse.level.gameTile.TerrainSplatterTile;
 import necesse.level.maps.Level;
-import necesse.level.maps.layers.SimulatePriorityList;
+import necesse.level.maps.regionSystem.SimulatePriorityList;
 
 public class CubeMainLandTileVN extends TerrainSplatterTile {
     public static double growChance = GameMath.getAverageSuccessRuns(7000.0);

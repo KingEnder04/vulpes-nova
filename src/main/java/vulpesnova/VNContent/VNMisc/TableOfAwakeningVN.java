@@ -9,11 +9,12 @@ import necesse.gfx.drawOptions.DrawOptionsList;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
+import necesse.inventory.item.Item;
 import necesse.inventory.item.ItemCategory;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.recipe.Tech;
-import necesse.level.gameObject.CraftingStationObject;
 import necesse.level.gameObject.ObjectPlaceOption;
+import necesse.level.gameObject.container.CraftingStationObject;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import necesse.level.maps.multiTile.MultiTile;
@@ -31,9 +32,11 @@ public class TableOfAwakeningVN extends CraftingStationObject {
     private TableOfAwakeningVN() {
         super(new Rectangle(32, 32));
         this.mapColor = new Color(70, 175, 72);
+        this.rarity = Item.Rarity.LEGENDARY;
         this.drawDamage = false;
         this.toolType = ToolType.ALL;
         this.isLightTransparent = true;
+        this.hoverHitbox = new Rectangle(0, -10, 32, 42);
     }
 
     @Override
@@ -53,7 +56,6 @@ public class TableOfAwakeningVN extends CraftingStationObject {
         return super.getPlaceOptions(level, levelX, levelY, playerMob, Math.floorMod(playerDir - 1, 4), offsetMultiTile);
     }
 
-    @Override
     public void loadTextures() {
         super.loadTextures();
         this.texture = GameTexture.fromFile("objects/tableofawakeningvn");

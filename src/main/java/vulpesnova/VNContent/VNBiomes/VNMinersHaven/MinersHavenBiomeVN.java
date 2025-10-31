@@ -2,6 +2,7 @@ package vulpesnova.VNContent.VNBiomes.VNMinersHaven;
 
 import necesse.engine.network.server.Server;
 import necesse.engine.registries.JournalRegistry;
+import necesse.engine.util.LevelIdentifier;
 import necesse.engine.world.WorldEntity;
 import necesse.entity.mobs.Mob;
 import necesse.inventory.lootTable.LootItemInterface;
@@ -67,19 +68,15 @@ public class MinersHavenBiomeVN extends Biome {
 
         return super.getExtraMobDrops(mob);
     }
-    
-	@Override
-    public LootTable getExtraBiomeMobDrops(JournalRegistry.LevelType levelType) {
-        LootTable lootTable = new LootTable();
-        switch (levelType) {
-            case CAVE:
-                lootTable = new LootTable(new LootItemInterface[]{randomPortalDrop});
-                break;
-            case DEEP_CAVE:
-                lootTable = new LootTable(new LootItemInterface[]{randomShadowGateDrop});
-        }
 
-        return lootTable;
+    public LootTable getExtraBiomeMobDrops(LevelIdentifier levelIdentifier) {
+        if (levelIdentifier == null) {
+            return new LootTable();
+        } else if (levelIdentifier.equals(LevelIdentifier.CAVE_IDENTIFIER)) {
+            return new LootTable(new LootItemInterface[]{randomPortalDrop});
+        } else {
+            return levelIdentifier.equals(LevelIdentifier.DEEP_CAVE_IDENTIFIER) ? new LootTable(new LootItemInterface[]{randomShadowGateDrop}) : new LootTable();
+        }
     }
 
     static {
