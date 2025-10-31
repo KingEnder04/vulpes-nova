@@ -39,6 +39,6 @@ public class CaveDemolisherVNProjectile extends BombProjectile {
 	@Override
     public ExplosionEvent getExplosionEvent(float x, float y) {
         int toolTier = (int) Math.max(2, this.getOwnerToolTier() + 1);
-        return new BombExplosionEvent(x, y, 400, new GameDamage(400.0F, 1000.0F), true, toolTier, this.getOwner());
+        return new BombExplosionEvent(x, y, 400, new GameDamage(400.0F, 1000.0F), true, false, toolTier, this.getOwner());
     }
 }

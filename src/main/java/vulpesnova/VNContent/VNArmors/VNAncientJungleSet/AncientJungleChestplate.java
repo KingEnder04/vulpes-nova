@@ -11,12 +11,13 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class AncientJungleChestplate extends ChestArmorItem {
     public FloatUpgradeValue all_damage = (new FloatUpgradeValue()).setBaseValue(0.04F).setUpgradedValue(1.0F, 0.05F);
 
     public AncientJungleChestplate() {
-        super(22, 1000, Rarity.LEGENDARY, "ancientjunglechestplatevn", "ancientjunglearmsvn");
+        super(22, 1000, Rarity.LEGENDARY, "ancientjunglechestplatevn", "ancientjunglearmsvn", BodyArmorLootTable.bodyArmor);
     }
     
 	@Override

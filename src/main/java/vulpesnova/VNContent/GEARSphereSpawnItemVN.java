@@ -7,7 +7,9 @@ import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketChatMessage;
 import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameBlackboard;
+import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
+import necesse.engine.util.LevelIdentifier;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
@@ -15,7 +17,10 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.placeableItem.consumableItem.ConsumableItem;
 import necesse.level.maps.IncursionLevel;
 import necesse.level.maps.Level;
+import necesse.level.maps.biomes.snow.SnowBiome;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
+
+import java.awt.geom.Line2D;
 
 
 public class GEARSphereSpawnItemVN extends ConsumableItem {
@@ -30,15 +35,27 @@ public class GEARSphereSpawnItemVN extends ConsumableItem {
         this.incinerationTimeMillis = 30000;
     }
 
-    @Override
-    public String canPlace(Level level, int x, int y, PlayerMob player, InventoryItem item, GNDItemMap mapContent) {
+
+    public String canPlace(Level level, int x, int y, PlayerMob player, Line2D playerPositionLine, InventoryItem item, GNDItemMap mapContent) {
         if (level instanceof IncursionLevel) {
             return "inincursion";
+        } else if (!level.isCave) {
+            return "notcave";
         } else {
-            return !(level.biome instanceof FlatlandsBiomeVN) ? "notflatlands" : null;
+            int tileX;
+            int tileY;
+            if (player == null) {
+                tileX = GameMath.getTileCoordinate(x);
+                tileY = GameMath.getTileCoordinate(y);
+            } else {
+                tileX = player.getTileX();
+                tileY = player.getTileY();
+            }
+
+            return level.getIdentifier().equals(LevelIdentifier.CAVE_IDENTIFIER) && level.getBiome(tileX, tileY) instanceof FlatlandsBiomeVN ? null : "notflatlands";
         }
     }
-    
+
 	@Override
     public InventoryItem onAttemptPlace(Level level, int x, int y, PlayerMob player, InventoryItem item, GNDItemMap map, String error) {
         if (level.isServer() && player != null && player.isServerClient() && error.equals("inincursion")) {
@@ -76,7 +93,7 @@ public class GEARSphereSpawnItemVN extends ConsumableItem {
             }
         }
 
-        if (this.singleUse) {
+        if (this.isSingleUse(player)) {
             item.setAmount(item.getAmount() - 1);
         }
 

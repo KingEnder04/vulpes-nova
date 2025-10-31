@@ -7,12 +7,14 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.BootsArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.FeetArmorLootTable;
+
 public class ChilledBloodplateBoots extends BootsArmorItem {
     public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1.0F, 0.30F);
     public FloatUpgradeValue healthRegen = (new FloatUpgradeValue()).setBaseValue(0.20F).setUpgradedValue(1.0F, 0.6F);
 
     public ChilledBloodplateBoots() {
-        super(6, 700, Rarity.UNCOMMON, "chilledbloodplatebootsvn");
+        super(6, 700, Rarity.UNCOMMON, "chilledbloodplatebootsvn", FeetArmorLootTable.feetArmor);
     }
     
 	@Override

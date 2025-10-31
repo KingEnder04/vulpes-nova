@@ -12,10 +12,12 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class AncientJungleHelmet extends SetHelmetArmorItem {
     public AncientJungleHelmet() {
-        super(15, DamageTypeRegistry.MAGIC, 1000, Rarity.LEGENDARY, "ancientjunglehelmetvn", "ancientjunglechestplatevn", "ancientjunglebootsvn", "ancientjunglesetvnbonusbuff");
+        super(15, DamageTypeRegistry.MAGIC, 1000, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.LEGENDARY, "ancientjunglehelmetvn", "ancientjunglechestplatevn", "ancientjunglebootsvn", "ancientjunglesetvnbonusbuff");
     }    public FloatUpgradeValue all_damage = (new FloatUpgradeValue()).setBaseValue(0.03F).setUpgradedValue(1.0F, 0.05F);
 
     
