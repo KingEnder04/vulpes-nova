@@ -8,6 +8,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.Item;
 import necesse.inventory.item.trinketItem.ShieldTrinketItem;
+import necesse.inventory.lootTable.presets.TrinketsLootTable;
 
 public class CubaltShieldVNToolItem extends ShieldTrinketItem {
 
@@ -15,7 +16,7 @@ public class CubaltShieldVNToolItem extends ShieldTrinketItem {
 
 
     public CubaltShieldVNToolItem(Item.Rarity rarity, int enchantCost) {
-        super(rarity, 10, 0.5F, 9000, 0.10F, 0, 360.0F, enchantCost);
+        super(rarity, 10, 0.5F, 9000, 0.10F, 0, 360.0F, enchantCost, TrinketsLootTable.trinkets);
     }
     
 	@Override

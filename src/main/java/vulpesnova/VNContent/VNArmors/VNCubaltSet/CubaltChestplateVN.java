@@ -6,11 +6,12 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class CubaltChestplateVN extends ChestArmorItem {
 
     public CubaltChestplateVN() {
-        super(19, 200, Rarity.UNCOMMON, "cubaltchestplatevn", "cubaltchestvnarms");
+        super(19, 200, Rarity.UNCOMMON, "cubaltchestplatevn", "cubaltchestvnarms", BodyArmorLootTable.bodyArmor);
     }
     
 	@Override

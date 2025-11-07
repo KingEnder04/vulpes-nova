@@ -15,13 +15,14 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.MagicForDummiesVNProjectile;
 
 public class MagicForDummiesVN extends MagicProjectileToolItem {
 	
     public MagicForDummiesVN() {
-        super(1500);
+        super(1500, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.UNIQUE;
         this.attackAnimTime.setBaseValue(300);
         this.attackDamage.setBaseValue(46).setUpgradedValue(1.0F, 126.0F);

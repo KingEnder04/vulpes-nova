@@ -11,11 +11,12 @@ import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class CubeCallerVN extends SummonToolItem {
     public CubeCallerVN() {
-        super("babycubemobvn", FollowPosition.WALK_CLOSE, 1, 500);
+        super("babycubemobvn", FollowPosition.WALK_CLOSE, 1, 500, SummonWeaponsLootTable.summonWeapons);
         this.rarity = Rarity.RARE;
         this.attackDamage.setBaseValue(30.0F).setUpgradedValue(1.0F, 90.0F);
     }

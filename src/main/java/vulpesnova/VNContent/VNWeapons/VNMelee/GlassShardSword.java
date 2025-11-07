@@ -6,13 +6,14 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
+import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 
 public class GlassShardSword extends SwordToolItem {
 
     // Weapon attack textures are loaded from resources/player/weapons/<itemStringID>
 
     public GlassShardSword() {
-        super(300);
+        super(300, CloseRangeWeaponsLootTable.closeRangeWeapons);
         this.rarity = Rarity.NORMAL;
         this.attackAnimTime.setBaseValue(100);
         this.attackDamage.setBaseValue(16.0F).setUpgradedValue(1.0F, 90.0F);

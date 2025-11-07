@@ -15,12 +15,13 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.VerdantStaffFlowerProjectile;
 
 public class VerdantStaff extends MagicProjectileToolItem {
     public VerdantStaff() {
-        super(300);
+        super(300, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.RARE;
         this.attackAnimTime.setBaseValue(600);
         this.attackDamage.setBaseValue(14).setUpgradedValue(1.0F, 90.0F);

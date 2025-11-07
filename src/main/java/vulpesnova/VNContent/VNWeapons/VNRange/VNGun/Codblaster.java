@@ -1,10 +1,11 @@
-package vulpesnova.VNContent.VNWeapons.VNRange;
+package vulpesnova.VNContent.VNWeapons.VNRange.VNGun;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketSpawnProjectile;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.sound.SoundSettings;
 import necesse.engine.util.GameMath;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.AttackAnimMob;
@@ -16,13 +17,14 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.bulletItem.BulletItem;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
+import necesse.inventory.lootTable.presets.GunWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.CodBlasterProjectile;
 
 public class Codblaster extends GunProjectileToolItem {
 	
     public Codblaster() {
-        super(NORMAL_AMMO_TYPES, 400);
+        super(NORMAL_AMMO_TYPES, 400, GunWeaponsLootTable.gunWeapons);
         this.rarity = Rarity.UNCOMMON;
         this.attackDamage.setBaseValue(24).setUpgradedValue(1.0F, 97.0F);
         this.attackXOffset = 4;
@@ -40,11 +42,11 @@ public class Codblaster extends GunProjectileToolItem {
         super.addAmmoTooltips(tooltips, item);
         tooltips.add(Localization.translate("itemtooltip", "codblastervntip"));
     }
-    
-    @Override
-    public void playFireSound(AttackAnimMob mob) {
-        SoundManager.playSound(GameResources.watersplash, SoundEffect.effect(mob));        
-    }
+
+	protected SoundSettings getAttackSound() {
+		return (new SoundSettings(GameResources.watersplash)).volume(0.22F);
+	}
+
     
     @Override
     public void fireProjectiles(Level level, int x, int y, ItemAttackerMob attackerMob, InventoryItem item, int seed,

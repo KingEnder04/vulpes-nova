@@ -80,6 +80,9 @@ import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenBoots;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenChestplate;
 import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenHelmet;
 
+import vulpesnova.VNContent.VNArmors._VNVanities.VNLuckyChickenSet.LuckyChickenBootsVN;
+import vulpesnova.VNContent.VNArmors._VNVanities.VNLuckyChickenSet.LuckyChickenMaskVN;
+import vulpesnova.VNContent.VNArmors._VNVanities.VNLuckyChickenSet.LuckyChickenShirtVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsDeepCaveLevelVN;
@@ -117,8 +120,12 @@ import vulpesnova.VNContent.VNProjectiles.*;
 import vulpesnova.VNContent.VNWeapons.*;
 import vulpesnova.VNContent.VNWeapons.VNMagic.*;
 import vulpesnova.VNContent.VNWeapons.VNMelee.*;
-import vulpesnova.VNContent.VNWeapons.VNRange.*;
 import vulpesnova.VNContent.VNWeapons.VNRange.VNAmmos.*;
+import vulpesnova.VNContent.VNWeapons.VNRange.VNBow.DoomedBow;
+import vulpesnova.VNContent.VNWeapons.VNRange.VNBow.GrandPhoenixGreatbowVN;
+import vulpesnova.VNContent.VNWeapons.VNRange.VNBow.RepeatingCrossbow;
+import vulpesnova.VNContent.VNWeapons.VNRange.VNBow.TheBlowingWind;
+import vulpesnova.VNContent.VNWeapons.VNRange.VNGun.*;
 import vulpesnova.VNContent.VNWeapons.VNSummon.*;
 import vulpesnova.helpers.RecipeHelper;
 
@@ -470,9 +477,9 @@ public class VulpesNova {
         registerItem("cubaltbootsvn", new CubaltBootsVN(), 80.0F, true);
 
         //Vanity :3 Set
-        registerItem("luckychickenmaskvn", (new HelmetArmorItem(0, (DamageType)null, 0, Item.Rarity.COMMON, "luckychickenmaskvn")).drawBodyPart(false), 50.0F, true);
-        registerItem("luckychickencostumeshirtvn", new ChestArmorItem(0, 0, Item.Rarity.COMMON, "luckychickencostumeshirtvn", "luckychickencostumearmsvn"), 50.0F, true);
-        registerItem("luckychickencostumebootsvn", new BootsArmorItem(0, 0, Item.Rarity.COMMON, "luckychickencostumebootsvn"), 50.0F, true);
+        registerItem("luckychickenmaskvn", new LuckyChickenMaskVN(), 50.0F, true);
+        registerItem("luckychickencostumeshirtvn", new LuckyChickenShirtVN(), 50.0F, true);
+        registerItem("luckychickencostumebootsvn", new LuckyChickenBootsVN(), 50.0F, true);
         
         // Trinkets
         registerItem("foxtokenvn", new SimpleTrinketItem(Item.Rarity.UNIQUE, "foxtokenvnbuff", 200, TrinketsLootTable.trinkets), 300.0F, true);

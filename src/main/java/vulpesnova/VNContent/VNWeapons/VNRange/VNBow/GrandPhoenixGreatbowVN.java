@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNWeapons.VNRange;
+package vulpesnova.VNContent.VNWeapons.VNRange.VNBow;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
@@ -15,12 +15,13 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.arrowItem.ArrowItem;
 import necesse.inventory.item.toolItem.projectileToolItem.bowProjectileToolItem.greatbowProjectileToolItem.GreatbowProjectileToolItem;
+import necesse.inventory.lootTable.presets.GreatbowWeaponsLootTable;
 import necesse.level.maps.Level;
 import java.awt.*;
 
 public class GrandPhoenixGreatbowVN extends GreatbowProjectileToolItem {
     public GrandPhoenixGreatbowVN() {
-        super(1800);
+        super(1800, GreatbowWeaponsLootTable.greatbowWeapons);
         this.attackAnimTime.setBaseValue(1200);
         this.rarity = Rarity.EPIC;
         this.attackDamage.setBaseValue(122.0F).setUpgradedValue(1.0F, 135.0F);

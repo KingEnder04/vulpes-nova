@@ -1,4 +1,4 @@
-package vulpesnova.VNContent.VNWeapons.VNRange;
+package vulpesnova.VNContent.VNWeapons.VNRange.VNBow;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
@@ -13,12 +13,13 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.arrowItem.ArrowItem;
 import necesse.inventory.item.toolItem.projectileToolItem.bowProjectileToolItem.BowProjectileToolItem;
+import necesse.inventory.lootTable.presets.BowWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.DoomedBowProjectile;
 
 public class DoomedBow extends BowProjectileToolItem {
     public DoomedBow() {
-        super(800);
+        super(800, BowWeaponsLootTable.bowWeapons);
         this.attackAnimTime.setBaseValue(1000);
         this.rarity = Rarity.EPIC;
         this.attackDamage.setBaseValue(70).setUpgradedValue(1.0F, 120.0F);

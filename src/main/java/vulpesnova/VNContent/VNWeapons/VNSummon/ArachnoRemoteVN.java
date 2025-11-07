@@ -10,12 +10,13 @@ import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class ArachnoRemoteVN extends SummonToolItem {
 	
     public ArachnoRemoteVN() {
-        super("babyspiderkinwarrior", necesse.entity.mobs.itemAttacker.FollowPosition.WALK_CLOSE, 1.0f, 500);
+        super("babyspiderkinwarrior", necesse.entity.mobs.itemAttacker.FollowPosition.WALK_CLOSE, 1.0f, 500, SummonWeaponsLootTable.summonWeapons);
         this.rarity = Rarity.RARE;
         this.attackDamage.setBaseValue(20.0F).setUpgradedValue(1.0F, 50.0F);
  

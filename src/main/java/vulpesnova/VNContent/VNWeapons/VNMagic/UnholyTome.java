@@ -15,12 +15,13 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.UnholyTomeProjectile;
 
 public class UnholyTome extends MagicProjectileToolItem {
     public UnholyTome() {
-        super(700);
+        super(700, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.EPIC;
         this.attackAnimTime.setBaseValue(300);
         this.attackDamage.setBaseValue(83).setUpgradedValue(1.0F, 149.0F);

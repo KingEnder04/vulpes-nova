@@ -7,12 +7,13 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
 
 public class WindChestplateVN extends ChestArmorItem {
     public FloatUpgradeValue attack_speed = (new FloatUpgradeValue()).setBaseValue(0.05F).setUpgradedValue(1.0F, 0.05F);
 
     public WindChestplateVN() {
-        super(6, 200, Rarity.NORMAL, "windchestplatevn", "windchestplatevnarms");
+        super(6, 200, Rarity.NORMAL, "windchestplatevn", "windchestplatevnarms", BodyArmorLootTable.bodyArmor);
     }
     
 	@Override

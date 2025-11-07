@@ -101,7 +101,7 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
                     while(var5.hasNext()) {
                         GameLinkedList<Point>.Element el = (GameLinkedList.Element)var5.next();
                         Point current = (Point)el.object;
-                        if ((new Rectangle(2, 2, this.width - 4, this.height - 4)).contains(current)) {
+                        if ((new Rectangle(2, 2, this.tileWidth - 4, this.tileHeight - 4)).contains(current)) {
                             trackTiles.add(current);
                             GameLinkedList<Point>.Element nextEl = el.next();
                             if (nextEl != null) {
@@ -234,7 +234,7 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
             int chestRoomAmount = cg.random.getIntBetween(13, 18);
 
             for(int ix = 0; ix < chestRoomAmount; ++ix) {
-                Preset chestRoom = new RandomCaveChestRoom(cg.random, VulpesNovaLootTablePresets.flatlandsCaveChest, chestRoomRotation, new ChestRoomSet[]{VNChestRoomSet.factory, VNChestRoomSet.factory});
+                Preset chestRoom = new RandomCaveChestRoom(cg.random, VulpesNovaLootTablePresets.flatlandsCaveChest, chestRoomRotation, new ChestRoomSet[]{ChestRoomSet.snowStone, ChestRoomSet.ice, ChestRoomSet.wood});
                 chestRoom.replaceTile(TileRegistry.stoneFloorID, (Integer)cg.random.getOneOf(new Integer[]{TileRegistry.stoneFloorID, TileRegistry.stoneBrickFloorID}));
                 chestRoom.replaceTile(TileRegistry.sandstoneFloorID, (Integer)cg.random.getOneOf(new Integer[]{TileRegistry.sandstoneFloorID, TileRegistry.sandstoneBrickFloorID}));
                 presets.findRandomValidPositionAndApply(cg.random, 5, chestRoom, 10, true, true);
@@ -270,9 +270,8 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
     public LootTable getCrateLootTable() {
         return LootTablePresets.desertCrate;
     }
-    
-	@Override
-    public GameMessage getLocationMessage() {
-        return new LocalMessage("biome", "cave", "biome", this.biome.getLocalization());
+
+    public GameMessage getLocationMessage(int tileX, int tileY) {
+        return new LocalMessage("biome", "cave", "biome", this.getBiome(tileX, tileY).getLocalization());
     }
 }

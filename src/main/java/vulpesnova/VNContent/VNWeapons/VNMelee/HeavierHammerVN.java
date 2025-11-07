@@ -16,12 +16,13 @@ import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.meleeProjectileToolItem.MeleeProjectileToolItem;
+import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.HeavierHammerShotVNProjectile;
 
 public class HeavierHammerVN extends MeleeProjectileToolItem {
     public HeavierHammerVN() {
-        super(600);
+        super(600, CloseRangeWeaponsLootTable.closeRangeWeapons);
         this.rarity = Rarity.UNCOMMON;
         this.attackAnimTime.setBaseValue(400);
         this.attackDamage.setBaseValue(24.0F).setUpgradedValue(1.0F, 80.0F);

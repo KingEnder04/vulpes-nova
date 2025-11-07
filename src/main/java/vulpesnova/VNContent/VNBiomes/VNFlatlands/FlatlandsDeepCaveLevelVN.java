@@ -136,9 +136,9 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
     public LootTable getCrateLootTable() {
         return LootTablePresets.basicDeepCrate;
     }
-    
-	@Override
-    public GameMessage getLocationMessage() {
-        return new LocalMessage("biome", "deepcave", "biome", this.biome.getLocalization());
+
+    public GameMessage getLocationMessage(int tileX, int tileY) {
+        return new LocalMessage("biome", "deepcave", "biome", this.getBiome(tileX, tileY).getLocalization());
+
     }
 }

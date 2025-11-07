@@ -12,7 +12,7 @@ public class KillTitancubesInFlatlandsChallenge extends MobsKilledJournalChallen
 	public void onMobKilled(ServerClient serverClient, Mob mob) {
 		Level level = mob.getLevel();
 		if (!level.isCave) {
-			if (VNJournalChallengeUtils.isFlatlandsBiome(level.biome)) {
+			if (VNJournalChallengeUtils.isFlatlandsBiome(level.getBiome(mob.getTileX(), mob.getTileY()))) {
 				super.onMobKilled(serverClient, mob);
 			}
 		}

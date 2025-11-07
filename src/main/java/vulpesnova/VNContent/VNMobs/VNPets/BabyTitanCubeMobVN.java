@@ -62,29 +62,31 @@ public class BabyTitanCubeMobVN extends AttackingFollowingMob {
 
     }
 
-    @Override
-    public void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
+    protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        GameLight light = level.getLightLevel(x / 32, y / 32);
+        // Tile positions are basically level positions divided by 32. getTileX() does this for us etc.
+        GameLight light = level.getLightLevel(getTileX(), getTileY());
         int drawX = camera.getDrawX(x) - 15;
         int drawY = camera.getDrawY(y) - 22;
+
+        // A helper method to get the sprite of the current animation/direction of this mob
         int dir = this.getDir();
         Point sprite = this.getAnimSprite(x, y, dir);
-        drawY += this.getBobbing(x, y);
-        drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
-        if (this.inLiquid(x, y)) {
-            drawY -= 6;
-        }
 
-        final DrawOptions options = texture.initDraw().sprite(sprite.x, sprite.y, 32).light(light).pos(drawX, drawY);
+        drawY += getBobbing(x, y);
+        drawY += getLevel().getTile(getTileX(), getTileY()).getMobSinkingAmount(this);
+
+        DrawOptions drawOptions = texture.initDraw()
+                .sprite(sprite.x, sprite.y, 64)
+                .light(light)
+                .pos(drawX, drawY);
+
         list.add(new MobDrawable() {
             public void draw(TickManager tickManager) {
-                options.draw();
+                drawOptions.draw();
             }
         });
-
-        addShadowDrawables(tileList, x, y, light, camera);
-
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     @Override

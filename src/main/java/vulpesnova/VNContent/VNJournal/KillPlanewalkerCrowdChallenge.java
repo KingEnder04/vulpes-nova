@@ -19,7 +19,7 @@ public class KillPlanewalkerCrowdChallenge extends MobsKilledJournalChallenge {
 		if(this.isCompleted(serverClient)) return;
 		
 		Level level = mob.getLevel();
-		if (!level.isCave && VNJournalChallengeUtils.isFlatlandsBiome(level.biome)) {
+		if (!level.isCave && VNJournalChallengeUtils.isFlatlandsBiome(level.getBiome(mob.getTileX(), mob.getTileY()))) {
 	
 			long currentTime = System.currentTimeMillis();
 			String firstKillKey = this.getStringID() + "FirstKillTime";

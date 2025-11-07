@@ -1,10 +1,12 @@
 package vulpesnova.VNContent.VNWeapons.VNMelee;
 
 import necesse.inventory.item.toolItem.swordToolItem.KatanaToolItem;
+import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
+
 public class NovaKatanaVN extends KatanaToolItem {
 	
     public NovaKatanaVN() {
-        super(1400);
+        super(1400, CloseRangeWeaponsLootTable.closeRangeWeapons);
         this.rarity = Rarity.UNIQUE;
         this.attackAnimTime.setBaseValue(170);
         this.attackDamage.setBaseValue(60.0F).setUpgradedValue(1.0F, 102.0F);

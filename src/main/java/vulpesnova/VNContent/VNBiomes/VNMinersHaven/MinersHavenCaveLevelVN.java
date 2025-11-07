@@ -89,7 +89,7 @@ public class MinersHavenCaveLevelVN extends MinersHavenSurfaceLevelVN {
                     while(var5.hasNext()) {
                         GameLinkedList<Point>.Element el = (GameLinkedList.Element)var5.next();
                         Point current = (Point)el.object;
-                        if ((new Rectangle(2, 2, this.width - 4, this.height - 4)).contains(current)) {
+                        if ((new Rectangle(2, 2, this.tileWidth - 4, this.tileHeight - 4)).contains(current)) {
                             trackTiles.add(current);
                             GameLinkedList<Point>.Element nextEl = el.next();
                             if (nextEl != null) {
@@ -192,7 +192,7 @@ public class MinersHavenCaveLevelVN extends MinersHavenSurfaceLevelVN {
         GameEvents.triggerEvent(new GeneratedCaveOresEvent(this, cg));
         GenerationTools.generateRandomSmoothVeinsL(this, cg.random, 0.02F, 5, 7.0F, 15.0F, 3.0F, 5.0F, (lg) -> {
             LinesGeneration lgRoot = lg.getRoot();
-            double centerDist = (new Point(this.width / 2, this.height / 2)).distance((double)lgRoot.x1, (double)lgRoot.y1);
+            double centerDist = (new Point(this.tileWidth / 2, this.tileHeight / 2)).distance((double)lgRoot.x1, (double)lgRoot.y1);
             if (centerDist >= 40.0) {
                 CellAutomaton ca = lg.doCellularAutomaton(cg.random);
                 ca.forEachTile(this, (level, tileX, tileY) -> {
@@ -311,9 +311,9 @@ public class MinersHavenCaveLevelVN extends MinersHavenSurfaceLevelVN {
     public LootTable getCrateLootTable() {
         return LootTablePresets.desertCrate;
     }
-    
-	@Override
-    public GameMessage getLocationMessage() {
-        return new LocalMessage("biome", "cave", "biome", this.biome.getLocalization());
+
+    public GameMessage getLocationMessage(int tileX, int tileY) {
+        return new LocalMessage("biome", "cave", "biome", this.getBiome(tileX, tileY).getLocalization());
+
     }
 }

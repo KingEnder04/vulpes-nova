@@ -7,12 +7,14 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
+import vulpesnova.VNContent.VNArmors.VNChilledBloodplate.ChilledBloodplateChestplate;
 
 public class StoneChestplate extends ChestArmorItem {
     public FloatUpgradeValue all_damage = (new FloatUpgradeValue()).setBaseValue(0.03F).setUpgradedValue(1.0F, 0.05F);
 
     public StoneChestplate() {
-        super(12, 200, Rarity.NORMAL, "stonechestplatevn", "stonearmsvn");
+        super(12, 200, Rarity.NORMAL, "stonechestplatevn", "stonearmsvn", BodyArmorLootTable.bodyArmor);
     }
     
 	@Override

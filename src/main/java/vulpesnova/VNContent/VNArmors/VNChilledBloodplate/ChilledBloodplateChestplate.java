@@ -7,12 +7,14 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.ChestArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.BodyArmorLootTable;
+import necesse.inventory.lootTable.presets.FeetArmorLootTable;
 
 public class ChilledBloodplateChestplate extends ChestArmorItem {
     public FloatUpgradeValue healthRegen = (new FloatUpgradeValue()).setBaseValue(0.3F).setUpgradedValue(1.0F, 1.0F);
 
     public ChilledBloodplateChestplate() {
-        super(11, 700, Rarity.UNCOMMON, "chilledbloodplatechestplatevn", "chilledbloodplatearmsvn");
+        super(11, 700, Rarity.UNCOMMON, "chilledbloodplatechestplatevn", "chilledbloodplatearmsvn", BodyArmorLootTable.bodyArmor);
     }
     
 	@Override

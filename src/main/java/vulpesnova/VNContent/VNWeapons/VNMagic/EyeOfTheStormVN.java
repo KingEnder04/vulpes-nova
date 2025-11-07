@@ -17,12 +17,13 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.ThunderboltBlueVNProjectile;
 
 public class EyeOfTheStormVN extends MagicProjectileToolItem {
     public EyeOfTheStormVN() {
-        super(800);
+        super(800, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.UNCOMMON;
         this.attackAnimTime.setBaseValue(250);
         this.attackDamage.setBaseValue(28).setUpgradedValue(1.0F, 96.0F);

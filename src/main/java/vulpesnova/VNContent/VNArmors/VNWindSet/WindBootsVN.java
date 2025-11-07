@@ -7,12 +7,13 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.BootsArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.FeetArmorLootTable;
 
 public class WindBootsVN extends BootsArmorItem {
     public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.1F).setUpgradedValue(1.0F, 0.25F);
 
     public WindBootsVN() {
-        super(2, 200, Rarity.NORMAL, "windbootsvn");
+        super(2, 200, Rarity.NORMAL, "windbootsvn", FeetArmorLootTable.feetArmor);
     }
     
 	@Override

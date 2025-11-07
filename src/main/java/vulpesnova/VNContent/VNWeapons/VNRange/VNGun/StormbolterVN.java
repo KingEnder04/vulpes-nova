@@ -1,18 +1,21 @@
-package vulpesnova.VNContent.VNWeapons.VNRange;
+package vulpesnova.VNContent.VNWeapons.VNRange.VNGun;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.sound.SoundSettings;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.AttackAnimMob;
+import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
+import necesse.inventory.lootTable.presets.GunWeaponsLootTable;
 import vulpesnova.VulpesNova;
 
 public class StormbolterVN extends GunProjectileToolItem {
     public StormbolterVN() {
-        super(NORMAL_AMMO_TYPES, 600);
+        super(NORMAL_AMMO_TYPES, 600, GunWeaponsLootTable.gunWeapons);
         this.rarity = Rarity.RARE;
         this.attackAnimTime.setBaseValue(500);
         this.attackDamage.setBaseValue(45).setUpgradedValue(1.0F, 100.0F);
@@ -29,9 +32,8 @@ public class StormbolterVN extends GunProjectileToolItem {
         super.addAmmoTooltips(tooltips, item);
         tooltips.add(Localization.translate("itemtooltip", "stormboltervntip"));
     }
-
-    @Override
-    public void playFireSound(AttackAnimMob mob) {
-        SoundManager.playSound(VulpesNova.BLASTER1, SoundEffect.effect(mob).pitch(GameRandom.globalRandom.getFloatBetween(-0.2F, 0.2F)));
+    protected SoundSettings getAttackSound() {
+        return (new SoundSettings(VulpesNova.BLASTER1)).volume(0.22F);
     }
+
 }

@@ -35,7 +35,6 @@ public class MonsterPheromonesItem extends ConsumableItem {
         drawOptions.swingRotationInv(attackProgress);
     }
 
-    @Override
 	public String canPlace(Level level, int x, int y, PlayerMob player, InventoryItem item, GNDItemMap mapContent) {
         return null;
     }
@@ -55,7 +54,7 @@ public class MonsterPheromonesItem extends ConsumableItem {
     @Override
     public InventoryItem onPlace(Level level, int x, int y, PlayerMob player, int seed, InventoryItem item,
 			GNDItemMap mapContent) {
-        if (this.singleUse) {
+        if (this.isSingleUse(player)) {
             item.setAmount(item.getAmount() - 1);
         }
 

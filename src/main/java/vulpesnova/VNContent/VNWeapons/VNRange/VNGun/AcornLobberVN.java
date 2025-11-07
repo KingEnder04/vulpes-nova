@@ -1,12 +1,14 @@
-package vulpesnova.VNContent.VNWeapons.VNRange;
+package vulpesnova.VNContent.VNWeapons.VNRange.VNGun;
 
 import necesse.engine.localization.Localization;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketSpawnProjectile;
 import necesse.engine.sound.SoundEffect;
 import necesse.engine.sound.SoundManager;
+import necesse.engine.sound.SoundSettings;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.AttackAnimMob;
+import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.entity.projectile.Projectile;
 import necesse.entity.projectile.modifiers.ResilienceOnHitProjectileModifier;
@@ -15,6 +17,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.bulletItem.BulletItem;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.GunProjectileToolItem;
+import necesse.inventory.lootTable.presets.GunWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.AcornProjectile;
 
@@ -23,7 +26,7 @@ import java.awt.*;
 public class AcornLobberVN extends GunProjectileToolItem {
 	
     public AcornLobberVN() {
-        super(NORMAL_AMMO_TYPES, 100);
+        super(NORMAL_AMMO_TYPES, 100, GunWeaponsLootTable.gunWeapons);
         this.rarity = Rarity.COMMON;
         this.attackAnimTime.setBaseValue(200);
         this.attackDamage.setBaseValue(7).setUpgradedValue(1.0F, 60.0F);
@@ -42,12 +45,9 @@ public class AcornLobberVN extends GunProjectileToolItem {
         tooltips.add(Localization.translate("itemtooltip", "acornlobbervntip1"));
         tooltips.add(Localization.translate("itemtooltip", "acornlobbervntip2"));
     }
-    
-    @Override
-    public void playFireSound(AttackAnimMob mob) {
-        SoundManager.playSound(GameResources.handgun, SoundEffect.effect(mob));
+    protected SoundSettings getAttackSound() {
+        return (new SoundSettings(GameResources.handgun)).volume(0.22F);
     }
-
     @Override
     public void fireProjectiles(Level level, int x, int y, ItemAttackerMob attackerMob, InventoryItem item, int seed,
 			BulletItem bullet, boolean dropItem, GNDItemMap mapContent) {

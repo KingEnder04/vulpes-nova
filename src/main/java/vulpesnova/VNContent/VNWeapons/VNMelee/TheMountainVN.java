@@ -17,12 +17,13 @@ import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.meleeProjectileToolItem.MeleeProjectileToolItem;
+import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.TheMountainShotVNProjectile;
 
 public class TheMountainVN extends MeleeProjectileToolItem {
     public TheMountainVN() {
-        super(1000);
+        super(1000, CloseRangeWeaponsLootTable.closeRangeWeapons);
         this.rarity = Rarity.LEGENDARY;
         this.attackAnimTime.setBaseValue(430);
         this.attackDamage.setBaseValue(38).setUpgradedValue(1.0F, 111.0F);

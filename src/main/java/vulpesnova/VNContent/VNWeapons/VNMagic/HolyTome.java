@@ -15,12 +15,13 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.HolyTomeProjectile;
 
 public class HolyTome extends MagicProjectileToolItem {
     public HolyTome() {
-        super(600);
+        super(600, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.RARE;
         this.attackAnimTime.setBaseValue(300);
         this.attackDamage.setBaseValue(22).setUpgradedValue(1.0F, 88.0F);

@@ -9,12 +9,13 @@ import necesse.entity.mobs.itemAttacker.ItemAttackerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.greatswordToolItem.GreatswordToolItem;
+import necesse.inventory.lootTable.presets.GreatswordWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNMisc.AttackHandlers.TitanBusterGreatswordVNAttackHandler;
 
 public class TitanBusterGreatswordVN extends GreatswordToolItem {
     public TitanBusterGreatswordVN() {
-        super(1000, getThreeChargeLevels(600, 800, 1000));
+        super(1000, GreatswordWeaponsLootTable.greatswordWeapons ,getThreeChargeLevels(600, 800, 1000));
         this.rarity = Rarity.LEGENDARY;
         this.attackDamage.setBaseValue(80.0F).setUpgradedValue(1.0F, 170.0F);
         this.attackRange.setBaseValue(114);

@@ -14,12 +14,13 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.enchants.ToolItemModifiers;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
+import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.NightbladeVNProjectile;
 
 public class NightbladeSwordVN extends SwordToolItem {
     public NightbladeSwordVN() {
-        super(600);
+        super(600, CloseRangeWeaponsLootTable.closeRangeWeapons);
         this.rarity = Rarity.EPIC;
         this.attackAnimTime.setBaseValue(300);
         this.attackDamage.setBaseValue(28).setUpgradedValue(1.0F, 93.0F);

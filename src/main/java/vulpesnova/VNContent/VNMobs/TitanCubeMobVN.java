@@ -289,7 +289,7 @@ public class TitanCubeMobVN extends HostileMob {
 			TitanCubeMobVN.this.jumpTargetY = reader.getNextFloat();
 			TitanCubeMobVN.this.jumpAnimationTime = reader.getNextInt();
 			if (!TitanCubeMobVN.this.isServer()) {
-				SoundManager.playSound(GameResources.slimesplash, SoundEffect.effect(TitanCubeMobVN.this).pitch(0.6F));
+				SoundManager.playSound(GameResources.slimeSplash1, SoundEffect.effect(TitanCubeMobVN.this).pitch(0.6F));
 			}
 
 		}
@@ -358,7 +358,7 @@ public class TitanCubeMobVN extends HostileMob {
 			}
 
 			SoundManager.playSound(GameResources.magicbolt2, SoundEffect.effect(this).volume(0.7F).pitch(0.8F));
-			SoundManager.playSound(GameResources.slimesplash, SoundEffect.effect(this).pitch(0.8F));
+			SoundManager.playSound(GameResources.slimeSplash1, SoundEffect.effect(this).pitch(0.8F));
 			this.getLevel().getClient().startCameraShake(this, 300, 40, 4.0F, 4.0F, true);
 		}
 	}
@@ -389,7 +389,7 @@ public class TitanCubeMobVN extends HostileMob {
 				public AINodeResult tickNode(T mob, Blackboard<T> blackboard) {
 					
 					if (this.shouldEscape(mob, blackboard)) {
-						if (!(new Rectangle(160, 160, mob.getLevel().width * 32 - 320, mob.getLevel().height * 32 - 320))
+						if (!(new Rectangle(160, 160, mob.getLevel().tileWidth * 32 - 320, mob.getLevel().tileHeight * 32 - 320))
 								.contains(mob.getPositionPoint())) {
 							this.onEscaped(mob);
 						}
@@ -404,7 +404,7 @@ public class TitanCubeMobVN extends HostileMob {
 								float xAway = mob.x - closest.playerMob.x;
 								float yAway = mob.y - closest.playerMob.y;
 								Point2D.Float dir = GameMath.normalize(xAway, yAway);
-								Rectangle edgeRect = new Rectangle(2, 2, level.width - 4, level.height - 4);
+								Rectangle edgeRect = new Rectangle(2, 2, level.tileWidth - 4, level.tileHeight - 4);
 								Line2D line = new Line2D.Float(mob.x / 32.0F, mob.y / 32.0F,
 										mob.x / 32.0F + dir.x * (float) edgeRect.width * 4.0F,
 										mob.y / 32.0F + dir.y * (float) edgeRect.height * 4.0F);
@@ -417,10 +417,10 @@ public class TitanCubeMobVN extends HostileMob {
 
 							if (this.escapePoint == null) {
 								this.escapePoint = (Point) GameRandom.globalRandom.getOneOf(new Point[]{
-										new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), 2),
-										new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), level.height - 2),
-										new Point(2, GameRandom.globalRandom.getIntBetween(2, level.height - 2)),
-										new Point(level.width - 2, GameRandom.globalRandom.getIntBetween(2, level.height - 2))});
+										new Point(GameRandom.globalRandom.getIntBetween(2, level.tileWidth - 2), 2),
+										new Point(GameRandom.globalRandom.getIntBetween(2, level.tileWidth - 2), level.tileHeight - 2),
+										new Point(2, GameRandom.globalRandom.getIntBetween(2, level.tileHeight - 2)),
+										new Point(level.tileWidth - 2, GameRandom.globalRandom.getIntBetween(2, level.tileHeight - 2))});
 							}
 						}
 						isEscaping = true;
@@ -535,7 +535,7 @@ public class TitanCubeMobVN extends HostileMob {
 			public AINodeResult tick(T mob, Blackboard<T> blackboard) {	
 									
 				if (this.shouldEscape(mob, blackboard)) {
-					if (!(new Rectangle(160, 160, mob.getLevel().width * 32 - 320, mob.getLevel().height * 32 - 320))
+					if (!(new Rectangle(160, 160, mob.getLevel().tileWidth * 32 - 320, mob.getLevel().tileHeight * 32 - 320))
 							.contains(mob.getPositionPoint())) {
 						this.onEscaped(mob);
 					}
@@ -550,7 +550,7 @@ public class TitanCubeMobVN extends HostileMob {
 							float xAway = mob.x - closest.playerMob.x;
 							float yAway = mob.y - closest.playerMob.y;
 							Point2D.Float dir = GameMath.normalize(xAway, yAway);
-							Rectangle edgeRect = new Rectangle(2, 2, level.width - 4, level.height - 4);
+							Rectangle edgeRect = new Rectangle(2, 2, level.tileWidth - 4, level.tileHeight - 4);
 							Line2D line = new Line2D.Float(mob.x / 32.0F, mob.y / 32.0F,
 									mob.x / 32.0F + dir.x * (float) edgeRect.width * 4.0F,
 									mob.y / 32.0F + dir.y * (float) edgeRect.height * 4.0F);
@@ -563,10 +563,10 @@ public class TitanCubeMobVN extends HostileMob {
 
 						if (this.escapePoint == null) {
 							this.escapePoint = (Point) GameRandom.globalRandom.getOneOf(new Point[]{
-									new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), 2),
-									new Point(GameRandom.globalRandom.getIntBetween(2, level.width - 2), level.height - 2),
-									new Point(2, GameRandom.globalRandom.getIntBetween(2, level.height - 2)),
-									new Point(level.width - 2, GameRandom.globalRandom.getIntBetween(2, level.height - 2))});
+									new Point(GameRandom.globalRandom.getIntBetween(2, level.tileWidth - 2), 2),
+									new Point(GameRandom.globalRandom.getIntBetween(2, level.tileWidth - 2), level.tileHeight - 2),
+									new Point(2, GameRandom.globalRandom.getIntBetween(2, level.tileHeight - 2)),
+									new Point(level.tileWidth - 2, GameRandom.globalRandom.getIntBetween(2, level.tileHeight - 2))});
 						}
 					}
 					isEscaping = true;

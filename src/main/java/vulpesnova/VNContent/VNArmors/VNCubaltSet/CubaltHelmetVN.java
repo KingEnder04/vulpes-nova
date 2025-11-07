@@ -8,13 +8,15 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class CubaltHelmetVN extends SetHelmetArmorItem {
 
     public FloatUpgradeValue combat_mana_regen = (new FloatUpgradeValue()).setBaseValue(0.75F).setUpgradedValue(1.0F, 1.00F);
 
     public CubaltHelmetVN() {
-        super(16, DamageTypeRegistry.NORMAL, 200, Rarity.UNCOMMON, "cubalthelmetvn", "cubaltchestplatevn", "cubaltbootsvn", "cubaltsetvnbonusbuff");
+        super(16, DamageTypeRegistry.NORMAL, 200, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.UNCOMMON, "cubalthelmetvn", "cubaltchestplatevn", "cubaltbootsvn", "cubaltsetvnbonusbuff");
     }
     
 	@Override

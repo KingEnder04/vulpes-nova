@@ -7,6 +7,7 @@ import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.network.PacketReader;
 import necesse.engine.network.PacketWriter;
+import necesse.engine.network.client.Client;
 import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketChatMessage;
 import necesse.engine.network.server.ServerClient;
@@ -293,8 +294,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         return false;
     }
 
-    @Override
-    public GameDamage getCollisionDamage(Mob target) {
+    public GameDamage getCollisionDamage(Mob target, boolean fromPacket, ServerClient packetSubmitter) {
         return collisionDamage;
     }
 
@@ -500,7 +500,6 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         });
     }
 
-    @Override
     protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) {
         GameTexture shadowTexture = MobRegistry.Textures.ancientVulture_shadow;
         int drawX = camera.getDrawX(x) - shadowTexture.getWidth() / 2;
@@ -508,19 +507,12 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         return shadowTexture.initDraw().light(light).pos(drawX, drawY);
     }
 
-    @Override
-    public boolean shouldDrawOnMap() {
-        return true;
-    }
-
-    @Override
-    public void drawOnMap(TickManager tickManager, int x, int y) {
-        super.drawOnMap(tickManager, x, y);
+    public void drawOnMap(TickManager tickManager, Client client, int x, int y, double tileScale, Rectangle drawBounds, boolean isMinimap) {
+        super.drawOnMap(tickManager, client, x, y, tileScale, drawBounds, isMinimap);
         VulpesNova.GEARSPHEREbody.initDraw().size(VulpesNova.GEARSPHEREbody.getWidth() / 2, VulpesNova.GEARSPHEREbody.getHeight() / 2).posMiddle(x, y).draw();
     }
 
-    @Override
-    public Rectangle drawOnMapBox() {
+    public Rectangle drawOnMapBox(double tileScale, boolean isMinimap) {
         return new Rectangle(-16, -16, 32, 32);
     }
 

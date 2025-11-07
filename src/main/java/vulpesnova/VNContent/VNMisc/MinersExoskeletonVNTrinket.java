@@ -12,11 +12,12 @@ import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.trinketItem.TrinketItem;
+import necesse.inventory.lootTable.presets.TrinketsLootTable;
 import necesse.level.maps.Level;
 
 public class MinersExoskeletonVNTrinket extends TrinketItem {
     public MinersExoskeletonVNTrinket() {
-        super(Rarity.UNIQUE, 1000);
+        super(Rarity.UNIQUE, 1000, TrinketsLootTable.trinkets);
     }
 
     public TrinketBuff[] getBuffs(InventoryItem item) {

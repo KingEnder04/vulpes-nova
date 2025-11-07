@@ -3,6 +3,7 @@ package vulpesnova.VNContent.VNJournal;
 import necesse.engine.journal.PickupItemsJournalChallenge;
 import necesse.engine.network.server.ServerClient;
 import necesse.entity.pickup.ItemPickupEntity;
+import necesse.level.maps.Level;
 
 public class HarvestBlockBerriesInFlatlandsChallenge extends PickupItemsJournalChallenge {
 
@@ -11,6 +12,7 @@ public class HarvestBlockBerriesInFlatlandsChallenge extends PickupItemsJournalC
 	}
 	public void onItemPickedUp(ServerClient serverClient, ItemPickupEntity entity, int amount,
 			boolean addedToNonPlayerInventory) {
-		if(VNJournalChallengeUtils.isFlatlandsBiome(serverClient.getLevel().biome)) super.onItemPickedUp(serverClient, entity, amount, addedToNonPlayerInventory);
+				Level level = entity.getLevel();
+		if(VNJournalChallengeUtils.isFlatlandsBiome(level.getBiome(entity.getTileX(), entity.getTileY()))) super.onItemPickedUp(serverClient, entity, amount, addedToNonPlayerInventory);
 	}
 }

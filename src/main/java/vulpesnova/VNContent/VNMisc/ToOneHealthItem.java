@@ -44,14 +44,13 @@ public class ToOneHealthItem extends ConsumableItem {
             SoundManager.playSound(GameResources.drink, SoundEffect.effect(player));
         }
 
-        if (this.singleUse) {
+        if (this.isSingleUse(player)) {
             item.setAmount(item.getAmount() - 1);
         }
 
         return item;
     }
     
-    @Override
     public String canPlace(Level level, int x, int y, PlayerMob player, InventoryItem item, GNDItemMap mapContent) {
         return player.getMaxHealthFlat() >= 400 ? "incorrecthealth" : null;
     }

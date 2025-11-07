@@ -3,6 +3,7 @@ package vulpesnova.VNContent.VNMobs;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.network.server.Server;
 import necesse.engine.network.server.ServerClient;
+import necesse.engine.registries.MobRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.engine.util.GameUtils;
 import necesse.entity.mobs.GameDamage;
@@ -18,6 +19,7 @@ import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawOptions.DrawOptions;
+import necesse.gfx.drawOptions.texture.TextureDrawOptions;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.lootTable.LootTable;
@@ -93,46 +95,28 @@ public class GustMobVN extends HostileMob {
         }
     }
 
-    @Override
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
-        // Tile positions are basically level positions divided by 32. getTileX() does this for us etc.
-        GameLight light = level.getLightLevel(getTileX(), getTileY());
+        GameLight light = level.getLightLevel(getTileCoordinate(x), getTileCoordinate(y));
         int bobbing = (int)(GameUtils.getBobbing(level.getWorldEntity().getTime(), 1000) * 5.0F);
         int drawX = camera.getDrawX(x) - 32;
         int drawY = camera.getDrawY(y) - 48 + bobbing;
-
-        // A helper method to get the sprite of the current animation/direction of this mob
-        int dir = this.getDir();
-        Point sprite = getAnimSprite(x, y, dir);
-
-        drawY += getBobbing(x, y);
-        drawY += getLevel().getTile(getTileX(), getTileY()).getMobSinkingAmount(this);
-
         int anim = Math.abs(GameUtils.getAnim(level.getWorldEntity().getTime(), 4, 1000) - 3);
-        DrawOptions body = texture.initDraw().sprite(0, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
+        DrawOptions body = MobRegistry.Textures.deepCaveSpirit.initDraw().sprite(0, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
         int minLight = 100;
-        DrawOptions eyes = texture.initDraw().sprite(1, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light.minLevelCopy((float)minLight)).pos(drawX, drawY);
-        this.addShadowDrawables(topList, x, y, light, camera);
+        DrawOptions eyes = MobRegistry.Textures.deepCaveSpirit.initDraw().sprite(1, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light.minLevelCopy((float)minLight)).pos(drawX, drawY);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
         topList.add((tm) -> {
             body.draw();
             eyes.draw();
         });
-
-        list.add(new MobDrawable() {
-            @Override
-            public void draw(TickManager tickManager) {
-                body.draw();
-            }
-        });
-        list.add(new MobDrawable() {
-            @Override
-            public void draw(TickManager tickManager) {
-                eyes.draw();
-            }
-        });
-
-        addShadowDrawables(tileList, x, y, light, camera);
+    }
+    protected TextureDrawOptions getShadowDrawOptions(Level level, int x, int y, GameLight light, GameCamera camera) {
+        GameTexture shadowTexture = MobRegistry.Textures.human_shadow;
+        int res = shadowTexture.getHeight();
+        int drawX = camera.getDrawX(x) - res / 2;
+        int drawY = camera.getDrawY(y) - res / 2 + 4;
+        return shadowTexture.initDraw().sprite(0, 0, res).light(light).pos(drawX, drawY);
     }
 
     @Override

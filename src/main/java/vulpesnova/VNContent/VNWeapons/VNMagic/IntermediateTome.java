@@ -15,12 +15,13 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.IntermediateTomeProjectile;
 
 public class IntermediateTome extends MagicProjectileToolItem {
     public IntermediateTome() {
-        super(200);
+        super(200, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.UNCOMMON;
         this.attackAnimTime.setBaseValue(280);
         this.attackDamage.setBaseValue(24).setUpgradedValue(1.0F, 90.0F);

@@ -15,12 +15,13 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.SpherecererShotVNProjectile;
 
 public class SpherecererHatVN extends MagicProjectileToolItem {
     public SpherecererHatVN() {
-        super(400);
+        super(400, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.COMMON;
         this.attackAnimTime.setBaseValue(1200);
         this.attackDamage.setBaseValue(54).setUpgradedValue(1.0F, 140.0F);

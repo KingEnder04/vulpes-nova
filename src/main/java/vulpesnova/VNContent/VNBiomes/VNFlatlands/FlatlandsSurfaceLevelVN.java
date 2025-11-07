@@ -50,7 +50,7 @@ public class FlatlandsSurfaceLevelVN extends Level {
         int sandTile = VulpesNova.cubeSandVNID;
         GameEvents.triggerEvent(new GenerateIslandLayoutEvent(this, islandSize, ig), (e) -> {
             if (ig.random.getChance(0.05F)) {
-                ig.generateSimpleIsland(this.width / 2, this.height / 2, waterTile, landTile, sandTile);
+                ig.generateSimpleIsland(this.tileWidth / 2, this.tileHeight / 2, waterTile, landTile, sandTile);
             } else {
                 ig.generateShapedIsland(waterTile, landTile, sandTile);
             }
@@ -63,7 +63,7 @@ public class FlatlandsSurfaceLevelVN extends Level {
 
             ig.generateLakes(0.02F, waterTile, landTile, sandTile);
             ig.clearTinyIslands(waterTile);
-            this.liquidManager.calculateHeights();
+            this.liquidManager.calculateFull();
         });
         
         GameEvents.triggerEvent(new GeneratedIslandLayoutEvent(this, islandSize, ig));
@@ -95,8 +95,8 @@ public class FlatlandsSurfaceLevelVN extends Level {
         GenerationTools.checkValid(this);
     }
     
-	@Override
-    public GameMessage getLocationMessage() {
-        return new LocalMessage("biome", "surface", "biome", this.biome.getLocalization());
+    public GameMessage getLocationMessage(int tileX, int tileY) {
+        return new LocalMessage("biome", "surface", "biome", this.getBiome(tileX, tileY).getLocalization());
+
     }
 }

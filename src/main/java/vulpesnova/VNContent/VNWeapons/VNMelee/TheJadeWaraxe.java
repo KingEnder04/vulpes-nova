@@ -21,6 +21,7 @@ import necesse.gfx.drawOptions.itemAttack.ItemAttackDrawOptions;
 import necesse.gfx.gameTexture.GameSprite;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
+import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VulpesNova;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
@@ -34,7 +35,7 @@ import necesse.entity.levelEvent.mobAbilityLevelEvent.ToolItemMobAbilityEvent;
 public class TheJadeWaraxe extends SwordToolItem {	
    
     public TheJadeWaraxe(int enchantCost) {
-		super(enchantCost);
+		super(enchantCost, CloseRangeWeaponsLootTable.closeRangeWeapons);
 	}
 	public TheJadeWaraxe() {
     	

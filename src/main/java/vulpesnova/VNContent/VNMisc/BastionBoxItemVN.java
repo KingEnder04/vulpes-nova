@@ -43,14 +43,13 @@ public class BastionBoxItemVN extends ConsumableItem {
             SoundManager.playSound(GameResources.shatter2, SoundEffect.effect(player));
         }
 
-        if (this.singleUse) {
+        if (this.isSingleUse(player)) {
             item.setAmount(item.getAmount() - 1);
         }
 
         return item;
     }
 
-    @Override
    	public String canPlace(Level level, int x, int y, PlayerMob player, InventoryItem item, GNDItemMap mapContent) {
         return player.getMaxResilienceFlat() >= 50 ? "incorrectresilience" : null;
     }

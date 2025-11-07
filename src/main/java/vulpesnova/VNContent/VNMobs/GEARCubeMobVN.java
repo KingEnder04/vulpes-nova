@@ -87,7 +87,6 @@ public class GEARCubeMobVN extends HostileMob {
         }
     }
 
-    @Override
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         // Tile positions are basically level positions divided by 32. getTileX() does this for us etc.
@@ -97,7 +96,7 @@ public class GEARCubeMobVN extends HostileMob {
 
         // A helper method to get the sprite of the current animation/direction of this mob
         int dir = this.getDir();
-        Point sprite = getAnimSprite(x, y, dir);
+        Point sprite = this.getAnimSprite(x, y, dir);
 
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(getTileX(), getTileY()).getMobSinkingAmount(this);
@@ -108,13 +107,11 @@ public class GEARCubeMobVN extends HostileMob {
                 .pos(drawX, drawY);
 
         list.add(new MobDrawable() {
-            @Override
             public void draw(TickManager tickManager) {
                 drawOptions.draw();
             }
         });
-
-        addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     @Override

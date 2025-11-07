@@ -10,12 +10,13 @@ import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class QueenSpiderStaff extends SummonToolItem {
     private int mobsSummonedAtOnce = 3;
 	public QueenSpiderStaff() {
-        super("babyspider", necesse.entity.mobs.itemAttacker.FollowPosition.PYRAMID, 0.33F, 400);
+        super("babyspider", necesse.entity.mobs.itemAttacker.FollowPosition.PYRAMID, 0.33F, 400, SummonWeaponsLootTable.summonWeapons);
         this.rarity = Rarity.EPIC;
         this.attackDamage.setBaseValue(10.0F).setUpgradedValue(1.0F, 30.0F);
     }

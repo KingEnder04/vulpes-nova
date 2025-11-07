@@ -7,12 +7,13 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.BootsArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.FeetArmorLootTable;
 
 public class CubaltBootsVN extends BootsArmorItem {
     public FloatUpgradeValue speed = (new FloatUpgradeValue()).setBaseValue(0.1F).setUpgradedValue(1.0F, 0.25F);
 
     public CubaltBootsVN() {
-        super(10, 200, Rarity.UNCOMMON, "cubaltbootsvn");
+        super(10, 200, Rarity.UNCOMMON, "cubaltbootsvn", FeetArmorLootTable.feetArmor);
     }
     
 	@Override

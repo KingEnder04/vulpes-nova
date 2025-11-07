@@ -8,13 +8,15 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class WoodenHelmet extends SetHelmetArmorItem {
 
     public FloatUpgradeValue combat_mana_regen = (new FloatUpgradeValue()).setBaseValue(0.50F).setUpgradedValue(1.0F, 0.25F);
 
     public WoodenHelmet() {
-        super(4, DamageTypeRegistry.MAGIC, 200, Rarity.NORMAL, "woodenhelmetvn", "woodenchestplatevn", "woodenbootsvn", "woodensetvnbonusbuff");
+        super(4, DamageTypeRegistry.MAGIC, 200, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.NORMAL, "woodenhelmetvn", "woodenchestplatevn", "woodenbootsvn", "woodensetvnbonusbuff");
     }
     
 	@Override

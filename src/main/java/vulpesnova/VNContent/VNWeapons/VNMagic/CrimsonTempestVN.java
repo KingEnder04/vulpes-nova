@@ -23,6 +23,7 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.ItemInteractAction;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VulpesNova;
 import vulpesnova.VNContent.VNMisc.AttackHandlers.CrimsonTempestAttackHandler;
@@ -43,7 +44,7 @@ public class CrimsonTempestVN extends MagicProjectileToolItem implements ItemInt
 	
 	
     public CrimsonTempestVN() {
-        super(1200);
+        super(1200, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.LEGENDARY;
         this.attackDamage.setBaseValue(32).setUpgradedValue(1.0F, 110.0F);
         this.knockback.setBaseValue(40);
@@ -54,7 +55,7 @@ public class CrimsonTempestVN extends MagicProjectileToolItem implements ItemInt
         this.attackRange.setBaseValue(1200);
         this.manaCost.setBaseValue(1.3F).setUpgradedValue(1.0F, 2.5F);
         this.setItemCategory("equipment", "weapons", "magicweapons");
-        
+
     }
 
     public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {

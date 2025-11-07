@@ -7,12 +7,13 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.BootsArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.FeetArmorLootTable;
 
 public class StoneBoots extends BootsArmorItem {
     public FloatUpgradeValue all_damage = (new FloatUpgradeValue()).setBaseValue(0.03F).setUpgradedValue(1.0F, 0.05F);
 
     public StoneBoots() {
-        super(5, 200, Rarity.NORMAL, "stonebootsvn");
+        super(5, 200, Rarity.NORMAL, "stonebootsvn", FeetArmorLootTable.feetArmor);
     }
     
 	@Override

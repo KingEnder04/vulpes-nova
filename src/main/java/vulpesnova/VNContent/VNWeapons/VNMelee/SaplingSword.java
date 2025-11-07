@@ -6,11 +6,12 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.swordToolItem.SwordToolItem;
+import necesse.inventory.lootTable.presets.CloseRangeWeaponsLootTable;
 
 public class SaplingSword extends SwordToolItem {
 	
     public SaplingSword() {
-        super(200);
+        super(200, CloseRangeWeaponsLootTable.closeRangeWeapons);
         this.rarity = Rarity.COMMON;
         this.attackAnimTime.setBaseValue(300);
         this.attackDamage.setBaseValue(19).setUpgradedValue(1.0F, 90.0F);

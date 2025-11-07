@@ -15,12 +15,13 @@ import necesse.gfx.gameTooltips.GameTooltips;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.summonToolItem.SummonToolItem;
+import necesse.inventory.lootTable.presets.SummonWeaponsLootTable;
 import necesse.level.maps.Level;
 
 public class NecromancersRequiemVN extends SummonToolItem {
 	
     public NecromancersRequiemVN() {
-        super("babyzombie", necesse.entity.mobs.itemAttacker.FollowPosition.PYRAMID, 0.25f, 2000);
+        super("babyzombie", necesse.entity.mobs.itemAttacker.FollowPosition.PYRAMID, 0.25f, 2000, SummonWeaponsLootTable.summonWeapons);
         this.rarity = Rarity.UNIQUE;
         this.attackDamage.setBaseValue(26.0F).setUpgradedValue(1.0F, 40.0F);
     }
@@ -36,25 +37,18 @@ public class NecromancersRequiemVN extends SummonToolItem {
         tooltips.add(Localization.translate("itemtooltip", "necromancersrequiemvntip"));
         return tooltips;
     }
-    
-    @Override
-    public InventoryItem onAttack(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight,
-			InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent) {
-    	
-		if (level.isServer()) {
-			
-			List<ToolItemSummonedMob> slist = List.of(new ToolItemSummonedMob[] {
-					(AttackingFollowingMob) MobRegistry.getMob("babyzombie", level),
-					(AttackingFollowingMob) MobRegistry.getMob("babyzombiearcher", level),
-					(AttackingFollowingMob) MobRegistry.getMob("babyskeleton", level),
-					(AttackingFollowingMob) MobRegistry.getMob("babyskeletonmage", level)
-			} );
-	
-			slist.forEach((mob)->summonServerMob(attackerMob, mob, x, y, attackHeight, item));		
-		}
-		return item;
-	}
-    
+
+    public void runServerSummon(Level level, int x, int y, ItemAttackerMob attackerMob, int attackHeight, InventoryItem item, ItemAttackSlot slot, int animAttack, int seed, GNDItemMap mapContent) {
+        AttackingFollowingMob mob1 = (AttackingFollowingMob)MobRegistry.getMob("babyzombie", level);
+        this.summonServerMob(attackerMob, mob1, x, y, attackHeight, item);
+        AttackingFollowingMob mob2 = (AttackingFollowingMob)MobRegistry.getMob("babyzombiearcher", level);
+        this.summonServerMob(attackerMob, mob2, x, y, attackHeight, item);
+        AttackingFollowingMob mob3 = (AttackingFollowingMob)MobRegistry.getMob("babyskeleton", level);
+        this.summonServerMob(attackerMob, mob3, x, y, attackHeight, item);
+        AttackingFollowingMob mob4 = (AttackingFollowingMob)MobRegistry.getMob("babyskeletonmage", level);
+        this.summonServerMob(attackerMob, mob4, x, y, attackHeight, item);
+    }
+
     /*@Override
     public int getMaxSummons(InventoryItem item, ItemAttackerMob attackerMob) {
 		return 4;

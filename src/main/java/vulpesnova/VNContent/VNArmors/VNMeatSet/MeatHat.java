@@ -7,10 +7,12 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class MeatHat extends SetHelmetArmorItem {
     public MeatHat() {
-        super(6, DamageTypeRegistry.SUMMON, 200, Rarity.NORMAL, "meathatvn", "meatrobevn", "meatbootsvn", "meatsetvnbonusbuff");
+        super(6, DamageTypeRegistry.SUMMON, 200, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.NORMAL, "meathatvn", "meatrobevn", "meatbootsvn", "meatsetvnbonusbuff");
     }
     
 	@Override

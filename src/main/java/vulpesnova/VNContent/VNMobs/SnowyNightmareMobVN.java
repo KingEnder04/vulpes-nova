@@ -73,7 +73,6 @@ public class SnowyNightmareMobVN extends HostileMob {
         }
     }
 
-    @Override
     protected void addDrawables(List<MobDrawable> list, OrderableDrawables tileList, OrderableDrawables topList, Level level, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
         super.addDrawables(list, tileList, topList, level, x, y, tickManager, camera, perspective);
         // Tile positions are basically level positions divided by 32. getTileX() does this for us etc.
@@ -83,7 +82,7 @@ public class SnowyNightmareMobVN extends HostileMob {
 
         // A helper method to get the sprite of the current animation/direction of this mob
         int dir = this.getDir();
-        Point sprite = getAnimSprite(x, y, dir);
+        Point sprite = this.getAnimSprite(x, y, dir);
 
         drawY += getBobbing(x, y);
         drawY += getLevel().getTile(getTileX(), getTileY()).getMobSinkingAmount(this);
@@ -94,24 +93,11 @@ public class SnowyNightmareMobVN extends HostileMob {
                 .pos(drawX, drawY);
 
         list.add(new MobDrawable() {
-            @Override
             public void draw(TickManager tickManager) {
                 drawOptions.draw();
             }
         });
-
-        addShadowDrawables(tileList, x, y, light, camera);
-    }
-
-    @Override
-    protected TextureDrawOptions getShadowDrawOptions(int x, int y, GameLight light, GameCamera camera) {
-        GameTexture shadowTexture = MobRegistry.Textures.human_shadow;
-        int res = shadowTexture.getHeight();
-        int drawX = camera.getDrawX(x) - res / 2;
-        int drawY = camera.getDrawY(y) - res / 2;
-        drawY += this.getBobbing(x, y);
-        drawY += this.getLevel().getTile(x / 32, y / 32).getMobSinkingAmount(this);
-        return shadowTexture.initDraw().sprite(0, 0, res).light(light).pos(drawX, drawY);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     @Override

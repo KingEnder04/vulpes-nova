@@ -16,12 +16,13 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.projectileToolItem.magicProjectileToolItem.MagicProjectileToolItem;
+import necesse.inventory.lootTable.presets.MagicWeaponsLootTable;
 import necesse.level.maps.Level;
 import vulpesnova.VNContent.VNProjectiles.CelestEmberProjectile;
 
 public class CelestEmberStaff extends MagicProjectileToolItem {
     public CelestEmberStaff() {
-        super(1600);
+        super(1600, MagicWeaponsLootTable.magicWeapons);
         this.rarity = Rarity.EPIC;
         this.attackAnimTime.setBaseValue(300);
         this.attackDamage.setBaseValue(50.0F).setUpgradedValue(1.0F, 140.0F);

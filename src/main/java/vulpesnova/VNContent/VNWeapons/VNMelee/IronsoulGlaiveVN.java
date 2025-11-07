@@ -13,6 +13,7 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.inventory.InventoryItem;
 import necesse.inventory.item.toolItem.glaiveToolItem.GlaiveToolItem;
+import necesse.inventory.lootTable.presets.GlaiveWeaponsLootTable;
 import necesse.level.maps.Level;
 
 import java.awt.*;
@@ -21,7 +22,7 @@ import java.awt.geom.Point2D;
 public class IronsoulGlaiveVN extends GlaiveToolItem {
 	
     public IronsoulGlaiveVN() {
-        super(1100);
+        super(1100, GlaiveWeaponsLootTable.glaiveWeapons);
         this.rarity = Rarity.EPIC;
         this.attackAnimTime.setBaseValue(600);
         this.attackDamage.setBaseValue(53.0F).setUpgradedValue(1.0F, 103.0F);

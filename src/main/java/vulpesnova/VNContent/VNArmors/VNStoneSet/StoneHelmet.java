@@ -8,12 +8,14 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class StoneHelmet extends SetHelmetArmorItem {
     public FloatUpgradeValue all_damage = (new FloatUpgradeValue()).setBaseValue(0.04F).setUpgradedValue(1.0F, 0.05F);
 
     public StoneHelmet() {
-        super(8, DamageTypeRegistry.MELEE, 200, Rarity.NORMAL, "stonehelmetvn", "stonechestplatevn", "stonebootsvn", "stonesetvnbonusbuff");
+        super(8, DamageTypeRegistry.MELEE, 200, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.NORMAL, "stonehelmetvn", "stonechestplatevn", "stonebootsvn", "stonesetvnbonusbuff");
     }
     
 	@Override

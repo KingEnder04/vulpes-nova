@@ -8,13 +8,15 @@ import necesse.inventory.InventoryItem;
 import necesse.inventory.item.armorItem.ArmorModifiers;
 import necesse.inventory.item.armorItem.SetHelmetArmorItem;
 import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
 
 public class ChilledBloodplateHat extends SetHelmetArmorItem {
     public FloatUpgradeValue healthRegen = (new FloatUpgradeValue()).setBaseValue(0.15F).setUpgradedValue(1.0F, 0.5F);
     public FloatUpgradeValue manaRegen = (new FloatUpgradeValue()).setBaseValue(0.5F).setUpgradedValue(1.0F, 1.5F);
 
     public ChilledBloodplateHat() {
-        super(6, DamageTypeRegistry.MAGIC, 600, Rarity.UNCOMMON, "chilledbloodplatehatvn", "chilledbloodplatechestplatevn", "chilledbloodplatebootsvn", "chilledbloodplatehatsetvnbonusbuff");
+        super(6, DamageTypeRegistry.MAGIC, 600, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.UNCOMMON,"chilledbloodplatehatvn", "chilledbloodplatechestplatevn", "chilledbloodplatebootsvn", "chilledbloodplatehatsetvnbonusbuff");
     }
     
 	@Override

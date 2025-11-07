@@ -92,13 +92,11 @@ public class AllSeeingCubeMobVN extends HostileMob {
                 .pos(drawX, drawY);
 
         list.add(new MobDrawable() {
-            @Override
             public void draw(TickManager tickManager) {
                 drawOptions.draw();
             }
         });
-
-        addShadowDrawables(tileList, x, y, light, camera);
+        this.addShadowDrawables(tileList, level, x, y, light, camera);
     }
 
     @Override
