@@ -11,6 +11,7 @@ import necesse.engine.world.WorldEntity;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.LootTablePresets;
 import necesse.level.gameObject.GameObject;
+import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.CaveGeneration;
 import necesse.level.maps.generationModules.CellAutomaton;
 import necesse.level.maps.generationModules.GenerationTools;
@@ -34,8 +35,9 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
         super(identifier, width, height, worldEntity);
     }
 
-    public FlatlandsDeepCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity) {
+    public FlatlandsDeepCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity, Biome biome) {
         super(new LevelIdentifier(islandX, islandY, dimension), 300, 300, worldEntity);
+        this.baseBiome = biome;
         this.isCave = true;
         this.generateLevel();
     }

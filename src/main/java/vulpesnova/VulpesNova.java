@@ -204,7 +204,7 @@ public class VulpesNova {
     public static int KILL_TITANCUBES_ID;
     public static int HARVEST_BLOCKBERRIES_ID;
     public static int KILL_PLANEWALKERS_CROWD_ID;
-    
+
     public void preInit() {
 
     }
@@ -293,7 +293,7 @@ public class VulpesNova {
         register_objects();
         
         FLATLANDS = registerBiome("flatlandsvn", (new FlatlandsBiomeVN()).setGenerationWeight(1.0F), true);
-        MINERSHAVEN = registerBiome("minershavenvn", (new MinersHavenBiomeVN()).setGenerationWeight(1.0F), true);
+        //MINERSHAVEN = registerBiome("minershavenvn", (new MinersHavenBiomeVN()).setGenerationWeight(1.0F), true);
 
 
 
@@ -780,13 +780,13 @@ public class VulpesNova {
 
 	private void register_levels() {
 		// Register our levels        
-        LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
-        LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
-        LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
+        //LevelRegistry.registerLevel("flatlandssurfacevn", FlatlandsSurfaceLevelVN.class);
+        //LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
+        //LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
 
-        LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
-        LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
-        LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
+        //LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
+        //LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
+        //LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
 	}
 
     private void register_journal_entries() {

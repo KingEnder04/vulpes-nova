@@ -19,8 +19,10 @@ import necesse.engine.world.WorldEntity;
 import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.SurfaceRuinsChestLootTable;
 import necesse.level.maps.Level;
+import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.GenerationTools;
 import necesse.level.maps.generationModules.IslandGeneration;
+import necesse.level.maps.generationModules.PresetGeneration;
 import necesse.level.maps.presets.RandomRuinsPreset;
 import vulpesnova.VulpesNova;
 
@@ -35,12 +37,11 @@ public class FlatlandsSurfaceLevelVN extends Level {
         super(identifier, width, height, worldEntity);
     }
 
-    public FlatlandsSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity) {
+    public FlatlandsSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity, Biome biome) {
         super(new LevelIdentifier(islandX, islandY, 0), 300, 300, worldEntity);
+        this.baseBiome = biome;
         this.generateLevel(islandSize);
     }
-    
-	
 
     public void generateLevel(float islandSize) {
         int size = (int)(islandSize * 100.0F) + 20;
@@ -84,17 +85,28 @@ public class FlatlandsSurfaceLevelVN extends Level {
         
         GameEvents.triggerEvent(new GeneratedIslandFloraEvent(this, islandSize, ig));
         GameEvents.triggerEvent(new GenerateIslandStructuresEvent(this, islandSize, ig), (e) -> {
+            PresetGeneration presets = new PresetGeneration(this);
+            this.preGeneratedStructures(islandSize, ig, presets);
             GenerationTools.spawnRandomPreset(this, (new RandomRuinsPreset(ig.random)).setTiles(new String[]{"cubewoodfloorvn", "cubestonetiledfloorvn"}).setWalls(new String[]{"cubewoodvnwall", "cubestonevnwall"}), false, false, ig.random, false, 40, 3);
+
+            this.postGeneratedStructures(islandSize, ig, presets);
         });
         
         GameEvents.triggerEvent(new GeneratedIslandStructuresEvent(this, islandSize, ig));
         GameEvents.triggerEvent(new GenerateIslandAnimalsEvent(this, islandSize, ig), (e) -> {
             ig.spawnMobHerds("penguin", ig.random.getIntBetween(20, 40), landTile, 2, 6, islandSize);
         });
+
         GameEvents.triggerEvent(new GeneratedIslandAnimalsEvent(this, islandSize, ig));
         GenerationTools.checkValid(this);
     }
-    
+
+    protected void preGeneratedStructures(float islandSize, IslandGeneration ig, PresetGeneration presets) {
+    }
+
+    protected void postGeneratedStructures(float islandSize, IslandGeneration ig, PresetGeneration presets) {
+    }
+
     public GameMessage getLocationMessage(int tileX, int tileY) {
         return new LocalMessage("biome", "surface", "biome", this.getBiome(tileX, tileY).getLocalization());
 

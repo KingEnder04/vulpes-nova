@@ -16,6 +16,7 @@ import necesse.entity.mobs.Mob;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.LootTablePresets;
 import necesse.level.gameObject.GameObject;
+import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.*;
 import necesse.level.maps.presets.Preset;
 import necesse.level.maps.presets.PresetUtils;
@@ -38,8 +39,9 @@ public class MinersHavenCaveLevelVN extends MinersHavenSurfaceLevelVN {
         super(identifier, width, height, worldEntity);
     }
 
-    public MinersHavenCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity) {
+    public MinersHavenCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity, Biome biome) {
         super(new LevelIdentifier(islandX, islandY, dimension), 300, 300, worldEntity);
+        this.baseBiome = biome;
         this.isCave = true;
         this.generateLevel();
     }
