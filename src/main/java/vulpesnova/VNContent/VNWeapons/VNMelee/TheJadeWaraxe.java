@@ -30,7 +30,7 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.util.HashMap;
 
-import necesse.entity.levelEvent.SwordCleanSliceAttackEvent;
+import necesse.entity.levelEvent.SwordCleanSliceAttackMobEvent;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.ToolItemMobAbilityEvent;
 public class TheJadeWaraxe extends SwordToolItem {	
    
@@ -126,7 +126,7 @@ public class TheJadeWaraxe extends SwordToolItem {
 	public void showAxeAttack(Level level, final AttackAnimMob mob, final int seed, final InventoryItem item) {
 	    
 
-	    level.entityManager.addLevelEventHidden(new SwordCleanSliceAttackEvent(mob, seed, 250, this) {
+	    level.entityManager.addLevelEventHidden(new SwordCleanSliceAttackMobEvent(mob, seed, 250) {
 	        
 	        private static final int TRAIL_LIFETIME_TICKS = 250;
 	        private static final int MIN_TRAIL_RANGE = 10;

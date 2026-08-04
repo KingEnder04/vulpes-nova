@@ -11,7 +11,6 @@ import necesse.engine.world.WorldEntity;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.LootTablePresets;
 import necesse.level.gameObject.GameObject;
-import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.CaveGeneration;
 import necesse.level.maps.generationModules.CellAutomaton;
 import necesse.level.maps.generationModules.GenerationTools;
@@ -35,14 +34,13 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
         super(identifier, width, height, worldEntity);
     }
 
-    public FlatlandsDeepCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity, Biome biome) {
+    public FlatlandsDeepCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity) {
         super(new LevelIdentifier(islandX, islandY, dimension), 300, 300, worldEntity);
-        this.baseBiome = biome;
         this.isCave = true;
         this.generateLevel();
     }
-    
-	@Override
+
+    @Override
     public void generateLevel() {
         int deepRockTile = TileRegistry.getTileID("cubedeepstonefloorvn");
         CaveGeneration cg = new CaveGeneration(this, "cubedeepstonefloorvn", "cubedeeprockvn");
@@ -96,10 +94,10 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
         GameEvents.triggerEvent(new GenerateCaveStructuresEvent(this, cg, presets), (e) -> {
             int abandonedMineCount = cg.random.getIntBetween(2, 3);
 
-          
+
             Preset arena = new GEARBossArenaPreset();
             presets.findRandomValidPositionAndApply(cg.random, 5, arena, 10, false, false);
-            
+
 
             for(int i = 0; i < abandonedMineCount; ++i) {
                 Rectangle abandonedMineRec = AbandonedMinePreset.generateAbandonedMineOnLevel(this, cg.random, presets.getOccupiedSpace());
@@ -133,9 +131,9 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
         GameEvents.triggerEvent(new GeneratedCaveStructuresEvent(this, cg, presets));
         GenerationTools.checkValid(this);
     }
-    
-	@Override
-    public LootTable getCrateLootTable() {
+
+    @Override
+    public LootTable getCrateLootTable(int tileX, int tileY) {
         return LootTablePresets.basicDeepCrate;
     }
 

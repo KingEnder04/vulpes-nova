@@ -17,10 +17,8 @@ import necesse.engine.world.WorldEntity;
 import necesse.level.gameObject.GameObject;
 import necesse.level.gameTile.GameTile;
 import necesse.level.maps.Level;
-import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.GenerationTools;
 import necesse.level.maps.generationModules.IslandGeneration;
-import necesse.level.maps.generationModules.PresetGeneration;
 import necesse.level.maps.presets.RandomRuinsPreset;
 
 public class MinersHavenSurfaceLevelVN extends Level {
@@ -28,9 +26,8 @@ public class MinersHavenSurfaceLevelVN extends Level {
         super(identifier, width, height, worldEntity);
     }
 
-    public MinersHavenSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity, Biome biome) {
+    public MinersHavenSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity) {
         super(new LevelIdentifier(islandX, islandY, 0), 300, 300, worldEntity);
-        this.baseBiome = biome;
         this.generateLevel(islandSize);
     }
 
@@ -105,26 +102,14 @@ public class MinersHavenSurfaceLevelVN extends Level {
 
         GameEvents.triggerEvent(new GeneratedIslandFloraEvent(this, islandSize, ig));
         GameEvents.triggerEvent(new GenerateIslandStructuresEvent(this, islandSize, ig), (e) -> {
-            PresetGeneration presets = new PresetGeneration(this);
-            this.preGeneratedStructures(islandSize, ig, presets);
             GenerationTools.spawnRandomPreset(this, (new RandomRuinsPreset(ig.random)).setTiles(new String[]{"stonefloor"}).setWalls(new String[]{"stonewall"}), false, false, ig.random, false, 40, 3);
-            this.postGeneratedStructures(islandSize, ig, presets);
-
         });
         GameEvents.triggerEvent(new GeneratedIslandStructuresEvent(this, islandSize, ig));
         GameEvents.triggerEvent(new GenerateIslandAnimalsEvent(this, islandSize, ig), (e) -> {
             ig.spawnMobHerds("penguin", ig.random.getIntBetween(20, 40), landTile, 2, 6, islandSize);
-
         });
-
         GameEvents.triggerEvent(new GeneratedIslandAnimalsEvent(this, islandSize, ig));
         GenerationTools.checkValid(this);
-    }
-
-    protected void preGeneratedStructures(float islandSize, IslandGeneration ig, PresetGeneration presets) {
-    }
-
-    protected void postGeneratedStructures(float islandSize, IslandGeneration ig, PresetGeneration presets) {
     }
 
     public GameMessage getLocationMessage(int tileX, int tileY) {

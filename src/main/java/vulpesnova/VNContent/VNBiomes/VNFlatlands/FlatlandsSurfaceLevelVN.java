@@ -19,10 +19,8 @@ import necesse.engine.world.WorldEntity;
 import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.SurfaceRuinsChestLootTable;
 import necesse.level.maps.Level;
-import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.GenerationTools;
 import necesse.level.maps.generationModules.IslandGeneration;
-import necesse.level.maps.generationModules.PresetGeneration;
 import necesse.level.maps.presets.RandomRuinsPreset;
 import vulpesnova.VulpesNova;
 
@@ -31,17 +29,18 @@ import java.awt.Point;
 import java.util.function.Consumer;
 
 public class FlatlandsSurfaceLevelVN extends Level {
-	
+
 
     public FlatlandsSurfaceLevelVN(LevelIdentifier identifier, int width, int height, WorldEntity worldEntity) {
         super(identifier, width, height, worldEntity);
     }
 
-    public FlatlandsSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity, Biome biome) {
+    public FlatlandsSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity) {
         super(new LevelIdentifier(islandX, islandY, 0), 300, 300, worldEntity);
-        this.baseBiome = biome;
         this.generateLevel(islandSize);
     }
+
+
 
     public void generateLevel(float islandSize) {
         int size = (int)(islandSize * 100.0F) + 20;
@@ -66,7 +65,7 @@ public class FlatlandsSurfaceLevelVN extends Level {
             ig.clearTinyIslands(waterTile);
             this.liquidManager.calculateFull();
         });
-        
+
         GameEvents.triggerEvent(new GeneratedIslandLayoutEvent(this, islandSize, ig));
         GameEvents.triggerEvent(new GenerateIslandFloraEvent(this, islandSize, ig), (e) -> {
             int treeObject = ObjectRegistry.getObjectID("cubetreevn");
@@ -75,36 +74,25 @@ public class FlatlandsSurfaceLevelVN extends Level {
             ig.generateObjects(ObjectRegistry.getObjectID("snowpile1"), landTile, 0.05F);
             ig.generateObjects(ObjectRegistry.getObjectID("snowpile2"), landTile, 0.05F);
             ig.generateObjects(ObjectRegistry.getObjectID("snowpile3"), landTile, 0.05F);
-            
+
             ig.generateObjects(ObjectRegistry.getObjectID("cubegroundrockvn"), -1, 0.001F, false);
             ig.generateObjects(ObjectRegistry.getObjectID("cubegroundrocksmallvn"), -1, 0.002F, false);
-            
+
             ig.generateFruitGrowerVeins("blockberrybushvn", 0.04F, 8, 10, 0.1F, (Consumer<Point>)null, new int[]{landTile});
             GenerationTools.generateRandomObjectVeinsOnTile(this, ig.random, 0.03F, 6, 12, landTile, ObjectRegistry.getObjectID("wildiceblossom"), 0.2F, false);
         });
-        
+
         GameEvents.triggerEvent(new GeneratedIslandFloraEvent(this, islandSize, ig));
         GameEvents.triggerEvent(new GenerateIslandStructuresEvent(this, islandSize, ig), (e) -> {
-            PresetGeneration presets = new PresetGeneration(this);
-            this.preGeneratedStructures(islandSize, ig, presets);
             GenerationTools.spawnRandomPreset(this, (new RandomRuinsPreset(ig.random)).setTiles(new String[]{"cubewoodfloorvn", "cubestonetiledfloorvn"}).setWalls(new String[]{"cubewoodvnwall", "cubestonevnwall"}), false, false, ig.random, false, 40, 3);
-
-            this.postGeneratedStructures(islandSize, ig, presets);
         });
-        
+
         GameEvents.triggerEvent(new GeneratedIslandStructuresEvent(this, islandSize, ig));
         GameEvents.triggerEvent(new GenerateIslandAnimalsEvent(this, islandSize, ig), (e) -> {
             ig.spawnMobHerds("penguin", ig.random.getIntBetween(20, 40), landTile, 2, 6, islandSize);
         });
-
         GameEvents.triggerEvent(new GeneratedIslandAnimalsEvent(this, islandSize, ig));
         GenerationTools.checkValid(this);
-    }
-
-    protected void preGeneratedStructures(float islandSize, IslandGeneration ig, PresetGeneration presets) {
-    }
-
-    protected void postGeneratedStructures(float islandSize, IslandGeneration ig, PresetGeneration presets) {
     }
 
     public GameMessage getLocationMessage(int tileX, int tileY) {
