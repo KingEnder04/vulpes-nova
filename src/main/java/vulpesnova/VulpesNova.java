@@ -4,7 +4,6 @@ import java.awt.Color;
 import necesse.engine.journal.JournalEntry;
 import necesse.engine.journal.MultiJournalChallenge;
 import necesse.engine.localization.Localization;
-import necesse.engine.localization.message.LocalMessage;
 import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.sound.GameMusic;
@@ -27,7 +26,6 @@ import necesse.inventory.item.miscItem.VinylItem;
 import necesse.inventory.item.placeableItem.StonePlaceableItem;
 import necesse.inventory.item.placeableItem.consumableItem.food.FoodConsumableItem;
 import necesse.inventory.item.placeableItem.followerSummonItem.petFollowerPlaceableItem.PetFollowerPlaceableItem;
-import necesse.inventory.item.placeableItem.mapItem.WorldPresetMapItem;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.inventory.item.toolItem.axeToolItem.CustomAxeToolItem;
 import necesse.inventory.item.toolItem.pickaxeToolItem.CustomPickaxeToolItem;
@@ -56,25 +54,22 @@ import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.levelData.settlementData.settler.Settler;
 
 import vulpesnova.VNContent.*;
-import vulpesnova.VNContent.VNArmors.VNAncientJungleSet.AncientJungleBoots;
-import vulpesnova.VNContent.VNArmors.VNAncientJungleSet.AncientJungleChestplate;
-import vulpesnova.VNContent.VNArmors.VNAncientJungleSet.AncientJungleHelmet;
 import vulpesnova.VNContent.VNArmors.VNChilledBloodplate.*;
 import vulpesnova.VNContent.VNArmors.VNCubaltSet.CubaltBootsVN;
 import vulpesnova.VNContent.VNArmors.VNCubaltSet.CubaltChestplateVN;
 import vulpesnova.VNContent.VNArmors.VNCubaltSet.CubaltHelmetVN;
-import vulpesnova.VNContent.VNArmors.VNMeatSet.MeatBoots;
-import vulpesnova.VNContent.VNArmors.VNMeatSet.MeatHat;
-import vulpesnova.VNContent.VNArmors.VNMeatSet.MeatRobe;
-import vulpesnova.VNContent.VNArmors.VNStoneSet.StoneBoots;
-import vulpesnova.VNContent.VNArmors.VNStoneSet.StoneChestplate;
-import vulpesnova.VNContent.VNArmors.VNStoneSet.StoneHelmet;
-import vulpesnova.VNContent.VNArmors.VNWindSet.WindBootsVN;
-import vulpesnova.VNContent.VNArmors.VNWindSet.WindChestplateVN;
-import vulpesnova.VNContent.VNArmors.VNWindSet.WindHatVN;
-import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenBoots;
-import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenChestplate;
-import vulpesnova.VNContent.VNArmors.VNWoodSet.WoodenHelmet;
+import vulpesnova.VNContent.VNArmors.VNGraftedSet.GraftedBoots;
+import vulpesnova.VNContent.VNArmors.VNGraftedSet.GraftedHat;
+import vulpesnova.VNContent.VNArmors.VNGraftedSet.GraftedRobe;
+import vulpesnova.VNContent.VNArmors.VNDeeprockSet.DeeprockBoots;
+import vulpesnova.VNContent.VNArmors.VNDeeprockSet.DeeprockChestplate;
+import vulpesnova.VNContent.VNArmors.VNDeeprockSet.DeeprockHelmet;
+import vulpesnova.VNContent.VNArmors.VNSkyplateSet.SkyplateBootsVN;
+import vulpesnova.VNContent.VNArmors.VNSkyplateSet.SkyplateChestplateVN;
+import vulpesnova.VNContent.VNArmors.VNSkyplateSet.SkyplateHelmetVN;
+import vulpesnova.VNContent.VNArmors.VNBloomweaveSet.BloomweaveBoots;
+import vulpesnova.VNContent.VNArmors.VNBloomweaveSet.BloomweaveChestplate;
+import vulpesnova.VNContent.VNArmors.VNBloomweaveSet.BloomweaveHelmet;
 
 import vulpesnova.VNContent.VNArmors._VNVanities.VNLuckyChickenSet.LuckyChickenBootsVN;
 import vulpesnova.VNContent.VNArmors._VNVanities.VNLuckyChickenSet.LuckyChickenMaskVN;
@@ -83,16 +78,9 @@ import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsBiomeVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsDeepCaveLevelVN;
 import vulpesnova.VNContent.VNBiomes.VNFlatlands.FlatlandsSurfaceLevelVN;
-import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenBiomeVN;
-import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenCaveLevelVN;
-import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenDeepCaveLevelVN;
-import vulpesnova.VNContent.VNBiomes.VNMinersHaven.MinersHavenSurfaceLevelVN;
-import vulpesnova.VNContent.VNBuffs.BleedingBuff;
-import vulpesnova.VNContent.VNBuffs.CosmicFireVNBuff;
-import vulpesnova.VNContent.VNBuffs.CrimsonTempestChargeStackBuff;
+import vulpesnova.VNContent.VNBuffs.*;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.FoxTokenVNBuff;
 import vulpesnova.VNContent.VNBuffs.VNArmorBuffs.*;
-import vulpesnova.VNContent.VNBuffs.MonsterPheromonesBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNActiveBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNCooldownBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNJewelry.AmethystAmuletVNTrinketBuff;
@@ -100,13 +88,13 @@ import vulpesnova.VNContent.VNBuffs.VNTrinkets.VNSeals.*;
 import vulpesnova.VNContent.VNJournal.HarvestBlockBerriesInFlatlandsChallenge;
 import vulpesnova.VNContent.VNJournal.KillPlanewalkerCrowdChallenge;
 import vulpesnova.VNContent.VNJournal.KillTitancubesInFlatlandsChallenge;
-import vulpesnova.VNContent.VNBuffs.WarAxeBleedingBuff;
 import vulpesnova.VNContent.VNBuffs.VNTrinkets.*;
 import vulpesnova.VNContent.VNMaterials.*;
 import vulpesnova.VNContent.VNMisc.*;
 import vulpesnova.VNContent.VNMobs.*;
 import vulpesnova.VNContent.VNMobs.VNBosses.GEARSphereBossMobVN;
 import vulpesnova.VNContent.VNMobs.VNBosses.GEARSphereMinionPodVN;
+import vulpesnova.VNContent.VNMobs.VNMiscMobs.DeadmahMobVN;
 import vulpesnova.VNContent.VNMobs.VNPets.BabyTitanCubeMobVN;
 import vulpesnova.VNContent.VNMobs.VNPets.PetSentientCrownVN;
 import vulpesnova.VNContent.VNMobs.TitanCubeMobVN;
@@ -127,6 +115,7 @@ import vulpesnova.helpers.RecipeHelper;
 import static necesse.engine.registries.BiomeRegistry.registerBiome;
 import static necesse.engine.registries.BuffRegistry.registerBuff;
 import static necesse.engine.registries.ItemRegistry.registerItem;
+import static necesse.engine.registries.LevelEventRegistry.registerEvent;
 import static necesse.engine.registries.MobRegistry.registerMob;
 import static necesse.engine.registries.ObjectRegistry.getObject;
 import static necesse.engine.registries.ObjectRegistry.registerObject;
@@ -151,13 +140,15 @@ public class VulpesNova {
 
     public static int cubeSandVNID;
     public static int cubeMainLandVNID;
-    public static int cubeStoneFloorVNID;
-    public static int cubeStoneTiledFloorVNID;
+    public static int cubeRockFloorVNID;
+    public static int cubeTiledFloorVNID;
     public static int cubeDeepStoneFloorVNID;
-    public static int cubeDeepStoneTiledFloorVNID;
+    public static int cubeDeepRockTiledFloorVNID;
     public static int gearFactoryFloorVNID;
     public static int cubeWoodFloorVNID;
 
+    public static int cubeRockCaveWallVNID;
+    public static Buff GEAR_NET_VN;
     public static Buff COSMIC_FIRE_VN;
     public static Buff MONSTER_PHEROMONE_BUFF_VN;
     public static Buff BLEEDING_BUFF_VN;
@@ -184,13 +175,15 @@ public class VulpesNova {
     public static GameTexture GEARSPHEREbody;
     public static GameTexture GEARSPHEREhead;
     public static GameTexture GEARSPHEREleg;
+    public static GameTexture GEARSPHEREdebris;
+
+    public static GameTexture GearSphere_net;
 
     public static Biome FLATLANDS;
-    public static Biome MINERSHAVEN;
-
-    public static GameMusic HUBMUSICVN;
     public static GameMusic CUBELEVELMUSICVN;
+    public static GameMusic GEARSPHEREBOSSTHEMEVN;
     public static GameMusic CUBELEVELDEEPMUSICVN;
+    public static GameMusic BLAZINGGEOMETRYTHEMEVN;
 
     public static int FLATLANDS_SURFACE_CHALLENGES_ID;
     public static LootTable FLATLANDS_SURFACE_REWARD = new LootTable(
@@ -234,35 +227,6 @@ public class VulpesNova {
         return new RegisterWallObjectResult(wallIDs, registerObject(baseName + "columnvn", new ColumnObject(baseName + "columnvn", wall.mapColor, ToolType.ALL), 10.0F, true));
     }
 
-
-    protected static class RegisterRockObjectResult{
-    	public int baseRockID;
-    	public int[] rockIDs;
-    	public int[] smallRockIDs;
-    	public RegisterRockObjectResult(int baseRockID, int[] rockIDs, int[] smallRockIDs) {
-            this.baseRockID = baseRockID;
-            this.rockIDs = rockIDs;
-            this.smallRockIDs = smallRockIDs;
-        }
-    }
-
-    // Helper method to register rock objects. It will also register the small rock variant.
-    // Returns: Two int IDs, the first for the normal rock, and the second for the small rock variant.
-
-    private static RegisterRockObjectResult registerRockObjects(String rockID, Color color, String baseTile, int toolTier) {
-        RockObject rock = new RockObject(rockID+"rockvn", color, baseTile);
-        int r1 = registerObject(rockID+"rockvn", rock, 0.0F, false);
-        rock.toolTier = toolTier;
-
-        int[] r2 = SingleRockObject.registerSurfaceRock(rock, rockID + "groundrockvn", new Color(127, 127, 127), -1.0F, true);
-        int[] r3 = SingleRockObject.registerSurfaceRock(rock, rockID + "groundrocksmallvn", new Color(127, 127, 127), -1.0F, true);
-
-        return new RegisterRockObjectResult(r1, r2, r3);
-    }
-
-    //==========================================================
-
-
     public static GameMusic registerMusic(String id, String path, String name, Color color1, Color color2) {
     	GameMusic music_id = MusicRegistry.registerMusic(id, path,	new StaticMessage(name), color1, color2, null);
     	ItemRegistry.registerItem(id + "vinyl", new VinylItem(music_id), 50.0F, true, false);
@@ -278,19 +242,16 @@ public class VulpesNova {
         // Use our helper methods to register Tiles.
         cubeSandVNID = registerFloorTile("cubesandtilevn", new Color(44, 50, 91), 2.0f);
         cubeMainLandVNID = registerTile("cubemainlandtilevn", new CubeMainLandTileVN(), 2.0f, true);
-        cubeStoneFloorVNID = registerFloorTile("cubestonefloorvn", new Color(161, 89, 238), 2.0f);
-        cubeDeepStoneFloorVNID = registerFloorTile("cubedeepstonefloorvn", new Color(126, 53, 204), 2.0f);
+        cubeRockFloorVNID = registerFloorTile("cuberockfloorvn", new Color(161, 89, 238), 2.0f);
+        cubeDeepStoneFloorVNID = registerFloorTile("cubedeeprockfloorvn", new Color(126, 53, 204), 2.0f);
         cubeWoodFloorVNID = registerFloorTile("cubewoodfloorvn", new Color(117, 126, 197), 4.0f);
-        cubeStoneTiledFloorVNID = registerFloorTile("cubestonetiledfloorvn", new Color(94, 53, 177), 2.0f);
-        cubeDeepStoneTiledFloorVNID = registerFloorTile("cubedeepstonetiledfloorvn", new Color(76, 37, 154), 2.0f);
+        cubeTiledFloorVNID = registerFloorTile("cubetiledfloorvn", new Color(94, 53, 177), 2.0f);
+        cubeDeepRockTiledFloorVNID = registerFloorTile("cubedeeprocktiledfloorvn", new Color(76, 37, 154), 2.0f);
         gearFactoryFloorVNID = registerFloorTile("gearfactoryfloorvn", new Color(242, 240, 243), 2.0f);
 
         register_objects();
 
         FLATLANDS = registerBiome("flatlandsvn", (new FlatlandsBiomeVN()).setGenerationWeight(1.0F), true);
-        MINERSHAVEN = registerBiome("minershavenvn", (new MinersHavenBiomeVN()).setGenerationWeight(0.5F), true);
-
-
 
         register_items();
 
@@ -306,15 +267,18 @@ public class VulpesNova {
 
         register_journal_entries();
 
-
+        registerEvent("gearspherenetvn",GearSphereNetEvent .class);
 
         CUBELEVELMUSICVN = registerMusic("cubicwoods", "music/cubicwoods", "Cubic Woods", new Color(45, 154, 164), new Color(119, 74, 196));
-        CUBELEVELDEEPMUSICVN = registerMusic("gearsturning", "music/gearsturning", "Gears Turning", new Color(45, 118, 164), new Color(24, 79, 141));
+        GEARSPHEREBOSSTHEMEVN = registerMusic("gearsturning", "music/gearsturning", "Gears Turning", new Color(45, 118, 164), new Color(24, 79, 141));
+        //vvvv placeholder name for when we actually work on it (deep cave) vvvv
+        CUBELEVELDEEPMUSICVN = registerMusic("volcubic", "music/volcubic", "Volcubic", new Color(182, 45, 65), new Color(112, 12, 43));
+        BLAZINGGEOMETRYTHEMEVN = registerMusic("blazinggeometry", "music/blazinggeometry", "Blazing Geometry", new Color(182, 45, 65), new Color(112, 12, 43));
 
         TABLEOFAWAKENINGVN = registerTech("tableofawakeningvn", "tableofawakeningvn");
 
 
-        LootTablePresets.globalMobDrops.items.add(new ChanceLootItem(0.02F,"novafragmentvn"));
+        LootTablePresets.globalMobDrops.items.add(new ChanceLootItem(0.5F,"novafragmentvn"));
 
         LootTablePresets.globalMobDrops.items.add(new ConditionLootItem("novashardvn", (r, o) -> {
 			Mob self = (Mob) LootTable.expectExtra(Mob.class, o, 0);
@@ -323,8 +287,14 @@ public class VulpesNova {
 
         LootTablePresets.globalMobDrops.items.add(new ConditionLootItem("novashardvn", (r, o) -> {
 			Mob self = (Mob) LootTable.expectExtra(Mob.class, o, 0);
-			return r.getChance(0.08) ? self.isBoss() : false;
+			return r.getChance(0.08) && self.isBoss();
 		}));
+
+        LootTablePresets.globalMobDrops.items.add(new ConditionLootItem("novashardvn", (r, o) -> {
+            Mob self = (Mob) LootTable.expectExtra(Mob.class, o, 0);
+            return r.getChance(1) || self.isBoss();
+        }));
+
 
     }
 
@@ -360,96 +330,46 @@ public class VulpesNova {
         );
 
         // Register Walls
+        String[] cubeRocksCategory = new String[]{"objects", "landscaping", "rocksandores"};
+        RockObject cubeRock;
+        cubeRockCaveWallVNID = registerObject("cuberockvn", cubeRock = new RockObject("cuberockvn", new Color(81, 45, 168), "cubestonevn", cubeRocksCategory), -1.0F, true);
+        cubeRock.toolTier = 4.0F;
+        SingleRockObject.registerSurfaceRock(cubeRock, "cubesurfacerockvn", new Color(114, 90, 81), -1.0F, true, cubeRocksCategory);
+        registerObject("cubesurfacerocksmallvn", new SingleRockSmall(cubeRock, "cubesurfacerocksmallvn", new Color(114, 90, 81), cubeRocksCategory), -1.0F, true);
+        SingleRockObject.registerSurfaceRock(cubeRock, "cubecaverockvn", new Color(204, 169, 110), -1.0F, true, cubeRocksCategory);
+        registerObject("ironorecubestonevn", new RockOreObject(cubeRock, "oremask", "ironore", new Color(169, 128, 106), "ironore", cubeRocksCategory), -1.0F, true);
+        registerObject("copperorecubestonevn", new RockOreObject(cubeRock, "oremask", "copperore", new Color(161, 83, 42), "copperore", cubeRocksCategory), -1.0F, true);
+        registerObject("goldorecubestonevn", new RockOreObject(cubeRock, "oremask", "goldore", new Color(198, 145, 47), "goldore", cubeRocksCategory), -1.0F, true);
+        registerObject("cubaltcubestonevn", new RockOreObject(cubeRock, "oremask", "cubaltorevn", new Color(182, 188, 158), "cubaltorevn", 1, 1, 1, cubeRocksCategory), -1.0F, true);
+
+        registerWallObjects("cubedeepstonewallvn", "cubedeepstonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
         registerWallObjects("cubewood", "cubewoodwallvn", new Color(74, 84, 166), 2.0F, 6.0F);
-        registerWallObjects("cubestone", "cubestonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
-        registerWallObjects("cubedeepstone", "cubedeepstonewallvn", new Color(81, 45, 168), 0.5F, 1.0F);
         registerWallObjects("gearfactory", "gearfactorywallvn", new Color(222, 221, 227), 0.5F, 1.0F);
-
-        registerRockObjects("cube", new Color(109, 35, 241), "cubestonevn", 1);
-        registerRockObjects("cubedeep", new Color(57, 11, 141), "cubedeepstonevn", 3);
-
-
-        registerObject("cubaltorecuberockvn", new RockOreObject(
-                (RockObject) getObject("cuberockvn"), "oremask", "cubaltorevn",
-                new Color(150, 115, 65), "cubaltoreitemvn", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("ironorecuberock", new RockOreObject(
-                (RockObject) getObject("cuberockvn"), "oremask", "ironore",
-                new Color(150, 115, 65), "ironore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("copperorecuberock", new RockOreObject(
-                (RockObject) getObject("cuberockvn"), "oremask", "copperore",
-                new Color(110, 52, 29), "copperore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("goldorecuberock", new RockOreObject(
-                (RockObject) getObject("cuberockvn"), "oremask", "goldore",
-                new Color(255, 195, 50), "goldore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("quartzrock", new RockOreObject(
-                (RockObject) getObject("rock"), "oremask", "quartzore",
-                new Color(232, 227, 216), "quartz", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("ivyorerock", new RockOreObject(
-                (RockObject) getObject("rock"), "oremask", "ivyore",
-                new Color(19, 89, 21), "ivyore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("frostshardrock", new RockOreObject(
-                (RockObject) getObject("rock"), "oremask", "frostshardore",
-                new Color(90, 231, 197), "frostshard", 1, 3, 2, false), 0.0F, false
-        );
-
-        // miners haven deepcave ores
-
-        registerObject("glacialoredeeprock", new RockOreObject(
-                (RockObject) getObject("deeprock"), "oremask", "glacialore",
-                new Color(65, 210, 224), "glacialore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("myceliumoredeeprock", new RockOreObject(
-                (RockObject) getObject("deeprock"), "oremask", "myceliumore",
-                new Color(189, 117, 91), "myceliumore", 1, 3, 2, false), 0.0F, false
-        );
-
-        registerObject("ancientfossiloredeeprock", new RockOreObject(
-                (RockObject) getObject("deeprock"), "oremask", "ancientfossilore",
-                new Color(80, 136, 85), "ancientfossilore", 1, 3, 2, false), 0.0F, false
-        );
 
         // Other Objects
         registerObject("gearcontactbeaconvn", new GEARContactBeaconVNObject(), 0, false);
 	}
 
 	private void register_items() {
-		// Wooden (Mage) Set
-        registerItem("woodenhelmetvn", new WoodenHelmet(), 110.0F, true);
-        registerItem("woodenchestplatevn", new WoodenChestplate(), 160.0F, true);
-        registerItem("woodenbootsvn", new WoodenBoots(), 80.0F, true);
+		// Wooden (Mage) Set (Bloomweave Soon)
+        registerItem("bloomweavehelmetvn", new BloomweaveHelmet(), 110.0F, true);
+        registerItem("bloomweavechestplatevn", new BloomweaveChestplate(), 160.0F, true);
+        registerItem("bloomweavebootsvn", new BloomweaveBoots(), 80.0F, true);
 
-        // Anicent Jungle Wooden Set (Mage, Not supposed to be in yet)
-        registerItem("ancientjunglehelmetvn", new AncientJungleHelmet(), 2000.0F, true);
-        registerItem("ancientjunglechestplatevn", new AncientJungleChestplate(), 2000.0F, true);
-        registerItem("ancientjunglebootsvn", new AncientJungleBoots(), 2000.0F, true);
+        // Skyplate (Ranger) Set (Previously Wind)
+        registerItem("skyplatehelmetvn", new SkyplateHelmetVN(), 110.0F, true);
+        registerItem("skyplatechestplatevn", new SkyplateChestplateVN(), 160.0F, true);
+        registerItem("skyplatebootsvn", new SkyplateBootsVN(), 80.0F, true);
 
-        // Wind (Ranger) Set
-        registerItem("windhatvn", new WindHatVN(), 110.0F, true);
-        registerItem("windchestplatevn", new WindChestplateVN(), 160.0F, true);
-        registerItem("windbootsvn", new WindBootsVN(), 80.0F, true);
+        // Grafted (Summoner) Set (Previously Meat)
+        registerItem("graftedhatvn", new GraftedHat(), 110.0F, true);
+        registerItem("graftedrobevn", new GraftedRobe(), 160.0F, true);
+        registerItem("graftedbootsvn", new GraftedBoots(), 80.0F, true);
 
-        // Meat (Summoner) Set
-        registerItem("meathatvn", new MeatHat(), 110.0F, true);
-        registerItem("meatrobevn", new MeatRobe(), 160.0F, true);
-        registerItem("meatbootsvn", new MeatBoots(), 80.0F, true);
-
-        // Stone (Melee) Set
-        registerItem("stonehelmetvn", new StoneHelmet(), 110.0F, true);
-        registerItem("stonechestplatevn", new StoneChestplate(), 160.0F, true);
-        registerItem("stonebootsvn", new StoneBoots(), 80.0F, true);
+        // Deeprock (Melee) Set (Previously Stone) Double check the knockback modifier to see if it works properly
+        registerItem("deeprockhelmetvn", new DeeprockHelmet(), 110.0F, true);
+        registerItem("deeprockchestplatevn", new DeeprockChestplate(), 160.0F, true);
+        registerItem("deeprockbootsvn", new DeeprockBoots(), 80.0F, true);
 
         // Chilled Bloodplate Set
         registerItem("chilledbloodplatehatvn", new ChilledBloodplateHat(), 200.0F, true);
@@ -524,7 +444,6 @@ public class VulpesNova {
         registerItem("hookgemvn", 				new SimpleTrinketItem(Item.Rarity.UNCOMMON, "hookgemvnbuff", 200, TrinketsLootTable.trinkets), 100.0F, true);
 
         // Items
-        registerItem("acrumplednotevn", new ACrumpledNoteVN(), 1000, true);
         registerItem("novafragmentvn", new NovaFragmentMaterialItem(), 2, true);
         registerItem("novashardvn", new NovaShardMaterialItem(), 10, true);
         registerItem("novaclustervn", new NovaClusterMaterialItem(), 100, true);
@@ -538,7 +457,7 @@ public class VulpesNova {
         }, 160.0F, true);
         registerItem("cubaltaxevn", new CustomAxeToolItem(400, 150, 2, 20, 50, 50, 800, ToolsLootTable.tools), 160.0F, true);
         registerItem("cubaltshovelvn", new CustomShovelToolItem(400, 150, 2, 20, 50, 50, 800, Item.Rarity.UNCOMMON), 160.0F, true);
-        registerItem("cubaltoreitemvn", (new MatItem(250, Item.Rarity.UNCOMMON, new String[0])).setItemCategory(new String[]{"materials", "ore"}), 1.0F, true);
+        registerItem("cubaltorevn", (new MatItem(250, Item.Rarity.UNCOMMON, new String[0])).setItemCategory(new String[]{"materials", "ore"}), 1.0F, true);
         registerItem("cubaltbarvn", (new MatItem(100, Item.Rarity.UNCOMMON, new String[0])).setItemCategory(new String[]{"materials", "bars"}), 4.0F, true);
         registerItem("cubelogvn", (new MatItem(250, Item.Rarity.UNCOMMON, new String[]{"anylog"})).setItemCategory(new String[]{"materials", "logs"}), 2.0F, true);
         registerItem("cubestonevn", new StonePlaceableItem(500), 0.1F, true);
@@ -563,16 +482,12 @@ public class VulpesNova {
         registerItem("queenspiderstaffvn", new QueenSpiderStaff(), 100, true);
         registerItem("necromancersrequiemvn", new NecromancersRequiemVN(), 1000, true);
         registerItem("acornlobbervn", new AcornLobberVN(), 60, true);
-        registerItem("woodenbulletvn", new WoodenBulletVNItem(), 5, true);
-        registerItem("cloudsvn", new CloudMaterialItem(), 5, true);
         registerItem("windarrowvn", new WindArrowItem(), 10, true);
         registerItem("theblowingwindvn", new TheBlowingWind(), 300, true);
-        registerItem("awakeninatorvn", new AwakeninatorMaterialItem(), 400, true);
+        //registerItem("awakeninatorvn", new AwakeninatorMaterialItem(), 400, true);
         registerItem("galevn", new GaleVN(), 200, true);
         registerItem("hurricanevn", new HurricaneVN(), 100, true);
         registerItem("windbulletvn", new WindRoundItem(), 5, true);
-        registerItem("novaheartvn", new NovaHeartItem(), 200, true);
-        // ignore this i couldn't be bothered to make a new mod just to add this lol registerItem("onehealthconsumevn", new ToOneHealthItem(), 0, true);
         registerItem("sentientcrownvn", new PetFollowerPlaceableItem("petsentientcrownvn", Item.Rarity.LEGENDARY), 1000.0F, true);
         registerItem("thejadewaraxevn", new TheJadeWaraxe(), 600, true);
         registerItem("heavierhammervn", new HeavierHammerVN(), 300, true);
@@ -602,7 +517,6 @@ public class VulpesNova {
         registerItem("gearresiliencematrixvn", new GEARResilienceMatrixItemVN(), 200, true);
         registerItem("cavedemolishervn", new CaveDemolisherVNToolItem(), 60.0F, true);
         registerItem("grandphoenixgreatbowvn", new GrandPhoenixGreatbowVN(), 1000.0F, true);
-        registerItem("minershavenmapvn", new WorldPresetMapItem(Item.Rarity.RARE, LevelIdentifier.SURFACE_IDENTIFIER, 800, "minershavenvn", new LocalMessage("biome", "mining"), new String[]{"minershavenvn"}), 120.0F, true);
         registerItem("rawvulpinevn", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_SIMPLE, 10, 240, new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, -1)})).debuff().spoilDuration(240).addGlobalIngredient(new String[]{"anyrawmeat"}).setItemCategory(new String[]{"consumable", "rawfood"}), 4.0F, true);
         registerItem("roastedvulpinevn", (new FoodConsumableItem(250, Item.Rarity.NORMAL, Settler.FOOD_FINE, 20, 480, new ModifierValue[]{new ModifierValue(BuffModifiers.DASH_STACKS, 1)})).spoilDuration(240), 12.0F, true);
 	}
@@ -612,8 +526,6 @@ public class VulpesNova {
         registerMob("nightmaremobvn", NightmareMobVN.class, true);
         registerMob("snowynightmaremobvn", SnowyNightmareMobVN.class, true);
         registerMob("foxmobvn", FoxMobVN.class, true);
-        registerMob("gustmobvn", GustMobVN.class, true);
-        registerMob("apocawindmobvn", ApocaWindMobVN.class, false);
         registerMob("petsentientcrownvn", PetSentientCrownVN.class, true);
         registerMob("cubaltcavelingvn", CubaltCavelingVN.class, true);
         registerMob("gemstonecavelingvn", GemStoneCavelingVN.class, true);
@@ -650,7 +562,6 @@ public class VulpesNova {
         registerProjectile("goldarrowproj", GoldArrowProjectile.class, "goldarrowprojvn", "arrow_shadow");
         registerProjectile("chain", NovaBulletProjectile.class, "chain", "chain");
 
-        registerProjectile("woodbulletproj", WoodenBulletVNProjectile.class, "chain", "chain");
         registerProjectile("windarrowproj", WindArrowProjectile.class, "windarrowprojvn", "arrow_shadow");
         registerProjectile("windroundproj", WindRoundProjectile.class, "chain", "chain");
         registerProjectile("jadeproj", JadeShotProjectile.class, "jadeprojvn", "jadeprojvn_shadow");
@@ -681,16 +592,17 @@ public class VulpesNova {
         registerProjectile("codblasterproj", CodBlasterProjectile.class, "codblasterprojvn", "codblasterprojvn_shadow");
 
         registerProjectile("crimsontempestvnproj", CrimsonTempestVNProjectile.class, "thunderboltredprojvn", "thunderboltprojvn_shadow");
-	}
+
+        registerProjectile("gearspherebossnetvnproj", GearSphereNetProjectile.class, "gearspherebossnetvnproj", "thunderboltprojvn_shadow");
+    }
 
 	private void register_buffs() {
 		// Armors
-        registerBuff("woodensetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.15f), new ModifierValue<Float>(BuffModifiers.MAGIC_CRIT_CHANCE, 0.05f), new ModifierValue<Integer>(BuffModifiers.MAX_MANA_FLAT, 30),}));
-        registerBuff("ancientjunglesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.COMBAT_REGEN, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.05F), new ModifierValue<Float>(BuffModifiers.SWIM_SPEED, 0.10F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F)}));
-        registerBuff("windsetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.25F), new ModifierValue<Float>(BuffModifiers.CRIT_CHANCE, 0.05F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.10F)}));
-        registerBuff("meatsetvnbonusbuff", new MeatSetBonusBuff());
+        registerBuff("bloomweavesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MAGIC_DAMAGE, 0.05f), new ModifierValue<Float>(BuffModifiers.COMBAT_MANA_REGEN, 0.1f), new ModifierValue<Float>(BuffModifiers.MANA_USAGE, 0.05f),}));
+        registerBuff("skyplatesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.RANGED_DAMAGE, 0.05F), new ModifierValue<Float>(BuffModifiers.PROJECTILE_VELOCITY, 0.1F), new ModifierValue<Float>(BuffModifiers.SPEED, 0.05F)}));
+        registerBuff("graftedsetvnbonusbuff", new GraftedSetBonusBuff());
         registerBuff("cubaltsetvnbonusbuff", new CubaltSetVNBonusBuff());
-        registerBuff("stonesetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ATTACK_SPEED, 0.10f), new ModifierValue<Integer>(BuffModifiers.MAX_RESILIENCE_FLAT, 10), new ModifierValue<Integer>(BuffModifiers.ARMOR_FLAT, 3)}));
+        registerBuff("deeprocksetvnbonusbuff", new SimpleSetBonusBuff(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.MELEE_DAMAGE, 0.05f), new ModifierValue<Float>(BuffModifiers.KNOCKBACK_INCOMING_MOD, -0.5f), new ModifierValue<Float>(BuffModifiers.KNOCKBACK_OUT, 0.10f)}));
         registerBuff("chilledbloodplatehatsetvnbonusbuff", new ChilledBloodplateHatSetBonusBuff());
         registerBuff("chilledbloodplatehoodsetvnbonusbuff", new ChilledBloodplateHoodSetBonusBuff());
         registerBuff("chilledbloodplatehelmetsetvnbonusbuff", new ChilledBloodplateHelmetSetBonusBuff());
@@ -751,6 +663,7 @@ public class VulpesNova {
         registerBuff("hookgemvnbuff", new SimpleTrinketBuff(new ModifierValue[]{new ModifierValue<Integer>(BuffModifiers.FISHING_LINES, 1)}));
 
         // Buffs/Debuffs
+        GEAR_NET_VN = registerBuff("gearnetbuffvn", new GearNetVNBuff());
         COSMIC_FIRE_VN = registerBuff("cosmicfirevn", new CosmicFireVNBuff());
         BLEEDING_BUFF_VN = registerBuff("bleedingvn", new BleedingBuff());
         MONSTER_PHEROMONE_BUFF_VN = registerBuff("monsterpheromonesvn", new MonsterPheromonesBuff());
@@ -771,9 +684,6 @@ public class VulpesNova {
         LevelRegistry.registerLevel("flatlandscavevn", FlatlandsCaveLevelVN.class);
         LevelRegistry.registerLevel("flatlandsdeepcavevn", FlatlandsDeepCaveLevelVN.class);
 
-        LevelRegistry.registerLevel("minershavensurfacevn", MinersHavenSurfaceLevelVN.class);
-        LevelRegistry.registerLevel("minershavencavevn", MinersHavenCaveLevelVN.class);
-        LevelRegistry.registerLevel("minershavendeepcavevn", MinersHavenDeepCaveLevelVN.class);
 	}
 
     private void register_journal_entries() {
@@ -802,12 +712,10 @@ public class VulpesNova {
 		flatlandsSurface.addEntryChallenges(new Integer[]{FLATLANDS_SURFACE_CHALLENGES_ID});
 	}
 
-	public void initResources() {
+    public void initResources() {
         NightmareMobVN.texture = GameTexture.fromFile("mobs/nightmaremobvn");
         SnowyNightmareMobVN.texture = GameTexture.fromFile("mobs/snowynightmaremobvn");
         FoxMobVN.texture = GameTexture.fromFile("mobs/foxmobvn");
-        GustMobVN.texture = GameTexture.fromFile("mobs/gustmobvn");
-        ApocaWindMobVN.texture = GameTexture.fromFile("mobs/apocawindmobvn");
         PetSentientCrownVN.texture = GameTexture.fromFile("mobs/petsentientcrownvn");
         LuckyChickenMobVN.texture = GameTexture.fromFile("mobs/luckychickenmobvn");
         PlanewalkerMobVN.texture = GameTexture.fromFile("mobs/planewalkermobvn");
@@ -828,6 +736,8 @@ public class VulpesNova {
         GEARSPHEREbody = GameTexture.fromFile("mobs/gearspherebossmobbodyvn");
         GEARSPHEREhead = GameTexture.fromFile("mobs/gearspherebossmobheadvn");
         GEARSPHEREleg = GameTexture.fromFile("mobs/gearspherebossmobheadvn");
+        GEARSPHEREdebris = GameTexture.fromFile("mobs/gearspherebossmobdebrisvn");
+        GearSphere_net = GameTexture.fromFile("particles/gearspherebossnetvnproj");
         GEARCubeMobVN.texture = GameTexture.fromFile("mobs/gearcubemobvn");
 
 
@@ -843,7 +753,6 @@ public class VulpesNova {
         BLASTER1 = GameSound.fromFile("soundeffects/blaster1.ogg");
         GUNSHOT1 = GameSound.fromFile("soundeffects/gunshot1.ogg");
         //electronicactivatevn = GameSound.fromFile("sound/soundeffects/electronicactivatevn");
-
 
         SealBuffGlyphParticle.buffGlyph = GameTexture.fromFile("buffs/sealbuffglyph");
     }
@@ -882,7 +791,7 @@ public class VulpesNova {
         .add(10,"foxmobvn");
 
         Biome.defaultDeepCaveMobs
-                .add(10, "nightmaremobvn")
+                .add(2, "nightmaremobvn")
                 .add(2, "deadmahmobvn");
 
         JournalRegistry.getJournalEntry("forestsurface").addMobEntries("foxmobvn");
@@ -894,12 +803,11 @@ public class VulpesNova {
                 .add(90,"deepgemstonecavelingvn");
 
         SnowBiome.caveMobs
-                .add(10,"snowynightmaremobvn")
+                .add(2,"snowynightmaremobvn")
                 .add(5,"icecubemobvn");
 
         SnowBiome.surfaceMobs
-                .add(10,"icecubemobvn")
-        		.addLimited(3,"gustmobvn", 5, 32*(128*128));
+                .add(10,"icecubemobvn");
 
         SnowBiome.surfaceCritters
                 .add(8,"luckychickenmobvn");
@@ -908,16 +816,13 @@ public class VulpesNova {
                 .add(5,"luckychickenmobvn");
 
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("foxmobvn");
-        JournalRegistry.getJournalEntry("snowsurface").addMobEntries("gustmobvn");
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("icecubemobvn");
         JournalRegistry.getJournalEntry("snowsurface").addMobEntries("luckychickenmobvn");
 
         DesertBiome.surfaceMobs
-                .add(10, "pyramidmobvn")
-        		.addLimited(3,"gustmobvn", 5, 32*(128*128));
+                .add(10, "pyramidmobvn");
 
         JournalRegistry.getJournalEntry("desertsurface").addMobEntries("foxmobvn");
-        JournalRegistry.getJournalEntry("desertsurface").addMobEntries("gustmobvn");
         JournalRegistry.getJournalEntry("desertsurface").addMobEntries("pyramidmobvn");
     }
 

@@ -28,6 +28,7 @@ import necesse.entity.mobs.Mob;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.LootTablePresets;
 import necesse.level.gameObject.GameObject;
+import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.CaveGeneration;
 import necesse.level.maps.generationModules.CellAutomaton;
 import necesse.level.maps.generationModules.GenerationTools;
@@ -44,14 +45,16 @@ import vulpesnova.VNContent.GEARSphereArenaVNPreset;
 import vulpesnova.VNContent.VNMisc.VNChestRoomSet;
 import vulpesnova.VNContent.VNMisc.VNWallSet;
 import vulpesnova.VNContent.VulpesNovaLootTablePresets;
+import vulpesnova.VulpesNova;
 
 public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
     public FlatlandsCaveLevelVN(LevelIdentifier identifier, int width, int height, WorldEntity worldEntity) {
         super(identifier, width, height, worldEntity);
     }
 
-    public FlatlandsCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity) {
+    public FlatlandsCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity, Biome biome) {
         super(new LevelIdentifier(islandX, islandY, dimension), 300, 300, worldEntity);
+        this.baseBiome = biome;
         this.isCave = true;
         this.generateLevel();
     }
@@ -193,9 +196,9 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
         GameEvents.triggerEvent(new GeneratedCaveMiniBiomesEvent(this, cg));
         GameEvents.triggerEvent(new GenerateCaveOresEvent(this, cg), (e) -> {
             cg.generateOreVeins(0.3F, 3, 6, ObjectRegistry.getObjectID("cubaltorecuberockvn"));
-            cg.generateOreVeins(0.3F, 3, 6, ObjectRegistry.getObjectID("copperorecuberock"));
-            cg.generateOreVeins(0.25F, 3, 6, ObjectRegistry.getObjectID("ironorecuberock"));
-            cg.generateOreVeins(0.15F, 3, 6, ObjectRegistry.getObjectID("goldorecuberock"));
+            cg.generateOreVeins(0.3F, 3, 6, ObjectRegistry.getObjectID("copperorecuberockvn"));
+            cg.generateOreVeins(0.25F, 3, 6, ObjectRegistry.getObjectID("ironorecuberockvn"));
+            cg.generateOreVeins(0.15F, 3, 6, ObjectRegistry.getObjectID("goldorecuberockvn"));
         });
         GameEvents.triggerEvent(new GeneratedCaveOresEvent(this, cg));
         GameObject crystalClusterSmall = ObjectRegistry.getObject("amethystclustersmall");
@@ -225,6 +228,8 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
         });
         PresetGeneration presets = new PresetGeneration(this);
         GameEvents.triggerEvent(new GenerateCaveStructuresEvent(this, cg, presets), (e) -> {
+            this.preGeneratedStructures(cg, presets);
+
             for(int i = 0; i < 4; ++i) {
                 Preset arena = new GEARSphereArenaVNPreset(36, cg.random);
                 presets.findRandomValidPositionAndApply(cg.random, 5, arena, 10, true, true);
@@ -235,8 +240,8 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
 
             for(int ix = 0; ix < chestRoomAmount; ++ix) {
                 Preset chestRoom = new RandomCaveChestRoom(cg.random, VulpesNovaLootTablePresets.flatlandsCaveChest, chestRoomRotation, new ChestRoomSet[]{ChestRoomSet.snowStone, ChestRoomSet.ice, ChestRoomSet.wood});
-                chestRoom.replaceTile(TileRegistry.stoneFloorID, (Integer)cg.random.getOneOf(new Integer[]{TileRegistry.stoneFloorID, TileRegistry.stoneBrickFloorID}));
-                chestRoom.replaceTile(TileRegistry.sandstoneFloorID, (Integer)cg.random.getOneOf(new Integer[]{TileRegistry.sandstoneFloorID, TileRegistry.sandstoneBrickFloorID}));
+                chestRoom.replaceTile(VulpesNova.cubeRockFloorVNID, (Integer)cg.random.getOneOf(new Integer[]{VulpesNova.cubeRockFloorVNID, VulpesNova.cubeRockFloorVNID}));
+                chestRoom.replaceTile(VulpesNova.cubeTiledFloorVNID, (Integer)cg.random.getOneOf(new Integer[]{VulpesNova.cubeTiledFloorVNID, VulpesNova.cubeTiledFloorVNID}));
                 presets.findRandomValidPositionAndApply(cg.random, 5, chestRoom, 10, true, true);
             }
 
@@ -253,6 +258,7 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
 
             int[] crates = new int[]{crate, vase};
             cg.generateRandomCrates(0.04F, crates);
+            this.postGeneratedStructures(cg, presets);
         });
         GenerationTools.checkValid(this);
         Iterator<Mob> var8 = minecartsGenerated.iterator();
@@ -266,12 +272,29 @@ public class FlatlandsCaveLevelVN extends FlatlandsSurfaceLevelVN {
 
     }
 
-    @Override
-    public LootTable getCrateLootTable(int tileX, int tileY) {
-        return LootTablePresets.desertCrate;
+    protected void preGeneratedStructures(CaveGeneration cg, PresetGeneration presets) {
+    }
+
+    protected void postGeneratedStructures(CaveGeneration cg, PresetGeneration presets) {
+    }
+
+    public boolean isBasicCaveLevel() {
+        return true;
     }
 
     public GameMessage getLocationMessage(int tileX, int tileY) {
         return new LocalMessage("biome", "cave", "biome", this.getBiome(tileX, tileY).getLocalization());
+    }
+
+    public float getLiquidSaltWaterSinkRate() {
+        return 4.0F;
+    }
+
+    public float getLiquidFreshWaterSinkRate() {
+        return 10.0F;
+    }
+
+    public float getLiquidMobSinkRate() {
+        return 10.0F;
     }
 }

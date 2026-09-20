@@ -20,16 +20,25 @@ import necesse.gfx.camera.GameCamera;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.inventory.lootTable.LootItemInterface;
 import necesse.inventory.lootTable.LootTable;
+import necesse.inventory.lootTable.LootTablePresets;
 import necesse.inventory.lootTable.lootItem.ChanceLootItem;
+import necesse.level.gameTile.GameTile;
 import necesse.level.maps.Level;
 import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.biomes.FishingLootTable;
 import necesse.level.maps.biomes.FishingSpot;
 import necesse.level.maps.biomes.MobSpawnTable;
+import necesse.level.maps.presets.RandomCaveChestRoom;
+import necesse.level.maps.presets.caveRooms.CaveRuins;
+import necesse.level.maps.presets.set.ChestRoomSet;
+import necesse.level.maps.presets.set.FurnitureSet;
+import necesse.level.maps.presets.set.WallSet;
 import necesse.level.maps.regionSystem.Region;
+import vulpesnova.VNContent.VulpesNovaLootTablePresets;
 import vulpesnova.VulpesNova;
 
 import java.awt.Color;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class FlatlandsBiomeVN extends Biome {
 
@@ -75,17 +84,17 @@ public class FlatlandsBiomeVN extends Biome {
 
     @Override
     public Level getNewSurfaceLevel(int islandX, int islandY, float islandSize, Server server, WorldEntity worldEntity) {
-        return new FlatlandsSurfaceLevelVN(islandX, islandY, islandSize, worldEntity);
+        return new FlatlandsSurfaceLevelVN(islandX, islandY, islandSize, worldEntity, this);
     }
 
     @Override
     public Level getNewCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
-        return new FlatlandsCaveLevelVN(islandX, islandY, dimension, worldEntity);
+        return new FlatlandsCaveLevelVN(islandX, islandY, dimension, worldEntity, this);
     }
 
     @Override
     public Level getNewDeepCaveLevel(int islandX, int islandY, int dimension, Server server, WorldEntity worldEntity) {
-        return new FlatlandsDeepCaveLevelVN(islandX, islandY, dimension, worldEntity);
+        return new FlatlandsDeepCaveLevelVN(islandX, islandY, dimension, worldEntity, this);
     }
 
     @Override
@@ -127,7 +136,7 @@ public class FlatlandsBiomeVN extends Biome {
         }
 
         if(mob.isBoss()) {
-            result.items.add(new ChanceLootItem(.1F, "awakeninatorvn"));
+            result.items.add(new ChanceLootItem(.1F, "sentientcrownvn"));
         }
 
         if(mob.getID() == MobRegistry.getMobID("titancubemobvn")) {
@@ -154,6 +163,41 @@ public class FlatlandsBiomeVN extends Biome {
     // These are what actually get called on new, continuous-world saves.
     // getNewSurfaceLevel() above is kept only for old island-model saves;
     // it is not consulted on new worlds.
+
+    public GameTile getUnderLiquidTile(Level level, int tileX, int tileY) {
+        return TileRegistry.getTile(VulpesNova.cubeSandVNID);
+    }
+
+    public LootTable getCrateLootTable(Level level, int tileX, int tileY) {
+        return level.isDeepCaveLevel() ? LootTablePresets.desertDeepCrate : LootTablePresets.desertCrate;
+    }
+
+    public RandomCaveChestRoom getNewCaveChestRoomPreset(GameRandom random, AtomicInteger lootRotation) {
+        RandomCaveChestRoom chestRoom = new RandomCaveChestRoom(random, VulpesNovaLootTablePresets.flatlandsCaveChest, lootRotation, new ChestRoomSet[]{ChestRoomSet.sandstone, ChestRoomSet.wood});
+        chestRoom.replaceTile(TileRegistry.stoneFloorID, (Integer)random.getOneOf(new Integer[]{TileRegistry.stoneFloorID, TileRegistry.stoneBrickFloorID}));
+        chestRoom.replaceTile(TileRegistry.sandstoneFloorID, (Integer)random.getOneOf(new Integer[]{TileRegistry.sandstoneFloorID, TileRegistry.sandstoneBrickFloorID}));
+        return chestRoom;
+    }
+
+    public RandomCaveChestRoom getNewDeepCaveChestRoomPreset(GameRandom random, AtomicInteger lootRotation) {
+        RandomCaveChestRoom chestRoom = new RandomCaveChestRoom(random, VulpesNovaLootTablePresets.flatlandsCaveChest, lootRotation, new ChestRoomSet[]{ChestRoomSet.deepSandstone, ChestRoomSet.obsidian});
+        chestRoom.replaceTile(TileRegistry.deepStoneFloorID, (Integer)random.getOneOf(new Integer[]{TileRegistry.deepStoneFloorID, TileRegistry.deepStoneBrickFloorID}));
+        return chestRoom;
+    }
+
+    public CaveRuins getNewCaveRuinsPreset(GameRandom random, AtomicInteger lootRotation) {
+        WallSet wallSet = (WallSet)random.getOneOf(new WallSet[]{WallSet.sandstone, WallSet.wood});
+        FurnitureSet furnitureSet = (FurnitureSet)random.getOneOf(new FurnitureSet[]{FurnitureSet.palm, FurnitureSet.spruce});
+        String floorStringID = (String)random.getOneOf(new String[]{"woodfloor", "woodfloor", "sandstonefloor", "sandstonebrickfloor"});
+        return ((CaveRuins.CaveRuinGetter)random.getOneOf(CaveRuins.caveRuinGetters)).get(random, wallSet, furnitureSet, floorStringID, LootTablePresets.desertCaveRuinsChest, lootRotation);
+    }
+
+    public CaveRuins getNewDeepCaveRuinsPreset(GameRandom random, AtomicInteger lootRotation) {
+        WallSet wallSet = (WallSet)random.getOneOf(new WallSet[]{WallSet.deepSandstone, WallSet.obsidian});
+        FurnitureSet furnitureSet = (FurnitureSet)random.getOneOf(new FurnitureSet[]{FurnitureSet.palm, FurnitureSet.spruce});
+        String floorStringID = (String)random.getOneOf(new String[]{"deepstonefloor", "deepstonebrickfloor"});
+        return ((CaveRuins.CaveRuinGetter)random.getOneOf(CaveRuins.caveRuinGetters)).get(random, wallSet, furnitureSet, floorStringID, LootTablePresets.desertDeepCaveRuinsChest, lootRotation);
+    }
 
     @Override
     public int getGenerationTerrainTileID() {
@@ -190,6 +234,16 @@ public class FlatlandsBiomeVN extends Biome {
         super.initializeGeneratorStack(stack);
         stack.addRandomSimplexVeinsBranch("flatlandsBlockberry", 2.0f, 0.2f, 1.0f, 0);
         stack.addRandomVeinsBranch("flatlandsIceBlossom", 0.03f, 6, 12, 0.2f, 0, false);
+        //replace with flatlands ores
+        stack.addRandomVeinsBranch("flatlandsCubalt", 1.3F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsCopper", 0.3F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsIron", 0.25F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsGold", 0.15F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsDeepCopper", 0.08F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsDeepIron", 0.4F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsDeepGold", 0.24F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsDeepAncientFossil", 0.272F, 3, 6, 0.4F, 2, false);
+        stack.addRandomVeinsBranch("flatlandsDeepLifeQuartz", 0.08F, 3, 6, 0.4F, 2, false);
     }
 
     @Override
@@ -213,30 +267,55 @@ public class FlatlandsBiomeVN extends Biome {
         stack.startPlace(this, region, random).onlyOnTile(landTile).chancePerRegion(0.02f).placeMob("penguin");
     }
 
+    public void generateRegionCaveTerrain(Region region, BiomeGeneratorStack stack, GameRandom random) {
+        super.generateRegionCaveTerrain(region, stack, random);
+        stack.startPlace(this, region, random).chance(0.004999999888241291).placeObject("sandcaverock");
+        stack.startPlace(this, region, random).chance(0.009999999776482582).placeObject("sandcaverocksmall");
+        stack.startPlace(this, region, random).chance(0.03999999910593033).placeCrates(new String[]{"crate", "vase"});
+        stack.startPlaceOnVein(this, region, random, "flatlandsCubalt").onlyOnObject(VulpesNova.cubeRockCaveWallVNID).placeObjectForced("cubaltorecuberockvn");
+        stack.startPlaceOnVein(this, region, random, "flatlandsCopper").onlyOnObject(VulpesNova.cubeRockCaveWallVNID).placeObjectForced("copperorecuberockvn");
+        stack.startPlaceOnVein(this, region, random, "flatlandsIron").onlyOnObject(VulpesNova.cubeRockCaveWallVNID).placeObjectForced("ironorecuberockvn");
+        stack.startPlaceOnVein(this, region, random, "flatlandsGold").onlyOnObject(VulpesNova.cubeRockCaveWallVNID).placeObjectForced("goldorecuberockvn");
+    }
+
+    public void generateRegionDeepCaveTerrain(Region region, BiomeGeneratorStack stack, GameRandom random) {
+        super.generateRegionDeepCaveTerrain(region, stack, random);
+        stack.startPlace(this, region, random).chance(0.004999999888241291).placeObject("deepsandcaverock");
+        stack.startPlace(this, region, random).chance(0.009999999776482582).placeObject("deepsandcaverocksmall");
+        stack.startPlace(this, region, random).chance(0.03999999910593033).placeCrates(new String[]{"crate", "vase"});
+        stack.startPlaceOnVein(this, region, random, "flatlandsDeepCopper").onlyOnObject(ObjectRegistry.deepSandstoneRockID).placeObjectForced("copperoredeepsandstonerock");
+        stack.startPlaceOnVein(this, region, random, "flatlandsDeepIron").onlyOnObject(ObjectRegistry.deepSandstoneRockID).placeObjectForced("ironoredeepsandstonerock");
+        stack.startPlaceOnVein(this, region, random, "flatlandsDeepGold").onlyOnObject(ObjectRegistry.deepSandstoneRockID).placeObjectForced("goldoredeepsandstonerock");
+        stack.startPlaceOnVein(this, region, random, "flatlandsDeepAncientFossil").onlyOnObject(ObjectRegistry.deepSandstoneRockID).placeObjectForced("ancientfossiloredeepsnowrock");
+        stack.startPlaceOnVein(this, region, random, "flatlandsDeepLifeQuartz").onlyOnObject(ObjectRegistry.deepSandstoneRockID).placeObjectForced("lifequartzdeepsandstonerock");
+    }
+
     static {
         cubeSurfaceFish = (new FishingLootTable(defaultSurfaceFish))
                 .addWater(120, "icefish");
 
         surfaceMobs = (new MobSpawnTable())
                 .add(15, "cubemobvn")
-                //.add(3,"pyramidmobvn")
-                .add(3,"titancubemobvn")
-                .add(7,"spheresorcerermobvn")
+                .add(5,"pyramidmobvn")
+                .add(5,"titancubemobvn")
+                .add(4,"spheresorcerermobvn")
                 .add(50,"spheresentinelmobvn")
-                .add(8,"planewalkermobvn");
+                .add(2,"planewalkermobvn");
 
         caveMobs = (new MobSpawnTable())
-                //.add(100,"spheresorcerermobvn")
-                //.add(100,"planewalkermobvn")
-                .add(100,"nightmarecubemobvn")
-                .add(10,"deadmahmobvn");
+                .add(5, "cubemobvn")
+                .add(10,"titancubemobvn")
+                .add(5,"spheresorcerermobvn")
+                .add(10,"planewalkermobvn")
+                .add(1,"nightmarecubemobvn")
+                .add(3,"deadmahmobvn");
 
         deepSnowCaveMobs = (new MobSpawnTable())
                 .add(120, "spheresorcerermobvn")
                 .add(70, "planewalkermobvn")
                 .add(25, "nightmarecubemobvn")
                 .add(50, "cryoflake")
-                .add(15, "deadmahmobvn");
+                .add(15000, "deadmahmobvn");
 
         surfaceCritters = (new MobSpawnTable())
                 .add(30, "snowhare")

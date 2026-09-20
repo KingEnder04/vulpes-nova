@@ -96,7 +96,13 @@ public class RecipeHelper {
         String item;
         int amount;
     }
-    
+
+	//
+	//
+	// Anything using glass is most likely a placeholder for the Skyplate equipment
+	//
+	//
+
     static boolean initialized = false;
     public static void initialize() {
 		if(initialized) return;
@@ -125,23 +131,6 @@ public class RecipeHelper {
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("awakeninatorvn")
-				.tech(VulpesNova.TABLEOFAWAKENINGVN)
-				.ingredient("emerald", 1)
-				.ingredient("novaclustervn", 1)
-				.showAfter("novashardvn")
-				.toRecipe());
-
-			Recipes.registerModRecipe(
-				new RecipeData().result("minershavenmapvn")
-				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
-				.ingredient("mapfragment", 24)
-				.ingredient("demonicbar", 4)
-				.ingredient("novashardvn", 8)
-				.showAfter("piratemap")
-				.toRecipe());
-
-			Recipes.registerModRecipe(
 				new RecipeData().result("foxtokenvn")
 				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
 				.ingredient("goldbar", 12)
@@ -158,7 +147,7 @@ public class RecipeHelper {
 				.ingredient("firemone", 30)
 				.ingredient("ruby", 6)
 				.ingredient("novaclustervn", 1)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.showAfter("craftingguide")
 				.toRecipe());
 
@@ -166,7 +155,7 @@ public class RecipeHelper {
 				new RecipeData().result("cosmictalismanvn")
 				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
 				.ingredient("nightmaretalisman", 1)
-				.ingredient("cloudsvn", 20)
+				.ingredient("glass", 20)
 				.ingredient("novaclustervn", 2)
 				.showAfter("nightmaretalisman")
 				.toRecipe());
@@ -247,11 +236,8 @@ public class RecipeHelper {
 			Recipes.registerModRecipe(
 				new RecipeData().result("magicfordummiesvn")
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
-				.ingredient("novicetomevn", 1)
-				.ingredient("intermediatetomevn", 1)
-				.ingredient("experttomevn", 1)
 				.ingredient("mastertomevn", 1)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 2)
 				.showAfter("crimsontempestvn")
 				.toRecipe());
@@ -260,7 +246,7 @@ public class RecipeHelper {
 				new RecipeData().result("novakatanavn")
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("reinforcedkatana", 1)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 4)
 				.showAfter("themountainvn")
 				.toRecipe());
@@ -318,7 +304,7 @@ public class RecipeHelper {
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("novabulletvn")
+				new RecipeData().result("novabulletvn").quantity(100)
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("voidbullet", 100)
 				.ingredient("novashardvn", 1)
@@ -326,24 +312,24 @@ public class RecipeHelper {
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("windbulletvn")
+				new RecipeData().result("windbulletvn").quantity(50)
 				.tech(RecipeTechRegistry.NONE)
-				.ingredient("cloudsvn", 5)
+				.ingredient("glass", 1)
 				.ingredient("novafragmentvn", 3)
 				.showAfter("simplebullet")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("goldarrowvn")
+				new RecipeData().result("goldarrowvn").quantity(5)
 				.tech(RecipeTechRegistry.NONE)
 				.ingredient("goldbar", 1)
 				.showAfter("ironarrow")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("windarrowvn")
+				new RecipeData().result("windarrowvn").quantity(50)
 				.tech(RecipeTechRegistry.NONE)
-				.ingredient("cloudsvn", 5)
+				.ingredient("glass", 1)
 				.ingredient("novafragmentvn", 3)
 				.showAfter("ironarrow")
 				.toRecipe());
@@ -417,7 +403,7 @@ public class RecipeHelper {
 				.ingredient("bigbrainonastickvn", 1)
 				.ingredient("skeletonstaff", 1)
 				.ingredient("bone", 30)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 2)
 				.showAfter("cryostaff")
 				.toRecipe());
@@ -432,19 +418,10 @@ public class RecipeHelper {
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("woodenbulletvn")
-				.tech(RecipeTechRegistry.NONE)
-				.ingredient("novafragmentvn", 3)
-				.ingredient("anylog", 5)
-				.ingredient("anysapling", 3)
-				.showAfter("novaarrowvn")
-				.toRecipe());
-
-			Recipes.registerModRecipe(
 				new RecipeData().result("galevn")
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("acornlobbervn", 1)
-				.ingredient("cloudsvn", 24)
+				.ingredient("glass", 24)
 				.ingredient("novashardvn", 6)
 				.showAfter("acornlobbervn")
 				.toRecipe());
@@ -453,18 +430,9 @@ public class RecipeHelper {
 				new RecipeData().result("theblowingwindvn")
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("demonicbow", 1)
-				.ingredient("cloudsvn", 24)
+				.ingredient("glass", 24)
 				.ingredient("novashardvn", 10)
 				.showAfter("demonicbow")
-				.toRecipe());
-
-			Recipes.registerModRecipe(
-				new RecipeData().result("novaheartvn")
-				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
-				.ingredient("lifeelixir", 1)
-				.ingredient("lifequartz", 10)
-				.ingredient("novaclustervn", 1)
-				.showAfter("lifeelixir")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
@@ -475,6 +443,15 @@ public class RecipeHelper {
 				.ingredient("novashardvn", 16)
 				.showAfter("mysteriousportal")
 				.toRecipe());
+
+		Recipes.registerModRecipe(
+				new RecipeData().result("portablegearcontactbeaconvn")
+						.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
+						.ingredient("cubaltbarvn", 6)
+						.ingredient("shapeshardsvn", 20)
+						.ingredient("novashardvn", 24)
+						.showAfter("mysteriousportal")
+						.toRecipe());
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("heavierhammervn")
@@ -498,7 +475,7 @@ public class RecipeHelper {
 				new RecipeData().result("thunderingrodvn")
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("ironbar", 12)
-				.ingredient("cloudsvn", 24)
+				.ingredient("glass", 24)
 				.ingredient("novashardvn", 16)
 				.showAfter("woodstaff")
 				.toRecipe());
@@ -508,7 +485,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.TUNGSTEN_ANVIL)
 				.ingredient("thunderingrodvn", 1)
 				.ingredient("tungstenbar", 12)
-				.ingredient("cloudsvn", 32)
+				.ingredient("glass", 32)
 				.ingredient("novashardvn", 32)
 				.showAfter("thunderingrodvn")
 				.toRecipe());
@@ -517,8 +494,8 @@ public class RecipeHelper {
 				new RecipeData().result("crimsontempestvn")
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("eyeofthestormvn", 1)
-				.ingredient("cloudsvn", 128)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("glass", 128)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 2)
 				.showAfter("thunderingrodvn")
 				.toRecipe());
@@ -527,10 +504,10 @@ public class RecipeHelper {
 				new RecipeData().result("monsterpheromonesvn")
 				.tech(RecipeTechRegistry.TUNGSTEN_WORKSTATION)
 				.ingredient("stinkflask", 1)
-				.ingredient("cloudsvn", 50)
+				.ingredient("glass", 50)
 				.ingredient("ectoplasm", 25)
 				.ingredient("novaclustervn", 1)
-				.showAfter("novaheartvn")
+				.showAfter("crimsontempestvn")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
@@ -538,7 +515,7 @@ public class RecipeHelper {
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("heaviesthammervn", 1)
 				.ingredient("anystone", 5000)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 1)
 				.showAfter("crimsontempestvn")
 				.toRecipe());
@@ -548,7 +525,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("galevn", 1)
 				.ingredient("thunderingrodvn", 1)
-				.ingredient("cloudsvn", 16)
+				.ingredient("glass", 16)
 				.ingredient("novashardvn", 24)
 				.showAfter("codblastervn")
 				.toRecipe());
@@ -558,7 +535,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("hurricanevn", 1)
 				.ingredient("thunderingrodvn", 1)
-				.ingredient("cloudsvn", 16)
+				.ingredient("glass", 16)
 				.ingredient("novashardvn", 24)
 				.showAfter("codblastervn")
 				.toRecipe());
@@ -568,8 +545,8 @@ public class RecipeHelper {
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("stormbringervn", 1)
 				.ingredient("lmgvn", 1)
-				.ingredient("cloudsvn", 32)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("glass", 32)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 1)
 				.showAfter("novakatanavn")
 				.toRecipe());
@@ -578,7 +555,7 @@ public class RecipeHelper {
 				new RecipeData().result("tableofawakeningvn")
 				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
 				.ingredient("demonicbar", 12)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novashardvn", 12)
 				.showAfter("demonicworkstation")
 				.toRecipe());
@@ -594,7 +571,7 @@ public class RecipeHelper {
 			Recipes.registerModRecipe(
 				new RecipeData().result("windmedallionvn")
 				.tech(RecipeTechRegistry.DEMONIC_WORKSTATION)
-				.ingredient("cloudsvn", 20)
+				.ingredient("glass", 20)
 				.ingredient("goldbar", 4)
 				.ingredient("novashardvn", 6)
 				.showAfter("dreamcatcher")
@@ -688,7 +665,7 @@ public class RecipeHelper {
 				.ingredient("spelunkerpotion", 10)
 				.ingredient("treasurepotion", 10)
 				.ingredient("greaterminingpotion", 5)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.showAfter("frozenheavenvn")
 				.toRecipe());
 
@@ -707,7 +684,7 @@ public class RecipeHelper {
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("gladiatorsembracevn", 1)
 				.ingredient("novagauntletvn", 1)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 1)
 				.showAfter("manica")
 				.toRecipe());
@@ -747,8 +724,8 @@ public class RecipeHelper {
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("glacialfrostvn", 1)
 				.ingredient("halovn", 1)
-				.ingredient("cloudsvn", 24)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("glass", 24)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 1)
 				.showAfter("manica")
 				.toRecipe());
@@ -882,9 +859,9 @@ public class RecipeHelper {
 				.ingredient("summongemvn", 1)
 				.ingredient("armorgemvn", 1)
 				.ingredient("hookgemvn", 1)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novashardvn", 20)
-				.showAfter("ancientjunglebootsvn")
+				.showAfter("regenpendant")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
@@ -895,9 +872,9 @@ public class RecipeHelper {
 				.ingredient("spikedbatboots", 1)
 				.ingredient("ancientrelics", 1)
 				.ingredient("nightmareheadvn", 1)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 2)
-				.showAfter("ancientjunglebootsvn")
+				.showAfter("regenpendant")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
@@ -933,30 +910,30 @@ public class RecipeHelper {
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("demonwarriorsealvn", 1)
 				.ingredient("holypaladinsealvn", 1)
-				.ingredient("awakeninatorvn", 1)
+				.ingredient("foxtokenvn", 1)
 				.ingredient("novaclustervn", 2)
-				.showAfter("ancientjunglebootsvn")
+				.showAfter("regenpendant")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("luckychickenmaskvn")
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("novashardvn", 24)
-				.showAfter("ancientjunglebootsvn")
+				.showAfter("regenpendant")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("luckychickencostumeshirtvn")
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("novashardvn", 24)
-				.showAfter("ancientjunglebootsvn")
+				.showAfter("regenpendant")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
 				new RecipeData().result("luckychickencostumebootsvn")
 				.tech(VulpesNova.TABLEOFAWAKENINGVN)
 				.ingredient("novashardvn", 24)
-				.showAfter("ancientjunglebootsvn")
+				.showAfter("regenpendant")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
@@ -1014,143 +991,110 @@ public class RecipeHelper {
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("woodenbootsvn")
+				new RecipeData().result("bloomweavebootsvn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("clothboots", 1)
-				.ingredient("anylog", 20)
-				.ingredient("anysapling", 10)
-				.ingredient("novashardvn", 8)
+				.ingredient("wool", 8)
+				.ingredient("sunflower", 6)
 				.showAfter("clothboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("woodenchestplatevn")
+				new RecipeData().result("bloomweavechestplatevn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("clothrobe", 1)
-				.ingredient("anylog", 40)
-				.ingredient("anysapling", 15)
-				.ingredient("novashardvn", 12)
+				.ingredient("wool", 14)
+				.ingredient("sunflower", 12)
 				.showAfter("clothboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("woodenhelmetvn")
+				new RecipeData().result("bloomweavehelmetvn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("clothhat", 1)
-				.ingredient("anylog", 30)
-				.ingredient("anysapling", 10)
-				.ingredient("novashardvn", 6)
+				.ingredient("wool", 10)
+				.ingredient("sunflower", 8)
 				.showAfter("clothboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("ancientjunglebootsvn")
-				.tech(VulpesNova.TABLEOFAWAKENINGVN)
-				.ingredient("woodenbootsvn", 1)
-				.ingredient("anysapling", 80)
-				.ingredient("awakeninatorvn", 1)
-				.ingredient("novaclustervn", 2)
-				.showAfter("clothboots")
-				.toRecipe());
-
-			Recipes.registerModRecipe(
-				new RecipeData().result("ancientjunglechestplatevn")
-				.tech(VulpesNova.TABLEOFAWAKENINGVN)
-				.ingredient("woodenchestplatevn", 1)
-				.ingredient("anysapling", 120)
-				.ingredient("awakeninatorvn", 1)
-				.ingredient("novaclustervn", 3)
-				.showAfter("clothboots")
-				.toRecipe());
-
-			Recipes.registerModRecipe(
-				new RecipeData().result("ancientjunglehelmetvn")
-				.tech(VulpesNova.TABLEOFAWAKENINGVN)
-				.ingredient("woodenhelmetvn", 1)
-				.ingredient("anysapling", 100)
-				.ingredient("awakeninatorvn", 1)
-				.ingredient("novaclustervn", 2)
-				.showAfter("clothboots")
-				.toRecipe());
-
-			Recipes.registerModRecipe(
-				new RecipeData().result("windbootsvn")
+				new RecipeData().result("skyplatebootsvn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("leatherboots", 1)
-				.ingredient("cloudsvn", 24)
-				.ingredient("novashardvn", 8)
+				.ingredient("copperbar", 8)
+				.ingredient("glass", 4)
 				.showAfter("leatherboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("windchestplatevn")
+				new RecipeData().result("skyplatechestplatevn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("leathershirt", 1)
-				.ingredient("cloudsvn", 30)
-				.ingredient("novashardvn", 12)
+				.ingredient("copperbar", 12)
+				.ingredient("glass", 8)
 				.showAfter("leatherboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("windhatvn")
+				new RecipeData().result("skyplatehelmetvn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("leatherhood", 1)
-				.ingredient("cloudsvn", 16)
-				.ingredient("novashardvn", 6)
+				.ingredient("copperbar", 10)
+				.ingredient("glass", 6)
 				.showAfter("leatherboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("meatbootsvn")
+				new RecipeData().result("graftedbootsvn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("spiderboots", 1)
 				.ingredient("anyrawmeat", 24)
-				.ingredient("novashardvn", 8)
+				.ingredient("leather", 8)
 				.showAfter("spiderboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("meatrobevn")
+				new RecipeData().result("graftedrobevn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("spiderchestplate", 1)
 				.ingredient("anyrawmeat", 30)
-				.ingredient("novashardvn", 12)
+				.ingredient("leather", 12)
 				.showAfter("spiderboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("meathatvn")
+				new RecipeData().result("graftedhatvn")
 				.tech(RecipeTechRegistry.WORKSTATION)
 				.ingredient("spiderhelmet", 1)
 				.ingredient("anyrawmeat", 20)
-				.ingredient("novashardvn", 6)
+				.ingredient("leather", 6)
 				.showAfter("spiderboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("stonebootsvn")
+				new RecipeData().result("deeprockbootsvn")
 				.tech(RecipeTechRegistry.IRON_ANVIL)
 				.ingredient("goldboots", 1)
 				.ingredient("anystone", 100)
-				.ingredient("novashardvn", 8)
+				.ingredient("ironore", 8)
 				.showAfter("goldboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("stonechestplatevn")
+				new RecipeData().result("deeprockchestplatevn")
 				.tech(RecipeTechRegistry.IRON_ANVIL)
 				.ingredient("goldchestplate", 1)
 				.ingredient("anystone", 160)
-				.ingredient("novashardvn", 12)
+				.ingredient("ironore", 16)
 				.showAfter("goldboots")
 				.toRecipe());
 
 			Recipes.registerModRecipe(
-				new RecipeData().result("stonehelmetvn")
+				new RecipeData().result("deeprockhelmetvn")
 				.tech(RecipeTechRegistry.IRON_ANVIL)
 				.ingredient("goldhelmet", 1)
 				.ingredient("anystone", 60)
-				.ingredient("novashardvn", 6)
+				.ingredient("ironore", 10)
 				.showAfter("goldboots")
 				.toRecipe());
 
@@ -1159,7 +1103,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("frostboots", 1)
 				.ingredient("bloodplateboots", 1)
-				.ingredient("novashardvn", 8)
+				.ingredient("voidshard", 4)
 				.showAfter("bloodplateboots")
 				.toRecipe());
 
@@ -1168,7 +1112,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("frostchestplate", 1)
 				.ingredient("bloodplatechestplate", 1)
-				.ingredient("novashardvn", 12)
+				.ingredient("voidshard", 4)
 				.showAfter("bloodplateboots")
 				.toRecipe());
 
@@ -1177,7 +1121,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("frosthat", 1)
 				.ingredient("bloodplatecowl", 1)
-				.ingredient("novashardvn", 6)
+				.ingredient("voidshard", 4)
 				.showAfter("bloodplateboots")
 				.toRecipe());
 
@@ -1186,7 +1130,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("frosthood", 1)
 				.ingredient("bloodplatecowl", 1)
-				.ingredient("novashardvn", 6)
+				.ingredient("voidshard", 4)
 				.showAfter("bloodplateboots")
 				.toRecipe());
 
@@ -1195,7 +1139,7 @@ public class RecipeHelper {
 				.tech(RecipeTechRegistry.DEMONIC_ANVIL)
 				.ingredient("frosthelmet", 1)
 				.ingredient("bloodplatecowl", 1)
-				.ingredient("novashardvn", 6)
+				.ingredient("voidshard", 4)
 				.showAfter("bloodplateboots")
 				.toRecipe());
 

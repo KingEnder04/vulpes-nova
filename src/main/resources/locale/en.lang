@@ -32,7 +32,6 @@ cubesaplingvn=Cube Tree Sapling
 
 [item]
 rawvulpinevn=Fox Meat
-acrumplednotevn=A Crumpled Note
 novafragmentvn=Nova Fragment
 novashardvn=Nova Shard
 novaclustervn=Nova Cluster
@@ -60,28 +59,29 @@ queenspiderstaffvn=Queen Spider Staff
 necromancersrequiemvn=The Necromancer's Requiem
 slimystickvn=Slimy Staff
 acornlobbervn=Acorn Lobber
-woodenbulletvn=Wooden Bullet
-woodenhelmetvn=Wooden Helmet
-woodenchestplatevn=Wooden Chestplate
-woodenbootsvn=Wooden Boots
-ancientjunglehelmetvn=Ancient Jungle Helmet
-ancientjunglechestplatevn=Ancient Jungle Chestplate
-ancientjunglebootsvn=Ancient Jungle Boots
+
+bloomweavehelmetvn=Bloomweave Helmet
+bloomweavechestplatevn=Bloomweave Chestplate
+bloomweavebootsvn=Bloomweave Boots
+
 windhatvn=Wind Hat
 windchestplatevn=Wind Chestplate
 windbootsvn=Wind Boots
-stonehelmetvn=Stone Helmet
-stonechestplatevn=Stone Chestplate
-stonebootsvn=Stone Boots
-meathatvn=Meat Hat
-meatrobevn=Meat Robe
-meatbootsvn=Meat Boots
+
+deeprockhelmetvn=Deeprock Helmet
+deeprockchestplatevn=Deeprock Chestplate
+deeprockbootsvn=Deeprock Boots
+
+graftedhatvn=Grafted Hat
+graftedrobevn=Grafted Robe
+graftedbootsvn=Grafted Boots
+
 chilledbloodplatehatvn=Chilled Bloodplate Hat
 chilledbloodplatehoodvn=Chilled Bloodplate Hood
 chilledbloodplatehelmetvn=Chilled Bloodplate Helmet
 chilledbloodplatechestplatevn=Chilled Bloodplate Chestplate
 chilledbloodplatebootsvn=Chilled Bloodplate Boots
-cloudsvn=Clouds
+
 galevn=Gale
 hurricanevn=Hurricane
 windbulletvn=Wind Round
@@ -199,7 +199,6 @@ saplingswordvntip=A potted sapling, now used as a terrifying melee weapon
 holytomevntip=Was once given out by an old vampire. Now created in your Workstation!
 unholytomevntip=Turns out tapping into more demonic energy creates a stronger, but less stable shot!
 novabulletvntip=Homes in on enemies for huge damage
-woodbulletvntip=Cheap and low damage, applies a weak poison effect.
 lmgvntip=Military Grade Equipment. Has a 20% chance not to consume ammo
 bigbrainstickvntip=More brain power means more summons! Now summon both zombies at once!
 queenspiderstaffvntip=A dangerous trio. There's even a spider on the egg sac!
@@ -238,8 +237,10 @@ mastertomevntip=A magic tome for only those that can understand all
 magicfordummiesvntip=Now you can finally understand all.
 stormboltervntip=An electrified revolver.
 stormbringervntip=An electrified Assault Rifle. Has a 30% chance not to consume ammo
-cavedemolishervntip=Great for making sure you collect all the ores you'll need!
-novaheartvntip=Permanently increases max health by 20 up to 400
+
+cavedemolishervntip=This thing leaves a giant crater, and will easily destroy everything you throw it at. Get Away!
+cavedemolishervntip2=Infinite :)
+
 gearresiliencematrixvntip=Permanently increases max resilience by 25 up to 25
 bastionboxvntip=Permanently increases max resilience by 5 up to 50
 spherecererhatvntip=Too bad it can't be worn.
@@ -253,19 +254,14 @@ grandphoenixgreatbowvntip=Fires a large phoenix.
 gemdustvntip=Collect enough and you can turn it into a gem you need!
 dustygemsackvntip=A small bag, covered in dust with jingling noises inside.
 bloodgemvntip=Applies a blood that can stack up to 10 times. Each one doing 18 damage over 6 seconds.
+
 yourgemcollectionvntip=All the gems you've collected! I wonder if there's anymore...
+yourgemcollectionvntip2=This item is every gem item required to craft, which is a long list but this is like uber good.
 
-meatsetvntip=Has the same effects as the Spider Armor
-ancientjunglesetvntip=This isn't meant to be here yet.
+graftedsetvntip=Attacks inflict a poison that do 10 damage over 5 seconds.
 
-foxtokenvntip=A Relic that you had arrived here with. You're unsure of how it got there.
-foxtokenvntip2=(I swear this'll have an actual use later eventually)
-
-acrumplednotevntip1=go subscribe to my youtube channel.... I will release videos about this and my future mods soon
-acrumplednotevntip2=*random scribbling*
-acrumplednotevntip3=.... probably
-acrumplednotevntip4=*random scribbling*
-acrumplednotevntip5= Signed - KingEnder04
+foxtokenvntip=A relic that was once held by everyone.
+foxtokenvntip2=+1 Armor!
 
 crimsontempestvninfotip1=Right-click to charge
 crimsontempestvninfotip2=Fires multiple projectiles based on charge time, with a steeper bounce angle. Consumes more mana.

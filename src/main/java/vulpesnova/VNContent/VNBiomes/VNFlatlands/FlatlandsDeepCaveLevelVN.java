@@ -11,6 +11,7 @@ import necesse.engine.world.WorldEntity;
 import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.LootTablePresets;
 import necesse.level.gameObject.GameObject;
+import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.CaveGeneration;
 import necesse.level.maps.generationModules.CellAutomaton;
 import necesse.level.maps.generationModules.GenerationTools;
@@ -25,6 +26,7 @@ import necesse.level.maps.presets.set.ChestRoomSet;
 import necesse.level.maps.presets.set.FurnitureSet;
 import necesse.level.maps.presets.set.WallSet;
 import vulpesnova.VNContent.GEARBossArenaPreset;
+import vulpesnova.VNContent.VulpesNovaLootTablePresets;
 
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -34,8 +36,9 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
         super(identifier, width, height, worldEntity);
     }
 
-    public FlatlandsDeepCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity) {
+    public FlatlandsDeepCaveLevelVN(int islandX, int islandY, int dimension, WorldEntity worldEntity, Biome biome) {
         super(new LevelIdentifier(islandX, islandY, dimension), 300, 300, worldEntity);
+        this.baseBiome = biome;
         this.isCave = true;
         this.generateLevel();
     }
@@ -110,7 +113,7 @@ public class FlatlandsDeepCaveLevelVN extends FlatlandsCaveLevelVN {
             int chestRoomAmount = cg.random.getIntBetween(13, 18);
 
             for(int ix = 0; ix < chestRoomAmount; ++ix) {
-                Preset chestRoom = new RandomCaveChestRoom(cg.random, LootTablePresets.deepCaveChest, chestRoomRotation, new ChestRoomSet[]{ChestRoomSet.deepStone, ChestRoomSet.obsidian});
+                Preset chestRoom = new RandomCaveChestRoom(cg.random, VulpesNovaLootTablePresets.flatlandsCaveChest, chestRoomRotation, new ChestRoomSet[]{ChestRoomSet.deepStone, ChestRoomSet.obsidian});
                 chestRoom.replaceTile(TileRegistry.deepStoneFloorID, (Integer)cg.random.getOneOf(new Integer[]{TileRegistry.deepStoneFloorID, TileRegistry.deepStoneBrickFloorID}));
                 presets.findRandomValidPositionAndApply(cg.random, 5, chestRoom, 10, true, true);
             }

@@ -77,7 +77,7 @@ public class BabyTitanCubeMobVN extends AttackingFollowingMob {
         drawY += getLevel().getTile(getTileX(), getTileY()).getMobSinkingAmount(this);
 
         DrawOptions drawOptions = texture.initDraw()
-                .sprite(sprite.x, sprite.y, 64)
+                .sprite(sprite.x, sprite.y, 32)
                 .light(light)
                 .pos(drawX, drawY);
 
