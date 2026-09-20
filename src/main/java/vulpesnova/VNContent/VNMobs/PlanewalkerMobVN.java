@@ -105,9 +105,9 @@ public class PlanewalkerMobVN extends FlyingHostileMob {
         int drawX = camera.getDrawX(x) - 32;
         int drawY = camera.getDrawY(y) - 48 + bobbing;
         int anim = Math.abs(GameUtils.getAnim(level.getWorldEntity().getTime(), 4, 1000) - 3);
-        DrawOptions body = MobRegistry.Textures.deepCaveSpirit.initDraw().sprite(0, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
+        DrawOptions body = texture.initDraw().sprite(0, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light).pos(drawX, drawY);
         int minLight = 100;
-        DrawOptions eyes = MobRegistry.Textures.deepCaveSpirit.initDraw().sprite(1, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light.minLevelCopy((float)minLight)).pos(drawX, drawY);
+        DrawOptions eyes = texture.initDraw().sprite(1, anim, 64).mirror(this.moveX < 0.0F, false).alpha(0.7F).light(light.minLevelCopy((float)minLight)).pos(drawX, drawY);
         this.addShadowDrawables(tileList, level, x, y, light, camera);
         topList.add((tm) -> {
             body.draw();

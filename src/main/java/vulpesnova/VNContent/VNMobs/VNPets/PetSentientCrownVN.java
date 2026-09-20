@@ -73,7 +73,7 @@ public class PetSentientCrownVN extends PetFollowingMob {
         drawY += getLevel().getTile(getTileX(), getTileY()).getMobSinkingAmount(this);
 
         DrawOptions drawOptions = texture.initDraw()
-                .sprite(sprite.x, sprite.y, 64)
+                .sprite(sprite.x, sprite.y, 128)
                 .light(light)
                 .pos(drawX, drawY);
 

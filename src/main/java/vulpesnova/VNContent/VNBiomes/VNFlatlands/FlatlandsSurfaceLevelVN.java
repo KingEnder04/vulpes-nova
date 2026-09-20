@@ -19,6 +19,7 @@ import necesse.engine.world.WorldEntity;
 import necesse.inventory.lootTable.lootItem.LootItem;
 import necesse.inventory.lootTable.presets.SurfaceRuinsChestLootTable;
 import necesse.level.maps.Level;
+import necesse.level.maps.biomes.Biome;
 import necesse.level.maps.generationModules.GenerationTools;
 import necesse.level.maps.generationModules.IslandGeneration;
 import necesse.level.maps.presets.RandomRuinsPreset;
@@ -35,8 +36,9 @@ public class FlatlandsSurfaceLevelVN extends Level {
         super(identifier, width, height, worldEntity);
     }
 
-    public FlatlandsSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity) {
+    public FlatlandsSurfaceLevelVN(int islandX, int islandY, float islandSize, WorldEntity worldEntity, Biome biome) {
         super(new LevelIdentifier(islandX, islandY, 0), 300, 300, worldEntity);
+        this.baseBiome = biome;
         this.generateLevel(islandSize);
     }
 

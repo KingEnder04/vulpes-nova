@@ -1,0 +1,27 @@
+package vulpesnova.VNContent.VNArmors.VNDeeprockSet;
+
+import necesse.engine.modifiers.ModifierValue;
+import necesse.engine.registries.DamageTypeRegistry;
+import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.buffs.BuffModifiers;
+import necesse.inventory.InventoryItem;
+import necesse.inventory.item.armorItem.ArmorModifiers;
+import necesse.inventory.item.armorItem.SetHelmetArmorItem;
+import necesse.inventory.item.upgradeUtils.FloatUpgradeValue;
+import necesse.inventory.lootTable.presets.ArmorSetsLootTable;
+import necesse.inventory.lootTable.presets.HeadArmorLootTable;
+
+public class DeeprockHelmet extends SetHelmetArmorItem {
+    public FloatUpgradeValue all_damage = (new FloatUpgradeValue()).setBaseValue(0.04F).setUpgradedValue(1.0F, 0.05F);
+
+    public DeeprockHelmet() {
+        super(8, DamageTypeRegistry.MELEE, 200, HeadArmorLootTable.headArmor, ArmorSetsLootTable.armorSets, Rarity.NORMAL, "deeprockhelmetvn", "deeprockchestplatevn", "deeprockbootsvn", "deeprocksetvnbonusbuff");
+        this.hairDrawOptions = HairDrawMode.NO_HEAD;
+    }
+    
+	@Override
+    public ArmorModifiers getArmorModifiers(InventoryItem item, Mob mob) {
+        return new ArmorModifiers(new ModifierValue[]{new ModifierValue<Float>(BuffModifiers.ALL_DAMAGE, this.all_damage.getValue(this.getUpgradeTier(item)))});
+    }
+
+}

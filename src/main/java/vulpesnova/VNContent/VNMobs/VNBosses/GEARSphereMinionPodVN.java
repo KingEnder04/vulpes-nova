@@ -83,9 +83,9 @@ public class GEARSphereMinionPodVN extends Projectile {
         if (this.isServer()) {
             Mob owner = this.getOwner();
             if (owner != null && !owner.removed()) {
-                Mob spiderHatchling = MobRegistry.getMob("gearcubemobvn", this.getLevel());
-                if (!spiderHatchling.collidesWith(this.getLevel(), (int)x, (int)y)) {
-                    this.getLevel().entityManager.addMob(spiderHatchling, (float)((int)x), (float)((int)y));
+                Mob gearCubePodDropping = MobRegistry.getMob("gearcubemobvn", this.getLevel());
+                if (!gearCubePodDropping.collidesWith(this.getLevel(), (int)x, (int)y)) {
+                    this.getLevel().entityManager.addMob(gearCubePodDropping, (float)((int)x), (float)((int)y));
                 }
             }
 

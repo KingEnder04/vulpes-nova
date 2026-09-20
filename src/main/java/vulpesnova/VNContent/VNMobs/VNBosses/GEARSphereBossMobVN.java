@@ -42,7 +42,7 @@ import necesse.entity.mobs.hostile.bosses.bossAIUtils.*;
 import necesse.entity.mobs.mobMovement.MobMovementCircleLevelPos;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
-import necesse.entity.projectile.QueenSpiderSpitProjectile;
+
 import necesse.gfx.GameResources;
 import necesse.gfx.Renderer;
 import necesse.gfx.camera.GameCamera;
@@ -59,6 +59,7 @@ import necesse.inventory.lootTable.LootTable;
 import necesse.inventory.lootTable.lootItem.*;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import vulpesnova.VNContent.VNProjectiles.GearSphereNetProjectile;
 import vulpesnova.VulpesNova;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
@@ -70,7 +71,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class GEARSphereBossMobVN extends FlyingBossMob {
-    public static LootTable lootTable = new LootTable(new LootItemInterface[]{LootItem.between("shapeshardsvn", 10, 30, MultiTextureMatItem.getGNDData(1)), new ChanceLootItem(0.2F, "queenspidersdancevinyl")});
+    public static LootTable lootTable = new LootTable(new LootItemInterface[]{LootItem.between("shapeshardsvn", 10, 30, MultiTextureMatItem.getGNDData(1)), new ChanceLootItem(0.2F, "gearsturningvinyl")});
     public static LootTable privateLootTable = new LootTable(new LootItemInterface[]{new ConditionLootItem("gearresiliencematrixvn", (r, o) -> {
         ServerClient client = (ServerClient)LootTable.expectExtra(ServerClient.class, o, 1);
         return client != null && client.playerMob.getMaxResilienceFlat() < 50 && client.playerMob.getInv().getAmount(ItemRegistry.getItem("gearresiliencematrixvn"), false, false, true, true, "have") == 0;
@@ -451,7 +452,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
     @Override
     public void spawnDeathParticles(float knockbackX, float knockbackY) {
         for(int i = 0; i < 7; ++i) {
-            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), MobRegistry.Textures.queenSpiderDebris, i, 0, 32, this.x + GameRandom.globalRandom.floatGaussian() * 15.0F, this.y + GameRandom.globalRandom.floatGaussian() * 15.0F, 10.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
+            this.getLevel().entityManager.addParticle(new FleshParticle(this.getLevel(), VulpesNova.GEARSPHEREdebris, i, 0, 32, this.x + GameRandom.globalRandom.floatGaussian() * 15.0F, this.y + GameRandom.globalRandom.floatGaussian() * 15.0F, 10.0F, knockbackX, knockbackY), Particle.GType.IMPORTANT_COSMETIC);
         }
 
     }
@@ -541,7 +542,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
         spitDamage = new GameDamage(65.0F);
         landDamage = new GameDamage(85.0F);
         hatchlingDamage = new GameDamage(55.0F);
-        MAX_HEALTH = new MaxHealthGetter(5000, 6000, 8000, 10000, 12000);
+        MAX_HEALTH = new MaxHealthGetter(6000, 7000, 9000, 11000, 13000);
         SPIT_LINGER_SECONDS = 45.0F;
     }
 
@@ -611,7 +612,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
                     Point2D.Float targetPos = new Point2D.Float(currentTarget.x + dir.x * (float)targetDist, currentTarget.y + dir.y * (float)targetDist);
                     int dist = Math.min((int)targetPos.distance((double)mob.x, (double)mob.y), 960);
                     float speed = 60.0F + healthPercInv * 40.0F;
-                    mob.getLevel().entityManager.projectiles.add(new QueenSpiderSpitProjectile(mob.getLevel(), mob, mob.x, mob.y, targetPos.x, targetPos.y, speed, dist, GEARSphereBossMobVN.spitDamage, 50));
+                    mob.getLevel().entityManager.projectiles.add(new GearSphereNetProjectile(mob.getLevel(), mob, mob.x, mob.y, targetPos.x, targetPos.y, speed, dist, GEARSphereBossMobVN.spitDamage, 50));
                     mob.playSpitSoundAbility.runAndSend();
                 }
             }
@@ -645,7 +646,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
     public static class ChargeTargetStage<T extends GEARSphereBossMobVN> extends FlyToOppositeDirectionAttackStage<T> {
         public ChargeTargetStage() {
-            super(true, 250.0F, 0.0F);
+            super(true, 300.0F, 0.0F);
         }
 
         public void onStarted(T mob, Blackboard<T> blackboard) {
@@ -679,7 +680,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
 
         public void onStarted(T mob, Blackboard<T> blackboard) {
             this.buffer = 0.0F;
-            this.eggsPerLaunch = 3.0F;
+            this.eggsPerLaunch = 10.0F;
             this.launchCounter = 0;
         }
 
@@ -699,7 +700,7 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
                     float angle = (float)GameRandom.globalRandom.nextInt(360);
                     Point2D.Float dir = GameMath.getAngleDir(angle);
                     Point2D.Float targetPos = new Point2D.Float(mob.x + dir.x * (float)dist, mob.y + dir.y * (float)dist);
-                    mob.getLevel().entityManager.projectiles.add(new GEARSphereMinionPodVN(mob.getLevel(), mob, mob.x, mob.y, targetPos.x, targetPos.y, 30.0F, dist, new GameDamage(0.0F), 50));
+                    mob.getLevel().entityManager.projectiles.add(new GEARSphereMinionPodVN(mob.getLevel(), mob, mob.x, mob.y, targetPos.x, targetPos.y, 30.0F, dist, new GameDamage(5.0F), 50));
                 }
 
                 --this.buffer;
@@ -731,15 +732,21 @@ public class GEARSphereBossMobVN extends FlyingBossMob {
             AttackStageManagerNode<T> attackStages = new AttackStageManagerNode<T>();
             this.addChild(new IsolateRunningAINode<T>(attackStages));
             attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
-                return this.getIdleTime((T) m, 400);
+                return this.getIdleTime((T) m, 200);
             }));
             attackStages.addChild(new FlyToRandomPositionAttackStage<T>(true, 300));
             attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
                 return this.getIdleTime((T) m, 100);
             }));
+
+            attackStages.addChild(new GEARSphereBossMobVN.SpitStage());
+            attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
+                return this.getIdleTime((T) m, 500);
+            }));
+
             attackStages.addChild(new GEARSphereBossMobVN.LaunchEggsStage());
             attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
-                return this.getIdleTime((T) m, 1000);
+                return this.getIdleTime((T) m, 300);
             }));
             attackStages.addChild(new FlyToOppositeDirectionAttackStage<T>(true, 300.0F, 20.0F));
             attackStages.addChild(new IdleTimeAttackStage<T>((m) -> {
